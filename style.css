@@ -52,18 +52,12 @@ body {
 }
 
 .vertical-navbar .nav-item {
-  background: linear-gradient(130deg, #16f301, #01d6ff);
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
-  color: white;
   margin-bottom: 10px;
 }
 
@@ -72,10 +66,31 @@ body {
 }
 
 .vertical-navbar .nav-item .nav-link {
-  padding-right: 0;
-  padding-left: 0;
   color: white;
   font-weight: 600;
+  text-transform: capitalize;
+  font-size: 12px;
+  text-align: left;
+  background: linear-gradient(130deg, #16f301, #01d6ff);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  color: white;
+}
+
+.vertical-navbar .nav-item .nav-link::first-letter {
+  text-transform: uppercase !important;
+}
+
+.vertical-navbar .nav-item.show .nav-link,
+.vertical-navbar .nav-link.active {
+  background-color: transparent;
+  border: 1px solid #01d6ff;
 }
 
 .horizontal-navbar {
@@ -92,6 +107,10 @@ body {
   font-weight: bold;
   font-size: 0.8em;
   letter-spacing: 2px;
+}
+
+.tab-pane {
+  height: 75vh;
 }
 
 .banner img {
@@ -124,10 +143,20 @@ body {
   display: flex;
 }
 
+.flex-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.tab-pane .grid-columns .row > div:nth-child(n+7) {
+  margin-top: 20px;
+}
+
 .grid-columns .grid-column {
   background-color: black;
   position: relative;
-  height: 306px;
+  height: 100%;
 }
 
 .grid-columns .grid-column img {
@@ -146,7 +175,7 @@ body {
   padding: 10px;
   border: #ffffff;
   background: #80808061;
-  font-size: 2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
   -webkit-transition: 0.1 ease-in-out;

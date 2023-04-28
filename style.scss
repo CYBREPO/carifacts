@@ -56,12 +56,9 @@ body {
 
 .vertical-navbar {
     .nav-item {
-        background: linear-gradient(130deg, #16f301, #01d6ff);
+
         flex: 1;
         display: flex;
-        align-items: center;
-        padding: 10px;
-        color: white;
         margin-bottom: 10px;
 
         &:last-child {
@@ -69,11 +66,30 @@ body {
         }
 
         .nav-link {
-            padding-right: 0;
-            padding-left: 0;
             color: white;
             font-weight: 600;
+            text-transform: capitalize;
+            font-size: 12px;
+            text-align: left;
+            background: linear-gradient(130deg, #16f301, #01d6ff);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: white;
+
         }
+
+        .nav-link::first-letter {
+            text-transform: uppercase !important;
+        }
+    }
+
+    .nav-item.show .nav-link,
+    .nav-link.active {
+
+        background-color: transparent;
+        border: 1px solid $theme-blue-color;
     }
 }
 
@@ -94,6 +110,10 @@ body {
         letter-spacing: 2px;
 
     }
+}
+
+.tab-pane {
+    height: 75vh;
 }
 
 .banner {
@@ -122,11 +142,25 @@ body {
     }
 }
 
+.flex-1 {
+    flex: 1;
+}
+
+.tab-pane {
+    .grid-columns {
+        .row>div{
+            &:nth-child(n+7) {
+               margin-top: 20px;
+            }
+        }
+    }
+}
+
 .grid-columns {
     .grid-column {
         background-color: black;
         position: relative;
-        height: 306px;
+        height: 100%;
 
         img {
             filter: brightness(0.5);
@@ -141,7 +175,7 @@ body {
             padding: 10px;
             border: $white;
             background: #80808061;
-            font-size: 2rem;
+            font-size: 1rem;
             text-transform: uppercase;
             font-weight: bold;
             transition: 0.1 ease-in-out;
