@@ -109,6 +109,10 @@ body {
   letter-spacing: 2px;
 }
 
+.tab-content {
+  overflow: hidden;
+}
+
 .tab-pane {
   height: 75vh;
 }
@@ -149,10 +153,6 @@ body {
           flex: 1;
 }
 
-.tab-pane .grid-columns .row > div:nth-child(n+7) {
-  margin-top: 20px;
-}
-
 .grid-columns .grid-column {
   background-color: black;
   position: relative;
@@ -175,7 +175,7 @@ body {
   padding: 10px;
   border: #ffffff;
   background: #80808061;
-  font-size: 1rem;
+  font-size: 2rem;
   text-transform: uppercase;
   font-weight: bold;
   -webkit-transition: 0.1 ease-in-out;
@@ -196,6 +196,14 @@ body {
 .grid-columns .grid-column:hover .grid-inner {
   color: #ffffff;
   background: linear-gradient(130deg, #16f30170, #01d6ff7d);
+}
+
+.tab-pane .grid-columns .row > div:nth-child(n+7) {
+  margin-top: 20px;
+}
+
+.tab-pane .grid-inner {
+  font-size: 1rem !important;
 }
 
 .right-column {

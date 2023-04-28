@@ -111,7 +111,9 @@ body {
 
     }
 }
-
+.tab-content{
+    overflow: hidden;
+}
 .tab-pane {
     height: 75vh;
 }
@@ -146,15 +148,6 @@ body {
     flex: 1;
 }
 
-.tab-pane {
-    .grid-columns {
-        .row>div{
-            &:nth-child(n+7) {
-               margin-top: 20px;
-            }
-        }
-    }
-}
 
 .grid-columns {
     .grid-column {
@@ -175,7 +168,7 @@ body {
             padding: 10px;
             border: $white;
             background: #80808061;
-            font-size: 1rem;
+            font-size: 2rem;
             text-transform: uppercase;
             font-weight: bold;
             transition: 0.1 ease-in-out;
@@ -195,6 +188,21 @@ body {
                 background: linear-gradient(130deg, #16f30170, #01d6ff7d);
             }
         }
+    }
+}
+.tab-pane {
+    .grid-columns {
+        .row>div {
+            &:nth-child(n+7) {
+                margin-top: 20px;
+
+              
+
+            }
+        }
+    }
+    .grid-inner {
+        font-size: 1rem !important;
     }
 }
 
