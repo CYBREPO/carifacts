@@ -3,24 +3,17 @@
         <div class="row">
             <div class="col-lg-4 d-flex align-items-center form-group">
                 <input class="form-control border-0 shadow-0" type="text" name="search"
-                    placeholder="What are you searching for?">
-            </div>
-            <div class="col-lg-3 d-flex align-items-center form-group">
-                <div class="input-label-absolute input-label-absolute-right w-100">
-                    <label class="label-absolute" for="location"><i class="fa fa-crosshairs"></i><span
-                            class="sr-only">City</span></label>
-                    <input matInput class="form-control border-0 shadow-0" type="text" name="location"
-                        placeholder="Location" id="location" [matAutocomplete]="auto" formControlName="location">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngIf="isLocationLoading">
-                            <mat-spinner diameter="20">
-                            </mat-spinner>
-                        </mat-option>
-                        <mat-option *ngFor="let loc of locations" [value]="loc">
-                            {{loc}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </div>
+                    placeholder="What are you searching for?" id="location" [matAutocomplete]="auto"
+                    formControlName="location">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngIf="isLocationLoading">
+                        <mat-spinner diameter="20">
+                        </mat-spinner>
+                    </mat-option>
+                    <mat-option *ngFor="let loc of locations" [value]="loc">
+                        {{loc}}
+                    </mat-option>
+                </mat-autocomplete>
             </div>
             <div class="col-lg-3 d-flex align-items-center form-group">
                 <div class="input-label-absolute input-label-absolute-right w-100">
@@ -29,7 +22,7 @@
                         placeholder="Date and Time" id="date-range"> -->
                     <mat-form-field>
                         <mat-label>Enter a date range</mat-label>
-                        <mat-date-range-input [rangePicker]="picker" >
+                        <mat-date-range-input [rangePicker]="picker">
                             <input matStartDate formControlName="startDate" placeholder="Start date">
                             <input matEndDate formControlName="endDate" placeholder="End date">
                         </mat-date-range-input>
