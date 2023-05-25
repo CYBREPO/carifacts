@@ -2,11 +2,11 @@ export class locations {
    public static locations: Array<{ title: string, img: string }> = [
       {
          title: 'Lagos',
-         img: '../assets/images/Lagos.jpeg'
+         img: '../assets/images/lagos.jpeg'
       },
       {
          title: 'Abuja',
-         img: '../assets/images/Abuja.jpeg'
+         img: '../assets/images/abuja.jpeg'
       },
       {
          title: 'Port Harcourt',
@@ -18,11 +18,11 @@ export class locations {
       },
       {
          title: 'Kaduna',
-         img: '../assets/images/Kaduna.jpeg'
+         img: '../assets/images/kaduna.jpeg'
       },
       {
          title: 'Edo',
-         img: '../assets/images/Edo.jpeg'
+         img: '../assets/images/edo.jpeg'
       },
    ];
 
