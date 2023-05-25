@@ -7,7 +7,7 @@ import { SharedModuleModule } from './shared/shared-module.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { CardComponent } from './components/card/card.component';
+import { CardComponent } from './layout/card/card.component';
 import { LayoutModuleModule } from './layout/layout-module.module';
 
 @NgModule({

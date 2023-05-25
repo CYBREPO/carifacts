@@ -34,16 +34,14 @@ export class SearchBarComponent implements OnInit {
     this.searchForm.controls['location'].valueChanges.pipe(debounceTime(500)).subscribe(res => {
       if(typeof res === "string" && res.length > 0){
         this.isLocationLoading = true;
-        this.locations = locations.locations.filter(m => m.toLowerCase().includes(res.toLowerCase()));
+        this.locations = locations.locations.filter(m => m.title.toLowerCase().includes(res.toLowerCase()));
         this.isLocationLoading = false;
       }
     })
   }
 
   onSubmit(){
-    console.log(this.searchForm.controls['location'].value);
-    console.log(this.searchForm.controls['startDate'].value);
-    console.log(this.searchForm.controls['endDate'].value);
+    
   }
 
 }

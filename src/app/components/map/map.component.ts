@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { vehicleModels } from 'src/app/constants/constant';
 
 @Component({
   selector: 'app-map',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent {
-
+  vehicleModels = vehicleModels.vehicleModels;
 }

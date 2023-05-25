@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {path: "home", }
+  { path: 'home', loadChildren: () => import('./layout/layout-module.module').then(m => m.LayoutModuleModule)}, 
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
