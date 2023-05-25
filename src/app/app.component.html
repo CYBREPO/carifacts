@@ -122,34 +122,8 @@
     <!-- Jumbotron -->
 </header>
 
-<div class="search-bar mt-5 p-3 p-lg-1 ps-lg-4">
-    <form action="#">
-        <div class="row">
-            <div class="col-lg-4 d-flex align-items-center form-group">
-                <input class="form-control border-0 shadow-0" type="text" name="search"
-                    placeholder="What are you searching for?">
-            </div>
-            <div class="col-lg-3 d-flex align-items-center form-group">
-                <div class="input-label-absolute input-label-absolute-right w-100">
-                    <label class="label-absolute" for="location"><i class="fa fa-crosshairs"></i><span
-                            class="sr-only">City</span></label>
-                    <input class="form-control border-0 shadow-0" type="text" name="location" placeholder="Location"
-                        id="location">
-                </div>
-            </div>
-            <div class="col-lg-3 d-flex align-items-center form-group">
-                <div class="input-label-absolute input-label-absolute-right w-100">
-                    <label class="label-absolute" for="location"><span class="sr-only">City</span></label>
-                    <input class="form-control border-0 shadow-0" type="text" name="location"
-                        placeholder="Date and Time" id="location">
-                </div>
-            </div>
-            <div class="col-lg-2 d-grid">
-                <button class="btn btn-primary rounded-pill h-100" type="submit">Search </button>
-            </div>
-        </div>
-    </form>
-</div>
+<app-search-bar></app-search-bar>
+
 <div id="intro" class="bg-image shadow-1-strong">
     <div class="mask h-100 text-white">
         <div id="carouselExampleIndicators" class="carousel slide h-100">
