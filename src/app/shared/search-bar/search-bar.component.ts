@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
-import { locations } from 'src/app/constants/constant';
+import { locations, vehicleModels } from 'src/app/constants/constant';
+import { DataTransferService } from 'src/app/service/data-transfer.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,14 +17,14 @@ export class SearchBarComponent implements OnInit {
   // "Lexus/Toyota","Mercedes Benz/BMW","Acura/Honda","Infiniti/Nissan"
   isLocationLoading: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router, private datatransferService: DataTransferService) { }
 
   ngOnInit(): void {
     this.initForm()
     this.initiseTypeAhead();
   }
 
-  initForm(){
+  initForm() {
     this.searchForm = this.fb.group({
       location: [''],
       startDate: [''],
@@ -30,9 +32,9 @@ export class SearchBarComponent implements OnInit {
     });
   }
 
-  initiseTypeAhead(){
+  initiseTypeAhead() {
     this.searchForm.controls['location'].valueChanges.pipe(debounceTime(500)).subscribe(res => {
-      if(typeof res === "string" && res.length > 0){
+      if (typeof res === "string" && res.length > 0) {
         this.isLocationLoading = true;
         this.locations = locations.locations.filter(m => m.title.toLowerCase().includes(res.toLowerCase()));
         this.isLocationLoading = false;
@@ -40,8 +42,14 @@ export class SearchBarComponent implements OnInit {
     })
   }
 
-  onSubmit(){
-    
+  onSubmit() {
+    let val = this.searchForm.controls['location'].value;
+    if (val != "" && val != null && val != undefined) {
+      let selectedLocation = this.locations.find(m => m.title == this.searchForm.controls['location'].value);
+      this.datatransferService.setData(selectedLocation);
+      this.router.navigate(['comp/map']);
+    }
+
   }
 
 }

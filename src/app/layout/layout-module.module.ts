@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from './card/card.component';
+import { SharedModuleModule } from '../shared/shared-module.module';
 
 const Routes = [
   { path: '', component: HomeComponent}
@@ -14,7 +15,8 @@ const Routes = [
   declarations: [HeaderComponent,FooterComponent, HomeComponent,CardComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(Routes)
+    RouterModule.forChild(Routes),
+    SharedModuleModule,
   ],
   exports: [HeaderComponent,FooterComponent]
 })
