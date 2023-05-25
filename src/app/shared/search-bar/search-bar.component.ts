@@ -20,19 +20,18 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
     this.initForm()
     this.initiseTypeAhead();
-    this.getLocation();
   }
 
   initForm(){
     this.searchForm = this.fb.group({
       location: [''],
-      dateRange: ['']
+      startDate: [''],
+      endDate: [''],
     });
   }
 
   initiseTypeAhead(){
     this.searchForm.controls['location'].valueChanges.pipe(debounceTime(500)).subscribe(res => {
-      debugger
       if(typeof res === "string" && res.length > 0){
         this.isLocationLoading = true;
         this.locations = locations.locations.filter(m => m.toLowerCase().includes(res.toLowerCase()));
@@ -41,8 +40,10 @@ export class SearchBarComponent implements OnInit {
     })
   }
 
-  getLocation(){
-
+  onSubmit(){
+    console.log(this.searchForm.controls['location'].value);
+    console.log(this.searchForm.controls['startDate'].value);
+    console.log(this.searchForm.controls['endDate'].value);
   }
 
 }
