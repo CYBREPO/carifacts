@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from './map/map.component';
-import { CardComponent } from '../layout/card/card.component';
+import { ComponentsRoutingModuleModule } from './components-routing-module.module';
 
 
 
@@ -10,7 +10,8 @@ import { CardComponent } from '../layout/card/card.component';
     MapComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsRoutingModuleModule
   ]
 })
 export class ComponentsModuleModule { }
