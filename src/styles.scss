@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Darker+Grotesque:wght@400;500;600;700&family=Goldman&family=Lato:wght@300;400;700;900&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@200;300;400;500&family=Poppins:wght@100;200;300;400;500&family=Raleway:wght@300;400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
 
 $heading-family: 'DM Serif Display', serif;
@@ -768,156 +769,19 @@ $font-family_2: Raleway, Helvetica, sans-serif;
     }
 }
 
-.searchFilterBar {
-
-    background: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14);
-    display: flex;
-    left: 0;
-    padding: 10px;
-    position: sticky;
-    right: 0;
-    top: 0;
-    z-index: 99;
-    padding: 15px 0;
-
-
-    ul {
-        display: flex;
-        margin: 0;
-    }
-
-    li {
-        border: 1px solid #e7e7e8;
-        border-radius: 8px;
-        height: 32px;
-        line-height: 12px;
-        margin-right: 16px;
-        padding: 8px 16px;
-        margin: 0px;
-        color: #222222;
-        font-family: RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif;
-        font-size: 12px;
-        letter-spacing: 0px;
-        line-height: 16px;
-        text-transform: none;
-        font-weight: 700;
-        background-color: #ffffff;
-        margin-right: 10px;
-    }
-}
-
-
-/*
-     Search bars on the homepage
-    ------------------------
-*/
-.search-bar {
-    border-radius: 10rem;
-    background: #fff;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, .15);
-    max-width: 940px;
-    margin: auto;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    z-index: 8;
-}
-
-.search-bar .form-group {
-    position: relative;
-    margin-bottom: 0
-}
-
-.search-bar .form-group::after {
-    display: block;
-    width: 1px;
-    height: 60%;
-    content: "";
-    background: #ddd;
-    position: absolute;
-    top: 20%;
-    right: 0
-}
-
-.search-bar .form-group:last-of-type::after {
-    display: none
-}
-
-.search-bar .form-control {
-    height: calc(1.6em + 1rem + 2px)
-}
-
-.search-bar .input-label-absolute-right .label-absolute {
-    right: 15px;
-}
-
-@media (max-width:991.98px) {
-    .search-bar {
-        border-radius: 20px
-    }
-
-    .search-bar .form-group {
-        margin-bottom: 1rem
-    }
-
-    .search-bar .form-group::after {
-        display: block;
-        width: calc(100% - 4rem);
-        height: 1px;
-        content: "";
-        transform: translateX(-50%);
-        background: #dee2e6;
-        position: absolute;
-        top: auto;
-        right: auto;
-        bottom: 0;
-        left: 50%
-    }
-
-    .search-bar .form-control {
-        height: calc(1.6em + .75rem + 2px);
-        padding: 10px 20px
-    }
-
-    .search-bar .input-label-absolute-right .label-absolute {
-        right: 1rem
-    }
-}
-
-.label-absolute {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #222222;
-    right: 0
-}
 
 .productcards img {
     height: 200px !important;
     object-fit: cover;
 }
 
-button.gm-control-active.gm-fullscreen-control {
+
+
+// for filter search bar
+
+.mat-mdc-form-field-subscript-wrapper,.mdc-line-ripple{
     display: none;
 }
-
-.gmnoprint {
-    display: none;
-}
-
-#feedback,
-#disclaimer-with-links,
-#faq,
-#top-cities,
-.seo-pages-thy8ee,
-.seo-pages-tyhyu0-NavbarHeader,
-.seo-pages-119uajq,
-.seo-pages-12odiic,
-.seo-pages-13nrrm2,
-.seo-pages-12odiic,
-.seo-pages-12odiic,
-.seo-pages-18mxxu2 {
-    display: none !important;
+.mdc-text-field--filled{
+    background-color: white !important;
 }

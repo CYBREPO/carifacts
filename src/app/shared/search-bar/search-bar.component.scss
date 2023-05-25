@@ -1,0 +1,126 @@
+
+/*
+     Search bars on the homepage
+    ------------------------
+*/
+.search-bar {
+    border-radius: 10rem;
+    background: #fff;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .15);
+    max-width: 940px;
+    margin: auto;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 8;
+}
+
+.search-bar .form-group {
+    position: relative;
+    margin-bottom: 0
+}
+
+.search-bar .form-group::after {
+    display: block;
+    width: 1px;
+    height: 60%;
+    content: "";
+    background: #ddd;
+    position: absolute;
+    top: 20%;
+    right: 0
+}
+
+.search-bar .form-group:last-of-type::after {
+    display: none
+}
+
+.search-bar .form-control {
+    height: calc(1.6em + 1rem + 2px)
+}
+
+.search-bar .input-label-absolute-right .label-absolute {
+    right: 15px;
+}
+
+@media (max-width:991.98px) {
+    .search-bar {
+        border-radius: 20px
+    }
+
+    .search-bar .form-group {
+        margin-bottom: 1rem
+    }
+
+    .search-bar .form-group::after {
+        display: block;
+        width: calc(100% - 4rem);
+        height: 1px;
+        content: "";
+        transform: translateX(-50%);
+        background: #dee2e6;
+        position: absolute;
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: 50%
+    }
+
+    .search-bar .form-control {
+        height: calc(1.6em + .75rem + 2px);
+        padding: 10px 20px
+    }
+
+    .search-bar .input-label-absolute-right .label-absolute {
+        right: 1rem
+    }
+}
+
+.label-absolute {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #222222;
+    right: 0
+}
+
+.searchFilterBar {
+
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14);
+    display: flex;
+    left: 0;
+    padding: 10px;
+    position: sticky;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    padding: 15px 0;
+
+
+    ul {
+        display: flex;
+        margin: 0;
+    }
+
+    li {
+        border: 1px solid #e7e7e8;
+        border-radius: 8px;
+        height: 32px;
+        line-height: 12px;
+        margin-right: 16px;
+        padding: 8px 16px;
+        margin: 0px;
+        color: #222222;
+        font-family: RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 12px;
+        letter-spacing: 0px;
+        line-height: 16px;
+        text-transform: none;
+        font-weight: 700;
+        background-color: #ffffff;
+        margin-right: 10px;
+    }
+}
+
