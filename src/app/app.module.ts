@@ -12,7 +12,7 @@ import { LayoutModuleModule } from './layout/layout-module.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

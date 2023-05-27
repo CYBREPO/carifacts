@@ -1,3 +1,5 @@
-<ng-container *ngFor="let vehicleModel of vehicleModels">
-    <app-card></app-card>
-</ng-container>
+<div class="grid-container">
+    <ng-container *ngFor="let vehicleModel of vehicleModels">
+        <app-car-details-card class="grid-item"></app-car-details-card>
+    </ng-container>
+</div>
