@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails.name}}</div>
+                    <div class="section-subheading mt-5 mb-3"> this.cardetails.name</div>
                     <div class="row">
                         <div class="d-flex col-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
@@ -299,9 +299,27 @@
                     </section>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="h2 text-lead">this.cardetails.price/ day</div>
+                <div class="col-md-5 offset-1">
+                    <div class="h2 mt-5 mb-3 text-lead">this.cardetails.price/ day</div>
                     <p class="text-secondary text-decoration-underline">$276 est. total</p>
+
+                    <label class="" for="location">Trip start - Trip end</label>
+
+                    <div class="w-100">
+                        <mat-form-field>
+                            <mat-label>Enter a date range</mat-label>
+                            <mat-date-range-input [rangePicker]="picker">
+                                <input matStartDate placeholder="Start date">
+                                <input matEndDate placeholder="End date">
+                            </mat-date-range-input>
+                            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-date-range-picker #picker></mat-date-range-picker>
+                        </mat-form-field>
+                    </div>
+
+                    <a _ngcontent-shl-c34="" href="/productpage.html" role="button"
+                        class="btn btn-outline-light btn-lg button-blue d-inline-block mt-md-3"> Continue </a>
                 </div>
             </div>
         </div>
