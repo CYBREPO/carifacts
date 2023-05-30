@@ -28,12 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/css/sb-admin-2.scss",
+              "src/styles.scss",
+              "src/assets/vendor/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./src/custom-script.js"
+              "./src/custom-script.js",
+              "./src/assets/vendor/jquery/jquery.min.js",
+              "./src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
