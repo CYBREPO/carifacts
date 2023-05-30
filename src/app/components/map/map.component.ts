@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { vehicleModels } from 'src/app/constants/constant';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -9,11 +10,17 @@ import { DataTransferService } from 'src/app/service/data-transfer.service';
 })
 export class MapComponent {
   vehicleModels = vehicleModels.vehicleModels
+  cardetails:any;
 
-  constructor(private dataTransferService: DataTransferService){}
+  constructor(private router: Router, private datatransferService: DataTransferService){}
 
   ngOnInit(){
-    let selectedLocation = this.dataTransferService.getData();
+    let selectedLocation = this.datatransferService.getData();
     this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
+  }
+
+  parentEventHandlerFunction(event: any) {
+    this.datatransferService.setData(event);
+    this.router.navigate(['/comp/cardetails'])
   }
 }

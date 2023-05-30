@@ -4,17 +4,19 @@ import { MapComponent } from './map/map.component';
 import { ComponentsRoutingModuleModule } from './components-routing-module.module';
 import { SharedModuleModule } from '../shared/shared-module.module';
 import { SingleCarDetailsLayoutComponent } from './single-car-details-layout/single-car-details-layout.component';
+import { SingleCategoryCarDetailsComponent } from './single-category-car-details/single-category-car-details.component';
 
 
 
 @NgModule({
   declarations: [
-    MapComponent,SingleCarDetailsLayoutComponent
+    MapComponent, SingleCarDetailsLayoutComponent,
+    SingleCategoryCarDetailsComponent
   ],
   imports: [
     CommonModule,
     ComponentsRoutingModuleModule,
-    SharedModuleModule
+    SharedModuleModule,
   ]
 })
 export class ComponentsModuleModule { }

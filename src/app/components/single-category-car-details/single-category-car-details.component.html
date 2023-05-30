@@ -1,0 +1,17 @@
+<div class="car-category">
+    <div class="container">
+        <div class="section-subheading text-center mt-md-5"> Explore the world's largest car sharing marketplace </div>
+        <div class="section-heading text-center mt-md-2"> Find your drive </div>
+        <app-search-bar></app-search-bar>
+
+        <div class="row my-md-5">
+
+            <ng-container *ngFor="let cardetail of cardetails.model">
+                <div class="col-md-3 text-left">
+                    <app-car-details-card [cardsData]="cardetail" (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>

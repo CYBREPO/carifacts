@@ -1,5 +1,7 @@
 <div class="grid-container">
     <ng-container *ngFor="let vehicleModel of vehicleModels">
-        <app-car-details-card class="grid-item"></app-car-details-card>
+      
+            <app-car-details-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
+
     </ng-container>
 </div>

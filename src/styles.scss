@@ -10,6 +10,11 @@ $body-family: 'Poppins', sans-serif;
 
 $theme-blue: #ff2e17;
 
+a,
+img {
+    display: block;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 93%;
@@ -77,6 +82,7 @@ ul {
     border-color: $theme-blue !important;
     color: $theme-blue !important;
 }
+
 $color_1: #555;
 $color_2: #4e65ff;
 
@@ -177,6 +183,7 @@ $color_2: #4e65ff;
         }
     }
 }
+
 /*================================================
 1 - headings
 ==================================================*/
@@ -779,9 +786,22 @@ $font-family_2: Raleway, Helvetica, sans-serif;
 
 // for filter search bar
 
-.mat-mdc-form-field-subscript-wrapper,.mdc-line-ripple{
+.mat-mdc-form-field-subscript-wrapper,
+.mdc-line-ripple {
     display: none;
 }
-.mdc-text-field--filled{
+
+.mdc-text-field--filled {
     background-color: white !important;
+}
+
+
+.car-category {
+    .search-bar {
+        position: static !important;
+    }
+
+    img {
+        width: 100%;
+    }
 }

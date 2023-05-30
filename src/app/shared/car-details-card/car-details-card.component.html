@@ -1,23 +1,22 @@
-<article class="thumbnail item  text-start">
-    <a href="#!" class="d-block">
-        <img src="images/sub2.jpeg" class="img-fluid">
+<article class="thumbnail item  text-start" (click)="clickingCard()">
+    <ng-container>
+        
+            <img src="{{cardsData.img}}" class="img-fluid">
 
-        <div class="px-3">
-            <div class="caption text-dark fw-bolder my-3">
-                Tesla Model 3 2018
+            <div class="px-3">
+                <div class="caption text-dark fw-bolder my-3">
+                    {{cardsData.name}}
+                </div>
+                <span class="text-dark">
+                    {{cardsData.rating}}
+                </span>
+                <span class="">
+                    ({{cardsData.tripcount}} trips)
+                </span>
+                <hr class="my-2">
+                <div class="price mb-2 text-dark">${{cardsData.price}}/day</div>
             </div>
-            <span class="text-dark">
-                5.0
-            </span>
-            <span class="">
-                (83 trips)
-            </span>
-            <span class="text-dark">
-                All-Star Host
-            </span>
+       
+    </ng-container>
 
-            <hr class="my-2">
-            <div class="price mb-2 text-dark">$62/day</div>
-        </div>
-    </a>
 </article>
