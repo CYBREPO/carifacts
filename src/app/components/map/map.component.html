@@ -11,7 +11,7 @@
         <input matSliderThumb>
     </mat-slider>
 
-<!-- 
+    <!-- 
     <div class="searchFilterPopupDesktop is-rightAligned is-scrollable" style="height: 500px; width: 600px;">
         <div class="searchFilterPopupDesktop-closeButton"><button type="button" class="css-19jk1h8"><span
                     aria-hidden="true" title="Close" class="css-3t8yh6"></span><span
@@ -245,11 +245,13 @@
 
 
     <div class="grid-container" *ngIf="vehicleModels">
+       <div class="row">
         <ng-container *ngFor="let vehicleModel of vehicleModels">
-
+           <div class="col-md-3">
             <app-car-details-card [cardsData]="vehicleModel"
-                (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
-
+            (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
+           </div>
         </ng-container>
+       </div>
     </div>
 </div>

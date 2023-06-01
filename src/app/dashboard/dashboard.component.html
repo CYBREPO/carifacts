@@ -299,7 +299,7 @@
                             </div>
                             <hr>
                             <!-- <form action="post" class="mt-md-5"> -->
-                            <div class="row">
+                            <div class="row align-items-end">
                                 <div class="col-md-4">
                                     <div>Upload Image</div>
                                     <input type="file" formControlName="bfile" [multiple]="false"
@@ -319,8 +319,8 @@
                                         <option value="Nissan">Nissan</option>
                                     </select>
                                 </div>
-                                <div class="col-md-2">
-                                    <button (click)="submitBrand()">submit brand</button>
+                                <div class="col-md-4">
+                                    <button (click)="submitBrand()" class="btn btn-primary">submit brand</button>
                                 </div>
                             </div>
                         </div>
@@ -338,7 +338,7 @@
                             <!-- <form action="post" class="mt-md-5"> -->
                             <div class="row">
                                 <div class="col-md-2">
-                                    <div>Upload Image</div>
+                                    <div >Upload Image</div>
                                     <input type="file" formControlName="files" [multiple]="true"
                                         (change)="handleFileInput($event)" name="Car Image" id="file">
                                 </div>
@@ -512,7 +512,7 @@
 
                         </div>
                     </form>
-                    <button (click)="submit()">submit</button>
+                    <button (click)="submit()" class="btn btn-primary">submit</button>
 
 
                 </div>
@@ -554,7 +554,7 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
