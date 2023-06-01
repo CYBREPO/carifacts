@@ -245,13 +245,13 @@
 
 
     <div class="grid-container" *ngIf="vehicleModels">
-       <div class="row">
-        <ng-container *ngFor="let vehicleModel of vehicleModels">
-           <div class="col-md-3">
-            <app-car-details-card [cardsData]="vehicleModel"
-            (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
-           </div>
-        </ng-container>
-       </div>
+        <div class="row">
+            <ng-container *ngFor="let vehicleModel of vehicleModels">
+                <div class="col-md-3 mb-4">
+                    <app-car-details-card [cardsData]="vehicleModel"
+                        (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
+                </div>
+            </ng-container>
+        </div>
     </div>
 </div>

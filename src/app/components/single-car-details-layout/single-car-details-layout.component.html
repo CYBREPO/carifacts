@@ -7,8 +7,7 @@
     </ol>
     <div class="carousel-inner" role="listbox" *ngIf="this.cardetails">
         <div class="carousel-item active" *ngFor="let img of this.cardetails.images">
-            <img src="data:{{img.contentType}};base64, {{img.imageBase64}}"
-                class="w-100 d-block" alt="First slide">
+            <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block" alt="First slide">
         </div>
 
     </div>
@@ -26,7 +25,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails.vehicle.make}} {{this.cardetails.vehicle.model}} {{this.cardetails.vehicle.year}}</div>
+                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails.vehicle.make}}
+                        {{this.cardetails.vehicle.model}} {{this.cardetails.vehicle.year}}</div>
                     <div class="row">
                         <div class="d-flex col-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
@@ -289,12 +289,13 @@
 
                 <div class="col-md-5 offset-1">
                     <div class="h2 mt-5 mb-3 text-lead">{{this.cardetails?.vehicle?.price}} ₦/day</div>
-                    <p class="text-secondary text-decoration-underline">${{this.cardetails?.vehicle?.price}} est. total</p>
+                    <p class="text-secondary text-decoration-underline">${{this.cardetails?.vehicle?.price}} est. total
+                    </p>
 
                     <label class="" for="location">Trip start - Trip end</label>
 
                     <div class="w-100">
-                        <mat-form-field>
+                        <!-- <mat-form-field>
                             <mat-label>Enter a date range</mat-label>
                             <mat-date-range-input [rangePicker]="picker">
                                 <input matStartDate placeholder="Start date">
@@ -303,6 +304,19 @@
                             <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-date-range-picker #picker></mat-date-range-picker>
+                        </mat-form-field> -->
+
+
+
+                        <mat-form-field>
+                            <mat-date-range-input [rangePicker]="dateRangePicker">
+                                <input matStartDate placeholder="Start date" #dateRangeStart>
+                                <input matEndDate placeholder="End date" #dateRangeEnd
+                                    (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matIconSuffix [for]="dateRangePicker">
+                            </mat-datepicker-toggle>
+                            <mat-date-range-picker #dateRangePicker></mat-date-range-picker>
                         </mat-form-field>
                     </div>
 

@@ -25,5 +25,11 @@ export class SingleCarDetailsLayoutComponent {
       this.additionDtls = res;
     });
   }
-
+  saveDate(){
+    console.log('object');
+  }
+  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement) {
+    console.log(dateRangeStart.value);
+    console.log(dateRangeEnd.value);
+  }
 }
