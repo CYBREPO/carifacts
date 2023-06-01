@@ -85,7 +85,7 @@
                     <p> {{additionDtls?.basicDetails?.description}}
                     </p>
                     <section class="d-flex flex-wrap row my-5">
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.ageBook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -97,7 +97,7 @@
                             </svg>
                             <p class="ms-3">Must be 21+ to book</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.automaticTransmission">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -109,7 +109,7 @@
                             </svg>
                             <p class="ms-3">Automatic transmission</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.AllWheelDrive">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -127,7 +127,7 @@
                             </svg>
                             <p class="ms-3">All-wheel drive</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.appleCarPlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -139,7 +139,7 @@
                             </svg>
                             <p class="ms-3">Apple CarPlay</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.androidAuto">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -151,7 +151,7 @@
                             </svg>
                             <p class="ms-3">Android Auto</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.auxInput">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -163,7 +163,7 @@
                             </svg>
                             <p class="ms-3">AUX input</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.backupCamera">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -181,7 +181,7 @@
                             </svg>
                             <p class="ms-3">Backup camera</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.bluetooth">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -190,7 +190,7 @@
                             </svg>
                             <p class="ms-3">Bluetooth</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.childSeat">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -205,7 +205,7 @@
                             </svg>
                             <p class="ms-3">Child seat</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.heatedSeats">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -223,7 +223,7 @@
                             </svg>
                             <p class="ms-3">Heated seats</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.keylessEntry">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -238,7 +238,7 @@
                             </svg>
                             <p class="ms-3">Keyless entry</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.sunRoof">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -253,7 +253,7 @@
                             </svg>
                             <p class="ms-3">Sunroof</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.tollPass">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -265,7 +265,7 @@
                             </svg>
                             <p class="ms-3">Toll pass</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.usbCharger">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -279,7 +279,7 @@
                             </svg>
                             <p class="ms-3">USB charger</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.usbInput">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -296,7 +296,7 @@
 
                 <div class="col-md-5 offset-1">
                     <div class="h2 mt-5 mb-3 text-lead">price/ day</div>
-                    <p class="text-secondary text-decoration-underline">${{this.cardetails.vehicle.price}} est. total</p>
+                    <p class="text-secondary text-decoration-underline">${{this.cardetails?.vehicle?.price}} est. total</p>
 
                     <label class="" for="location">Trip start - Trip end</label>
 
