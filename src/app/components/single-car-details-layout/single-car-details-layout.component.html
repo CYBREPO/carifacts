@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails.vehicle.make}} {{this.cardetails.vehicle.model}}</div>
+                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails.vehicle.make}} {{this.cardetails.vehicle.model}} {{this.cardetails.vehicle.year}}</div>
                     <div class="row">
                         <div class="d-flex col-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
@@ -41,7 +41,7 @@
                                     d="M11.91 8.99h3.87c.23 0 .44-.13.57-.34.1-.2.09-.45-.04-.64l-1.94-2.84a.631.631 0 0 0-.52-.27h-1.94c-.34 0-.62.28-.62.62v2.85c0 .34.27.62.62.62Zm2.68-1.25h-2.06V6.15h.98l1.08 1.59ZM2.87 6.77h3.67c.34 0 .62-.28.62-.63V3.81c0-.86-.65-1.56-1.45-1.56H3.7c-.81 0-1.45.68-1.45 1.56v2.33c0 .35.28.63.62.63Zm3.04-1.25H3.5V3.81c0-.17.09-.31.2-.31h2.01c.09 0 .2.13.2.31v1.71ZM9.56 15.73c0 1.33 1.08 2.42 2.42 2.42a2.43 2.43 0 0 0 2.43-2.42c0-1.104-1.553-3.91-1.875-4.49l-.005-.01c-.22-.39-.87-.39-1.09 0-.31.56-1.88 3.4-1.88 4.5Zm1.25 0c0-.4.54-1.64 1.17-2.87.63 1.22 1.18 2.47 1.17 2.87 0 .64-.53 1.17-1.17 1.17-.64 0-1.17-.52-1.17-1.17Z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <p class="ms-3">{{additionDtls?.basic?.averageFuelEconomyWithLabel}}</p>
+                            <p class="ms-3">{{additionDtls?.basicDetails?.averageFuelEconomyWithLabel}}</p>
                         </div>
                         <div class="d-flex col-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
@@ -56,7 +56,7 @@
                                     d="M4.18 7.43a.63.63 0 0 0 .89-.01l1.85-1.85c.24-.24.24-.64 0-.88a.628.628 0 0 0-.88 0L4.18 6.55c-.24.24-.24.64 0 .88Z">
                                 </path>
                             </svg>
-                            <p class="ms-3">{{additionDtls?.basic?.fuelTypeAndGradeLabel}}</p>
+                            <p class="ms-3">{{additionDtls?.basicDetails?.fuelTypeAndGradeLabel}}</p>
                         </div>
                         <div class="d-flex col-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
@@ -71,14 +71,14 @@
                                     d="M17.04 13.72h1.95c.35 0 .62-.28.62-.62 0-.34-.27-.62-.62-.62h-1.95c-.34 0-.62.28-.62.62 0 .34.27.62.62.62Z">
                                 </path>
                             </svg>
-                            <p class="ms-3">{{additionDtls?.basic?.numberOfDoorsLabel}}</p>
+                            <p class="ms-3">{{additionDtls?.basicDetails?.numberOfDoorsLabel}}</p>
                         </div>
                     </div>
                     <h6 class="text-lead mt-5 mb-3">DESCRIPTION</h6>
-                    <p> {{additionDtls?.basic?.description}}
+                    <p> {{additionDtls?.basicDetails?.description}}
                     </p>
                     <section class="d-flex flex-wrap row my-5">
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.ageBook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -90,7 +90,7 @@
                             </svg>
                             <p class="ms-3">Must be 21+ to book</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.automaticTransmission">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -102,7 +102,7 @@
                             </svg>
                             <p class="ms-3">Automatic transmission</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.AllWheelDrive">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -120,7 +120,7 @@
                             </svg>
                             <p class="ms-3">All-wheel drive</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.appleCarPlay">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -132,7 +132,7 @@
                             </svg>
                             <p class="ms-3">Apple CarPlay</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.androidAuto">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -144,7 +144,7 @@
                             </svg>
                             <p class="ms-3">Android Auto</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.auxInput">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -156,7 +156,7 @@
                             </svg>
                             <p class="ms-3">AUX input</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.backupCamera">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -174,7 +174,7 @@
                             </svg>
                             <p class="ms-3">Backup camera</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.bluetooth">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -183,7 +183,7 @@
                             </svg>
                             <p class="ms-3">Bluetooth</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.childSeat">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -198,7 +198,7 @@
                             </svg>
                             <p class="ms-3">Child seat</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.heatedSeats">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -216,7 +216,7 @@
                             </svg>
                             <p class="ms-3">Heated seats</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.keylessEntry">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -231,7 +231,7 @@
                             </svg>
                             <p class="ms-3">Keyless entry</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.sunRoof">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -246,7 +246,7 @@
                             </svg>
                             <p class="ms-3">Sunroof</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.tollPass">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214" fill-rule="evenodd"
@@ -258,7 +258,7 @@
                             </svg>
                             <p class="ms-3">Toll pass</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.usbCharger">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -272,7 +272,7 @@
                             </svg>
                             <p class="ms-3">USB charger</p>
                         </div>
-                        <div class="d-flex col-6">
+                        <div class="d-flex col-6" *ngIf="additionDtls?.features?.usbInput">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
                                 viewBox="0 0 24 24" class="seo-pages-12fc1ls-MediaObjectItem" role="img" version="1.1">
                                 <path fill="#121214"
@@ -288,8 +288,8 @@
                 </div>
 
                 <div class="col-md-5 offset-1">
-                    <div class="h2 mt-5 mb-3 text-lead">{{additionDtls?.basic?.price}}/ day</div>
-                    <p class="text-secondary text-decoration-underline">$276 est. total</p>
+                    <div class="h2 mt-5 mb-3 text-lead">price/ day</div>
+                    <p class="text-secondary text-decoration-underline">${{this.cardetails?.vehicle?.price}} est. total</p>
 
                     <label class="" for="location">Trip start - Trip end</label>
 
