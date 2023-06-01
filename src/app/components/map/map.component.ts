@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { vehicleModels } from 'src/app/constants/constant';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpService } from 'src/app/service/http.service';
+import { ApiUrls } from 'src/app/constants/apiRoutes';
 
 
 
@@ -15,13 +17,35 @@ interface Food {
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent {
-  vehicleModels = vehicleModels.vehicleModels
+
+  vehicleModels: any;
+  // = vehicleModels.vehicleModels
   cardetails:any;
-  constructor(private router: Router, private datatransferService: DataTransferService){}
+  searchedLocation: string;
+  constructor(private router: Router, private datatransferService: DataTransferService,
+    private activatedRoute:ActivatedRoute,private httpService:HttpService){
+    activatedRoute.params.subscribe(res => {
+      if(res['loc']){
+        this.searchedLocation = res['loc'];
+      }
+    })
+  }
 
   ngOnInit(){
-    let selectedLocation = this.datatransferService.getData();
-    this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
+    this.getLocationWiseData();
+    // let selectedLocation = this.datatransferService.getData();
+    // this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
+  }
+
+  getLocationWiseData(){
+    let param = {
+      address: this.searchedLocation
+    }
+
+    this.httpService.httpGet(ApiUrls.location.getLocationVechile,param).subscribe(res => {
+      console.log(res)
+      this.vehicleModels = res;
+    });
   }
 
   parentEventHandlerFunction(event: any) {

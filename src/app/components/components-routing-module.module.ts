@@ -9,6 +9,7 @@ import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer
 const routes = [
   {path: "",component: CustomerLayoutComponent,children: [
     {path: "map", component: MapComponent} ,
+    {path: "map/:loc", component: MapComponent} ,
     {path: "cardetails", component: SingleCarDetailsLayoutComponent},
     {path: "carcategory", component: SingleCategoryCarDetailsComponent},
     {path: "carcategory/:make", component: SingleCategoryCarDetailsComponent},

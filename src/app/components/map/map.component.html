@@ -244,7 +244,7 @@
     </div>
 
 
-    <div class="grid-container">
+    <div class="grid-container" *ngIf="vehicleModels">
         <ng-container *ngFor="let vehicleModel of vehicleModels">
 
             <app-car-details-card [cardsData]="vehicleModel"
