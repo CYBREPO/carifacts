@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CardComponent implements OnInit {
   @Input() cardsData: any
+  @Input() loc: boolean = false;
   @Output() clickCard: EventEmitter<any> = new EventEmitter
 
   constructor() { }

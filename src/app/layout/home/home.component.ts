@@ -36,4 +36,8 @@ export class HomeComponent {
     // this.datatransferService.setData(event);
     this.router.navigate(['/cust/carcategory',event.name]);
   }
+
+  locationEvent(event: any){
+    this.router.navigate(['/cust/map',event.title]);
+  }
 }
