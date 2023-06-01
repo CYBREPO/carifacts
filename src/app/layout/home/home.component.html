@@ -60,8 +60,14 @@
         <b class="fs-4 d-block section-subheading">Browse by Make</b>
 
         <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
+           
+        </div>
+
+        <div class="row">
             <ng-container *ngFor="let vehicleModel of vehicleModels">
-                <app-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-card>
+                <div class="col-md-3">
+                    <app-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-card>
+                </div>
             </ng-container>
         </div>
     </div>
