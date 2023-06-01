@@ -73,7 +73,6 @@ export class DashboardComponent {
   }
 
   handleFileInputBrand(event: any): void {
-    debugger
     this.bfile = event?.target?.files[0];
   }
 
@@ -93,7 +92,7 @@ export class DashboardComponent {
     formData.append(`model`, this.formControl['model'].value);
     formData.append(`name`, "");
     formData.append(`registration`, "");
-    formData.append(`trim`, "");
+    formData.append(`averageFuelEconomy`,this.formControl['mileage'].value);
     formData.append(`fuelUnit`, this.formControl['fuelUnit'].value);
     formData.append(`fuelUnitLabel`, this.fuel.find(m => m.unit == this.formControl['fuelUnit'].value)?.label??"");
     formData.append(`type`, this.formControl['type'].value);
@@ -101,7 +100,7 @@ export class DashboardComponent {
     formData.append(`numberOfDoors`, this.formControl['doors'].value);
     formData.append(`numberOfSeats`, this.formControl['seats'].value);
     formData.append(`year`, this.formControl['year'].value);
-    // formData.append(`fuelType`, fuelType.toString());
+    formData.append(`price`, this.formControl['price'].value);
     formData.append(`fuelType[label]`, this.formControl['fuelType'].value);
     formData.append(`fuelType[value]`, this.fuelTypes.find(m => m.label == this.formControl['fuelType'].value)?.value??"");
 

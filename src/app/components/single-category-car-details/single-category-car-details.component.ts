@@ -31,7 +31,10 @@ export class SingleCategoryCarDetailsComponent {
   }
 
   getPopularVehicles(){
-    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,null).subscribe(res => {
+    let param = {
+      make: this.makeType
+    }
+    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,param).subscribe(res => {
       this.cardetails = res;
     })
   }
