@@ -4,7 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModuleModule } from './layout/layout-module.module';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpApiInterceptor } from './helper/httpInterceptor';
+import { HttpErrorInterceptor } from './helper/httpErrorInterceptor';
+import { MaterialModuleModule } from './shared/material-module.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,9 +16,15 @@ import { LayoutModuleModule } from './layout/layout-module.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModuleModule
+    LayoutModuleModule,
+    HttpClientModule,
+    MaterialModuleModule
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpApiInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

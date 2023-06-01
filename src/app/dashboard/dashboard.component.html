@@ -53,8 +53,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </div>
@@ -292,24 +292,24 @@
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
                     <!-- Content Row -->
-                    <form method="post">
-                        <textarea id="mytextarea">Hello, World!</textarea>
-                    </form>
-                    <div class="border border border-secondary p-3 my-md-5">
-                        <div class="d-sm-flex align-items-center justify-content-between my-md-2">
-                            <h1 class="h3 mb-0 text-gray-800">Upload Vehicles</h1>
-                        </div>
-                        <hr>
-                        <form action="post" class="mt-md-5">
+                    <form method="post" [formGroup]="vehicleForm">
+                        <textarea id="mytextarea" formControlName="description">Hello, World!</textarea>
+                        <!-- </form> -->
+                        <div class="border border border-secondary p-3 my-md-5">
+                            <div class="d-sm-flex align-items-center justify-content-between my-md-2">
+                                <h1 class="h3 mb-0 text-gray-800">Upload Vehicles</h1>
+                            </div>
+                            <hr>
+                            <!-- <form action="post" class="mt-md-5"> -->
                             <div class="row">
                                 <div class="col-md-2">
                                     <div>Upload Image</div>
-                                    <input type="file" name="Car Image" id="">
+                                    <input type="file" formControlName="files" [multiple]="true" (change)="handleFileInput($event)" name="Car Image" id="file">
                                 </div>
                                 <div class="col-md-2">
                                     <div>Select Brand</div>
 
-                                    <select name="" id="">
+                                    <select name="brand" id="brand" formControlName="brand">
                                         <option value="Lexus">Lexus</option>
                                         <option value="Toyota">Toyota</option>
                                         <option value="Mercedes Benz">Mercedes Benz</option>
@@ -321,9 +321,20 @@
                                     </select>
                                 </div>
                                 <div class="col-md-2">
+                                    <div>Selec Type</div>
+
+                                    <select name="type" id="type" formControlName="type">
+                                        <option value="car">Car</option>
+                                        <option value="suv">SUV</option>
+                                        <option value="truck">Truck</option>
+                                        <option value="ninivans">Minivans</option>
+                                        <option value="van">van</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
                                     <div>Select Model</div>
 
-                                    <select name="" id="">
+                                    <select name="model" id="model" formControlName="model">
                                         <option value="rav4">rav4</option>
                                         <option value="lc">lc</option>
                                         <option value="300">300</option>
@@ -351,85 +362,110 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div>Add Price</div>
-                                    <input type="number" name="" id="">
+                                    <input type="number" name="price" id="price" formControlName="price">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Number of Doors</div>
+                                    <input type="number" name="doors" id="doors" formControlName="doors">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Number of Seats</div>
+                                    <input type="number" name="seats" id="seats" formControlName="seats">
                                 </div>
                                 <div class="col-md-2">
                                     <div>Mileage</div>
-                                    <input type="number" name="" id="">
+                                    <input type="number" name="mileage" id="mileage" formControlName="mileage">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Mileage Unit</div>
+                                    <select name="fuelUnit" id="fuelUnit" formControlName="fuelUnit">
+                                        <option *ngFor="let unt of fuel" [value]="unt.unit">{{unt.label}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Fuel Grade</div>
+                                    <input type="text" name="fuelGrade" id="fuelGrade" formControlName="fuelGrade">
                                 </div>
                                 <div class="col-md-2">
                                     <div>Fuel Type</div>
-                                    <input type="text" name="" id="">
+                                    <select name="fuelType" id="fuelType" formControlName="fuelType">
+                                        <option *ngFor="let fuel of fuelTypes" [value]="fuel.label">{{fuel.value}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>year</div>
+                                    <input type="number" name="year" id="year" formControlName="year">
                                 </div>
                             </div>
 
 
-                        </form>
-                    </div>
-                    <div class="border border border-secondary p-3">
-                        <div class="d-sm-flex align-items-center justify-content-between my-md-2">
-                            <h1 class="h3 mb-0 text-gray-800">Additional features</h1>
+                            <!-- </form> -->
                         </div>
-                        <hr>
+                        <div class="border border border-secondary p-3">
+                            <div class="d-sm-flex align-items-center justify-content-between my-md-2">
+                                <h1 class="h3 mb-0 text-gray-800">Additional features</h1>
+                            </div>
+                            <hr>
 
-                        <form action="post" class="mt-md-5">
+                            <!-- <form action="post" class="mt-md-5"> -->
                             <div class="row">
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Must be 21+ to book</label><input type="checkbox" name=""
-                                        id="">
+                                    <label for="" class="mr-3">Must be 21+ to book</label><input type="checkbox" name="ageBook"
+                                        id="ageBook" formControlName="ageBook">
                                 </div>
                                 <div class="d-flex col-md-3">
                                     <label for="" class="mr-3">Automatic transmission</label><input type="checkbox"
-                                        name="" id="">
+                                        name="automaticTransmission" id="automaticTransmission" formControlName="automaticTransmission">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">All-wheel drive</label><input type="checkbox" name=""
-                                        id="">
+                                    <label for="" class="mr-3">All-wheel drive</label><input type="checkbox" name="AllWheelDrive"
+                                        id="AllWheelDrive" formControlName="AllWheelDrive">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Apple CarPlay</label><input type="checkbox" name=""
-                                        id="">
+                                    <label for="" class="mr-3">Apple CarPlay</label><input type="checkbox" name="appleCarPlay"
+                                        id="appleCarPlay" formControlName="appleCarPlay">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Android Auto</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">Android Auto</label><input type="checkbox" name="androidAuto" id="androidAuto" formControlName="androidAuto">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">AUX input</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">AUX input</label><input type="checkbox" name="auxInput" id="auxInput" formControlName="auxInput">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Backup camera</label><input type="checkbox" name=""
-                                        id="">
+                                    <label for="" class="mr-3">Backup camera</label><input type="checkbox" name="backupCamera"
+                                        id="backupCamera" formControlName="backupCamera">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Bluetooth</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">Bluetooth</label><input type="checkbox" name="bluetooth" id="bluetooth" formControlName="bluetooth">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Child seat</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">Child seat</label><input type="checkbox" name="childSeat" id="childSeat" formControlName="childSeat">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Heated seats</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">Heated seats</label><input type="checkbox" name="heatedSeats" id="heatedSeats" formControlName="heatedSeats">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Keyless entry</label><input type="checkbox" name=""
-                                        id="">
+                                    <label for="" class="mr-3">Keyless entry</label><input type="checkbox" name="keylessEntry"
+                                        id="keylessEntry" formControlName="keylessEntry">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Sunroof</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">Sunroof</label><input type="checkbox" name="sunRoof" id="sunRoof" formControlName="sunRoof">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">Toll pass</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">Toll pass</label><input type="checkbox" name="tollPass" id="tollPass" formControlName="tollPass">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">USB charger</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">USB charger</label><input type="checkbox" name="usbCharger" id="usbCharger" formControlName="usbCharger">
                                 </div>
                                 <div class="d-flex col-md-3">
-                                    <label for="" class="mr-3">USB input</label><input type="checkbox" name="" id="">
+                                    <label for="" class="mr-3">USB input</label><input type="checkbox" name="usbInput" id="usbInput" formControlName="usbInput">
                                 </div>
                             </div>
 
 
-                        </form>
-                    </div>
+                        </div>
+                    </form>
+                    <button (click)="submit()">submit</button>
 
 
                 </div>

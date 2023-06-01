@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiUrls } from 'src/app/constants/apiRoutes';
 
 import { DataTransferService } from 'src/app/service/data-transfer.service';
+import { HttpService } from 'src/app/service/http.service';
 @Component({
   selector: 'app-single-category-car-details',
   templateUrl: './single-category-car-details.component.html',
@@ -10,18 +12,33 @@ import { DataTransferService } from 'src/app/service/data-transfer.service';
 export class SingleCategoryCarDetailsComponent {
 
   cardetails:any;
+  makeType: string;
 
 
-  constructor(private router: Router, private datatransferService: DataTransferService) { }
+  constructor(private router: Router, private datatransferService: DataTransferService,
+    private activatedRoute: ActivatedRoute, private httpService: HttpService) { 
+      activatedRoute.params.subscribe(param => {
+        if(param['make']){
+          this.makeType = param['make'];
+        }
+      })
+    }
 
   
   ngOnInit(): void {
-    this.cardetails = this.datatransferService.getData();
+    this.getPopularVehicles();
+    // this.cardetails = this.datatransferService.getData();
+  }
+
+  getPopularVehicles(){
+    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,null).subscribe(res => {
+      this.cardetails = res;
+    })
   }
 
   parentEventHandlerFunction(event: any) {
     this.datatransferService.setData(event);
-    this.router.navigate(['/comp/cardetails'])
+    this.router.navigate(['/cust/cardetails'])
   }
 }
 

@@ -74,4 +74,16 @@ export class vehicleModels {
       },
 
    ];
+  
+}
+
+export class fuel{
+   public static fuelUnits: Array<{unit: string, label: string}> = [
+      {unit: 'MPG', label: "MILES PER GALLON"}
+   ]
+
+   public static fuelTypes: Array<{label: string, value: string}> = [
+      {label: "GAS", value: "GASOLINE"},
+      {label: "DIESEL", value: "DIESEL"},
+   ]
 }

@@ -1,4 +1,19 @@
 <!--Main Navigation-->
-<app-header *ngIf="router.url != '/dashboard'"></app-header>
+<style>
+    div.overlay {
+        opacity: 0.9;
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        position: fixed;
+    }
+</style>
+<div class="overlay" *ngIf="showLoader">
+    <mat-spinner style="position: fixed; top:50%; left: 50%;" diameter="45" color="warn"></mat-spinner>
+</div>
+<!-- <app-header *ngIf="router.url != '/dashboard'"></app-header> -->
 <router-outlet></router-outlet>
-<app-footer *ngIf="router.url != '/dashboard'"></app-footer>
+<!-- <app-footer *ngIf="router.url != '/dashboard'"></app-footer> -->

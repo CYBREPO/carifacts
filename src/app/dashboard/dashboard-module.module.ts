@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModuleModule } from '../shared/shared-module.module';
 import { DashboardComponent } from './dashboard.component';
+import { AdminLayoutComponent } from '../page-layout/admin-layout/admin-layout.component';
+import { MaterialModuleModule } from '../shared/material-module.module';
 
 const Routes = [
-  { path: '', component: DashboardComponent }
+  {path: '', component: AdminLayoutComponent, children: [
+    { path: '', component: DashboardComponent }
+  ]}
 ]
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent,AdminLayoutComponent],
   imports: [
-    CommonModule, RouterModule.forChild(Routes)
+    CommonModule, RouterModule.forChild(Routes),
+    SharedModuleModule,MaterialModuleModule
   ]
 })
 

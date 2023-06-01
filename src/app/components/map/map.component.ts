@@ -26,7 +26,7 @@ export class MapComponent {
 
   parentEventHandlerFunction(event: any) {
     this.datatransferService.setData(event);
-    this.router.navigate(['/comp/cardetails'])
+    this.router.navigate(['/cust/cardetails'])
   }
 
   

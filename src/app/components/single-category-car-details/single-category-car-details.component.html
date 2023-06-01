@@ -4,9 +4,9 @@
         <div class="section-heading text-center mt-md-2"> Find your drive </div>
         <app-search-bar></app-search-bar>
 
-        <div class="row my-md-5">
+        <div class="row my-md-5" *ngIf="cardetails">
 
-            <ng-container *ngFor="let cardetail of cardetails.model">
+            <ng-container *ngFor="let cardetail of cardetails">
                 <div class="col-md-3 text-left">
                     <app-car-details-card [cardsData]="cardetail" (clickCard)="parentEventHandlerFunction($event)"></app-car-details-card>
                 </div>

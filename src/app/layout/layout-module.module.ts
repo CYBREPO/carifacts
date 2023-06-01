@@ -5,23 +5,23 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { SharedModuleModule } from '../shared/shared-module.module';
-import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {NgFor} from '@angular/common';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer-layout.component';
+import { MaterialModuleModule } from '../shared/material-module.module';
 
 const Routes = [
-  { path: '', component: HomeComponent}
+  {path: '', component: CustomerLayoutComponent, children: [
+    { path: '', component: HomeComponent}
+  ]}
 ]
 
 @NgModule({
-  declarations: [HeaderComponent,FooterComponent, HomeComponent],
+  declarations: [HeaderComponent,FooterComponent, HomeComponent,CustomerLayoutComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes),
-    SharedModuleModule,MatSelectModule
+    SharedModuleModule,
+    MaterialModuleModule
   ],
-  exports: [HeaderComponent,FooterComponent]
+  exports: [HeaderComponent,FooterComponent,CustomerLayoutComponent]
 })
 export class LayoutModuleModule { }
