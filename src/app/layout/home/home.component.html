@@ -99,9 +99,9 @@
         <div id="location-owl-carousel" class="owl-carousel owl-theme py-3">
 
 
-            <!-- <ng-container *ngFor="let location of locations">
-                <app-card [cardsData]="location" ></app-card>
-            </ng-container> -->
+            <ng-container *ngFor="let location of locations">
+                <app-card [cardsData]="location" [loc]="true" (clickCard)="locationEvent($event)"></app-card>
+            </ng-container>
 
 
         </div><!-- #owl-demo-2 -->
