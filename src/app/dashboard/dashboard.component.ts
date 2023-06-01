@@ -15,6 +15,8 @@ export class DashboardComponent {
   fileData: FileList;
   fuel = fuel.fuelUnits;
   fuelTypes = fuel.fuelTypes;
+  brandForm: FormGroup;
+  bfile: File;
 
   constructor(private httpService: HttpService, private fb: FormBuilder) { }
 
@@ -55,6 +57,11 @@ export class DashboardComponent {
       usbCharger: [false],
       usbInput: [false],
     });
+
+    this.brandForm = this.fb.group({
+      bfile: [''],
+      brandName: ['']
+    });
   }
 
   get formControl() {
@@ -65,9 +72,13 @@ export class DashboardComponent {
     this.fileData = event?.target?.files;
   }
 
+  handleFileInputBrand(event: any): void {
+    debugger
+    this.bfile = event?.target?.files[0];
+  }
+
 
   submit() {
-    debugger
     const formData: FormData = new FormData();
     let fuelType = {
       label: this.formControl['fuelType'].value,
@@ -118,5 +129,14 @@ export class DashboardComponent {
 
     this.httpService.httpPostFormData(ApiUrls.vehicle.setVehicleDetails,formData).subscribe(res => {});
 
+  }
+
+  submitBrand(){
+    let formData = new FormData();
+
+    formData.append(`image`,this.bfile);
+    formData.append(`name`,this.brandForm.controls["brandName"].value);
+
+    this.httpService.httpPostFormData(ApiUrls.brand.setBrands,formData).subscribe(res => {});
   }
 }
