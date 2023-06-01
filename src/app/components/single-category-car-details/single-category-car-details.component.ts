@@ -28,6 +28,7 @@ export class SingleCategoryCarDetailsComponent {
   ngOnInit(): void {
     this.getPopularVehicles();
     // this.cardetails = this.datatransferService.getData();
+   
   }
 
   getPopularVehicles(){
@@ -36,6 +37,7 @@ export class SingleCategoryCarDetailsComponent {
     }
     this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,param).subscribe(res => {
       this.cardetails = res;
+      console.log(this.cardetails);
     })
   }
 

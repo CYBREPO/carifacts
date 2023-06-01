@@ -61,9 +61,13 @@
 
         <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
             <ng-container *ngFor="let vehicleModel of vehicleModels">
-                <app-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-card>
+                <div>
+                    <app-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-card>
+                </div>
             </ng-container>
         </div>
+
+    
     </div>
 </section>
 <section class="image-text mt-md-5">
