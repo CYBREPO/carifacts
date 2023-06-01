@@ -20,32 +20,39 @@ export class MapComponent {
 
   vehicleModels: any;
   // = vehicleModels.vehicleModels
-  cardetails:any;
-  searchedLocation: string;
+  cardetails: any;
+  searchedLocation: string = '';
   constructor(private router: Router, private datatransferService: DataTransferService,
-    private activatedRoute:ActivatedRoute,private httpService:HttpService){
+    private activatedRoute: ActivatedRoute, private httpService: HttpService) {
     activatedRoute.params.subscribe(res => {
-      if(res['loc']){
+      if (res['loc']) {
         this.searchedLocation = res['loc'];
       }
     })
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getLocationWiseData();
     // let selectedLocation = this.datatransferService.getData();
     // this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
   }
 
-  getLocationWiseData(){
-    let param = {
-      address: this.searchedLocation
+  getLocationWiseData() {
+    if (this.searchedLocation == "") {
+      this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, null).subscribe(res => {
+        this.vehicleModels = res;
+      });
+    }
+    else{
+      let param = {
+        address: this.searchedLocation
+      }
+
+      this.httpService.httpGet(ApiUrls.location.getLocationVechile, param).subscribe(res => {
+        this.vehicleModels = res;
+      });
     }
 
-    this.httpService.httpGet(ApiUrls.location.getLocationVechile,param).subscribe(res => {
-      console.log(res)
-      this.vehicleModels = res;
-    });
   }
 
   parentEventHandlerFunction(event: any) {
@@ -53,11 +60,11 @@ export class MapComponent {
     this.router.navigate(['/cust/cardetails'])
   }
 
-  
+
   foods: Food[] = [
-    {value: 'low-to-high-0', viewValue: 'Price: low to high'},
-    {value: 'high-to-low-1', viewValue: 'Price: high to low'},
-    {value: 'relevance', viewValue: 'Relevance'},
+    { value: 'low-to-high-0', viewValue: 'Price: low to high' },
+    { value: 'high-to-low-1', viewValue: 'Price: high to low' },
+    { value: 'relevance', viewValue: 'Relevance' },
   ];
 
   formatLabel(value: number): string {
