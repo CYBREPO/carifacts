@@ -810,3 +810,12 @@ $font-family_2: Raleway, Helvetica, sans-serif;
 .ripple-surface{
     min-width: unset !important;
 }
+
+.thumbnail {
+    img {
+        max-width: 100%;
+        height: 180px;
+        object-fit: cover;
+        width: 100%;
+    }
+}
