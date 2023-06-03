@@ -35,12 +35,12 @@ export class SingleCarDetailsLayoutComponent {
   }
 
   sendMail(){
-    console.log(this.dateRange);
-    // let param = {
-    //   mails: "chaitanyashirodkar010@gmail.com",
-    //   vehicleId: this.cardetails.vehicle._id
-    // }
-    // this.httpService.httpPost(ApiUrls.mail.sendMail,param).subscribe(res => {});
+    // console.log(this.dateRange);
+    let param = {
+      mails: "chaitanyashirodkar010@gmail.com",
+      vehicleId: this.cardetails.vehicle._id
+    }
+    this.httpService.httpPost(ApiUrls.mail.sendMail,param).subscribe(res => {});
   }
 
 }
