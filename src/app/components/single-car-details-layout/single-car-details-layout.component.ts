@@ -12,6 +12,7 @@ import { HttpService } from 'src/app/service/http.service';
 export class SingleCarDetailsLayoutComponent {
   cardetails: any;
   additionDtls: any;
+  dateRange: any;
 
   constructor(private router: Router, private datatransferService: DataTransferService,private httpService: HttpService) { }
 
@@ -32,4 +33,14 @@ export class SingleCarDetailsLayoutComponent {
     console.log(dateRangeStart.value);
     console.log(dateRangeEnd.value);
   }
+
+  sendMail(){
+    // console.log(this.dateRange);
+    let param = {
+      mails: "chaitanyashirodkar010@gmail.com",
+      vehicleId: this.cardetails.vehicle._id
+    }
+    this.httpService.httpPost(ApiUrls.mail.sendMail,param).subscribe(res => {});
+  }
+
 }
