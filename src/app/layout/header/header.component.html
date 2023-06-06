@@ -151,7 +151,7 @@
                             <div class="col mt-3 px-1">
                                 <div class="form-field ">
                                     <label for="" class="d-block">2. Profile photo</label>
-                                    <input formControlName="Profile" type="file" name="" id="">
+                                    <input formControlName="Profile" type="file" name="" id="" (change)="handleFileInputProfile($event)">
                                 </div>
                             </div>
     
@@ -193,7 +193,7 @@
                             <div class="col mt-3 px-1">
                                 <div class="form-field ">
                                     <label for="" class="d-block">8. Car photos</label>
-                                    <input formControlName="photos" type="text" class="d-block">
+                                    <input formControlName="photos" type="file" class="d-block" multiple  (change)="handleFileInput($event)">
                                 </div>
                             </div>
     

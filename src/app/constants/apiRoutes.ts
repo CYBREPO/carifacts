@@ -19,10 +19,15 @@ class mail{
     public static sendMail = "email/sendemail";
 
 }
+class host{
+    public static createHost = "host/createHost";
+
+}
 
 export class ApiUrls{
     public static brand = brand;
     public static vehicle = vehicle;
     public static location = location;
     public static mail = mail;
+    public static host = host;
 }
