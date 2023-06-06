@@ -5,6 +5,8 @@ import { SharedModuleModule } from '../shared/shared-module.module';
 import { DashboardComponent } from './dashboard.component';
 import { AdminLayoutComponent } from '../page-layout/admin-layout/admin-layout.component';
 import { MaterialModuleModule } from '../shared/material-module.module';
+import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -13,7 +15,7 @@ const Routes = [
 ]
 
 @NgModule({
-  declarations: [DashboardComponent,AdminLayoutComponent],
+  declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, TopNavbarComponent],
   imports: [
     CommonModule, RouterModule.forChild(Routes),
     SharedModuleModule,MaterialModuleModule
