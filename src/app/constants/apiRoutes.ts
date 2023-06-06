@@ -21,6 +21,7 @@ class mail{
 }
 class host{
     public static createHost = "host/createHost";
+    public static getAllHost = "host/getAllHost";
 
 }
 

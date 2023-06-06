@@ -16,12 +16,14 @@ export class DashboardComponent {
   fuel = fuel.fuelUnits;
   fuelTypes = fuel.fuelTypes;
   brandForm: FormGroup;
+  hosts:any = [];
   bfile: File;
 
   constructor(private httpService: HttpService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.initForm();
+    this.getHost();
   }
 
   initForm() {
@@ -61,6 +63,12 @@ export class DashboardComponent {
     this.brandForm = this.fb.group({
       bfile: [''],
       brandName: ['']
+    });
+  }
+
+  getHost(){
+    this.httpService.httpGet(ApiUrls.host.getAllHost,null).subscribe(res => {
+      this.hosts = res;
     });
   }
 
