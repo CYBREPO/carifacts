@@ -7,17 +7,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule, MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule,
-    MatFormFieldModule, MatNativeDateModule,MatSelectModule,MatDialogModule
+    MatFormFieldModule, MatNativeDateModule,MatSelectModule,MatDialogModule,FormsModule
 
   ],
   exports: [MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule, MatFormFieldModule,
-    MatSelectModule,MatDialogModule],
+    MatSelectModule,MatDialogModule,FormsModule],
   providers: [
     MatDatepickerModule,
   ],

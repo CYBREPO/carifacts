@@ -6,30 +6,31 @@ declare var $: any;
 import { Router } from '@angular/router';
 import { map, filter, tap } from 'rxjs/operators';
 import { ModalDialogService } from '../service/modal-dialog.service';
+import { UserInfoService } from '../service/user-info.service';
 
 @Injectable()
 export class HttpApiInterceptor implements HttpInterceptor {
 
 
     constructor( private loaderService: LoaderService,private modalDialogService: ModalDialogService,
-        private router: Router) {
+        private router: Router, private userInfoService: UserInfoService) {
     }
 
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
-        // let currentUser = this.userInfoService.getLoggedInUser();
+        let currentUser = this.userInfoService.getLoggedInUser();
         var autoLoader = request.headers.get('Loader');
         if (autoLoader == 'true') {
             this.loaderService.display(true);
         }
-        // if (currentUser && currentUser.Token) {
-        //     request = request.clone({
-        //         setHeaders: {
-        //             Authorization: `Bearer ${currentUser.Token}`
-        //         }
-        //     });
-        // }
+        if (currentUser && currentUser.Token) {
+            request = request.clone({
+                setHeaders: {
+                    Authorization: `Bearer ${currentUser.Token}`
+                }
+            });
+        }
 
         return next.handle(request).pipe(tap(event => {
             // Intercept the response and show the notification accordingly.
