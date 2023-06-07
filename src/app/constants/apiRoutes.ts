@@ -27,6 +27,8 @@ class host{
 class account{
     public static login = "account/login";
     public static register = "account/register";
+    public static resetPassword = "account/reset-password";
+    public static updatePassword = "account/updatePassword";
 
 }
 

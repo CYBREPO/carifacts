@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as crypto from "crypto-js";
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { ICacheContent } from 'src/app/interface/cacheInterface';
@@ -20,14 +21,27 @@ export class LoginComponent {
 
   loginForm: FormGroup;
   cacheKey: string = environment.cacheKey;
-  submiited: boolean = false;
+  submitted: boolean = false;
+  returnUrl: string = "/home";
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private cacheService: CacheService,
     private encryptionService: EncryptionService, private modalDialogService: ModalDialogService,
-    private userInfoService: UserInfoService) { }
+    private userInfoService: UserInfoService, private router: Router,private activatedRoute: ActivatedRoute) { }
 
-  ngOnIniti() {
+  ngOnInit() {
     this.initForm();
+    debugger
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/home';
+
+    // Check if user is already logged in
+    var user = this.userInfoService.getLoggedInUser();
+    if (user != undefined && user != null && user != 'null') {
+      this.router.navigateByUrl(this.returnUrl).then(
+        success => {
+          if (!success)
+            this.router.navigateByUrl('/home/landing-page');
+        });
+    }
   }
 
   initForm() {
@@ -42,7 +56,7 @@ export class LoginComponent {
   get loginFrm() { return this.loginForm.controls }
 
   submit() {
-    this.submiited = true;
+    this.submitted = true;
     if (this.loginForm.invalid) {
       return;
       // this.modalDialogService.error("Invalid Input");
@@ -50,7 +64,7 @@ export class LoginComponent {
 
     let param = {
       email: this.loginFrm['email'].value,
-      passWord: crypto.SHA1(this.loginFrm['password'].value)
+      password: this.loginFrm['password'].value //crypto.SHA1(this.loginFrm['password'].value).toString()
     }
 
     this.httpService.httpPost(ApiUrls.account.login, param).subscribe((res: any) => {
@@ -67,6 +81,12 @@ export class LoginComponent {
         }
 
         this.userInfoService.setUser(res['data']);
+
+        this.router.navigateByUrl(this.returnUrl).then(
+          success => {
+            if (!success)
+              this.router.navigateByUrl('/home/landing-page');
+          });
       }
     });
   }

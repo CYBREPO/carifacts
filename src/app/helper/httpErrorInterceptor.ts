@@ -4,12 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { LoaderService } from '../service/loader.service';
-// import { ModalDialogService } from 'src/app/shared/popups/modal-dialog.service';
+import { ModalDialogService } from '../service/modal-dialog.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
     constructor(private router: Router, private loaderService: LoaderService,
-        ) {
+        private modalDialogService: ModalDialogService) {
         this.router = router;
     }
 
@@ -20,7 +20,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 // auto logout if 401 response returned from api
                 // clear the localStorage and call the logout method
                 this.logout();
-                // this.modalDialogService.error("Unauthorized, The user session has ended. Kindly login again.")
+                this.modalDialogService.error("Unauthorized, The user session has ended. Kindly login again.")
                 this.loaderService.display(false);
             }
             else if (err.status === 403) {
@@ -28,11 +28,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 this.loaderService.display(false);
             }
             else if (err.status === 400 && err.error.Message != "" && err.error.Message != null && err.error != null) {
-                // this.modalDialogService.error(err.error.Message);
+                this.modalDialogService.error(err.error.Message);
                 this.loaderService.display(false);
             }
             else if (err.status === 406) {
-                // this.modalDialogService.error("Invalid Entry");
+                this.modalDialogService.error("Invalid Entry");
                 this.loaderService.display(false);
             }
             else if (err.status === 422) {
@@ -50,7 +50,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     }
 
     logout(): void {
-        localStorage.removeItem('Menus');
         localStorage.removeItem('currentUser');
         this.router.navigate(['account/login']);
     }

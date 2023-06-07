@@ -35,14 +35,13 @@ export class HttpApiInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(tap(event => {
             // Intercept the response and show the notification accordingly.
             if (event instanceof HttpResponse) {
-                debugger
                 // Check body.Message with undefined to verify the property
                 // exists in returned response.
-                if (event.body.Message !== undefined && event.body.Message !== '' && event.body.Message !== null) {
+                if (event.body.message !== undefined && event.body.message !== '' && event.body.message !== null) {
                     if (event.body.Success === true) {
-                        this.modalDialogService.success(event.body.Message);
+                        this.modalDialogService.success(event.body.message);
                     } else {
-                        this.modalDialogService.error(event.body.Message);
+                        this.modalDialogService.error(event.body.message);
                     }
                 }
                 if (autoLoader == 'true') {
@@ -50,12 +49,10 @@ export class HttpApiInterceptor implements HttpInterceptor {
                 }
 
                 if (event.body.Code !== undefined && event.body.Code == 401) {
-                    localStorage.removeItem('Menus');
                     localStorage.removeItem('currentUser');
                     this.router.navigate(['account/login'], { queryParams: { returnUrl: this.router.url } });
                 }
                 if (event.body.Code !== undefined && event.body.Code == 422) {
-                    // this.modalDialogService.error("Kindly mention Employee-Id");
                     this.loaderService.display(false);
                 }
             }

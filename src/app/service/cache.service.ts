@@ -11,7 +11,8 @@ export class CacheService {
   }
 
   get(key: string): ICacheContent | null {
-    return this.storage.retrieve(key);
+    return null;
+    // return this.storage.retrieve(key);
   }
 
   set(key: string, value: ICacheContent): void {
