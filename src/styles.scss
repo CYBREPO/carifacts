@@ -77,7 +77,11 @@ ul {
     background: $theme-blue;
     border-color: $theme-blue;
 }
-
+.button-red {
+    background: $theme-blue;
+    border-color: $theme-blue;
+    color: white;
+}
 .button-blue-border {
     border-color: $theme-blue !important;
     color: $theme-blue !important;
