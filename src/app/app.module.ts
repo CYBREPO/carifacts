@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpApiInterceptor } from './helper/httpInterceptor';
 import { HttpErrorInterceptor } from './helper/httpErrorInterceptor';
 import { MaterialModuleModule } from './shared/material-module.module';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { MaterialModuleModule } from './shared/material-module.module';
     BrowserAnimationsModule,
     LayoutModuleModule,
     HttpClientModule,
-    MaterialModuleModule
+    MaterialModuleModule,
+    NgxWebstorageModule.forRoot(),
 
   ],
   providers: [

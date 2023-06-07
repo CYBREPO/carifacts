@@ -24,6 +24,11 @@ class host{
     public static getAllHost = "host/getAllHost";
 
 }
+class account{
+    public static login = "account/login";
+    public static register = "account/register";
+
+}
 
 export class ApiUrls{
     public static brand = brand;
@@ -31,4 +36,5 @@ export class ApiUrls{
     public static location = location;
     public static mail = mail;
     public static host = host;
+    public static account = account;
 }

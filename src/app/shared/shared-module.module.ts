@@ -5,14 +5,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { CardComponent } from './card/card.component';
 import { CarDetailsCardComponent } from './car-details-card/car-details-card.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 
 @NgModule({
-  declarations: [SearchBarComponent, CardComponent, CarDetailsCardComponent],
+  declarations: [SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent],
   imports: [
     CommonModule, MaterialModuleModule, ReactiveFormsModule
   ],
-  exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, CarDetailsCardComponent]
+  exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent]
 })
 export class SharedModuleModule { }

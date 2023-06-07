@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { ModalDialogService } from 'src/app/shared/popups/modal-dialog.service';
 import { LoaderService } from '../service/loader.service';
 declare var $: any;
 import { Router } from '@angular/router';
 import { map, filter, tap } from 'rxjs/operators';
+import { ModalDialogService } from '../service/modal-dialog.service';
 
 @Injectable()
 export class HttpApiInterceptor implements HttpInterceptor {
 
 
-    constructor( private loaderService: LoaderService,
+    constructor( private loaderService: LoaderService,private modalDialogService: ModalDialogService,
         private router: Router) {
     }
 
@@ -34,13 +34,14 @@ export class HttpApiInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(tap(event => {
             // Intercept the response and show the notification accordingly.
             if (event instanceof HttpResponse) {
+                debugger
                 // Check body.Message with undefined to verify the property
                 // exists in returned response.
                 if (event.body.Message !== undefined && event.body.Message !== '' && event.body.Message !== null) {
                     if (event.body.Success === true) {
-                        // this.modalDialogService.success(event.body.Message);
+                        this.modalDialogService.success(event.body.Message);
                     } else {
-                        // this.modalDialogService.error(event.body.Message);
+                        this.modalDialogService.error(event.body.Message);
                     }
                 }
                 if (autoLoader == 'true') {

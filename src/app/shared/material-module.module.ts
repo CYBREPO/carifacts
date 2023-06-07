@@ -6,17 +6,18 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule, MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule,
-    MatFormFieldModule, MatNativeDateModule,MatSelectModule
+    MatFormFieldModule, MatNativeDateModule,MatSelectModule,MatDialogModule
 
   ],
   exports: [MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule, MatFormFieldModule,
-    MatSelectModule],
+    MatSelectModule,MatDialogModule],
   providers: [
     MatDatepickerModule,
   ],

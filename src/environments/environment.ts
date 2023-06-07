@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:8080/api/"
+  baseUrl: "http://localhost:8080/api/",
+  cacheKey: "login",
+  encryptionKey: "8080808080808080"
 };
 
 /*
