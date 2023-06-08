@@ -8,6 +8,7 @@ import { SingleCategoryCarDetailsComponent } from './single-category-car-details
 import { MaterialModuleModule } from '../shared/material-module.module';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {MatSliderModule} from '@angular/material/slider';
   ],
   imports: [
     CommonModule,
-    ComponentsRoutingModuleModule,
+    ComponentsRoutingModuleModule,GoogleMapsModule,
     SharedModuleModule,MaterialModuleModule,MatSelectModule,MatSliderModule
   ]
 })

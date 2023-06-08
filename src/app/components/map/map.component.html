@@ -11,6 +11,10 @@
         <input matSliderThumb>
     </mat-slider>
 
+    <google-map [options]="mapOptions">
+        <map-marker [position]="marker.position"></map-marker>
+     </google-map>
+
     <!-- 
     <div class="searchFilterPopupDesktop is-rightAligned is-scrollable" style="height: 500px; width: 600px;">
         <div class="searchFilterPopupDesktop-closeButton"><button type="button" class="css-19jk1h8"><span

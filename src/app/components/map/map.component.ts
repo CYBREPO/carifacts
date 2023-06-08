@@ -22,6 +22,15 @@ export class MapComponent {
   // = vehicleModels.vehicleModels
   cardetails: any;
   searchedLocation: string = '';
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 38.9987208, lng: -77.2538699 },
+    zoom: 14
+  }
+  marker = {
+    position: { lat: 38.9987208, lng: -77.2538699 },
+  }
+
+
   constructor(private router: Router, private datatransferService: DataTransferService,
     private activatedRoute: ActivatedRoute, private httpService: HttpService) {
     activatedRoute.params.subscribe(res => {
@@ -43,7 +52,7 @@ export class MapComponent {
         this.vehicleModels = res;
       });
     }
-    else{
+    else {
       let param = {
         address: this.searchedLocation
       }
