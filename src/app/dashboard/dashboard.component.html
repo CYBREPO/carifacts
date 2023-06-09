@@ -1,443 +1,446 @@
-
-<div id="modal-support"
-	class="modal fade"
-	role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button"
-					class="close"
-					data-dismiss="modal">
-					&times;
-				</button>
-				<h4 class="modal-title">Raise A Ticket</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="form-group">
-							<label for="email">Email:</label>
-							<input type="email"
-								class="form-control"
-								id="tktemail"
-								placeholder="Enter email"
-								name="email"
-								value="chaitanya.shirodkar@autohyre.in">
+<body class="navbar-top">
+	<div id="modal-support"
+		class="modal fade"
+		role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button"
+						class="close"
+						data-dismiss="modal">
+						&times;
+					</button>
+					<h4 class="modal-title">Raise A Ticket</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="email">Email:</label>
+								<input type="email"
+									class="form-control"
+									id="tktemail"
+									placeholder="Enter email"
+									name="email"
+									value="chaitanya.shirodkar@autohyre.in">
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label for="email">Vertical:</label>
+								<select class="form-control"
+									id="tktvertical_id">
+									<option value="CFS">CFS</option>
+									<option value="ECY">ECY</option>
+									<option value="ITV">ITV</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label for="email">Priority :</label>
+								<select class="form-control"
+									id="tktpriority">
+									<option value="Low">Low</option>
+									<option value="Medium">Medium</option>
+									<option value="High">High</option>
+								</select>
+							</div>
 						</div>
 					</div>
-					<div class="col-sm-3">
-						<div class="form-group">
-							<label for="email">Vertical:</label>
-							<select class="form-control"
-								id="tktvertical_id">
-								<option value="CFS">CFS</option>
-								<option value="ECY">ECY</option>
-								<option value="ITV">ITV</option>
-							</select>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="email">Requirment :</label>
+								<select class="form-control"
+									id="tktrequirment">
+									<option value="Feature">Feature</option>
+									<option value="Bug">Bug</option>
+									<option value="Data Correction">Data Correction</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="email">Location:</label>
+								<input type="text"
+									class="form-control"
+									id="tktlocation"
+									placeholder="Enter Location"
+									name="location"
+									value>
+							</div>
 						</div>
 					</div>
-					<div class="col-sm-3">
-						<div class="form-group">
-							<label for="email">Priority :</label>
-							<select class="form-control"
-								id="tktpriority">
-								<option value="Low">Low</option>
-								<option value="Medium">Medium</option>
-								<option value="High">High</option>
-							</select>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label for="description">Description:</label>
+								<textarea name="description"
+									id="tktdescription"
+									class="form-control"
+									placeholder="Enter Description"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div id="tktsuccess"
+								class="alert alert-success">
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="form-group">
-							<label for="email">Requirment :</label>
-							<select class="form-control"
-								id="tktrequirment">
-								<option value="Feature">Feature</option>
-								<option value="Bug">Bug</option>
-								<option value="Data Correction">Data Correction</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="form-group">
-							<label for="email">Location:</label>
-							<input type="text"
-								class="form-control"
-								id="tktlocation"
-								placeholder="Enter Location"
-								name="location"
-								value>
-						</div>
-					</div>
+				<div class="modal-footer">
+					<button type="button"
+						class="btn btn-success"
+						id="SubmitTicket">
+						Submit
+					</button>
+					<button type="button"
+						class="btn btn-default"
+						data-dismiss="modal">
+						Close
+					</button>
 				</div>
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="form-group">
-							<label for="description">Description:</label>
-							<textarea name="description"
-								id="tktdescription"
-								class="form-control"
-								placeholder="Enter Description"></textarea>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12">
-						<div id="tktsuccess"
-							class="alert alert-success">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-success"
-					id="SubmitTicket">
-					Submit
-				</button>
-				<button type="button"
-					class="btn btn-default"
-					data-dismiss="modal">
-					Close
-				</button>
 			</div>
 		</div>
 	</div>
-</div>
-<div id="modal-menu"
-	class="modal fade"
-	tabindex="-1"
-	role="dialog">
-	<div class="modal-dialog ">
-		<!-- Modal content -->
-		<div class="modal-content menu-modal-content">
-			<div class="modal-header ">
-				<p class="selected-menu"></p>
-				<button type="button"
-					class="close menu-close "
-					data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="row"></div>
+	<div id="modal-menu"
+		class="modal fade"
+		tabindex="-1"
+		role="dialog">
+		<div class="modal-dialog ">
+			<!-- Modal content -->
+			<div class="modal-content menu-modal-content">
+				<div class="modal-header ">
+					<p class="selected-menu"></p>
+					<button type="button"
+						class="close menu-close "
+						data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row"></div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="title-new"></div>
+	<div class="title-new"></div>
 
 
 
 
 
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-header">
-		<a href="/">
-			<img src="/images/logo_white.png"
-				height="46px">
-		</a>
-		<ul class="nav navbar-nav pull-right visible-xs-block">
-			<li>
-				<a data-toggle="collapse"
-					data-target="#navbar-mobile">
-					<i class="icon-tree5"></i>
-				</a>
-			</li>
-			<li>
-				<a class="sidebar-mobile-main-toggle">
-					<i class="icon-paragraph-justify3"></i>
-				</a>
-			</li>
-			<li>
-				<a class="sidebar-mobile-secondary-toggle">
-					<i class="icon-more"></i>
-				</a>
-			</li>
-		</ul>
-	</div>
-	<div class="navbar-collapse collapse"
-		id="navbar-mobile">
-		<ul class="nav navbar-nav">
-			<li>
-				<a class="sidebar-control sidebar-main-toggle hidden-xs">
-					<i class="icon-paragraph-justify3"></i>
-				</a>
-			</li>
-			<form class="navbar-form navbar-left"
-				id="ajaxMenuLink">
-				<input class="form-control input-md-2"
-					placeholder="Search Navigation [Ctrl + Space]"
-					type="search"
-					id="ajaxMenu">
-			</form>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li>
-				<a id="TicketRaise">
-					<i class="icon-ticket"></i>
-					Support
-				</a>
-			</li>
-			<li class="dropdown dropdown-user">
-				<a class="dropdown-toggle"
-					data-toggle="dropdown">
-					<span>
-						<i class="icon-user"></i>
-					</span>
-					<span class="hidden-sm">
-						chaitanya.shirodkar@autohyre.in
-					</span>
-					<i class="fa fa-caret-down"
-						aria-hidden="true"></i>
-				</a>
-				<ul class="dropdown-menu dropdown-menu-right">
-					<li>
-						<a href="/profile">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-header">
+			<a href="/">
+				<img src="/images/logo_white.png"
+					height="46px">
+			</a>
+			<ul class="nav navbar-nav pull-right visible-xs-block">
+				<li>
+					<a data-toggle="collapse"
+						data-target="#navbar-mobile">
+						<i class="icon-tree5"></i>
+					</a>
+				</li>
+				<li>
+					<a class="sidebar-mobile-main-toggle">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+				<li>
+					<a class="sidebar-mobile-secondary-toggle">
+						<i class="icon-more"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-collapse collapse"
+			id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li>
+					<a class="sidebar-control sidebar-main-toggle hidden-xs">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+				<form class="navbar-form navbar-left"
+					id="ajaxMenuLink">
+					<input class="form-control input-md-2"
+						placeholder="Search Navigation [Ctrl + Space]"
+						type="search"
+						id="ajaxMenu">
+				</form>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a id="TicketRaise">
+						<i class="icon-ticket"></i>
+						Support
+					</a>
+				</li>
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle"
+						data-toggle="dropdown">
+						<span>
 							<i class="icon-user"></i>
-							Profile
-						</a>
-					</li>
-					<li>
-						<a href="/settings">
-							<i class="icon-cog"></i>
-							Settings
-						</a>
-					</li>
-					<li>
-						<a href="/password">
-							<i class="icon-key"></i>
-							Change Password
-						</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/logout">
-							<i class="icon-switch2"></i>
-							Logout
-						</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
+						</span>
+						<span class="hidden-sm">
+							chaitanya.shirodkar@autohyre.in
+						</span>
+						<i class="fa fa-caret-down"
+							aria-hidden="true"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li>
+							<a href="/profile">
+								<i class="icon-user"></i>
+								Profile
+							</a>
+						</li>
+						<li>
+							<a href="/settings">
+								<i class="icon-cog"></i>
+								Settings
+							</a>
+						</li>
+						<li>
+							<a href="/password">
+								<i class="icon-key"></i>
+								Change Password
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="/logout">
+								<i class="icon-switch2"></i>
+								Logout
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 	</div>
-</div>
-<div class="page-container">
-	<div class="page-content">
-		<div class="sidebar sidebar-main sidebar-default">
-			<div class="sidebar-content">
-				<div class="sidebar-user">
-					<div class="category-content bg-grey-800"
-						style="background-color: #4e3f75;">
-						<div class="media">
-							<div class="media-body">
-								<span class="media-heading text-semibold">Chaitanya Shirodkar</span>
-								<div class="text-size-mini text-muted">
-									<i class="fa fa-globe"
-										aria-hidden="true"></i>
+	<div class="page-container">
+		<div class="page-content">
+			<div class="sidebar sidebar-main sidebar-default">
+				<div class="sidebar-content">
+					<div class="sidebar-user">
+						<div class="category-content bg-grey-800"
+							style="background-color: #4e3f75;">
+							<div class="media">
+								<div class="media-body">
+									<span class="media-heading text-semibold">Chaitanya Shirodkar</span>
+									<div class="text-size-mini text-muted">
+										<i class="fa fa-globe"
+											aria-hidden="true"></i>
+									</div>
+								</div>
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="/settings">
+												<i class="icon-cog3"></i>
+											</a>
+										</li>
+									</ul>
 								</div>
 							</div>
-							<div class="media-right media-middle">
-								<ul class="icons-list">
-									<li>
-										<a href="/settings">
-											<i class="icon-cog3"></i>
-										</a>
-									</li>
-								</ul>
-							</div>
+						</div>
+					</div>
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+								<li>
+									<a href="/dashboard"
+										class="d-flex">
+										<i class="fa fa-clipboard"
+											aria-hidden="true"></i>
+										<span>Dashboard</span>
+										<i class="fa fa-caret-right"
+											aria-hidden="true"></i>
+									</a>
+									<ul class="submenu hidden-ul">
+										<li>
+											<a href="/dashboard">Default</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="/#">
+										<i class="fa fa-clipboard"
+											aria-hidden="true"></i>
+										<span class="menu-text">Project Management</span>
+										<i class="fa fa-caret-right"
+											aria-hidden="true"></i>
+									</a>
+									<ul class="submenu hidden-ul">
+										<li>
+											<a href="/project_management/Projects">Projects</a>
+										</li>
+										<li>
+											<a href="/project_management/Epics">Epics</a>
+										</li>
+										<li>
+											<a href="/project_management/Modules">Modules</a>
+										</li>
+										<li>
+											<a href="/project_management/Features">Features</a>
+										</li>
+										<li>
+											<a href="/#">
+												<span class="menu-text">Worklog</span>
+												<b class="arrow icon-angle-down"></b>
+											</a>
+											<ul class="submenu hidden-ul">
+												<li>
+													<a href="/project_management/Tasks">Tasks</a>
+												</li>
+												<li>
+													<a href="/project_management/reports/task_request">Task Request</a>
+												</li>
+												<li>
+													<a href="/project_management/Bugs">Bugs</a>
+												</li>
+												<li>
+													<a href="/project_management/Standups">Standups</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="/#">
+												<span class="menu-text">Reports</span>
+												<b class="arrow icon-angle-down"></b>
+											</a>
+											<ul class="submenu hidden-ul">
+												<li>
+													<a href="/project_management/reports/bug_summary">Bugs Summary</a>
+												</li>
+												<li>
+													<a href="/project_management/reports/task_summary">Task Summary</a>
+												</li>
+												<li>
+													<a href="/project_management/reports/feature_summary">Feature Summary</a>
+												</li>
+												<li>
+													<a href="/project_management/reports/ticket_summary">Ticket Summary</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="sidebar-category sidebar-category-visible">
-					<div class="category-content no-padding">
-						<ul class="navigation navigation-main navigation-accordion">
+			</div>
+			<div class="content-wrapper">
+				<div class="page-header page-header-default">
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
 							<li>
-								<a href="/dashboard"
-									class="d-flex">
-									<i class="fa fa-clipboard"
-										aria-hidden="true"></i>
-									<span>Dashboard</span>
-									<i class="fa fa-caret-right"
-										aria-hidden="true"></i>
+								<span class="text-bold">Dashboard</span>
+								<span class="tiny"></span>
+							</li>
+						</ul>
+						<ul class="breadcrumb-elements">
+							<!-- <li><a href="/thor/dashboard" class="Popup"><i class="icon-info3"></i> Ticket</a></li> -->
+							<li>
+								<a href="/audit/dashboard"
+									class="Popup">
+									<i class="icon-info3"></i>
+									Audit Logs
 								</a>
-								<ul class="submenu hidden-ul">
-									<li>
-										<a href="/dashboard">Default</a>
-									</li>
-								</ul>
 							</li>
 							<li>
-								<a href="/#">
-									<i class="fa fa-clipboard"
-										aria-hidden="true"></i>
-									<span class="menu-text">Project Management</span>
-									<i class="fa fa-caret-right"
-										aria-hidden="true"></i>
+								<a href="/docs/dashboard"
+									class="Popup">
+									<i class="icon-help position-left"></i>
+									Help
 								</a>
-								<ul class="submenu hidden-ul">
-									<li>
-										<a href="/project_management/Projects">Projects</a>
-									</li>
-									<li>
-										<a href="/project_management/Epics">Epics</a>
-									</li>
-									<li>
-										<a href="/project_management/Modules">Modules</a>
-									</li>
-									<li>
-										<a href="/project_management/Features">Features</a>
-									</li>
-									<li>
-										<a href="/#">
-											<span class="menu-text">Worklog</span>
-											<b class="arrow icon-angle-down"></b>
-										</a>
-										<ul class="submenu hidden-ul">
-											<li>
-												<a href="/project_management/Tasks">Tasks</a>
-											</li>
-											<li>
-												<a href="/project_management/reports/task_request">Task Request</a>
-											</li>
-											<li>
-												<a href="/project_management/Bugs">Bugs</a>
-											</li>
-											<li>
-												<a href="/project_management/Standups">Standups</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<a href="/#">
-											<span class="menu-text">Reports</span>
-											<b class="arrow icon-angle-down"></b>
-										</a>
-										<ul class="submenu hidden-ul">
-											<li>
-												<a href="/project_management/reports/bug_summary">Bugs Summary</a>
-											</li>
-											<li>
-												<a href="/project_management/reports/task_summary">Task Summary</a>
-											</li>
-											<li>
-												<a href="/project_management/reports/feature_summary">Feature Summary</a>
-											</li>
-											<li>
-												<a href="/project_management/reports/ticket_summary">Ticket Summary</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
 							</li>
 						</ul>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="content-wrapper">
-			<div class="page-header page-header-default">
-				<div class="breadcrumb-line">
-					<ul class="breadcrumb">
-						<li>
-							<span class="text-bold">Dashboard</span>
-							<span class="tiny"></span>
-						</li>
-					</ul>
-					<ul class="breadcrumb-elements">
-						<!-- <li><a href="/thor/dashboard" class="Popup"><i class="icon-info3"></i> Ticket</a></li> -->
-						<li>
-							<a href="/audit/dashboard"
-								class="Popup">
-								<i class="icon-info3"></i>
-								Audit Logs
-							</a>
-						</li>
-						<li>
-							<a href="/docs/dashboard"
-								class="Popup">
-								<i class="icon-help position-left"></i>
-								Help
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="content">
+				<div class="content">
 
 
 
 
 
+					<table class="table table-bordered table-striped table-hover table-rowselect"
+						id="List">
+						<thead>
+							<tr>
+								<th width="24px">Sr</th>
+								<th>Project Id</th>
+								<th>Code</th>
+								<th>Name</th>
+								<th>Client</th>
+								<th>Active</th>
+							</tr>
+						</thead>
 
-				<table class="table table-bordered table-striped table-hover table-rowselect"
-					id="List">
-					<thead>
-						<tr>
-							<th width="24px">Sr</th>
-							<th>Project Id</th>
-							<th>Code</th>
-							<th>Name</th>
-							<th>Client</th>
-							<th>Active</th>
-						</tr>
-					</thead>
 
 
 
 
 
 
+						<tbody>
+							<tr>
+								<td>1</td>
 
 
-					<tbody>
-						<tr>
-							<td>1</td>
 
 
 
 
 
 
+								<td class="text">#PROJ30</td>
 
 
 
-							<td class="text">#PROJ30</td>
 
 
 
 
+								<td class="Text">AD.Exim</td>
 
 
 
 
-							<td class="Text">AD.Exim</td>
 
 
 
+								<td class="Text">
+									<a href="#">data</a>
+								</td>
 
 
 
 
 
-							<td class="Text">
-								<a href="#">data</a>
-							</td>
 
 
+								<td class="Text">Logistics Limited</td>
 
 
 
 
 
 
-							<td class="Text">Logistics Limited</td>
 
+								<td class="Text">
+									<span class="label label-default label-success">Yes</span>
+								</td>
+							</tr>
 
 
 
@@ -445,335 +448,310 @@
 
 
 
-							<td class="Text">
-								<span class="label label-default label-success">Yes</span>
-							</td>
-						</tr>
 
+						</tbody>
+					</table>
 
 
 
 
 
-
-
-
-					</tbody>
-				</table>
-
-
-
-
-
-
-				<div class="panel panel-default border-grey">
-					<div class="panel-heading">
-						<h3 class="panel-title text-light">
-							<a href="/project_management/Projects">
-								<i class="icon icon-circle-left2"></i>
-							</a>
-							Projects
+					<div class="panel panel-default border-grey">
+						<div class="panel-heading">
+							<h3 class="panel-title text-light">
+								<a href="/project_management/Projects">
+									<i class="icon icon-circle-left2"></i>
+								</a>
+								Projects
+								<a class="heading-elements-toggle">
+									<i class="icon-more"></i>
+								</a>
+							</h3>
+							<div class="heading-elements">
+								<div class="heading-btn">
+									<a href="/project_management/Projects/0"
+										class="btn btn-xs btn-info btn-labeled">
+										<b>
+											<i class="fa fa-plus"
+												aria-hidden="true"></i>
+										</b>
+										Add
+									</a>
+								</div>
+							</div>
+						</div>
+
+
+
+
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<label class="control-label">
+											Code
+											<i class="fa fa-asterisk text-size-small text-danger"
+												aria-hidden="true"></i>
+										</label>
+										<input type="text"
+											id="code"
+											name="code"
+											value
+											class="form-control">
+									</div>
+								</div>
+
+
+
+
+								<div class="col-md-9">
+									<div class="form-group">
+										<label class="control-label">
+											Name
+											<i class="fa fa-asterisk text-size-small text-danger"
+												aria-hidden="true"></i>
+
+
+
+										</label>
+										<input type="text"
+											id="name"
+											name="name"
+											value
+											class="form-control">
+									</div>
+								</div>
+							</div>
+
+
+
+
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group">
+										<label class="control-label">
+											Client
+											<i class="fa fa-asterisk text-size-small text-danger"
+												aria-hidden="true"></i>
+
+
+
+										</label>
+										<input type="hidden"
+											id="client_id"
+											name="client_id"
+											value="0"
+											class="form-control">
+										<span class="twitter-typeahead"
+											style="position: relative; display: inline-block; direction: ltr;">
+											<input type="text"
+												id="client_name"
+												name="client_name"
+												value
+												class="form-control tt-input"
+												autocomplete="off"
+												spellcheck="false"
+												dir="auto"
+												style="position: relative; vertical-align: top;">
+											<pre aria-hidden="true"
+												style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+											<span class="tt-dropdown-menu"
+												style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
+												<div class="tt-dataset-tt_client"></div>
+											</span>
+										</span>
+									</div>
+								</div>
+
+
+
+
+								<div class="col-md-2">
+									<div class="form-group">
+										<label class="control-label">Meeting Counter</label>
+										<input type="text"
+											id="starting_counter"
+											name="starting_counter"
+											value="0"
+											class="form-control">
+									</div>
+								</div>
+
+
+
+
+								<div class="col-md-2">
+									<div class="form-group">
+										<label class="control-label">Active</label>
+										<select id="is_active"
+											name="is_active"
+											class="form-control">
+											<option value="No">No</option>
+											<option selected="selected"
+												value="Yes">
+												Yes
+											</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+
+
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label">
+											Client Lead
+											<i class="fa fa-asterisk text-size-small text-danger"
+												aria-hidden="true"></i>
+
+
+
+										</label>
+										<input type="hidden"
+											id="lead_type"
+											name="lead_type"
+											value
+											class="form-control">
+										<input type="hidden"
+											id="lead_client_contact_id"
+											name="lead_client_contact_id"
+											value="0"
+											class="form-control">
+										<span class="twitter-typeahead"
+											style="position: relative; display: inline-block; direction: ltr;">
+											<input type="text"
+												id="lead_client_contact_name"
+												name="lead_client_contact_name"
+												value
+												class="form-control tt-input"
+												autocomplete="off"
+												spellcheck="false"
+												dir="auto"
+												style="position: relative; vertical-align: top;">
+											<pre aria-hidden="true"
+												style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+											<span class="tt-dropdown-menu"
+												style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
+												<div class="tt-dataset-tt_user"></div>
+											</span>
+										</span>
+									</div>
+								</div>
+
+
+
+
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label">
+											EZR Lead
+											<i class="fa fa-asterisk text-size-small text-danger"
+												aria-hidden="true"></i>
+
+
+
+										</label>
+										<input type="hidden"
+											id="lead_employee_id"
+											name="lead_employee_id"
+											value="0"
+											class="form-control">
+										<span class="twitter-typeahead"
+											style="position: relative; display: inline-block; direction: ltr;">
+											<input type="text"
+												id="lead_employee_name"
+												name="lead_employee_name"
+												value
+												class="form-control tt-input"
+												autocomplete="off"
+												spellcheck="false"
+												dir="auto"
+												style="position: relative; vertical-align: top;">
+											<pre aria-hidden="true"
+												style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+											<span class="tt-dropdown-menu"
+												style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
+												<div class="tt-dataset-tt_lead_emp"></div>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+
+
+
+
+							<div class="form-group">
+								<label class="control-label">
+									Points of Contact/Team Leads
+								</label>
+								<select name="point_of_contact[]"
+									class="form-control Selectize selectized"
+									multiple="multiple"
+									tabindex="-1"
+									style="display: none;"></select>
+								<div class="selectize-control form-control Selectize multi plugin-remove_button">
+									<div class="selectize-input items not-full has-options">
+										<input type="text"
+											autocomplete="off"
+											tabindex
+											style="width: 4px;">
+									</div>
+									<div class="selectize-dropdown form-control Selectize multi plugin-remove_button"
+										style="display: none;">
+										<div class="selectize-dropdown-content"></div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+							<div class="form-group">
+								<label class="control-label">
+									Assigned To
+									<span class="text-size-small text-orange">
+										(Note: only visible to selected users)
+									</span>
+								</label>
+								<select name="assigned_to[]"
+									class="form-control Selectize selectized"
+									multiple="multiple"
+									tabindex="-1"
+									style="display: none;"></select>
+								<div class="selectize-control form-control Selectize multi plugin-remove_button">
+									<div class="selectize-input items not-full has-options">
+										<input type="text"
+											autocomplete="off"
+											tabindex
+											style="width: 4px;">
+									</div>
+									<div class="selectize-dropdown form-control Selectize multi plugin-remove_button"
+										style="display: none;">
+										<div class="selectize-dropdown-content"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
 							<a class="heading-elements-toggle">
 								<i class="icon-more"></i>
 							</a>
-						</h3>
-						<div class="heading-elements">
-							<div class="heading-btn">
-								<a href="/project_management/Projects/0"
-									class="btn btn-xs btn-info btn-labeled">
-									<b>
-										<i class="fa fa-plus"
-											aria-hidden="true"></i>
-									</b>
-									Add
-								</a>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-3">
-								<div class="form-group">
-									<label class="control-label">
-										Code
-										<i class="fa fa-asterisk text-size-small text-danger"
-											aria-hidden="true"></i>
-									</label>
-									<input type="text"
-										id="code"
-										name="code"
-										value
-										class="form-control">
+							<div class="heading-elements">
+								<div class="heading-btn">
+									<a data-toggle="modal"
+										class="btn btn-success btn-labeled"
+										href="#modal-update">
+										<b>
+											<i class="fa fa-floppy-o"
+												aria-hidden="true"></i>
+										</b>
+										Update
+									</a>
 								</div>
-							</div>
-
-
-
-
-
-							<div class="col-md-9">
-								<div class="form-group">
-									<label class="control-label">
-										Name
-										<i class="fa fa-asterisk text-size-small text-danger"
-											aria-hidden="true"></i>
-
-
-
-
-									</label>
-									<input type="text"
-										id="name"
-										name="name"
-										value
-										class="form-control">
-								</div>
-							</div>
-						</div>
-
-
-
-
-
-						<div class="row">
-							<div class="col-md-8">
-								<div class="form-group">
-									<label class="control-label">
-										Client
-										<i class="fa fa-asterisk text-size-small text-danger"
-											aria-hidden="true"></i>
-
-
-
-
-									</label>
-									<input type="hidden"
-										id="client_id"
-										name="client_id"
-										value="0"
-										class="form-control">
-									<span class="twitter-typeahead"
-										style="position: relative; display: inline-block; direction: ltr;">
-										<input type="text"
-											id="client_name"
-											name="client_name"
-											value
-											class="form-control tt-input"
-											autocomplete="off"
-											spellcheck="false"
-											dir="auto"
-											style="position: relative; vertical-align: top;">
-										<pre aria-hidden="true"
-											style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-										<span class="tt-dropdown-menu"
-											style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
-											<div class="tt-dataset-tt_client"></div>
-										</span>
-									</span>
-								</div>
-							</div>
-
-
-
-
-
-							<div class="col-md-2">
-								<div class="form-group">
-									<label class="control-label">Meeting Counter</label>
-									<input type="text"
-										id="starting_counter"
-										name="starting_counter"
-										value="0"
-										class="form-control">
-								</div>
-							</div>
-
-
-
-
-
-							<div class="col-md-2">
-								<div class="form-group">
-									<label class="control-label">Active</label>
-									<select id="is_active"
-										name="is_active"
-										class="form-control">
-										<option value="No">No</option>
-										<option selected="selected"
-											value="Yes">
-											Yes
-										</option>
-									</select>
-								</div>
-							</div>
-						</div>
-
-
-
-
-
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label">
-										Client Lead
-										<i class="fa fa-asterisk text-size-small text-danger"
-											aria-hidden="true"></i>
-
-
-
-
-									</label>
-									<input type="hidden"
-										id="lead_type"
-										name="lead_type"
-										value
-										class="form-control">
-									<input type="hidden"
-										id="lead_client_contact_id"
-										name="lead_client_contact_id"
-										value="0"
-										class="form-control">
-									<span class="twitter-typeahead"
-										style="position: relative; display: inline-block; direction: ltr;">
-										<input type="text"
-											id="lead_client_contact_name"
-											name="lead_client_contact_name"
-											value
-											class="form-control tt-input"
-											autocomplete="off"
-											spellcheck="false"
-											dir="auto"
-											style="position: relative; vertical-align: top;">
-										<pre aria-hidden="true"
-											style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-										<span class="tt-dropdown-menu"
-											style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
-											<div class="tt-dataset-tt_user"></div>
-										</span>
-									</span>
-								</div>
-							</div>
-
-
-
-
-
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label">
-										EZR Lead
-										<i class="fa fa-asterisk text-size-small text-danger"
-											aria-hidden="true"></i>
-
-
-
-
-									</label>
-									<input type="hidden"
-										id="lead_employee_id"
-										name="lead_employee_id"
-										value="0"
-										class="form-control">
-									<span class="twitter-typeahead"
-										style="position: relative; display: inline-block; direction: ltr;">
-										<input type="text"
-											id="lead_employee_name"
-											name="lead_employee_name"
-											value
-											class="form-control tt-input"
-											autocomplete="off"
-											spellcheck="false"
-											dir="auto"
-											style="position: relative; vertical-align: top;">
-										<pre aria-hidden="true"
-											style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-										<span class="tt-dropdown-menu"
-											style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
-											<div class="tt-dataset-tt_lead_emp"></div>
-										</span>
-									</span>
-								</div>
-							</div>
-						</div>
-
-
-
-
-
-						<div class="form-group">
-							<label class="control-label">
-								Points of Contact/Team Leads
-							</label>
-							<select name="point_of_contact[]"
-								class="form-control Selectize selectized"
-								multiple="multiple"
-								tabindex="-1"
-								style="display: none;"></select>
-							<div class="selectize-control form-control Selectize multi plugin-remove_button">
-								<div class="selectize-input items not-full has-options">
-									<input type="text"
-										autocomplete="off"
-										tabindex
-										style="width: 4px;">
-								</div>
-								<div class="selectize-dropdown form-control Selectize multi plugin-remove_button"
-									style="display: none;">
-									<div class="selectize-dropdown-content"></div>
-								</div>
-							</div>
-						</div>
-
-
-
-
-
-						<div class="form-group">
-							<label class="control-label">
-								Assigned To
-								<span class="text-size-small text-orange">
-									(Note: only visible to selected users)
-								</span>
-							</label>
-							<select name="assigned_to[]"
-								class="form-control Selectize selectized"
-								multiple="multiple"
-								tabindex="-1"
-								style="display: none;"></select>
-							<div class="selectize-control form-control Selectize multi plugin-remove_button">
-								<div class="selectize-input items not-full has-options">
-									<input type="text"
-										autocomplete="off"
-										tabindex
-										style="width: 4px;">
-								</div>
-								<div class="selectize-dropdown form-control Selectize multi plugin-remove_button"
-									style="display: none;">
-									<div class="selectize-dropdown-content"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="panel-footer">
-						<a class="heading-elements-toggle">
-							<i class="icon-more"></i>
-						</a>
-						<div class="heading-elements">
-							<div class="heading-btn">
-								<a data-toggle="modal"
-									class="btn btn-success btn-labeled"
-									href="#modal-update">
-									<b>
-										<i class="fa fa-floppy-o"
-											aria-hidden="true"></i>
-									</b>
-									Update
-								</a>
 							</div>
 						</div>
 					</div>
@@ -781,4 +759,5 @@
 			</div>
 		</div>
 	</div>
-</div>
+
+</body>

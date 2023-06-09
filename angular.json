@@ -29,15 +29,16 @@
               "src/app/dashboard/dashboard-assets"
             ],
             "styles": [
+              
               "src/assets/css/sb-admin-2.scss",
-              "src/styles.scss",
               "src/app/dashboard/dashboard-assets/bootstrap.css",
               "src/app/dashboard/dashboard-assets/core.css",
               "src/app/dashboard/dashboard-assets/components.css",
               "src/app/dashboard/dashboard-assets/colors.css",
               "src/app/dashboard/dashboard-assets/dashboard.css",
               "src/app/dashboard/dashboard-assets/selectize.bootstrap3.css",
-              "src/app/dashboard/dashboard-assets/bootstrap-select.min.css"
+              "src/app/dashboard/dashboard-assets/bootstrap-select.min.css",
+              "src/styles.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
