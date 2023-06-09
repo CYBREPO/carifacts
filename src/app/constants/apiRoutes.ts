@@ -2,6 +2,9 @@ class brand{
     public static getBrands = "brand/getBrands";
     public static getAllBrands = "brand/getAllBrands";
     public static setBrands = "brand/setBrands";
+    public static updateBrand = "brand/updateBrand";
+    public static deleteBrand = "brand/deleteBrand";
+    public static setModels = "brand/setModels";
 
 }
 

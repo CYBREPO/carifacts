@@ -8,17 +8,18 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule, MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule,
-    MatFormFieldModule, MatNativeDateModule,MatSelectModule,MatDialogModule,FormsModule
+    MatFormFieldModule, MatNativeDateModule,MatSelectModule,MatDialogModule,FormsModule,MatPaginatorModule
 
   ],
   exports: [MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule, MatFormFieldModule,
-    MatSelectModule,MatDialogModule,FormsModule],
+    MatSelectModule,MatDialogModule,FormsModule,MatPaginatorModule],
   providers: [
     MatDatepickerModule,
   ],

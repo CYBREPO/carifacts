@@ -1,0 +1,7 @@
+export interface IUser{
+    name: string,
+    email: string,
+    _id: string,
+    isAdmin?: string,
+    profile?: any
+}

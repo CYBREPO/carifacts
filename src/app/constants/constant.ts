@@ -87,3 +87,34 @@ export class fuel{
       {label: "DIESEL", value: "DIESEL"},
    ]
 }
+
+export class Pagination {
+   public static PageSize = 20;
+   public static PageSizeOptions: Array<{ "key": number, "value": number }> =
+       [
+           { "key": 20, "value": 20 },
+           { "key": 40, "value": 40 },
+           { "key": 60, "value": 60 },
+           { "key": 80, "value": 80 },
+           { "key": 100, "value": 100 }
+       ];
+}
+
+export class GridColumnType {
+   public static DATA = "DATA";
+   public static ACTION = "ACTION";
+   public static SELECT = "SELECT";
+}
+
+export class GridColumnDataType {
+   public static TEXT = "TEXT";
+   public static DATE = "DATE";
+   public static DATETIME = "DATETIME";
+   public static TIME = "TIME";
+}
+
+export class GridActionType {
+   public static BUTTON = "BUTTON";
+   public static ICON = "ICON";
+}
+

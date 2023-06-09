@@ -8,15 +8,21 @@ import { MaterialModuleModule } from '../shared/material-module.module';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { CarCompaniesComponent } from './car-companies/car-companies.component';
+import { TableComponent } from './table/table.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
-    { path: '', component: DashboardComponent }
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'companies', component: CarCompaniesComponent},
+    { path: "**", redirectTo: 'dashboard'}
   ]}
 ]
 
 @NgModule({
-  declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, TopNavbarComponent],
+  declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, 
+    TopNavbarComponent, CarCompaniesComponent, TableComponent,
+  ],
   imports: [
     CommonModule, RouterModule.forChild(Routes),
     SharedModuleModule,MaterialModuleModule,
