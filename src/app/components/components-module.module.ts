@@ -8,6 +8,7 @@ import { SingleCategoryCarDetailsComponent } from './single-category-car-details
 import { MaterialModuleModule } from '../shared/material-module.module';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 
@@ -18,7 +19,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
   ],
   imports: [
     CommonModule,
-    ComponentsRoutingModuleModule,GoogleMapsModule,
+    ComponentsRoutingModuleModule,
+    GoogleMapsModule,
+    GooglePlaceModule,
     SharedModuleModule,MaterialModuleModule,MatSelectModule,MatSliderModule
   ]
 })

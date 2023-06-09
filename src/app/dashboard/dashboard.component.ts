@@ -3,6 +3,7 @@ import { HttpService } from '../service/http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiUrls } from '../constants/apiRoutes';
 import { fuel } from '../constants/constant';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,9 @@ export class DashboardComponent {
   brandForm: FormGroup;
   hosts:any = [];
   bfile: File;
+  options: any = {
+    componentRestrictions: { country: 'NGA' }
+  }  
 
   constructor(private httpService: HttpService, private fb: FormBuilder) { }
 
@@ -145,5 +149,11 @@ export class DashboardComponent {
     formData.append(`name`,this.brandForm.controls["brandName"].value);
 
     this.httpService.httpPostFormData(ApiUrls.brand.setBrands,formData).subscribe(res => {});
+  }
+
+  handleAddressChange(address: Address) {
+    console.log(address.formatted_address)
+    console.log(address.geometry.location.lat())
+    console.log(address.geometry.location.lng())
   }
 }

@@ -4,6 +4,7 @@ import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/service/http.service';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 
 
@@ -29,6 +30,10 @@ export class MapComponent {
   marker = {
     position: { lat: 38.9987208, lng: -77.2538699 },
   }
+
+  options: any = {
+    componentRestrictions: { country: 'NGA' }
+  }  
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
@@ -83,5 +88,13 @@ export class MapComponent {
 
     return `${value}`;
   }
+
+  
+  handleAddressChange(address: Address) {
+    console.log(address.formatted_address)
+    console.log(address.geometry.location.lat())
+    console.log(address.geometry.location.lng())
+  }
+
 
 }

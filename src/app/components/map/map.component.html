@@ -15,6 +15,9 @@
         <map-marker [position]="marker.position"></map-marker>
      </google-map>
 
+    <input class="form-control" ngx-google-places-autocomplete [options]="options"
+        (onAddressChange)="handleAddressChange($event)" />
+
     <!-- 
     <div class="searchFilterPopupDesktop is-rightAligned is-scrollable" style="height: 500px; width: 600px;">
         <div class="searchFilterPopupDesktop-closeButton"><button type="button" class="css-19jk1h8"><span

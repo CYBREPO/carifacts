@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from '../page-layout/admin-layout/admin-layout.c
 import { MaterialModuleModule } from '../shared/material-module.module';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -18,7 +19,8 @@ const Routes = [
   declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, TopNavbarComponent],
   imports: [
     CommonModule, RouterModule.forChild(Routes),
-    SharedModuleModule,MaterialModuleModule
+    SharedModuleModule,MaterialModuleModule,
+    GooglePlaceModule,
   ]
 })
 

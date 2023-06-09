@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/assets/css/sb-admin-2.scss",
               "src/styles.scss"
             ],
@@ -36,6 +37,9 @@
               "./node_modules/bootstrap/dist/js/bootstrap.js",
               "./src/custom-script.js",
               "./src/assets/vendor/jquery/jquery.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "ngx-google-places-autocomplete"
             ]
           },
           "configurations": {
@@ -85,7 +89,7 @@
           "options": {
             "browserTarget": "autohyre:build",
             "proxyConfig": "src/proxy.conf.json"
-            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -106,6 +110,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
