@@ -29,13 +29,40 @@
             ],
             "styles": [
               "src/assets/css/sb-admin-2.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/dashboard/dashboard-assets/bootstrap.css",
+              "src/app/dashboard/dashboard-assets/core.css",
+              "src/app/dashboard/dashboard-assets/components.css",
+              "src/app/dashboard/dashboard-assets/colors.css",
+              "src/app/dashboard/dashboard-assets/dashboard.css",
+              "src/app/dashboard/dashboard-assets/selectize.bootstrap3.css",
+              "src/app/dashboard/dashboard-assets/bootstrap-select.min.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
               "./src/custom-script.js",
-              "./src/assets/vendor/jquery/jquery.min.js"
+              "./src/assets/vendor/jquery/jquery.min.js",
+              "./src/dashboard-assets/jquery.min.js",
+              "./src/dashboard-assets/bootstrap.min.js",
+              "./src/dashboard-assets/htblockui.min.js",
+              "./src/dashboard-assets/pnotify.min.js",
+              "./src/dashboard-assets/ion_rangeslider.min.js",
+              "./src/dashboard-assets/uniform.min.js",
+              "./src/dashboard-assets/app.js",
+              "./src/dashboard-assets/keypress-2.1.4.min.js",
+              "./src/dashboard-assets/jquery.highlight-4.closure.js",
+              "./src/dashboard-assets/moment.min.js",
+              "./src/dashboard-assets/bootstrap-datetimepicker.js",
+              "./src/dashboard-assets/daterangepicker.js",
+              "./src/dashboard-assets/selectize.min.js",
+              "./src/dashboard-assets/underscore-min.js",
+              "./src/dashboard-assets/handlebars-v4.0.11.js",
+              "./src/dashboard-assets/typeahead.bundle.min.js",
+              "./src/dashboard-assets/bootstrap-select.min.js",
+              "./src/dashboard-assets/ContainerValidator.js",
+              "./src/dashboard-assets/idex.js",
+              "./src/dashboard-assets/bootstrap-clockpicker.min.js"
             ]
           },
           "configurations": {
@@ -85,7 +112,7 @@
           "options": {
             "browserTarget": "autohyre:build",
             "proxyConfig": "src/proxy.conf.json"
-            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

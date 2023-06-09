@@ -16,13 +16,13 @@ export class CacheService {
   }
 
   set(key: string, value: ICacheContent): void {
-    this.storage.store(key, value)
+    // this.storage.store(key, value)
   }
 
 
 
   delete(key: string): void {
-    this.storage.clear(key);
+    // this.storage.clear(key);
   }
 
   deleteAll(): void {
