@@ -77,11 +77,13 @@ ul {
     background: $theme-blue;
     border-color: $theme-blue;
 }
+
 .button-red {
     background: $theme-blue;
     border-color: $theme-blue;
     color: white;
 }
+
 .button-blue-border {
     border-color: $theme-blue !important;
     color: $theme-blue !important;
@@ -811,7 +813,7 @@ $font-family_2: Raleway, Helvetica, sans-serif;
     }
 }
 
-.ripple-surface{
+.ripple-surface {
     min-width: unset !important;
 }
 
@@ -823,5 +825,3 @@ $font-family_2: Raleway, Helvetica, sans-serif;
         width: 100%;
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
