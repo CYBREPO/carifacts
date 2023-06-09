@@ -30,13 +30,40 @@
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/assets/css/sb-admin-2.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/dashboard/dashboard-assets/bootstrap.css",
+              "src/app/dashboard/dashboard-assets/core.css",
+              "src/app/dashboard/dashboard-assets/components.css",
+              "src/app/dashboard/dashboard-assets/colors.css",
+              "src/app/dashboard/dashboard-assets/dashboard.css",
+              "src/app/dashboard/dashboard-assets/selectize.bootstrap3.css",
+              "src/app/dashboard/dashboard-assets/bootstrap-select.min.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./src/custom-script.js",
-              "./src/assets/vendor/jquery/jquery.min.js"
+              "src/custom-script.js", 
+              "src/assets/vendor/jquery/jquery.min.js",
+              "src/app/dashboard/dashboard-assets/jquery.min.js",
+              "src/app/dashboard/dashboard-assets/bootstrap.min.js",
+              "src/app/dashboard/dashboard-assets/htblockui.min.js",
+              "src/app/dashboard/dashboard-assets/pnotify.min.js",
+              "src/app/dashboard/dashboard-assets/ion_rangeslider.min.js",
+              "src/app/dashboard/dashboard-assets/uniform.min.js",
+              "src/app/dashboard/dashboard-assets/app.js",
+              "src/app/dashboard/dashboard-assets/keypress-2.1.4.min.js",
+              "src/app/dashboard/dashboard-assets/jquery.highlight-4.closure.js",
+              "src/app/dashboard/dashboard-assets/moment.min.js",
+              "src/app/dashboard/dashboard-assets/bootstrap-datetimepicker.js",
+              "src/app/dashboard/dashboard-assets/daterangepicker.js",
+              "src/app/dashboard/dashboard-assets/selectize.min.js",
+              "src/app/dashboard/dashboard-assets/underscore-min.js",
+              "src/app/dashboard/dashboard-assets/handlebars-v4.0.11.js",
+              "src/app/dashboard/dashboard-assets/typeahead.bundle.min.js",
+              "src/app/dashboard/dashboard-assets/bootstrap-select.min.js",
+              "src/app/dashboard/dashboard-assets/ContainerValidator.js",
+              "src/app/dashboard/dashboard-assets/idex.js",
+              "src/app/dashboard/dashboard-assets/bootstrap-clockpicker.min.js"
             ],
             "allowedCommonJsDependencies": [
               "ngx-google-places-autocomplete"

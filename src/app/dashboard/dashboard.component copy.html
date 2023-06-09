@@ -1,0 +1,350 @@
+<div id="page-top">
+
+    <div id="wrapper">
+
+        <app-top-navbar></app-top-navbar>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Sidebar -->
+                <app-side-navbar></app-side-navbar>
+                <!-- End of Sidebar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped
+                        table-hover	
+                        table-primary
+                        align-middle">
+                            <thead class="table-light">
+                                <tr class="table-primary">
+                                    <th> Car</th>
+                                    <th> Car owner name</th>
+                                    <th> Registration number</th>
+                                    <th> Mobile number</th>
+                                    <th> Driver’s license</th>
+                                    <th> Car availability</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr class="table-primary" *ngFor="let host of hosts">
+                                    <td>{{host.car}}</td>
+                                    <td>{{host.car}}</td>
+                                    <td>{{host.car}}</td>
+                                    <td>{{host.mobile}}</td>
+                                    <td>{{host.drivingLicense}}</td>
+                                    <td>{{host.carAvailability}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="host-profile">
+                        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                            <ol class="carousel-indicators" *ngFor="let img of hosts?.carPhotos; let i = index">
+                                <li data-bs-target="#carouselId" data-bs-slide-to="1" class="active" 
+                                aria-current="true"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active" *ngFor="let img of hosts?.carPhotos; let i = index">
+                                    <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block" >
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="profile-image">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <form [formGroup]="brandForm">
+                        <div class="border border border-secondary p-3 my-md-5">
+                            <div class="d-sm-flex align-items-center justify-content-between my-md-2">
+                                <h1 class="h3 mb-0 text-gray-800">Vehicles Brand</h1>
+                            </div>
+                            <hr>
+                            <div class="row align-items-end">
+                                <div class="col-md-4">
+                                    <div>Upload Image</div>
+                                    <input type="file" formControlName="bfile" [multiple]="false"
+                                        (change)="handleFileInputBrand($event)" name="Car Image" id="bfile">
+                                </div>
+                                <div class="col-md-4">
+                                    <div>Select Brand</div>
+
+                                    <select name="brand" id="brand" formControlName="brandName">
+                                        <option value="Lexus">Lexus</option>
+                                        <option value="Toyota">Toyota</option>
+                                        <option value="Mercedes Benz">Mercedes Benz</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Acura">Acura</option>
+                                        <option value="Honda">Honda</option>
+                                        <option value="Infiniti">Infiniti</option>
+                                        <option value="Nissan">Nissan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <button (click)="submitBrand()" class="btn btn-primary">submit brand</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Content Row -->
+                    <form method="post" [formGroup]="vehicleForm">
+                        <!-- <label for="" class="mr-3">Description</label> -->
+                        <textarea id="mytextarea" formControlName="description">Hello, World!</textarea>
+                        <!-- </form> -->
+                        <div class="border border border-secondary p-3 my-md-5">
+                            <div class="d-sm-flex align-items-center justify-content-between my-md-2">
+                                <h1 class="h3 mb-0 text-gray-800">Upload Vehicles</h1>
+                            </div>
+                            <hr>
+                            <!-- <form action="post" class="mt-md-5"> -->
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div>Upload Image</div>
+                                    <input type="file" formControlName="files" [multiple]="true"
+                                        (change)="handleFileInput($event)" name="Car Image" id="file">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Select Brand</div>
+
+                                    <select name="brand" id="brand" formControlName="brand">
+                                        <option value="Lexus">Lexus</option>
+                                        <option value="Toyota">Toyota</option>
+                                        <option value="Mercedes Benz">Mercedes Benz</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Acura">Acura</option>
+                                        <option value="Honda">Honda</option>
+                                        <option value="Infiniti">Infiniti</option>
+                                        <option value="Nissan">Nissan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Selec Type</div>
+
+                                    <select name="type" id="type" formControlName="type">
+                                        <option value="car">Car</option>
+                                        <option value="suv">SUV</option>
+                                        <option value="truck">Truck</option>
+                                        <option value="ninivans">Minivans</option>
+                                        <option value="van">van</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Select Model</div>
+
+                                    <select name="model" id="model" formControlName="model">
+                                        <option value="rav4">rav4</option>
+                                        <option value="lc">lc</option>
+                                        <option value="300">300</option>
+                                        <option value="rush">rush</option>
+                                        <option value="prado">prado</option>
+                                        <option value="fortuner">fortuner</option>
+                                        <option value="sedan">sedan</option>
+                                        <option value="belta">belta</option>
+                                        <option value="corolla">corolla</option>
+                                        <option value="camry">camry</option>
+                                        <option value="hilux">hilux</option>
+                                        <option value="land cruiser">land cruiser</option>
+                                        <option value="70">70</option>
+                                        <option value="high">high</option>
+                                        <option value="duty">duty</option>
+                                        <option value="dyna">dyna</option>
+                                        <option value="coaster">coaster</option>
+                                        <option value="hiace">hiace</option>
+                                        <option value="mini">mini</option>
+                                        <option value="subcompact">subcompact</option>
+                                        <option value="rumion">rumion</option>
+                                        <option value="starlet-new">starlet-new</option>
+                                        <option value="starlet">starlet</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Add Price</div>
+                                    <input type="number" name="price" id="price" formControlName="price">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Number of Doors</div>
+                                    <input type="number" name="doors" id="doors" formControlName="doors">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Number of Seats</div>
+                                    <input type="number" name="seats" id="seats" formControlName="seats">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Mileage</div>
+                                    <input type="number" name="mileage" id="mileage" formControlName="mileage">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Mileage Unit</div>
+                                    <select name="fuelUnit" id="fuelUnit" formControlName="fuelUnit">
+                                        <option *ngFor="let unt of fuel" [value]="unt.unit">{{unt.label}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Fuel Grade</div>
+                                    <input type="text" name="fuelGrade" id="fuelGrade" formControlName="fuelGrade">
+                                </div>
+                                <div class="col-md-2">
+                                    <div>Fuel Type</div>
+                                    <select name="fuelType" id="fuelType" formControlName="fuelType">
+                                        <option *ngFor="let fuel of fuelTypes" [value]="fuel.label">{{fuel.value}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div>year</div>
+                                    <input type="number" name="year" id="year" formControlName="year">
+                                </div>
+                            </div>
+
+
+                            <!-- </form> -->
+                        </div>
+                        <div class="border border border-secondary p-3">
+                            <div class="d-sm-flex align-items-center justify-content-between my-md-2">
+                                <h1 class="h3 mb-0 text-gray-800">Additional features</h1>
+                            </div>
+                            <hr>
+
+                            <!-- <form action="post" class="mt-md-5"> -->
+                            <div class="row">
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Must be 21+ to book</label><input type="checkbox"
+                                        name="ageBook" id="ageBook" formControlName="ageBook">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Automatic transmission</label><input type="checkbox"
+                                        name="automaticTransmission" id="automaticTransmission"
+                                        formControlName="automaticTransmission">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">All-wheel drive</label><input type="checkbox"
+                                        name="AllWheelDrive" id="AllWheelDrive" formControlName="AllWheelDrive">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Apple CarPlay</label><input type="checkbox"
+                                        name="appleCarPlay" id="appleCarPlay" formControlName="appleCarPlay">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Android Auto</label><input type="checkbox"
+                                        name="androidAuto" id="androidAuto" formControlName="androidAuto">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">AUX input</label><input type="checkbox" name="auxInput"
+                                        id="auxInput" formControlName="auxInput">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Backup camera</label><input type="checkbox"
+                                        name="backupCamera" id="backupCamera" formControlName="backupCamera">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Bluetooth</label><input type="checkbox" name="bluetooth"
+                                        id="bluetooth" formControlName="bluetooth">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Child seat</label><input type="checkbox" name="childSeat"
+                                        id="childSeat" formControlName="childSeat">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Heated seats</label><input type="checkbox"
+                                        name="heatedSeats" id="heatedSeats" formControlName="heatedSeats">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Keyless entry</label><input type="checkbox"
+                                        name="keylessEntry" id="keylessEntry" formControlName="keylessEntry">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Sunroof</label><input type="checkbox" name="sunRoof"
+                                        id="sunRoof" formControlName="sunRoof">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">Toll pass</label><input type="checkbox" name="tollPass"
+                                        id="tollPass" formControlName="tollPass">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">USB charger</label><input type="checkbox"
+                                        name="usbCharger" id="usbCharger" formControlName="usbCharger">
+                                </div>
+                                <div class="d-flex col-md-3">
+                                    <label for="" class="mr-3">USB input</label><input type="checkbox" name="usbInput"
+                                        id="usbInput" formControlName="usbInput">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                    <button (click)="submit()" class="btn btn-primary">submit</button>
+
+
+                </div>
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+
+    </div>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
