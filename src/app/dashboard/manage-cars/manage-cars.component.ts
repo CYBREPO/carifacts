@@ -13,6 +13,7 @@ export class ManageCarsComponent {
 
   companies: Array<any> = [];
   models: Array<any> = [];
+  vehicles: Array<any> = [];
   columns: Array<{
     title: string, dataField: string, type: string, dataType?: string, rowChild?: { component: any, show: boolean },sort?:boolean,
     actions?: Array<{ event: string, type: string, title: string, class: string, conditionalDisplay?: { dataField: string, value: any } }>
@@ -35,6 +36,7 @@ export class ManageCarsComponent {
   ngOnInit(){
     this.setColums();
     this.getAllCompanies();
+    this.getAllVehicles();
     this.initForm();
   }
 
@@ -83,8 +85,10 @@ export class ManageCarsComponent {
 
   setColums(){
     this.columns = [
-      {title: 'Car Company', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
-      {title: 'MOdel', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      {title: 'Car Company', dataField: 'make', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      {title: 'Model', dataField: 'model', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      {title: 'Type', dataField: 'type', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      {title: 'Year', dataField: 'year', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       {title: 'Action', dataField: '', type: GridColumnType.ACTION, actions : [
         {title: "edit", event: "edit", type:  GridActionType.ICON, class:"fa fa-pencil"},
         {title: "delete", event: "delete", type: GridActionType.ICON, class:"fa fa-trash"},
@@ -103,22 +107,31 @@ export class ManageCarsComponent {
   getBrandsById(){
     this.formControl['model'].setValue('');
     this.models =[];
-    this.httpService.httpPost(ApiUrls.brand.getBrandById, {id: this.formControl['brand'].value}).subscribe((res: any) => {
+    this.httpService.httpGet(ApiUrls.brand.getBrandById, {id: this.formControl['brand'].value}).subscribe((res: any) => {
       if(res['success']){
-        this.models = res['data'];
+        this.models = res['data']['models'];
       }
     });
   }
 
   getAllVehicles(){
-
+    let param = {
+      pageIndex: this.pageIndex,
+      pageSize: this.pageSize
+    }
+    this.httpService.httpPost(ApiUrls.vehicle.getVehicles,param).subscribe((res: any) => {
+      if(res['success']){
+        this.vehicles = res['data'];
+        this.totalCount = res['count'];
+      }
+    })
   }
 
   paginationEventHandler(event: {pageIndex: number, pageSize: number}){
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
 
-    this.getAllCompanies();
+    this.getAllVehicles();
   }
 
   gridEvent(evt: any){
@@ -139,18 +152,52 @@ export class ManageCarsComponent {
     }
   }
 
-  addModels(){
-    this.submitted = true;
+  submit() {
+    const formData: FormData = new FormData();
+    formData.append(`description`, this.formControl['description'].value);
+    // formData.append(`id`, "");
+    formData.append(`listingCreatedTime`, "");
+    formData.append(`make`, this.formControl['brand'].value);
+    formData.append(`marketAreaId`, "");
+    formData.append(`marketCountry`, "");
+    formData.append(`model`, this.formControl['model'].value);
+    formData.append(`name`, "");
+    formData.append(`registration`, "");
+    formData.append(`averageFuelEconomy`,this.formControl['mileage'].value);
+    formData.append(`fuelUnit`, this.formControl['fuelUnit'].value);
+    formData.append(`fuelUnitLabel`, this.fuel.find(m => m.unit == this.formControl['fuelUnit'].value)?.label??"");
+    formData.append(`type`, this.formControl['type'].value);
+    formData.append(`fuelGrade`, this.formControl['fuelGrade'].value);
+    formData.append(`numberOfDoors`, this.formControl['doors'].value);
+    formData.append(`numberOfSeats`, this.formControl['seats'].value);
+    formData.append(`year`, this.formControl['year'].value);
+    formData.append(`price`, this.formControl['price'].value);
+    formData.append(`fuelType[label]`, this.formControl['fuelType'].value);
+    formData.append(`fuelType[value]`, this.fuelTypes.find(m => m.label == this.formControl['fuelType'].value)?.value??"");
 
-    if(this.vehicleForm.invalid) return;
+    formData.append(`ageBook`, this.formControl['ageBook'].value);
+    formData.append(`automaticTransmission`, this.formControl['automaticTransmission'].value);
+    formData.append(`AllWheelDrive`, this.formControl['AllWheelDrive'].value);
+    formData.append(`appleCarPlay`, this.formControl['appleCarPlay'].value);
+    formData.append(`androidAuto`, this.formControl['androidAuto'].value);
+    formData.append(`auxInput`, this.formControl['auxInput'].value);
+    formData.append(`backupCamera`, this.formControl['backupCamera'].value);
+    formData.append(`bluetooth`, this.formControl['bluetooth'].value);
+    formData.append(`childSeat`, this.formControl['childSeat'].value);
+    formData.append(`heatedSeats`, this.formControl['heatedSeats'].value);
+    formData.append(`keylessEntry`, this.formControl['keylessEntry'].value);
+    formData.append(`sunRoof`, this.formControl['sunRoof'].value);
+    formData.append(`tollPass`, this.formControl['tollPass'].value);
+    formData.append(`usbCharger`, this.formControl['usbCharger'].value);
+    formData.append(`usbInput`, this.formControl['usbInput'].value);
 
-    let param = {
-      brandId: this.vehicleForm.controls['carCompany'].value,
-      name: this.vehicleForm.controls['carModel'].value,
+
+    for (let i = 0; i < this.fileData?.length; i++) {
+      formData.append(`images`, this.fileData[i]);
     }
 
-    this.httpService.httpPost(ApiUrls.brand.setModels,param).subscribe(res => {
-      this.modalBtn.nativeElement.click();
-    });
+
+    this.httpService.httpPostFormData(ApiUrls.vehicle.setVehicleDetails,formData).subscribe(res => {});
+
   }
 }

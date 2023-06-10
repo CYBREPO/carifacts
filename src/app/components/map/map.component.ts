@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/service/http.service';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 
-interface Food {
+interface price {
   value: string;
   viewValue: string;
 }
@@ -20,9 +21,17 @@ interface Food {
 export class MapComponent {
 
   vehicleModels: any;
-  // = vehicleModels.vehicleModels
   cardetails: any;
   searchedLocation: string = '';
+  priceSort: price[] = [
+    { value: 'low-to-high-0', viewValue: 'Price: low to high' },
+    { value: 'high-to-low-1', viewValue: 'Price: high to low' },
+    { value: 'relevance', viewValue: 'Relevance' },
+  ];
+  filterForm: FormGroup;
+  companies: Array<any> = [];
+
+  //MAP Options
   mapOptions: google.maps.MapOptions = {
     center: { lat: 38.9987208, lng: -77.2538699 },
     zoom: 14
@@ -33,11 +42,11 @@ export class MapComponent {
 
   options: any = {
     componentRestrictions: { country: 'NGA' }
-  }  
+  }
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
-    private activatedRoute: ActivatedRoute, private httpService: HttpService) {
+    private activatedRoute: ActivatedRoute, private httpService: HttpService, private fb: FormBuilder) {
     activatedRoute.params.subscribe(res => {
       if (res['loc']) {
         this.searchedLocation = res['loc'];
@@ -47,12 +56,30 @@ export class MapComponent {
 
   ngOnInit() {
     this.getLocationWiseData();
+    this.initform();
     // let selectedLocation = this.datatransferService.getData();
     // this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
   }
 
+  initform() {
+    this.filterForm = this.fb.group({
+      priceSort: [''],
+      price: [''],
+      make: [''],
+      type: ['']
+    });
+  }
+
+  get frmCrtl() { return this.filterForm.controls }
+
   getLocationWiseData() {
     if (this.searchedLocation == "") {
+      let param = {
+        priceSort: this.frmCrtl['priceSort'].value,
+        price: this.frmCrtl['price'].value,
+        make: this.frmCrtl['make'].value,
+        type: this.frmCrtl['type'].value
+      }
       this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, null).subscribe(res => {
         this.vehicleModels = res;
       });
@@ -69,17 +96,21 @@ export class MapComponent {
 
   }
 
+  getAllCompanies(){
+    this.httpService.httpPost(ApiUrls.brand.getAllBrands,null).subscribe((res: any) => {
+      if(res['success']){
+        this.companies = res['data'];
+      }
+    });
+  }
+
   parentEventHandlerFunction(event: any) {
     this.datatransferService.setData(event);
     this.router.navigate(['/cust/cardetails'])
   }
 
 
-  foods: Food[] = [
-    { value: 'low-to-high-0', viewValue: 'Price: low to high' },
-    { value: 'high-to-low-1', viewValue: 'Price: high to low' },
-    { value: 'relevance', viewValue: 'Relevance' },
-  ];
+
 
   formatLabel(value: number): string {
     if (value >= 1000) {
@@ -89,7 +120,7 @@ export class MapComponent {
     return `${value}`;
   }
 
-  
+
   handleAddressChange(address: Address) {
     console.log(address.formatted_address)
     console.log(address.geometry.location.lat())

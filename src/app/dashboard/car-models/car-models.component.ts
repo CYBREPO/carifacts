@@ -70,13 +70,18 @@ export class CarModelsComponent {
   getAllCompanies(){
     this.httpService.httpPost(ApiUrls.brand.getAllBrands,null).subscribe((res: any) => {
       if(res['success']){
-        this.filteredCompanies = res['data'];
+        this.allCompanies = res['data'];
+        this.filteredCompanies = JSON.parse(JSON.stringify(this.allCompanies));
       }
     });
   }
 
   getAllModels(){
-    this.httpService.httpPost(ApiUrls.brand.getAllModels,null).subscribe((res: any) => {
+    let param = {
+      pageIndex:this.pageIndex,
+      pageSize: this.pageSize
+    }
+    this.httpService.httpPost(ApiUrls.brand.getAllModels,param).subscribe((res: any) => {
       if(res['success']){
         this.models = res['data'];
         this.totalCount = res['count'];
@@ -95,14 +100,14 @@ export class CarModelsComponent {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
 
-    this.getAllCompanies();
+    this.getAllModels();
   }
 
   gridEvent(evt: any){
     if(evt.event == "delete"){
       this.httpService.httpPost(ApiUrls.brand.deleteBrand,{id: evt.data._id}).subscribe((res: any) => {
         if(res['success']){
-          this.getAllCompanies();
+          this.getAllModels();
         }
       });
     }

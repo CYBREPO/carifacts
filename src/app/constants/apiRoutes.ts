@@ -14,6 +14,7 @@ class vehicle{
     public static setVehicleDetails = "vehicle/setVehicleDetails";
     public static getFilteredVehicleDetails = "vehicle/getFilteredVehicleDetails";
     public static getAdditionDetails = "vehicle/getAdditionDetails";
+    public static getVehicles = "vehicle/getVehicles";
 }
 class location{
     public static getLocationVechile = "location/getLocationVechile";
@@ -34,6 +35,7 @@ class account{
     public static resetPassword = "account/reset-password";
     public static updatePassword = "account/updatePassword";
     public static updateUser = "account/updateUser";
+    public static getUsers = "account/getUsers";
 
 }
 

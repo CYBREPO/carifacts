@@ -2,10 +2,23 @@
     <div class="navbar justify-content-between">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a [routerLink]="['/admin/dashboard']"><img src="../assets/images/output-onlinepngtools.png" height="46px"></a>
+                <a [routerLink]="['/admin/dashboard']"><img src="../assets/images/output-onlinepngtools.png"
+                        height="46px"></a>
             </div>
             <ul>
-                <li class="dropdown dropdown-user">
+                <!-- <button mat-button [matMenuTriggerFor]="menu"> -->
+                <a [matMenuTriggerFor]="menu" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-sm">{{user.email}}</span>
+                </a>
+                <!-- </button> -->
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item><a (click)="openProfile()"><i class="fa fa-user" aria-hidden="true"></i>
+                            Profile</a></button>
+                    <button mat-menu-item><a (click)="changePassword()"><i class="fa fa-key" aria-hidden="true"></i> Change
+                            Password</a></button>
+                    <button mat-menu-item><a (click)="logout()"> Logout</a></button>
+                </mat-menu>
+                <!-- <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         <span class="hidden-sm">{{user.email}}</span>
                     </a>
@@ -17,7 +30,7 @@
                         <li class="divider"></li>
                         <li><a (click)="logout()"> Logout</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

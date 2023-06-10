@@ -1,25 +1,48 @@
 <div class="container">
-    <mat-form-field>
-        <mat-label>Sort by</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+    <form [formGroup]="filterForm" (ngSubmit)="this.searchedLocation = '';getLocationWiseData()">
+        <mat-form-field>
+            <mat-label>Sort by</mat-label>
+            <mat-select formControlName="priceSort">
+                <mat-option *ngFor="let p of priceSort" [value]="p.value">
+                    {{p.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel" formControlName="price">
         <input matSliderThumb>
-    </mat-slider>
+        </mat-slider>
+        <mat-form-field>
+            <mat-label>Company</mat-label>
+            <mat-select formControlName="make">
+                <mat-option *ngFor="let cmp of companies" [value]="cmp.name">
+                    {{cmp.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="make">
+                <mat-option *ngFor="let cmp of companies" [value]="cmp.name">
+                    {{cmp.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+        <button type="submit">submit</button>
+    </form>
 
-    <google-map [options]="mapOptions">
+
+
+    <!--MAP starts-->
+    <!-- <google-map [options]="mapOptions">
         <map-marker [position]="marker.position"></map-marker>
-     </google-map>
+     </google-map> -->
 
-    <input class="form-control" ngx-google-places-autocomplete [options]="options"
-        (onAddressChange)="handleAddressChange($event)" />
+    <!-- <input class="form-control" ngx-google-places-autocomplete [options]="options"
+        (onAddressChange)="handleAddressChange($event)" /> -->
+    <!--Map ends-->
 
-    <!-- 
-    <div class="searchFilterPopupDesktop is-rightAligned is-scrollable" style="height: 500px; width: 600px;">
+
+    <!-- <div class="searchFilterPopupDesktop is-rightAligned is-scrollable" style="height: 500px; width: 600px;">
         <div class="searchFilterPopupDesktop-closeButton"><button type="button" class="css-19jk1h8"><span
                     aria-hidden="true" title="Close" class="css-3t8yh6"></span><span
                     class="css-225x9j">Close</span></button></div>

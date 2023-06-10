@@ -24,10 +24,10 @@ export class HttpApiInterceptor implements HttpInterceptor {
         if (autoLoader == 'true') {
             this.loaderService.display(true);
         }
-        if (currentUser && currentUser.Token) {
+        if (currentUser && currentUser.token) {
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Bearer ${currentUser.Token}`
+                    Authorization: `Bearer ${currentUser.token}`
                 }
             });
         }

@@ -73,6 +73,7 @@ export class CarCompaniesComponent {
   }
 
   gridEvent(evt: any){
+    debugger
     if(evt.event == "delete"){
       this.httpService.httpPost(ApiUrls.brand.deleteBrand,{id: evt.data._id}).subscribe((res: any) => {
         if(res['success']){

@@ -1,14 +1,14 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
 </button>
-<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="models"
-    (paginationEventHandler)="paginationEventHandler($event)" (gridEvent)="gridEvent($event)"></app-table>
+<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="vehicles"
+    (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>
 
 
 
 <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
     aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
-        <form [formGroup]="vehicleForm" (ngSubmit)="addModels()">
+        <form [formGroup]="vehicleForm" (ngSubmit)="submit()">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleId">Add Models</h5>
@@ -111,6 +111,14 @@
                                 <label for="" class="d-block">Year</label>
                                 <input type="number" name="year" id="year" formControlName="year">
                                 <span *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year is required</span>
+                            </div>
+                        </div>
+                        <div class="col mt-3 px-1">
+                            <div class="form-field ">
+                                <label for="" class="d-block">Uplaod Images</label>
+                                <input type="file" formControlName="files" [multiple]="true"
+                                        (change)="handleFileInput($event)" name="Car Image" id="file">
+                                <!-- <span *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year is required</span> -->
                             </div>
                         </div>
 

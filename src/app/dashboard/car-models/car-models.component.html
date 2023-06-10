@@ -1,7 +1,7 @@
 <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
 </button>
 <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="models"
-    (paginationEventHandler)="paginationEventHandler($event)" (gridEvent)="gridEvent($event)"></app-table>
+    (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>
 
 
 
@@ -18,9 +18,9 @@
 
                     <div class="row">
                         <div class="col mt-3 px-1">
-                            <div class="form-field ">
+                            <div class="form-field">
                                 <label for="" class="d-block">Car Company Name</label>
-                                <input formControlName="carCompany" type="text" class="d-block"
+                                <input matInput formControlName="carCompany" type="text" class="d-block"
                                     [matAutocomplete]="auto" placeholder="search company">
                                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayTypeAheadCompay.bind(this)">
                                     <mat-option *ngIf="isLoading">
