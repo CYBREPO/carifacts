@@ -17,25 +17,18 @@ export class EditProfileComponent {
   file: File;
   profileForm: FormGroup;
   submitted: boolean = false;
-  user: IUser;
 
   constructor(public dialogRef: MatDialogRef<EditProfileComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private httpService: HttpService,
-    private userInfoService: UserInfoService, private router: Router) { }
+    @Inject(MAT_DIALOG_DATA) public data: IUser, private fb: FormBuilder, private httpService: HttpService) { }
 
   ngOnInit() {
-    this.user = this.userInfoService.getLoggedInUser();
-    if (this.user == null) {
-      localStorage.removeItem('currentUser');
-      this.router.navigate(['/account/login']);
-    }
     this.initForm();
   }
 
   initForm() {
     this.profileForm = this.fb.group({
-      name: [this.user.name ?? '', [Validators.required]],
-      email: [this.user.email ?? '', [Validators.required]],
+      name: [this.data?.name ?? '', [Validators.required]],
+      email: [this.data?.email ?? '', [Validators.required]],
       profile: ['', []]
     });
   }
@@ -57,7 +50,7 @@ export class EditProfileComponent {
 
     formData.append(`name`, this.profileForm.controls['name'].value);
     formData.append(`email`, this.profileForm.controls['email'].value);
-    formData.append(`id`, this.user._id);
+    formData.append(`id`, this.data?._id??"");
     formData.append(`profile`, this.file);
 
     this.httpService.httpPostFormData(ApiUrls.account.updateUser, formData).subscribe((res: any) => {

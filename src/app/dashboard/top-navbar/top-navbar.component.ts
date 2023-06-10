@@ -26,6 +26,7 @@ export class TopNavbarComponent {
     const dialogRef = this.dialog.open(EditProfileComponent,{
       height: "80%",
       width: "80%",
+      data: this.user
     });
 
     dialogRef.afterClosed();

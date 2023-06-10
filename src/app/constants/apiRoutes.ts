@@ -36,6 +36,8 @@ class account{
     public static updatePassword = "account/updatePassword";
     public static updateUser = "account/updateUser";
     public static getUsers = "account/getUsers";
+    public static updateUserStatus = "account/updateUserStatus";
+    public static deleteUser = "account/deleteUser";
 
 }
 

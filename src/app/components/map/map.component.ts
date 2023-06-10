@@ -55,8 +55,9 @@ export class MapComponent {
   }
 
   ngOnInit() {
-    this.getLocationWiseData();
     this.initform();
+    this.getLocationWiseData();
+    this.getAllCompanies();
     // let selectedLocation = this.datatransferService.getData();
     // this.vehicleModels = vehicleModels.vehicleModels.filter(m => selectedLocation.modalIds.toString().includes(m.id));
   }
@@ -80,7 +81,7 @@ export class MapComponent {
         make: this.frmCrtl['make'].value,
         type: this.frmCrtl['type'].value
       }
-      this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, null).subscribe(res => {
+      this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe(res => {
         this.vehicleModels = res;
       });
     }
