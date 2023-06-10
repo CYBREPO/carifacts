@@ -12,14 +12,14 @@ export class TopNavbarComponent {
 
   user: IUser;
 
-  constructor(private userInfoService: UserInfoService,private router: Router){}
+  constructor(private userInfoService: UserInfoService, private router: Router) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.user = this.userInfoService.getLoggedInUser();
   }
 
   logout(): void {
     localStorage.removeItem('currentUser');
     this.router.navigate(['account/login']);
-}
+  }
 }

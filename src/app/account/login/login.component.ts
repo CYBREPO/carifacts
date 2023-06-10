@@ -26,7 +26,7 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private cacheService: CacheService,
     private encryptionService: EncryptionService, private modalDialogService: ModalDialogService,
-    private userInfoService: UserInfoService, private router: Router,private activatedRoute: ActivatedRoute) { }
+    private userInfoService: UserInfoService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.initForm()
@@ -83,8 +83,15 @@ export class LoginComponent {
 
         this.router.navigateByUrl(this.returnUrl).then(
           success => {
-            if (!success)
-              this.router.navigateByUrl('/home/landing-page');
+            if (!success) {
+              if (res['data'].isAdmin) {
+                this.router.navigateByUrl('/admin');
+              }
+              else{
+                this.router.navigateByUrl('/home');
+              }
+            }
+       
           });
       }
     });
