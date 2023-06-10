@@ -10,6 +10,9 @@ import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { CarCompaniesComponent } from './car-companies/car-companies.component';
 import { TableComponent } from './table/table.component';
+import { ChangePasswordComponent } from './account/change-password/change-password.component';
+import { EditProfileComponent } from './account/edit-profile/edit-profile.component';
+import { CarModelsComponent } from './car-models/car-models.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -21,7 +24,7 @@ const Routes = [
 
 @NgModule({
   declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, 
-    TopNavbarComponent, CarCompaniesComponent, TableComponent,
+    TopNavbarComponent, CarCompaniesComponent, TableComponent, ChangePasswordComponent, EditProfileComponent, CarModelsComponent,
   ],
   imports: [
     CommonModule, RouterModule.forChild(Routes),

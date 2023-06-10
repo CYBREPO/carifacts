@@ -32,6 +32,7 @@ class account{
     public static register = "account/register";
     public static resetPassword = "account/reset-password";
     public static updatePassword = "account/updatePassword";
+    public static updateUser = "account/updateUser";
 
 }
 

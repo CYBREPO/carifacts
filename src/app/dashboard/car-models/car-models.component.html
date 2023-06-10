@@ -1,0 +1,51 @@
+<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="allCompanies"
+    (paginationEventHandler)="paginationEventHandler($event)" (gridEvent)="gridEvent($event)"></app-table>
+
+<button type="button" #modalBtn class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId" hidden="true">
+</button>
+
+<div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+    aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+        <form [formGroup]="carModelForm" (ngSubmit)="addModels()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Add Models</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col mt-3 px-1">
+                            <div class="form-field ">
+                                <label for="" class="d-block">Car Company Name</label>
+                                <input formControlName="carCompany" type="text" class="d-block"
+                                    [matAutocomplete]="auto" placeholder="search company">
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayTypeAheadCompay.bind(this)">
+                                    <mat-option *ngIf="isLoading">
+                                        <mat-spinner diameter="20">
+                                        </mat-spinner>
+                                    </mat-option>
+                                    <mat-option *ngFor="let cmp of filteredCompanies" [value]="cmp._id">
+                                        {{cmp.name}}
+                                    </mat-option>
+                                </mat-autocomplete>
+
+                                <span *ngIf="submitted && carModelForm.get('carCompany')?.errors?.['required']">Car
+                                    company name is required</span>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

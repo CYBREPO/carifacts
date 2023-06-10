@@ -1,0 +1,43 @@
+<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+    <form [formGroup]="profileForm" (ngSubmit)="submit()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleId">Profile</h5>
+                <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             
+                    <div class="row">
+                        <div class="col mt-3 px-1">
+                            <div class="form-field ">
+                                <label for="" class="d-block">Name</label>
+                                <input formControlName="name" type="text" class="d-block">
+                                <span *ngIf="submitted && profileForm.get('name')?.errors?.['required']">Name is required</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col mt-3 px-1">
+                            <div class="form-field ">
+                                <label for="" class="d-block">Email</label>
+                                <input formControlName="email" type="text" class="d-block">
+                                <span *ngIf="submitted && profileForm.get('email')?.errors?.['required']">Email is required</span>
+                            </div>
+                        </div>
+
+                        <div class="col mt-3 px-1">
+                            <div class="form-field ">
+                                <label for="" class="d-block">Profile photo</label>
+                                <input formControlName="profile" type="file" name="Photo" id="Photo" (change)="handleFileInputProfile($event)">
+                            </div>
+                        </div>
+
+                    </div>
+              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+                <button type="submit" >Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
