@@ -1,18 +1,17 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
-import { GridActionType, GridColumnDataType, GridColumnType, Pagination } from 'src/app/constants/constant';
+import { GridActionType, GridColumnDataType, GridColumnType, Pagination, fuel } from 'src/app/constants/constant';
 import { HttpService } from 'src/app/service/http.service';
 
 @Component({
-  selector: 'app-car-models',
-  templateUrl: './car-models.component.html',
-  styleUrls: ['./car-models.component.scss']
+  selector: 'app-manage-cars',
+  templateUrl: './manage-cars.component.html',
+  styleUrls: ['./manage-cars.component.scss']
 })
-export class CarModelsComponent {
-  
-  filteredCompanies: Array<any> = [];
-  allCompanies: Array<any> = [];
+export class ManageCarsComponent {
+
+  companies: Array<any> = [];
   models: Array<any> = [];
   columns: Array<{
     title: string, dataField: string, type: string, dataType?: string, rowChild?: { component: any, show: boolean },sort?:boolean,
@@ -22,8 +21,10 @@ export class CarModelsComponent {
   pageIndex: number = 1;
   pageSize = Pagination.PageSize;
   
-  carModelForm: FormGroup;
-  file: File;
+  vehicleForm: FormGroup;
+  fileData: FileList;
+  fuel = fuel.fuelUnits;
+  fuelTypes = fuel.fuelTypes;
   submitted: boolean = false;
   isLoading:boolean = false;
 
@@ -34,26 +35,50 @@ export class CarModelsComponent {
   ngOnInit(){
     this.setColums();
     this.getAllCompanies();
-    this.getAllModels();
     this.initForm();
-    this.initizeTypeAhead();
   }
 
   initForm(){
-    this.carModelForm = this.fb.group({
-      carCompany: ['',[Validators.required]],
-      carModel: ['',[Validators.required]]
+    this.vehicleForm = this.fb.group({
+      description: [''],
+      files: [''],
+      brand: [''],
+      model: [''],
+      price: [''],
+      mileage: [''],
+      fuelType: [''],
+      type: [''],
+      fuelUnit: [''],
+      fuelGrade: [''],
+      doors: [''],
+      seats: [''],
+      year: [''],
+
+
+      ageBook: [false],
+      automaticTransmission: [false],
+      AllWheelDrive: [false],
+      appleCarPlay: [false],
+      androidAuto: [false],
+      auxInput: [false],
+      backupCamera: [false],
+      bluetooth: [false],
+      childSeat: [false],
+      heatedSeats: [false],
+      keylessEntry: [false],
+      sunRoof: [false],
+      tollPass: [false],
+      usbCharger: [false],
+      usbInput: [false],
     });
   }
 
-  initizeTypeAhead(){
-    this.carModelForm.controls['carCompany'].valueChanges.pipe().subscribe(res => {
-      if(typeof res == 'string' && res.length > 1){
-        this.isLoading = true;
-        this.filteredCompanies = this.allCompanies.filter(m => m.name.toLowerCase().includes(res.toLowerCase()));
-        this.isLoading = false;
-      }
-    })
+  get formControl() {
+    return this.vehicleForm.controls;
+  }
+
+  handleFileInput(event: any): void {
+    this.fileData = event?.target?.files;
   }
 
   setColums(){
@@ -70,25 +95,23 @@ export class CarModelsComponent {
   getAllCompanies(){
     this.httpService.httpPost(ApiUrls.brand.getAllBrands,null).subscribe((res: any) => {
       if(res['success']){
-        this.filteredCompanies = res['data'];
+        this.companies = res['data'];
       }
     });
   }
 
-  getAllModels(){
-    this.httpService.httpPost(ApiUrls.brand.getAllModels,null).subscribe((res: any) => {
+  getBrandsById(){
+    this.formControl['model'].setValue('');
+    this.models =[];
+    this.httpService.httpPost(ApiUrls.brand.getBrandById, {id: this.formControl['brand'].value}).subscribe((res: any) => {
       if(res['success']){
         this.models = res['data'];
-        this.totalCount = res['count'];
       }
     });
   }
 
-  displayTypeAheadCompay(val: any){
-    if(val != null && val != undefined && val != ''){
-      const res = this.filteredCompanies.find(m => m._id == val);
-      return res != null && res != undefined ? res.name : val;
-    }
+  getAllVehicles(){
+
   }
 
   paginationEventHandler(event: {pageIndex: number, pageSize: number}){
@@ -119,11 +142,11 @@ export class CarModelsComponent {
   addModels(){
     this.submitted = true;
 
-    if(this.carModelForm.invalid) return;
+    if(this.vehicleForm.invalid) return;
 
     let param = {
-      brandId: this.carModelForm.controls['carCompany'].value,
-      name: this.carModelForm.controls['carModel'].value,
+      brandId: this.vehicleForm.controls['carCompany'].value,
+      name: this.vehicleForm.controls['carModel'].value,
     }
 
     this.httpService.httpPost(ApiUrls.brand.setModels,param).subscribe(res => {

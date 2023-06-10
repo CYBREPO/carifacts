@@ -1,8 +1,9 @@
-<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="allCompanies"
+<button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
+</button>
+<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="models"
     (paginationEventHandler)="paginationEventHandler($event)" (gridEvent)="gridEvent($event)"></app-table>
 
-<button type="button" #modalBtn class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId" hidden="true">
-</button>
+
 
 <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
     aria-labelledby="modalTitleId" aria-hidden="true">
@@ -11,7 +12,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleId">Add Models</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" #modalBtn data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
@@ -35,7 +36,14 @@
                                     company name is required</span>
                             </div>
                         </div>
-
+                        <div class="col mt-3 px-1">
+                            <div class="form-field ">
+                                <label for="" class="d-block">Car Model</label>
+                                <input formControlName="carModel" type="text" class="d-block">
+                                <span *ngIf="submitted && carModelForm.get('carModel')?.errors?.['required']">Car
+                                    model is required</span>
+                            </div>
+                        </div>
 
 
                     </div>

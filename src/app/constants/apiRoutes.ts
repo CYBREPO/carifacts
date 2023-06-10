@@ -1,6 +1,7 @@
 class brand{
-    public static getBrands = "brand/getBrands";
+    public static getBrandById = "brand/getBrandById";
     public static getAllBrands = "brand/getAllBrands";
+    public static getAllModels = "brand/getAllModels";
     public static setBrands = "brand/setBrands";
     public static updateBrand = "brand/updateBrand";
     public static deleteBrand = "brand/deleteBrand";
