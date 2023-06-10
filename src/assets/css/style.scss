@@ -991,7 +991,8 @@ ul {
     font-variant: normal;
     line-height: 1;
     text-rendering: auto;
-    font-family: "Font Awesome 5 Free"; font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
 }
 
 .navigation li.active>.has-ul:after {
@@ -1253,8 +1254,9 @@ app-dashboard {
     }
 }
 
-.sidebar-default .navigation > li.active > a, .sidebar-default .navigation > li.active > a:focus, .sidebar-default .navigation > li.active > a:hover {
-
+.sidebar-default .navigation>li.active>a,
+.sidebar-default .navigation>li.active>a:focus,
+.sidebar-default .navigation>li.active>a:hover {
     background-image: linear-gradient(to right, #7e496b, #443d76, #934f91);
     color: #f5f5f5;
 }

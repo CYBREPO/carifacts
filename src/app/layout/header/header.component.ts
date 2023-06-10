@@ -1,7 +1,10 @@
+import { UserInfoService } from 'src/app/service/user-info.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
+import { IUser } from 'src/app/interface/userInterface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +15,16 @@ export class HeaderComponent implements OnInit {
   hostform: FormGroup;
   carFiles: FileList;
   profile: File;
-  constructor(private fb: FormBuilder, private httpService:HttpService) { }
+  hamburgerClicked: boolean = false;
+  user: IUser;
+
+
+  constructor(private fb: FormBuilder, private httpService: HttpService, private userInfoService: UserInfoService, private router: Router) { }
 
   ngOnInit(): void {
-    this.initForm()
+    this.user = this.userInfoService.getLoggedInUser()
+    this.initForm();
+    console.log(this.userInfoService);
   }
 
 
@@ -34,6 +43,9 @@ export class HeaderComponent implements OnInit {
       qualitystandards: [''],
       submityourlisting: [''],
     })
+  }
+  hamburgerClick() {
+    this.hamburgerClicked = !this.hamburgerClicked;
   }
 
   handleFileInput(event: any): void {
@@ -58,10 +70,13 @@ export class HeaderComponent implements OnInit {
     formdata.append(`profile`, this.profile);
 
     for (let i = 0; i < this.carFiles.length; i++) {
-        formdata.append(`carPhotos`, this.carFiles[i]);
+      formdata.append(`carPhotos`, this.carFiles[i]);
     }
-    
-    this.httpService.httpPostFormData(ApiUrls.host.createHost,formdata).subscribe(res => {})
-  }
 
+    this.httpService.httpPostFormData(ApiUrls.host.createHost, formdata).subscribe(res => { })
+  }
+  logout(): void {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['account/login']);
+  }
 }

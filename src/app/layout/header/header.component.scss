@@ -1,0 +1,110 @@
+$color_1: #555;
+$color_2: #4e65ff;
+
+
+.menu {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    li {
+        list-style: none;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 1em;
+            text-decoration: none;
+            color: $color_1;
+
+            &:hover {
+                color: $color_2;
+            }
+
+            ion-icon {
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+.navigation {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 120px;
+    height: 60px;
+    background: #fff;
+    transition: height 0.5s, width 0.5s;
+    transition-delay: 0s, 0.75s;
+    z-index: 9;
+    width: 300px;
+
+
+    .menuToggle {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 2px;
+            background: #555;
+            transform: translateY(-10px);
+            box-shadow: 0 10px #555;
+            transition: 0.5s;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 2px;
+            background: #555;
+            transform: translateY(10px);
+            transition: 0.5s;
+        }
+    }
+}
+
+.navigation.active {
+    height: max-content;
+
+    .userBx {
+        width: calc(100% - 60px);
+        transition-delay: 0s;
+    }
+
+    .menuToggle {
+        &::before {
+            transform: translateY(0px) rotate(45deg);
+            box-shadow: 0 0 #555;
+        }
+
+        &::after {
+            transform: translateY(0px) rotate(-45deg);
+        }
+    }
+}
+
+.menu {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    background: white;
+    box-shadow: 0 -1px 23px -7px #8080808c;
+}
