@@ -102,6 +102,7 @@ export class CarCompaniesComponent {
 
     this.httpService.httpPostFormData(ApiUrls.brand.setBrands,formData).subscribe((res: any) => {
       if(res['success']){
+        this.modalBtn.nativeElement.click();
         this.getAllCompanies();
       }
     })

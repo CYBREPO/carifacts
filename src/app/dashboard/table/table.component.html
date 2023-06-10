@@ -4,9 +4,9 @@
             <th width="24px">Sr</th>
             <ng-container *ngFor="let col of columns">
                 <th>{{col.title}}
-                    <span class="hide" *ngIf="col.sort"><i class="fa fa-arrow-up fa-1" style="cursor: pointer;"
+                    <span class="hide" *ngIf="col.sort??false"><i class="fa fa-arrow-up fa-1" style="cursor: pointer;"
                             (click)="sort('acs',col.dataField)"></i></span>
-                    <span class="hide" *ngIf="col.type"><i class="fa fa-arrow-down fa-1" style="cursor: pointer;"
+                    <span class="hide" *ngIf="col.sort??false"><i class="fa fa-arrow-down fa-1" style="cursor: pointer;"
                             (click)="sort('desc',col.dataField)"></i></span>
                 </th>
             </ng-container>
