@@ -80,18 +80,11 @@ export class LoginComponent {
         }
 
         this.userInfoService.setUser(res['data']);
-
+        this.returnUrl  = this.returnUrl == "/home" ? res['data'].isAdmin ? '/admin' : this.returnUrl : this.returnUrl
         this.router.navigateByUrl(this.returnUrl).then(
           success => {
-            if (!success) {
-              if (res['data'].isAdmin) {
-                this.router.navigateByUrl('/admin');
-              }
-              else{
-                this.router.navigateByUrl('/home');
-              }
-            }
-       
+            if (!success) 
+              this.router.navigateByUrl('/home');
           });
       }
     });
