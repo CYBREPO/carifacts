@@ -24,20 +24,19 @@ export class HomeComponent {
   }
 
   getBrands() {
-    this.httpservice.httpPost(ApiUrls.brand.getAllBrands, null).subscribe(res => {
-      this.vehicleModels = res;
+    this.httpservice.httpPost(ApiUrls.brand.getAllBrands, null).subscribe((res: any) => {
+      if (res['success']) {
+        this.vehicleModels = res['data'];
+      }
     });
   }
 
-  valueEmittedFromChildComponent: any;
-
 
   parentEventHandlerFunction(event: any) {
-    // this.datatransferService.setData(event);
-    this.router.navigate(['/cust/carcategory',event.name]);
+    this.router.navigate(['/cust/carcategory', event.name]);
   }
 
-  locationEvent(event: any){
-    this.router.navigate(['/cust/map',event.title]);
+  locationEvent(event: any) {
+    this.router.navigate(['/cust/map', event.title]);
   }
 }

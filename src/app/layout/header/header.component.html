@@ -5,7 +5,7 @@
             <div class="row justify-content-md-between">
                 <!-- Left elements -->
                 <div class="col-md-4 navbarlogo d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-                    <a href="/index.html" class="ms-md-2">
+                    <a [routerLink]="['/home']" class="ms-md-2">
                         <img src="../assets/images/output-onlinepngtools.png" height="50" />
                     </a>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">
@@ -19,13 +19,13 @@
                         <div class="menuToggle"></div>
                         <ul class="menu">
                             <li id="userNavbarDropdown-item-0" role="option" aria-selected="false"
-                                class="seo-pages-q2fcui e1ihn8vx2 mt-0"><a href="/us/en/login" class="mt-0">
+                                class="seo-pages-q2fcui e1ihn8vx2 mt-0"><a [routerLink]="['/account/login']" class="mt-0">
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Log in</span></div>
                                     </div>
                                 </a></li>
                             <li id="userNavbarDropdown-item-1" role="option" aria-selected="false"
-                                class="seo-pages-q2fcui e1ihn8vx2"><a href="/us/en/sign-up">
+                                class="seo-pages-q2fcui e1ihn8vx2"><a  [routerLink]="['/account/register']">
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Sign up</span></div>
                                     </div>
