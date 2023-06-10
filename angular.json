@@ -29,20 +29,12 @@
               "src/app/dashboard/dashboard-assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/scss/bootstrap.scss",
-              "src/assets/css/sb-admin-2.scss",
               "src/assets/css/style.scss",
               "src/styles.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/custom-script.js", 
-              "src/assets/vendor/jquery/jquery.min.js",
-              "src/app/dashboard/dashboard-assets/jquery.min.js",
-              "src/app/dashboard/dashboard-assets/bootstrap.min.js",
-              "src/app/dashboard/dashboard-assets/app.js",
-              "src/app/dashboard/dashboard-assets/bootstrap-select.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
             ],
             "allowedCommonJsDependencies": [
               "ngx-google-places-autocomplete"
