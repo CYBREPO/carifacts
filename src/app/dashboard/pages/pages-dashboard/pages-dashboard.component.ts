@@ -4,8 +4,9 @@ import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { GridActionType, GridColumnDataType, GridColumnType, Pagination } from 'src/app/constants/constant';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
-import { CkEditorComponent } from 'src/app/shared/ck-editor/ck-editor.component';
 import { TeamsComponent } from '../teams/teams.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
+import { OurListComponent } from '../our-list/our-list.component';
 
 @Component({
   selector: 'app-pages-dashboard',
@@ -15,6 +16,7 @@ import { TeamsComponent } from '../teams/teams.component';
 export class PagesDashboardComponent {
   
   pages: Array<any> = [];
+  teams: any;
   columns: Array<{
     title: string, dataField: string, type: string, dataType?: string, rowChild?: { component: any, show: boolean }, sort?: boolean,
     actions?: Array<{ event: string, type: string, title: string, class: string, conditionalDisplay?: { dataField: string, value: any } }>
@@ -46,12 +48,51 @@ export class PagesDashboardComponent {
   }
 
   getAllPages() {
-    this.httpService.httpGet(ApiUrls.pages.getPages, null).subscribe((res: any) => {
-      if (res['success']) {
-        this.pages = res['data'];
-        this.totalCount = res['count'];
+    // this.httpService.httpGet(ApiUrls.pages.getPages, null).subscribe((res: any) => {
+    //   if (res['success']) {
+    //     this.pages = res['data'];
+    //     this.totalCount = res['count'];
+    //   }
+    // })
+    
+    this.getAboutUs();
+    this.getTeams();
+    this.getOurLink();
+  }
+
+  getTeams(){
+    this.httpService.httpGet(ApiUrls.teams.getTeams,null).subscribe((res: any) => {
+      if(res['success']){
+        this.pages.push({
+          name: 'Teams',
+          description: res['data']['hearder'],
+          data: res['data'],
+        });
       }
-    })
+    });
+  }
+
+  getAboutUs(){
+    this.httpService.httpGet(ApiUrls.teams.getTeams,null).subscribe((res: any) => {
+      if(res['success']){
+        this.pages.push({
+          name: 'About Us',
+          description: res['data']['hearder'],
+          data: res['data'],
+        });
+      }
+    });
+  }
+  getOurLink(){
+    this.httpService.httpGet(ApiUrls.teams.getTeams,null).subscribe((res: any) => {
+      if(res['success']){
+        this.pages.push({
+          name: 'Our List',
+          description: res['data']['hearder'],
+          data: res['data'],
+        });
+      }
+    });
   }
 
   paginationEventHandler(evt: any) {
@@ -85,7 +126,21 @@ export class PagesDashboardComponent {
   }
 
   addUpdate(data: any = null) {
-    const dialogRef = this.dialog.open(TeamsComponent, {
+    let component: any;
+
+    switch(data.name){
+      case "About us": component = AboutUsComponent;
+      break;
+      case "Teams": component = TeamsComponent;
+      break;
+      case "Our List": component = OurListComponent;
+      break;
+      default: component = TeamsComponent;
+      break;
+
+    }
+
+    const dialogRef = this.dialog.open(component, {
       height: "80%",
       width: "80%",
       data: data == null ? { name: "", description: "" } : data

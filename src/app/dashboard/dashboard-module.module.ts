@@ -17,6 +17,8 @@ import { ManageCarsComponent } from './manage-cars/manage-cars.component';
 import { UsersComponent } from './users/users.component';
 import { PagesDashboardComponent } from './pages/pages-dashboard/pages-dashboard.component';
 import { TeamsComponent } from './pages/teams/teams.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { OurListComponent } from './pages/our-list/our-list.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -33,7 +35,8 @@ const Routes = [
 @NgModule({
   declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, 
     TopNavbarComponent, CarCompaniesComponent, TableComponent, ChangePasswordComponent, EditProfileComponent, 
-    CarModelsComponent, ManageCarsComponent, UsersComponent,PagesDashboardComponent,TeamsComponent
+    CarModelsComponent, ManageCarsComponent, UsersComponent,PagesDashboardComponent,TeamsComponent,AboutUsComponent,
+    OurListComponent
   ],
   imports: [
     CommonModule, RouterModule.forChild(Routes),

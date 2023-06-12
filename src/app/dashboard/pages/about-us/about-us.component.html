@@ -1,1 +1,20 @@
-<p>about-us works!</p>
+<h1>Teams</h1>
+
+<form [formGroup]="aboutusForm" (ngSubmit)="submit()">
+    <div>Banner Image</div>
+    <input type="file" (change)="handleFileInput($event,'bannerImg')" name="Car Image" id="file"
+        formControlName="bannerImg">
+
+    <ckeditor [editor]="Editor" formControlName="header"></ckeditor>
+    
+    <ckeditor [editor]="Editor" formControlName="body"></ckeditor>
+
+    
+    <div>Main Image</div>
+    <input type="file" (change)="handleFileInput($event,'mainImg')" name="Car Image" id="file"
+        formControlName="mainImg">
+
+    <ckeditor [editor]="Editor" formControlName="footer"></ckeditor>
+    
+    <button type="submit">submit</button>
+</form>

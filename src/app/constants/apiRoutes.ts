@@ -46,9 +46,15 @@ class pages{
     public static savePage = "pages/savePage";
     public static updatePage = "pages/updatePage";
 
+    public static getOurList = "pages/getOurList";
+    public static saveOurLink = "pages/saveOurLink";
+    public static updateOurList = "pages/updateOurList";
+
 }
 class teams{
     public static saveTeams = "teams/saveTeams";
+    public static updateTeams = "teams/updateTeams";
+    public static getTeams = "teams/getTeams";
 
 }
 

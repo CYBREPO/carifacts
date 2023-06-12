@@ -60,7 +60,8 @@ export class TeamsComponent {
   }
 
   deleteRow(type: string, index: number){
-
+    let arr = (this.teamsForm.controls[type] as FormArray);
+    arr.removeAt(index);
   }
 
   validateAndPushDataToFormArray(type: string, index: number){
@@ -86,7 +87,7 @@ export class TeamsComponent {
       formData.append(`leaders[${i}]['name]`,fb['name'].value);
       formData.append(`leaders[${i}]['designation]`,fb['designation'].value);
       formData.append(`leaders[${i}]['description]`,fb['description'].value);
-      formData.append(`leaders[${i}]['leadersProfile]`,fb['profile'].value);
+      formData.append(`leadersProfile`,fb['profile'].value);
     }
 
     array = this.teamsForm.get('boardFormArray') as FormArray;
@@ -96,10 +97,15 @@ export class TeamsComponent {
       formData.append(`boardOfDirectors[${i}]['name]`,fb['name'].value);
       formData.append(`boardOfDirectors[${i}]['designation]`,fb['designation'].value);
       formData.append(`boardOfDirectors[${i}]['description]`,fb['description'].value);
-      formData.append(`boardOfDirectors[${i}]['boardProfile]`,fb['profile'].value);
+      formData.append(`boardsProfile`,fb['profile'].value);
     }
 
-    this.httpService.httpPostFormData(ApiUrls.teams.saveTeams,formData).subscribe(res => {});
+    let api = ApiUrls.teams.saveTeams;
+    if(this.data?._id != null && this.data?._id != ""){
+      formData.append(`id`,this.data._id);
+      api = ApiUrls.teams.updateTeams;
+    }
+    this.httpService.httpPostFormData(api,formData).subscribe(res => {});
   }
 
 }
