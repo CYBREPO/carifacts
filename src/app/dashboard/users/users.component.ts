@@ -21,6 +21,7 @@ export class UsersComponent {
   totalCount: number;
   pageIndex: number = 1;
   pageSize = Pagination.PageSize;
+  searchText: string = "";
 
   constructor(private httpService: HttpService, private dialog: MatDialog, private modalDialogService: ModalDialogService) { }
 
@@ -33,6 +34,8 @@ export class UsersComponent {
     this.columns = [
       { title: 'Name', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       { title: 'Email', dataField: 'email', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Active', dataField: 'isActive', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Last Login', dataField: 'lastLogin', type: GridColumnType.DATA, dataType: GridColumnDataType.DATETIME },
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
           { title: "block", event: "block", type: GridActionType.ICON, class: "fa fa-ban" },
@@ -46,7 +49,8 @@ export class UsersComponent {
   getAllUsers() {
     let param = {
       pageIndex: this.pageIndex,
-      pageSize: this.pageSize
+      pageSize: this.pageSize,
+      searchText: this.searchText
     }
     this.httpService.httpPost(ApiUrls.account.getUsers, param).subscribe((res: any) => {
       if (res['success']) {
@@ -72,7 +76,7 @@ export class UsersComponent {
           { title: "YES", result: "YES", class: "btn-success" },
           { title: "NO", result: "NO", class: "btn-danger" },
         ]
-      })
+      });
       dialogRef.subscribe(res => {
         if (res == "YES") {
           this.httpService.httpGet(ApiUrls.account.deleteUser, { id: evt.data._id }).subscribe((res: any) => {
@@ -85,24 +89,40 @@ export class UsersComponent {
 
     }
     if (evt.event == 'edit') {
-      const dialogRef = this.dialog.open(EditProfileComponent, {
-        height: "80%",
-        width: "80%",
-        data: evt.data
-      });
-
-      dialogRef.afterClosed();
+      this.openUser(evt.data);
     }
     if (evt.event == 'block') {
       let param = {
         id: evt.data._id,
         isActive: !evt.data.isActive
       }
-      this.httpService.httpPost(ApiUrls.account.updateUserStatus, param).subscribe((res: any) => {
-        if (res['success']) {
-          this.getAllUsers();
+      const dialogRef = this.modalDialogService.openDialog({
+        title: "Block User",
+        message: "Are you sure you want to block this user!",
+        buttons: [
+          { title: "YES", result: "YES", class: "btn-success" },
+          { title: "NO", result: "NO", class: "btn-danger" },
+        ]
+      })
+      dialogRef.subscribe(res => {
+        if (res == "YES") {
+          this.httpService.httpPost(ApiUrls.account.updateUserStatus, param).subscribe((res: any) => {
+            if (res['success']) {
+              this.getAllUsers();
+            }
+          });
         }
       });
     }
+  }
+
+  openUser(data: any) {
+    const dialogRef = this.dialog.open(EditProfileComponent, {
+      height: "80%",
+      width: "80%",
+      data: data
+    });
+
+    dialogRef.afterClosed();
   }
 }

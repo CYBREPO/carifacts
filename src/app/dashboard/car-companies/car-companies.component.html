@@ -1,6 +1,15 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">
-    Add
-</button>
+<div class="row">
+    <div class="col mt-3 px-1">
+        <div class="form-field ">
+            <label for="" class="d-block">Search</label>
+            <input type="text" name="search" id="search" [(ngModel)]="searchText" placeholder="search"
+            (change)="getAllCompanies()">
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
+    </button>
+</div>
+
 
 <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="companies"
 (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>

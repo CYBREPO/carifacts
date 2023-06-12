@@ -15,6 +15,7 @@ import { EditProfileComponent } from './account/edit-profile/edit-profile.compon
 import { CarModelsComponent } from './car-models/car-models.component';
 import { ManageCarsComponent } from './manage-cars/manage-cars.component';
 import { UsersComponent } from './users/users.component';
+import { PagesComponent } from './pages/pages.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -23,13 +24,14 @@ const Routes = [
     { path: 'models', component: CarModelsComponent},
     { path: 'mangeCars', component: ManageCarsComponent},
     { path: 'users', component: UsersComponent},
+    { path: 'pages', component: PagesComponent},
     { path: "**", redirectTo: 'dashboard'}
   ]}
 ]
 
 @NgModule({
   declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, 
-    TopNavbarComponent, CarCompaniesComponent, TableComponent, ChangePasswordComponent, EditProfileComponent, CarModelsComponent, ManageCarsComponent, UsersComponent,
+    TopNavbarComponent, CarCompaniesComponent, TableComponent, ChangePasswordComponent, EditProfileComponent, CarModelsComponent, ManageCarsComponent, UsersComponent, PagesComponent,
   ],
   imports: [
     CommonModule, RouterModule.forChild(Routes),

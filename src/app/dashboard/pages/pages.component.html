@@ -1,0 +1,3 @@
+<button (click)="addUpdate()">Add</button>
+<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="pages"
+    (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>

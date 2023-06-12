@@ -12,11 +12,11 @@
                 </a>
                 <!-- </button> -->
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item><a (click)="openProfile()"><i class="fa fa-user" aria-hidden="true"></i>
+                    <button mat-menu-item (click)="openProfile()"><a ><i class="fa fa-user" aria-hidden="true"></i>
                             Profile</a></button>
-                    <button mat-menu-item><a (click)="changePassword()"><i class="fa fa-key" aria-hidden="true"></i> Change
+                    <button mat-menu-item (click)="changePassword()"><a ><i class="fa fa-key" aria-hidden="true"></i> Change
                             Password</a></button>
-                    <button mat-menu-item><a (click)="logout()"> Logout</a></button>
+                    <button mat-menu-item (click)="logout()"><a > Logout</a></button>
                 </mat-menu>
                 <!-- <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-toggle="dropdown">
