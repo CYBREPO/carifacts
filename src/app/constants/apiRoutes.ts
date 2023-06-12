@@ -47,6 +47,10 @@ class pages{
     public static updatePage = "pages/updatePage";
 
 }
+class teams{
+    public static saveTeams = "teams/saveTeams";
+
+}
 
 export class ApiUrls{
     public static brand = brand;
@@ -56,4 +60,5 @@ export class ApiUrls{
     public static host = host;
     public static account = account;
     public static pages = pages;
+    public static teams = teams;
 }
