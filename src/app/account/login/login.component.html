@@ -1,16 +1,18 @@
 <form [formGroup]="loginForm" (ngSubmit)="submit()">
   <!-- Email input -->
   <div class="form-outline mb-4">
-    <input matInput type="email" id="form2Example1" class="form-control" formControlName="email" />
     <label class="form-label" for="form2Example1">Email address</label>
-    <span *ngIf="submitted && loginFrm['email'].errors?.['required']">Email is required</span>
+    <input matInput type="email" id="form2Example1" class="form-control" formControlName="email" />
+    
+    <span class="text-danger d-block mt-2" *ngIf="submitted && loginFrm['email'].errors?.['required']">Email is required</span>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
-    <input matInput type="password" id="form2Example2" class="form-control" formControlName="password" />
     <label class="form-label" for="form2Example2">Password</label>
-    <span *ngIf="submitted && loginFrm['password'].errors?.['required']">Password is required</span>
+    <input matInput type="password" id="form2Example2" class="form-control" formControlName="password" />
+
+    <span class="text-danger d-block mt-2" *ngIf="submitted && loginFrm['password'].errors?.['required']">Password is required</span>
   </div>
 
   <!-- 2 column grid layout for inline styling -->
