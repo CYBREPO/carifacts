@@ -8,6 +8,7 @@ import { HttpService } from 'src/app/service/http.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 import { UserInfoService } from 'src/app/service/user-info.service';
 import { CkEditorComponent } from 'src/app/shared/ck-editor/ck-editor.component';
+import { QuotesComponent } from '../quotes/quotes.component';
 
 @Component({
   selector: 'app-single-car-details-layout',
@@ -50,7 +51,7 @@ export class SingleCarDetailsLayoutComponent {
       this.router.navigate(['/account/login'], { queryParams: { returnUrl: this.router.url } })
     }
 
-    const dialogRef = this.dialog.open(CkEditorComponent, {
+    const dialogRef = this.dialog.open(QuotesComponent, {
       height: "80%",
       width: "80%",
       data: this.cardetails
