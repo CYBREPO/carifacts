@@ -36,6 +36,7 @@ export class AlertComponent {
     });
 
     setTimeout(() => {
+      debugger
       this.errorSubject.pipe(debounceTime(5000)).subscribe(() => {
         this.isError = false;
       });

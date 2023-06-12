@@ -24,6 +24,7 @@ export class CarCompaniesComponent {
   carCompanyForm: FormGroup;
   file: File;
   submitted: boolean = false;
+  searchText: string = ''
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -57,7 +58,8 @@ export class CarCompaniesComponent {
   getAllCompanies() {
     let param = {
       pageSize: this.pageSize,
-      pageIndex: this.pageIndex
+      pageIndex: this.pageIndex,
+      searchText: this.searchText
     };
 
     this.httpService.httpPost(ApiUrls.brand.getAllBrands, param).subscribe((res: any) => {

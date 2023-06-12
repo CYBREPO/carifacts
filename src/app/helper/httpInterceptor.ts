@@ -38,7 +38,7 @@ export class HttpApiInterceptor implements HttpInterceptor {
                 // Check body.Message with undefined to verify the property
                 // exists in returned response.
                 if (event.body.message !== undefined && event.body.message !== '' && event.body.message !== null) {
-                    if (event.body.Success === true) {
+                    if (event.body.success === true) {
                         this.modalDialogService.success(event.body.message);
                     } else {
                         this.modalDialogService.error(event.body.message);

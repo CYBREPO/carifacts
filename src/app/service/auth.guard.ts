@@ -19,6 +19,10 @@ export class AuthGuard  {
       this.router.navigate(['/account/login'],{ queryParams: { returnUrl: state.url } });
       return false;
     }
+    if(user.isAdmin == null || user.isAdmin == undefined || user.isAdmin == false){
+      this.router.navigate(['/home']);
+      return false;
+    }
     return true;
   }
   

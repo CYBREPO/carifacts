@@ -29,6 +29,7 @@ export class ManageCarsComponent {
   fuelTypes = fuel.fuelTypes;
   submitted: boolean = false;
   isLoading: boolean = false;
+  searchText: string = "";
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -120,7 +121,8 @@ export class ManageCarsComponent {
   getAllVehicles() {
     let param = {
       pageIndex: this.pageIndex,
-      pageSize: this.pageSize
+      pageSize: this.pageSize,
+      searchText: this.searchText
     }
     this.httpService.httpPost(ApiUrls.vehicle.getVehicles, param).subscribe((res: any) => {
       if (res['success']) {

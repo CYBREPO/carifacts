@@ -40,6 +40,13 @@ class account{
     public static deleteUser = "account/deleteUser";
 
 }
+class pages{
+    public static getPages = "pages/getPages";
+    public static deletePages = "pages/deletePages";
+    public static savePage = "pages/savePage";
+    public static updatePage = "pages/updatePage";
+
+}
 
 export class ApiUrls{
     public static brand = brand;
@@ -48,4 +55,5 @@ export class ApiUrls{
     public static mail = mail;
     public static host = host;
     public static account = account;
+    public static pages = pages;
 }
