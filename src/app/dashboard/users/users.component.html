@@ -1,17 +1,19 @@
-<div class="row">
-    <div class="col mt-3 px-1">
-        <div class="form-field ">
-            <label for="" class="d-block">Search</label>
-            <input type="text" name="search" id="search" [(ngModel)]="searchText" placeholder="search"
-            (change)="getAllUsers()">
+<div class="container">
+    <div class="border-grey border border-1 p-3">
+        <div class="d-flex align-items-end mb-5">
+
+            <div class="form-field ">
+                <label for="" class="d-block">Search</label>
+                <input type="text" name="search" id="search" [(ngModel)]="searchText" placeholder="search"
+                    (change)="getAllUsers()" class="form-control">
+            </div>
+
+            <button type="button" class="btn btn-primary ms-3" (click)="openUser(null)">Add
+            </button>
         </div>
+
+        <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="users"
+            (paginationEventHandler)="paginationEventHandler($event)"
+            (gridEventHandler)="gridEvent($event)"></app-table>
     </div>
-    <button type="button" class="btn btn-primary" (click)="openUser(null)">Add
-    </button>
 </div>
-
-
-
-
-<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="users"
-    (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>

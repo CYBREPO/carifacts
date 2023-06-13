@@ -1,220 +1,257 @@
-<div class="row">
-    <div class="col mt-3 px-1">
-        <div class="form-field ">
-            <label for="" class="d-block">Search</label>
-            <input type="text" name="search" id="search" [(ngModel)]="searchText" placeholder="search"
-            (change)="getAllVehicles()">
-        </div>
-    </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
-    </button>
-</div>
-
-<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="vehicles"
-    (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>
-
-
-
-<div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
-        <form [formGroup]="vehicleForm" (ngSubmit)="submit()">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleId">Add Models</h5>
-                    <button type="button" class="btn-close" #modalBtn data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Car Company</label>
-                                <select name="brand" id="brand" formControlName="brand" (change)="getBrandsById()">
-                                    <option *ngFor="let cmp of companies" [value]="cmp._id">{{cmp.name}}</option>
-                                </select>
-                                <span *ngIf="submitted && vehicleForm.get('brand')?.errors?.['required']">Car
-                                    company name is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Car Type</label>
-                                <select name="type" id="type" formControlName="type">
-                                    <option value="car">Car</option>
-                                    <option value="suv">SUV</option>
-                                    <option value="truck">Truck</option>
-                                    <option value="ninivans">Minivans</option>
-                                    <option value="van">van</option>
-                                </select>
-                                <span *ngIf="submitted && vehicleForm.get('type')?.errors?.['required']">Car
-                                    type is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Car Model</label>
-                                <select name="model" id="model" formControlName="model">
-                                    <option *ngFor="let item of models" [value]="item._id">{{item.name}}</option>
-                                </select>
-                                <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
-                                    model is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Price</label>
-                                <input type="number" name="price" id="price" formControlName="price">
-                                <span *ngIf="submitted && vehicleForm.get('price')?.errors?.['required']">Price is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Number of Doors</label>
-                                <input type="number" name="doors" id="doors" formControlName="doors">
-                                <span *ngIf="submitted && vehicleForm.get('doors')?.errors?.['required']">No of doors is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Number of Seats</label>
-                                <input type="number" name="seats" id="seats" formControlName="seats">
-                                <span *ngIf="submitted && vehicleForm.get('seats')?.errors?.['required']">No of seats is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Mileage</label>
-                                <input type="number" name="mileage" id="mileage" formControlName="mileage">
-                                <span *ngIf="submitted && vehicleForm.get('mileage')?.errors?.['required']">Mileage is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Mileage Unit</label>
-                                <select name="fuelUnit" id="fuelUnit" formControlName="fuelUnit">
-                                    <option *ngFor="let unt of fuel" [value]="unt.unit">{{unt.label}}</option>
-                                </select>
-                                <span *ngIf="submitted && vehicleForm.get('fuelUnit')?.errors?.['required']">Mileage Unit is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Fuel Grade</label>
-                                <input type="text" name="fuelGrade" id="fuelGrade" formControlName="fuelGrade">
-                                <span *ngIf="submitted && vehicleForm.get('fuelUnit')?.errors?.['required']">Fuel Grade is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Fuel Type</label>
-                                <select name="fuelType" id="fuelType" formControlName="fuelType">
-                                    <option *ngFor="let fuel of fuelTypes" [value]="fuel.label">{{fuel.value}}
-                                    </option>
-                                </select>
-                                <span *ngIf="submitted && vehicleForm.get('fuelType')?.errors?.['required']">Fuel Type is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Year</label>
-                                <input type="number" name="year" id="year" formControlName="year">
-                                <span *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year is required</span>
-                            </div>
-                        </div>
-                        <div class="col mt-3 px-1">
-                            <div class="form-field ">
-                                <label for="" class="d-block">Uplaod Images</label>
-                                <input type="file" formControlName="files" [multiple]="true"
-                                        (change)="handleFileInput($event)" name="Car Image" id="file">
-                                <!-- <span *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year is required</span> -->
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="border border border-secondary p-3">
-                        <div class="d-sm-flex align-items-center justify-content-between my-md-2">
-                            <h1 class="h3 mb-0 text-gray-800">Additional features</h1>
-                        </div>
-                        <hr>
-
-                        <!-- <form action="post" class="mt-md-5"> -->
-                        <div class="row">
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Must be 21+ to book</label><input type="checkbox"
-                                    name="ageBook" id="ageBook" formControlName="ageBook">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Automatic transmission</label><input type="checkbox"
-                                    name="automaticTransmission" id="automaticTransmission"
-                                    formControlName="automaticTransmission">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">All-wheel drive</label><input type="checkbox"
-                                    name="AllWheelDrive" id="AllWheelDrive" formControlName="AllWheelDrive">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Apple CarPlay</label><input type="checkbox"
-                                    name="appleCarPlay" id="appleCarPlay" formControlName="appleCarPlay">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Android Auto</label><input type="checkbox"
-                                    name="androidAuto" id="androidAuto" formControlName="androidAuto">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">AUX input</label><input type="checkbox" name="auxInput"
-                                    id="auxInput" formControlName="auxInput">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Backup camera</label><input type="checkbox"
-                                    name="backupCamera" id="backupCamera" formControlName="backupCamera">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Bluetooth</label><input type="checkbox" name="bluetooth"
-                                    id="bluetooth" formControlName="bluetooth">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Child seat</label><input type="checkbox" name="childSeat"
-                                    id="childSeat" formControlName="childSeat">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Heated seats</label><input type="checkbox"
-                                    name="heatedSeats" id="heatedSeats" formControlName="heatedSeats">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Keyless entry</label><input type="checkbox"
-                                    name="keylessEntry" id="keylessEntry" formControlName="keylessEntry">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Sunroof</label><input type="checkbox" name="sunRoof"
-                                    id="sunRoof" formControlName="sunRoof">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">Toll pass</label><input type="checkbox" name="tollPass"
-                                    id="tollPass" formControlName="tollPass">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">USB charger</label><input type="checkbox"
-                                    name="usbCharger" id="usbCharger" formControlName="usbCharger">
-                            </div>
-                            <div class="d-flex col-md-3">
-                                <label for="" class="mr-3">USB input</label><input type="checkbox" name="usbInput"
-                                    id="usbInput" formControlName="usbInput">
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit">Submit</button>
-                </div>
+<div class="container">
+    <div class="border-grey border border-1 p-3">
+        <div class="d-flex align-items-end mb-5">
+            <div class="form-field ">
+                <label for="" class="d-block">Search</label>
+                <input class="form-control" type="text" name="search" id="search" [(ngModel)]="searchText" placeholder="search"
+                    class="form-control" (change)="getAllVehicles()">
             </div>
-        </form>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
+            </button>
+        </div>
+
+
+        <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="vehicles"
+            (paginationEventHandler)="paginationEventHandler($event)"
+            (gridEventHandler)="gridEvent($event)"></app-table>
+
+
+
+        <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+                <form [formGroup]="vehicleForm" (ngSubmit)="submit()" class="w-100">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">Add Models</h5>
+                            <button type="button" class="btn-close" #modalBtn data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="border-grey border border-1 p-3">
+                                <div class="row">
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Car Company</label>
+                                            <select class="form-control" name="brand" id="brand" formControlName="brand"
+                                                (change)="getBrandsById()">
+                                                <option *ngFor="let cmp of companies" [value]="cmp._id">{{cmp.name}}
+                                                </option>
+                                            </select>
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('brand')?.errors?.['required']">Car
+                                                company name is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Car Type</label>
+                                            <select class="form-control" name="type" id="type" formControlName="type">
+                                                <option value="car">Car</option>
+                                                <option value="suv">SUV</option>
+                                                <option value="truck">Truck</option>
+                                                <option value="ninivans">Minivans</option>
+                                                <option value="van">van</option>
+                                            </select>
+                                            <span *ngIf="submitted && vehicleForm.get('type')?.errors?.['required']">Car
+                                                type is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Car Model</label>
+                                            <select class="form-control" name="model" id="model" formControlName="model">
+                                                <option *ngFor="let item of models" [value]="item._id">{{item.name}}
+                                                </option>
+                                            </select>
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
+                                                model is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Price</label>
+                                            <input class="form-control" type="number" name="price" id="price" formControlName="price">
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('price')?.errors?.['required']">Price
+                                                is
+                                                required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Number of Doors</label>
+                                            <input class="form-control" type="number" name="doors" id="doors" formControlName="doors">
+                                            <span *ngIf="submitted && vehicleForm.get('doors')?.errors?.['required']">No
+                                                of
+                                                doors is
+                                                required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Number of Seats</label>
+                                            <input class="form-control" type="number" name="seats" id="seats" formControlName="seats">
+                                            <span *ngIf="submitted && vehicleForm.get('seats')?.errors?.['required']">No
+                                                of
+                                                seats is
+                                                required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Mileage</label>
+                                            <input class="form-control" type="number" name="mileage" id="mileage" formControlName="mileage">
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('mileage')?.errors?.['required']">Mileage
+                                                is
+                                                required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Mileage Unit</label>
+                                            <select class="form-control" name="fuelUnit" id="fuelUnit" formControlName="fuelUnit">
+                                                <option *ngFor="let unt of fuel" [value]="unt.unit">{{unt.label}}
+                                                </option>
+                                            </select>
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('fuelUnit')?.errors?.['required']">Mileage
+                                                Unit is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Fuel Grade</label>
+                                            <input class="form-control" type="text" name="fuelGrade" id="fuelGrade"
+                                                formControlName="fuelGrade">
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('fuelUnit')?.errors?.['required']">Fuel
+                                                Grade
+                                                is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Fuel Type</label>
+                                            <select class="form-control" name="fuelType" id="fuelType" formControlName="fuelType">
+                                                <option *ngFor="let fuel of fuelTypes" [value]="fuel.label">
+                                                    {{fuel.value}}
+                                                </option>
+                                            </select>
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('fuelType')?.errors?.['required']">Fuel
+                                                Type
+                                                is required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Year</label>
+                                            <input class="form-control" type="number" name="year" id="year" formControlName="year">
+                                            <span
+                                                *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year
+                                                is
+                                                required</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 mt-3 px-1">
+                                        <div class="form-field ">
+                                            <label for="" class="d-block">Uplaod Images</label>
+                                            <input class="form-control" type="file" formControlName="files" [multiple]="true"
+                                                (change)="handleFileInput($event)" name="Car Image" id="file">
+                                            <!-- <span *ngIf="submitted && vehicleForm.get('year')?.errors?.['required']">Year is required</span> -->
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="border border border-secondary p-3">
+                                <div class="d-sm-flex align-items-center justify-content-between my-md-2">
+                                    <h6 class="h3 mb-0 text-gray-800">Additional features</h6>
+                                </div>
+                                <hr>
+
+                                <!-- <form action="post" class="mt-md-5"> -->
+                                <div class="row">
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Must be 21+ to book</label><input class="form-control" type="checkbox"
+                                            name="ageBook" id="ageBook" formControlName="ageBook">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Automatic transmission</label><input class="form-control" type="checkbox"
+                                            name="automaticTransmission" id="automaticTransmission"
+                                            formControlName="automaticTransmission">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">All-wheel drive</label><input class="form-control" type="checkbox"
+                                            name="AllWheelDrive" id="AllWheelDrive" formControlName="AllWheelDrive">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Apple CarPlay</label><input class="form-control" type="checkbox"
+                                            name="appleCarPlay" id="appleCarPlay" formControlName="appleCarPlay">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Android Auto</label><input class="form-control" type="checkbox"
+                                            name="androidAuto" id="androidAuto" formControlName="androidAuto">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">AUX input</label><input class="form-control" type="checkbox"
+                                            name="auxInput" id="auxInput" formControlName="auxInput">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Backup camera</label><input class="form-control" type="checkbox"
+                                            name="backupCamera" id="backupCamera" formControlName="backupCamera">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Bluetooth</label><input class="form-control" type="checkbox"
+                                            name="bluetooth" id="bluetooth" formControlName="bluetooth">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Child seat</label><input class="form-control" type="checkbox"
+                                            name="childSeat" id="childSeat" formControlName="childSeat">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Heated seats</label><input class="form-control" type="checkbox"
+                                            name="heatedSeats" id="heatedSeats" formControlName="heatedSeats">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Keyless entry</label><input class="form-control" type="checkbox"
+                                            name="keylessEntry" id="keylessEntry" formControlName="keylessEntry">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Sunroof</label><input class="form-control" type="checkbox" name="sunRoof"
+                                            id="sunRoof" formControlName="sunRoof">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">Toll pass</label><input class="form-control" type="checkbox"
+                                            name="tollPass" id="tollPass" formControlName="tollPass">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">USB charger</label><input class="form-control" type="checkbox"
+                                            name="usbCharger" id="usbCharger" formControlName="usbCharger">
+                                    </div>
+                                    <div class="d-flex col-md-4 mb-3">
+                                        <label for="" class="mr-3">USB input</label><input class="form-control" type="checkbox"
+                                            name="usbInput" id="usbInput" formControlName="usbInput">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
