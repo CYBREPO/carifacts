@@ -18,6 +18,9 @@ export class QuotesComponent {
   models: Array<any> = [];
   locations: any;
   submitted: boolean = false;
+  options: any = {
+    componentRestrictions: { country: 'NGA' }
+  }
 
   constructor(private httpService: HttpService, private fb: FormBuilder, 
     private modalDialogService: ModalDialogService,public dialogRef: MatDialogRef<QuotesComponent>,

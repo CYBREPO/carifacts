@@ -10,19 +10,20 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { QuotesComponent } from './quotes/quotes.component';
 
 
 @NgModule({
   declarations: [
     MapComponent, SingleCarDetailsLayoutComponent,
-    SingleCategoryCarDetailsComponent
+    SingleCategoryCarDetailsComponent,QuotesComponent
   ],
   imports: [
     CommonModule,
     ComponentsRoutingModuleModule,
     GoogleMapsModule,
     GooglePlaceModule,
-    SharedModuleModule,MaterialModuleModule,MatSelectModule,MatSliderModule
+    SharedModuleModule,MaterialModuleModule,MatSelectModule,MatSliderModule,
   ]
 })
 export class ComponentsModuleModule { }

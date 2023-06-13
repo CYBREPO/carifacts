@@ -1,0 +1,117 @@
+<h1>Teams</h1>
+
+<form [formGroup]="teamsForm" (ngSubmit)="submit()">
+    <div>Banner Image</div>
+    <input type="file" (change)="handleFileInput($event,'bannerImg', -1)" name="Car Image" id="file"
+        formControlName="bannerImg">
+
+    <ckeditor [editor]="Editor" formControlName="header"></ckeditor>
+
+    <div>Leaders</div>
+    <ng-container formArrayName="leadersFormArray">
+        <ng-container *ngIf="(leadersFrm?.length??0) > 0">
+            <ng-container
+                *ngFor="let array of leadersFrm; let i = index; let last = last;">
+                <div class="row align-items-center position-relative w-100 no-style-box-shadow mb-0 document-master-row hatch-details-row"
+                    [formGroupName]="i">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="">Profile</label>
+                            <input type="file" (change)="handleFileInput($event,'leadersFormArray',i)" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" formControlName="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Designation</label>
+                            <input type="text" formControlName="designation" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="">Description</label>
+                            <input type="text" formControlName="description" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+
+                        <div class="d-flex">
+                            <button *ngIf="(leadersFrm?.length??0) > 1" type="button"
+                                class="btn btn-danger btn-sm" (click)="deleteRow('leadersFormArray',i)"
+                                style="top: 5px;min-width: unset;" data-toggle="tooltip" data-placement="top"
+                                title="Remove">
+                                <i class="icon-minus fa fa-minus  text-white" style="margin: 0 !important;"></i>
+                            </button>
+                            <button *ngIf="last" type="button" class="btn btn-success btn-xs AddButton"
+                                data-toggle="tooltip" data-placement="top" title="Add"
+                                (click)="validateAndPushDataToFormArray('leadersFormArray',i)"
+                                style="top: 5px;min-width: unset;">
+                                <i class="icon-plus3  text-white" style="margin: 0 !important;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+    </ng-container>
+    <div>Board Of Directors</div>
+    <ng-container formArrayName="boardFormArray">
+        <ng-container *ngIf="(boardFrm?.length??0) > 0">
+             <ng-container
+            *ngFor="let array of boardFrm; let i = index; let last = last;">
+            <div class="row align-items-center position-relative w-100 no-style-box-shadow mb-0 document-master-row hatch-details-row"
+                [formGroupName]="i">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="">Profile</label>
+                        <input type="file" (change)="handleFileInput($event,'boardFormArray',i)" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" formControlName="name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="">Designation</label>
+                        <input type="text" formControlName="designation" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <input type="text" formControlName="description" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-1">
+
+                    <div class="d-flex">
+                        <button *ngIf="(boardFrm?.length??0) > 1" type="button"
+                            class="btn btn-danger btn-sm" (click)="deleteRow('boardFormArray',i)"
+                            style="top: 5px;min-width: unset;" data-toggle="tooltip" data-placement="top"
+                            title="Remove">
+                            <i class="icon-minus fa fa-minus  text-white" style="margin: 0 !important;"></i>
+                        </button>
+                        <button *ngIf="last" type="button" class="btn btn-success btn-xs AddButton"
+                            data-toggle="tooltip" data-placement="top" title="Add"
+                            (click)="validateAndPushDataToFormArray('boardFormArray',i)"
+                            style="top: 5px;min-width: unset;">
+                            <i class="icon-plus3  text-white" style="margin: 0 !important;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        </ng-container>
+       
+    </ng-container>
+    <button type="submit">submit</button>
+</form>
