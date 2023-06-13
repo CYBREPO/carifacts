@@ -65,7 +65,7 @@ export class PagesDashboardComponent {
       if(res['success']){
         this.pages.push({
           name: 'Teams',
-          description: res['data']['hearder'],
+          description: res['data']['header'],
           data: res['data'],
         });
       }
@@ -73,22 +73,22 @@ export class PagesDashboardComponent {
   }
 
   getAboutUs(){
-    this.httpService.httpGet(ApiUrls.teams.getTeams,null).subscribe((res: any) => {
+    this.httpService.httpGet(ApiUrls.pages.getAboutus,null).subscribe((res: any) => {
       if(res['success']){
         this.pages.push({
           name: 'About Us',
-          description: res['data']['hearder'],
+          description: res['data']['header'],
           data: res['data'],
         });
       }
     });
   }
   getOurLink(){
-    this.httpService.httpGet(ApiUrls.teams.getTeams,null).subscribe((res: any) => {
+    this.httpService.httpGet(ApiUrls.pages.getOurList,null).subscribe((res: any) => {
       if(res['success']){
         this.pages.push({
           name: 'Our List',
-          description: res['data']['hearder'],
+          description: res['data']['header'],
           data: res['data'],
         });
       }
@@ -128,14 +128,14 @@ export class PagesDashboardComponent {
   addUpdate(data: any = null) {
     let component: any;
 
-    switch(data.name){
+    switch(data?.name??""){
       case "About us": component = AboutUsComponent;
       break;
       case "Teams": component = TeamsComponent;
       break;
       case "Our List": component = OurListComponent;
       break;
-      default: component = TeamsComponent;
+      default: component = AboutUsComponent;
       break;
 
     }
@@ -143,7 +143,7 @@ export class PagesDashboardComponent {
     const dialogRef = this.dialog.open(component, {
       height: "80%",
       width: "80%",
-      data: data == null ? { name: "", description: "" } : data
+      data: data == null ? { name: "", description: "" } : data['data']
     });
 
     dialogRef.afterClosed().subscribe(res => {

@@ -11,45 +11,69 @@ import { HttpService } from 'src/app/service/http.service';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent {
-  
+
   public Editor = ClassicEditor;
   teamsForm: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<TeamsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private fb:FormBuilder,private httpService: HttpService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private httpService: HttpService) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     const leadForm = this.fb.group({
-      name: [''],
+      name: [],
       profile: [''],
       designation: [''],
       description: ['']
     });
 
     this.teamsForm = this.fb.group({
-      header: [''],
+      header: [this.data != null ? this.data.header : ''],
       bannerImg: [''],
       boardFormArray: this.fb.array([leadForm]),
       leadersFormArray: this.fb.array([leadForm])
-    })
+    });
+
+    if (this.data && this.data.leaders) {
+      let arr = (this.teamsForm.controls['leadersFormArray'] as FormArray);
+      arr.clear();
+      this.data.leaders.forEach((m: any) => {
+        arr.push(this.fb.group({
+          name: m.name,
+          designation: m.designation,
+          description: m.description
+        }));
+      });
+    }
+
+    if (this.data && this.data.boardOfDirectors) {
+      let arr = (this.teamsForm.controls['boardFormArray'] as FormArray);
+      arr.clear();
+      this.data.boardOfDirectors.forEach((m: any) => {
+        arr.push(this.fb.group({
+          name: m.name,
+          designation: m.designation,
+          description: m.description
+        }));
+      })
+    }
   }
 
-  get leadersFrm() { return (this.teamsForm.get('leadersFormArray') as FormArray).controls}
+  get leadersFrm() { return (this.teamsForm.get('leadersFormArray') as FormArray).controls }
 
-  get boardFrm() { return (this.teamsForm.get('boardFormArray') as FormArray).controls}
+  get boardFrm() { return (this.teamsForm.get('boardFormArray') as FormArray).controls }
 
   closePopup(): void {
     this.dialogRef.close(null);
   }
 
-  handleFileInput(event: any,type: string,index: number): void {
-    if(index == -1){
-      this.teamsForm.controls[type].setValue(event?.target?.files);
+  handleFileInput(event: any, type: string, index: number): void {
+    if (index == -1) {
+      this.teamsForm.controls[type].setValue(event?.target?.files[0]);
       return;
     }
 
@@ -59,12 +83,12 @@ export class TeamsComponent {
     // this.fileData = event?.target?.files;
   }
 
-  deleteRow(type: string, index: number){
+  deleteRow(type: string, index: number) {
     let arr = (this.teamsForm.controls[type] as FormArray);
     arr.removeAt(index);
   }
 
-  validateAndPushDataToFormArray(type: string, index: number){
+  validateAndPushDataToFormArray(type: string, index: number) {
     let array = this.teamsForm.get(type) as FormArray;
     array.push(this.fb.group({
       name: [''],
@@ -74,38 +98,40 @@ export class TeamsComponent {
     }));
   }
 
-  submit(){
+  submit() {
     let formData = new FormData();
 
-    formData.append(`header`,this.teamsForm.controls['header'].value);
-    formData.append(`bannerImg`,this.teamsForm.controls['bannerImg'].value);
+    formData.append(`header`, this.teamsForm.controls['header'].value);
+    formData.append(`bannerImg`, this.teamsForm.controls['bannerImg'].value);
 
     let array = this.teamsForm.get('leadersFormArray') as FormArray;
-    for(let i=0; i <  array.controls.length; i++){
+    for (let i = 0; i < array.controls.length; i++) {
       let fb = (array.controls[i] as FormGroup).controls;
-     
-      formData.append(`leaders[${i}]['name]`,fb['name'].value);
-      formData.append(`leaders[${i}]['designation]`,fb['designation'].value);
-      formData.append(`leaders[${i}]['description]`,fb['description'].value);
-      formData.append(`leadersProfile`,fb['profile'].value);
+
+      formData.append(`leaders[${i}][name]`, fb['name'].value);
+      formData.append(`leaders[${i}][designation]`, fb['designation'].value);
+      formData.append(`leaders[${i}][description]`, fb['description'].value);
+      formData.append(`leadersProfile`, fb['profile'].value);
     }
 
     array = this.teamsForm.get('boardFormArray') as FormArray;
-    for(let i=0; i <  array.controls.length; i++){
+    for (let i = 0; i < array.controls.length; i++) {
       let fb = (array.controls[i] as FormGroup).controls;
-      
-      formData.append(`boardOfDirectors[${i}]['name]`,fb['name'].value);
-      formData.append(`boardOfDirectors[${i}]['designation]`,fb['designation'].value);
-      formData.append(`boardOfDirectors[${i}]['description]`,fb['description'].value);
-      formData.append(`boardsProfile`,fb['profile'].value);
+
+      formData.append(`boardOfDirectors[${i}][name]`, fb['name'].value);
+      formData.append(`boardOfDirectors[${i}][designation]`, fb['designation'].value);
+      formData.append(`boardOfDirectors[${i}][description]`, fb['description'].value);
+      formData.append(`boardsProfile`, fb['profile'].value);
     }
 
     let api = ApiUrls.teams.saveTeams;
-    if(this.data?._id != null && this.data?._id != ""){
-      formData.append(`id`,this.data._id);
+    if (this.data?._id != null && this.data?._id != "") {
+      formData.append(`id`, this.data._id);
       api = ApiUrls.teams.updateTeams;
     }
-    this.httpService.httpPostFormData(api,formData).subscribe(res => {});
+    this.httpService.httpPostFormData(api, formData).subscribe(res => {
+      this.dialogRef.close(res);
+    });
   }
 
 }

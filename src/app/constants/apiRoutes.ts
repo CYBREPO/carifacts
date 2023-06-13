@@ -49,6 +49,10 @@ class pages{
     public static getOurList = "pages/getOurList";
     public static saveOurLink = "pages/saveOurLink";
     public static updateOurList = "pages/updateOurList";
+    
+    public static getAboutus = "pages/getAboutus";
+    public static saveAboutus = "pages/saveAboutus";
+    public static updateAboutus = "pages/updateAboutus";
 
 }
 class teams{

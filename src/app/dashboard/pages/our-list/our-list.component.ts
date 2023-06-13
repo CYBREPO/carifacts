@@ -30,16 +30,27 @@ export class OurListComponent {
     });
 
     this.ourListForm = this.fb.group({
-      header: [''],
+      header: [this.data != null ? this.data.header : ''],
       bannerImg: [''],
       mainImg: [''],
-      body: [''],
+      body: [this.data != null ? this.data.body : ''],
       FeatureFormArray: this.fb.array([featureForm]),
-      footer: ['']
-    })
+      footer: [this.data != null ? this.data.footer : '']
+    });
+
+    if (this.data && this.data.features) {
+      let array = this.ourListForm.get('FeatureFormArray') as FormArray;
+      array.clear();
+      this.data.features.forEach((m : any) => {
+        array.push(this.fb.group({
+          title: m.title,
+          description: m.description 
+        }));
+      });
+    }
   }
 
-  get featureFrm() { return (this.ourListForm.get('leadersFormArray') as FormArray).controls }
+  get featureFrm() { return (this.ourListForm.get('FeatureFormArray') as FormArray).controls }
 
 
   closePopup(): void {
@@ -47,7 +58,7 @@ export class OurListComponent {
   }
 
   handleFileInput(event: any, type: string): void {
-    this.ourListForm.controls[type].setValue(event?.target?.files);
+    this.ourListForm.controls[type].setValue(event?.target?.files[0]);
     return;
   }
 
@@ -56,7 +67,7 @@ export class OurListComponent {
     arr.removeAt(index);
   }
 
-  validateAndPushDataToFormArray(type: string, index: number){
+  validateAndPushDataToFormArray(type: string, index: number) {
     let array = this.ourListForm.get(type) as FormArray;
     array.push(this.fb.group({
       title: [''],
@@ -64,29 +75,31 @@ export class OurListComponent {
     }));
   }
 
-  submit(){
+  submit() {
     let formData = new FormData();
 
-    formData.append(`header`,this.ourListForm.controls['header'].value);
-    formData.append(`body`,this.ourListForm.controls['body'].value);
-    formData.append(`footer`,this.ourListForm.controls['footer'].value);
-    formData.append(`bannerImg`,this.ourListForm.controls['bannerImg'].value);
-    formData.append(`mainImg`,this.ourListForm.controls['mainImg'].value);
+    formData.append(`header`, this.ourListForm.controls['header'].value);
+    formData.append(`body`, this.ourListForm.controls['body'].value);
+    formData.append(`footer`, this.ourListForm.controls['footer'].value);
+    formData.append(`bannerImg`, this.ourListForm.controls['bannerImg'].value);
+    formData.append(`mainImg`, this.ourListForm.controls['mainImg'].value);
 
     let arr = (this.ourListForm.controls['FeatureFormArray'] as FormArray).controls;
 
-    for(let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
       const fb = (arr[i] as FormGroup).controls;
-      formData.append(`title`,fb['title'].value);
-      formData.append(`description`,fb['description'].value);
+      formData.append(`features[${i}][title]`, fb['title'].value);
+      formData.append(`features[${i}][description]`, fb['description'].value);
     }
 
     let api = ApiUrls.pages.saveOurLink;
-    if(this.data._id && this.data._id != ""){
-      formData.append(`id`,this.data._id);
+    if (this.data._id && this.data._id != "") {
+      formData.append(`id`, this.data._id);
       api = ApiUrls.pages.updateOurList;
     }
 
-    this.httpService.httpPostFormData(api,formData).subscribe(res => {});
+    this.httpService.httpPostFormData(api, formData).subscribe(res => {
+      this.dialogRef.close(res);
+    });
   }
 }

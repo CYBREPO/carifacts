@@ -27,8 +27,8 @@ export class AboutUsComponent {
   initForm() {
     this.aboutusForm = this.fb.group({
       header: [this.data != null ? this.data.header : ''],
-      bannerImg: [this.data != null ? this.data.header : ''],
-      mainImg: [this.data != null ? this.data.header : ''],
+      bannerImg: [''],
+      mainImg: [''],
       body: [this.data != null ? this.data.body : ''],
       footer: [this.data != null ? this.data.footer : '']
     });
@@ -41,7 +41,7 @@ export class AboutUsComponent {
   }
 
   handleFileInput(event: any, type: string): void {
-    this.aboutusForm.controls[type].setValue(event?.target?.files);
+    this.aboutusForm.controls[type].setValue(event?.target?.files[0]);
     return;
   }
 
@@ -54,12 +54,14 @@ export class AboutUsComponent {
     formData.append(`bannerImg`,this.aboutusForm.controls['bannerImg'].value);
     formData.append(`mainImg`,this.aboutusForm.controls['mainImg'].value);
 
-    let api = ApiUrls.pages.saveOurLink;
+    let api = ApiUrls.pages.saveAboutus;
     if(this.data._id && this.data._id != ""){
       formData.append(`id`,this.data._id);
-      api = ApiUrls.pages.updateOurList;
+      api = ApiUrls.pages.updateAboutus;
     }
 
-    this.httpService.httpPostFormData(api,formData).subscribe(res => {});
+    this.httpService.httpPostFormData(api,formData).subscribe(res => {
+      this.dialogRef.close(res);
+    });
   }
 }
