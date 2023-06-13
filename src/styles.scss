@@ -727,7 +727,11 @@ $font-family_2: Raleway, Helvetica, sans-serif;
     }
 }
 
-app-users,app-car-companies,app-car-models,app-manage-cars,app-pages-dashboard {
+app-users,
+app-car-companies,
+app-car-models,
+app-manage-cars,
+app-pages-dashboard {
     width: 100%;
     margin: 30px 20px;
 }
@@ -770,4 +774,20 @@ app-users,app-car-companies,app-car-models,app-manage-cars,app-pages-dashboard {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.wp-head {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #c9c2c2;
+    padding-left: 18px;
+    background: lightgrey;
+    margin-bottom: 0;
+}
+.contenter {
+    border: 1px solid lightgrey;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
 }
