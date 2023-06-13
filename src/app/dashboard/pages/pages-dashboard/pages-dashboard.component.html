@@ -1,3 +1,10 @@
-<button (click)="addUpdate()">Add</button>
-<app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="pages"
-    (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>
+
+<div class="container">
+    <div class="border-grey border border-1 p-3">
+        <div class="d-flex align-items-end mb-5">
+            <button (click)="addUpdate()" class="btn btn-primary">Add</button>
+        </div>
+        <app-table [columns]="columns" [totalPageCount]="totalCount" [dataSource]="pages"
+            (paginationEventHandler)="paginationEventHandler($event)" (gridEventHandler)="gridEvent($event)"></app-table>
+    </div>
+</div>
