@@ -27,6 +27,7 @@ export class CarModelsComponent {
   file: File;
   submitted: boolean = false;
   isLoading: boolean = false;
+  current: any;
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -51,7 +52,8 @@ export class CarModelsComponent {
     this.carModelForm.controls['carCompany'].valueChanges.pipe().subscribe(res => {
       if (typeof res == 'string' && res.length > 1) {
         this.isLoading = true;
-        this.filteredCompanies = this.allCompanies.filter(m => m.name.toLowerCase().includes(res.toLowerCase()));
+        this.filteredCompanies = this.allCompanies.filter(m => m.name.toLowerCase().includes(res.toLowerCase()) ||
+        m._id == res);
         this.isLoading = false;
       }
     })
@@ -59,8 +61,8 @@ export class CarModelsComponent {
 
   setColums() {
     this.columns = [
-      { title: 'Car Company', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
-      { title: 'MOdel', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Car Company', dataField: 'carCompany', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Model', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
           { title: "edit", event: "edit", type: GridActionType.ICON, class: "fa fa-pencil" },
@@ -108,6 +110,7 @@ export class CarModelsComponent {
 
   gridEvent(evt: any) {
     if (evt.event == "delete") {
+      this.current = evt.data;
       const dialogRef = this.modalDialogService.openDialog({
         title: "Delete Model",
         message: "Are you sure you want to delete this Vehicle Model!",
@@ -128,11 +131,11 @@ export class CarModelsComponent {
     }
     if (evt.event == 'edit') {
       this.modalBtn.nativeElement.click();
-      // this.httpService.httpPost(ApiUrls.brand.deleteBrand,evt.data).subscribe((res: any) => {
-      //   if(res['success']){
-      //     this.getAllCompanies();
-      //   }
-      // });
+      this.current = evt.data;
+      this.carModelForm.patchValue({
+        carCompany: evt.data.carCompanyId,
+        carModel: evt.data.name,
+      });
     }
   }
 
@@ -145,6 +148,11 @@ export class CarModelsComponent {
       brandId: this.carModelForm.controls['carCompany'].value,
       name: this.carModelForm.controls['carModel'].value,
     }
+
+    // let api = ApiUrls.brand.setModels;
+    // if(this.current){
+    //   api = ApiUrls.brand.;
+    // }
 
     this.httpService.httpPost(ApiUrls.brand.setModels, param).subscribe(res => {
       this.modalBtn.nativeElement.click();

@@ -7,7 +7,7 @@
                     class="form-control" (change)="getAllVehicles()">
             </div>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">Add
+            <button type="button" class="btn btn-primary" #modalBtn data-bs-toggle="modal" data-bs-target="#modalId">Add
             </button>
         </div>
 
@@ -25,7 +25,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalTitleId">Add Models</h5>
-                            <button type="button" class="btn-close" #modalBtn data-bs-dismiss="modal"
+                            <button type="button" class="btn-close"  data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

@@ -8,7 +8,7 @@
                     -webkit-flex-direction: column;
                     -ms-flex-direction: column;
                     flex-direction: column;
-                    background-image: url('//resources.turo.com/f/81934/768x320/979718950c/hero-s.jpg');
+                    /* background-image: url('//resources.turo.com/f/81934/768x320/979718950c/hero-s.jpg'); */
                     -webkit-background-position: 0 0;
                     background-position: 0 0;
                     background-repeat: no-repeat;
@@ -21,13 +21,13 @@
 
                 @media only screen and (-webkit-min-device-pixel-ratio: 1.3),only screen and (min--moz-device-pixel-ratio: 1.3),only screen and (-o-min-device-pixel-ratio: 1.3/1),only screen and (min-resolution: 125dpi),only screen and (min-resolution: 1.3dppx) {
                     .seo-pages-azjghx {
-                        background-image:url('//resources.turo.com/f/81934/1536x640/7962eda09f/hero-s-2x.jpg');
+                        /* background-image:url('//resources.turo.com/f/81934/1536x640/7962eda09f/hero-s-2x.jpg'); */
                     }
                 }
 
                 @media (min-width: 768px) {
                     .seo-pages-azjghx {
-                        background-image:url(//resources.turo.com/f/81934/992x600/fb2053c77f/hero-m.jpg);
+                        /* background-image:url(//resources.turo.com/f/81934/992x600/fb2053c77f/hero-m.jpg); */
                         background-position-x: 50%;
                         height: 600px;
                     }
@@ -35,24 +35,24 @@
 
                 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.3),only screen and (min-width: 768px) and (min--moz-device-pixel-ratio: 1.3),only screen and (min-width: 768px) and (-o-min-device-pixel-ratio: 1.3/1),only screen and (min-width: 768px) and (min-resolution: 125dpi),only screen and (min-width: 768px) and (min-resolution: 1.3dppx) {
                     .seo-pages-azjghx {
-                        background-image:url('//resources.turo.com/f/81934/1984x1200/2c2c5834a3/hero-m-2x.jpg');
+                        /* background-image:url('//resources.turo.com/f/81934/1984x1200/2c2c5834a3/hero-m-2x.jpg'); */
                     }
                 }
 
                 @media (min-width: 992px) {
                     .seo-pages-azjghx {
-                        background-image:url(//resources.turo.com/f/81934/1984x1200/96983e3432/hero-m-2x-min.jpeg);
+                        /* background-image:url(//resources.turo.com/f/81934/1984x1200/96983e3432/hero-m-2x-min.jpeg); */
                         background-position-x: 50%;
                     }
                 }
 
                 @media only screen and (min-width: 992px) and (-webkit-min-device-pixel-ratio: 1.3),only screen and (min-width: 992px) and (min--moz-device-pixel-ratio: 1.3),only screen and (min-width: 992px) and (-o-min-device-pixel-ratio: 1.3/1),only screen and (min-width: 992px) and (min-resolution: 125dpi),only screen and (min-width: 992px) and (min-resolution: 1.3dppx) {
                     .seo-pages-azjghx {
-                        background-image:url('//resources.turo.com/f/81934/3000x1200/07573a62f8/hero-xl-2x-min.jpeg');
+                        /* background-image:url('//resources.turo.com/f/81934/3000x1200/07573a62f8/hero-xl-2x-min.jpeg'); */
                     }
                 }
             </style>
-            <div class="seo-pages-azjghx e16c753r0">
+            <div class="seo-pages-azjghx e16c753r0" [ngStyle]="{'background-image': this.data?.bannerImg ? 'url(data:'+ this.data.bannerImg.contentType + ';base64,'+ this.data.bannerImg.imageBase64 + ')' : ''}">
                 <style data-emotion="seo-pages 18gg0zj">
                     .seo-pages-18gg0zj {
                         padding-left: 10px;
@@ -174,7 +174,7 @@
                                     }
                                 }
                             </style>
-                            <h1 class="seo-pages-1md60lg-StyledText" uid="3f81299d-7100-4033-8c0b-9dd4573eb035">Meet the team</h1>
+                            
                             <style data-emotion="seo-pages 1y3p19i">
                                 .seo-pages-1y3p19i {
                                     display: -webkit-box;
@@ -227,7 +227,9 @@
                                         }
                                     }
                                 </style>
-                                <p class="seo-pages-17kapc7-StyledText" uid="ec307b44-2f96-4081-9300-4fee9476f055">Get to know the people behind the wheel of the world's largest car sharing marketplace</p>
+                                <div [innerHTML]="data?.header??''"></div>
+                                <!-- <h2 class="seo-pages-1md60lg-StyledText" uid="3f81299d-7100-4033-8c0b-9dd4573eb035">Meets the team</h2>
+                                <p class="seo-pages-17kapc7-StyledText" uid="ec307b44-2f96-4081-9300-4fee9476f055">Get to know the people behind the wheel of the world's largest car sharing marketplace</p> -->
                             </div>
                         </div>
                     </div>
@@ -322,7 +324,7 @@
                                 vertical-align: inherit;
                             }
                         </style>
-                        <h1 class="seo-pages-1toibrp-StyledText" uid="637c7f58-fbe7-45ab-b7ad-22ecf97c04a5">Meet the team</h1>
+                        <h1 class="seo-pages-1toibrp-StyledText" uid="637c7f58-fbe7-45ab-b7ad-22ecf97c04a5">Meet the team1</h1>
                         <style data-emotion="seo-pages 1ue5uyt">
                             .seo-pages-1ue5uyt {
                                 display: -webkit-box;

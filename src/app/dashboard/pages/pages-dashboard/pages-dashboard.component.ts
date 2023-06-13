@@ -41,7 +41,7 @@ export class PagesDashboardComponent {
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
           { title: "edit", event: "edit", type: GridActionType.ICON, class: "fa fa-pencil" },
-          { title: "delete", event: "delete", type: GridActionType.ICON, class: "fa fa-trash" },
+          // { title: "delete", event: "delete", type: GridActionType.ICON, class: "fa fa-trash" },
         ]
       }
     ]

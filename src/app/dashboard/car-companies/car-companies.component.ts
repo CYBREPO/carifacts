@@ -24,7 +24,8 @@ export class CarCompaniesComponent {
   carCompanyForm: FormGroup;
   file: File;
   submitted: boolean = false;
-  searchText: string = ''
+  searchText: string = '';
+  currentCompany: any;
 
   @ViewChild('modalBtn') modalBtn: ElementRef;
 
@@ -79,6 +80,7 @@ export class CarCompaniesComponent {
 
   gridEvent(evt: any) {
     if (evt.event == "delete") {
+      this.currentCompany = evt.data;
       const dialogRef = this.modalDialogService.openDialog({
         title: "Delete Company",
         message: "Are you sure you want to delete this company!",
@@ -99,11 +101,11 @@ export class CarCompaniesComponent {
     }
     if (evt.event == 'edit') {
       this.modalBtn.nativeElement.click();
-      // this.httpService.httpPost(ApiUrls.brand.deleteBrand,evt.data).subscribe((res: any) => {
-      //   if(res['success']){
-      //     this.getAllCompanies();
-      //   }
-      // });
+      this.currentCompany = evt.data;
+      this.carCompanyForm.patchValue({
+        carCompany: evt.data.name
+      });
+      
     }
   }
 
@@ -113,11 +115,16 @@ export class CarCompaniesComponent {
       return;
     }
     let formData = new FormData();
-
+    let api = ApiUrls.brand.setBrands;
     formData.append(`name`, this.carCompanyForm.controls['carCompany'].value);
     formData.append(`image`, this.file);
+    if(this.currentCompany){
+      formData.append(`id`, this.file);
+      api = ApiUrls.brand.updateBrand
+    }
+    
 
-    this.httpService.httpPostFormData(ApiUrls.brand.setBrands, formData).subscribe((res: any) => {
+    this.httpService.httpPostFormData(api, formData).subscribe((res: any) => {
       if (res['success']) {
         this.modalBtn.nativeElement.click();
         this.getAllCompanies();
