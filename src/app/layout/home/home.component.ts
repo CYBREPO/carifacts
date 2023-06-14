@@ -20,6 +20,7 @@ export class HomeComponent {
     private httpservice: HttpService) { }
 
   ngOnInit() {
+    this.locations = locations.locations;
     this.getBrands();
   }
 

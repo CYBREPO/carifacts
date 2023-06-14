@@ -81,8 +81,9 @@ export class MapComponent {
         make: this.frmCrtl['make'].value,
         type: this.frmCrtl['type'].value
       }
-      this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe(res => {
-        this.vehicleModels = res;
+      this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
+        if (res['success'])
+          this.vehicleModels = res['data'];
       });
     }
     else {
@@ -97,9 +98,9 @@ export class MapComponent {
 
   }
 
-  getAllCompanies(){
-    this.httpService.httpPost(ApiUrls.brand.getAllBrands,null).subscribe((res: any) => {
-      if(res['success']){
+  getAllCompanies() {
+    this.httpService.httpPost(ApiUrls.brand.getAllBrands, null).subscribe((res: any) => {
+      if (res['success']) {
         this.companies = res['data'];
       }
     });

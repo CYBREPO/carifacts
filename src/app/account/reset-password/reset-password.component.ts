@@ -52,7 +52,7 @@ export class ResetPasswordComponent {
       delay(interval)
     ).subscribe((results) => {
       this.modalDialogService.error("Link expired");
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     });
 
     this.initForm();

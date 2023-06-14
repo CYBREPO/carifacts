@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { IUser } from 'src/app/interface/userInterface';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
@@ -21,20 +21,37 @@ export class SingleCarDetailsLayoutComponent {
   additionDtls: any;
   dateRange: any;
   user: IUser;
+  vehicleId: string;
 
   constructor(private router: Router, private datatransferService: DataTransferService, private httpService: HttpService,
     private userInfoService: UserInfoService, private modalDialogService: ModalDialogService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,private activatedRoute: ActivatedRoute) { 
+      activatedRoute.params.subscribe(res => {
+        if(res["id"]){
+          this.vehicleId = res["id"]
+        }
+      });
+    }
 
   ngOnInit(): void {
     this.user = this.userInfoService.getLoggedInUser();
-    this.cardetails = this.datatransferService.getData();
+    // this.cardetails = this.datatransferService.getData();
+    this.getVehicleDetails();
     this.getAdditionalDetails();
   }
 
+  getVehicleDetails(){
+    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,{id: this.vehicleId}).subscribe((res: any) => {
+      if(res['success']){
+        this.cardetails = res['data'][0];
+      }
+    });
+  }
+
   getAdditionalDetails() {
-    this.httpService.httpGet(ApiUrls.vehicle.getAdditionDetails + "?id=" + this.cardetails.vehicle._id, null).subscribe(res => {
-      this.additionDtls = res;
+    this.httpService.httpGet(ApiUrls.vehicle.getAdditionDetails + "?id=" + this.vehicleId, null).subscribe((res: any) => {
+      if(res['success'])
+        this.additionDtls = res['data'];
     });
   }
   saveDate() {
@@ -54,7 +71,7 @@ export class SingleCarDetailsLayoutComponent {
     const dialogRef = this.dialog.open(QuotesComponent, {
       height: "80%",
       width: "80%",
-      data: this.cardetails
+      data: this.cardetails.vehicle
     })
 
     dialogRef.afterClosed().subscribe(res => {

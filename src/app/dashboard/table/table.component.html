@@ -27,6 +27,9 @@
                             {{item[col.dataField]}}
                         </span>
                     </ng-container>
+                    <ng-container *ngIf="col.type == GridColumnType.EDITOR">
+                        <ckeditor [editor]="Editor" [data]="item[col.dataField]" [disabled]="true"></ckeditor>
+                    </ng-container>
                     <ng-container *ngIf="col.type == GridColumnType.ACTION">
                         <ng-container *ngFor="let action of col.actions">
                             <ng-container *ngIf="action.type == GridActionType.ICON; else buttonTemplate">

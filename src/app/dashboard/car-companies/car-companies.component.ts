@@ -119,7 +119,7 @@ export class CarCompaniesComponent {
     formData.append(`name`, this.carCompanyForm.controls['carCompany'].value);
     formData.append(`image`, this.file);
     if(this.currentCompany){
-      formData.append(`id`, this.file);
+      formData.append(`id`, this.currentCompany._id);
       api = ApiUrls.brand.updateBrand
     }
     

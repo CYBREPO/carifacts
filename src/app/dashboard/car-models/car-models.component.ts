@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { GridActionType, GridColumnDataType, GridColumnType, Pagination } from 'src/app/constants/constant';
 import { HttpService } from 'src/app/service/http.service';
@@ -44,12 +45,13 @@ export class CarModelsComponent {
   initForm() {
     this.carModelForm = this.fb.group({
       carCompany: ['', [Validators.required]],
-      carModel: ['', [Validators.required]]
+      carModel: ['', [Validators.required]],
+      id: ['']
     });
   }
 
   initizeTypeAhead() {
-    this.carModelForm.controls['carCompany'].valueChanges.pipe().subscribe(res => {
+    this.carModelForm.controls['carCompany'].valueChanges.pipe(debounceTime(500)).subscribe(res => {
       if (typeof res == 'string' && res.length > 1) {
         this.isLoading = true;
         this.filteredCompanies = this.allCompanies.filter(m => m.name.toLowerCase().includes(res.toLowerCase()) ||
@@ -110,7 +112,6 @@ export class CarModelsComponent {
 
   gridEvent(evt: any) {
     if (evt.event == "delete") {
-      this.current = evt.data;
       const dialogRef = this.modalDialogService.openDialog({
         title: "Delete Model",
         message: "Are you sure you want to delete this Vehicle Model!",
@@ -121,7 +122,7 @@ export class CarModelsComponent {
       })
       dialogRef.subscribe(res => {
         if (res == "YES") {
-          this.httpService.httpPost(ApiUrls.brand.deleteBrand, { id: evt.data._id }).subscribe((res: any) => {
+          this.httpService.httpGet(ApiUrls.brand.deleteModel, { id: evt.data._id }).subscribe((res: any) => {
             if (res['success']) {
               this.getAllModels();
             }
@@ -131,10 +132,10 @@ export class CarModelsComponent {
     }
     if (evt.event == 'edit') {
       this.modalBtn.nativeElement.click();
-      this.current = evt.data;
       this.carModelForm.patchValue({
         carCompany: evt.data.carCompanyId,
         carModel: evt.data.name,
+        id: evt.data._id
       });
     }
   }
@@ -144,18 +145,20 @@ export class CarModelsComponent {
 
     if (this.carModelForm.invalid) return;
 
-    let param = {
+    let param: any = {
       brandId: this.carModelForm.controls['carCompany'].value,
       name: this.carModelForm.controls['carModel'].value,
+    };
+
+    let api = ApiUrls.brand.saveModel;
+    if(this.carModelForm.controls['id'].value && this.carModelForm.controls['id'].value != ""){
+      param['id'] = this.carModelForm.controls['id'].value;
+      api = ApiUrls.brand.updateModel
     }
 
-    // let api = ApiUrls.brand.setModels;
-    // if(this.current){
-    //   api = ApiUrls.brand.;
-    // }
-
-    this.httpService.httpPost(ApiUrls.brand.setModels, param).subscribe(res => {
+    this.httpService.httpPost(api, param).subscribe(res => {
       this.modalBtn.nativeElement.click();
+      this.getAllModels();
     });
   }
 }

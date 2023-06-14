@@ -1,17 +1,19 @@
 <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="First slide"></li>
-        <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-        <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox" *ngIf="this.cardetails">
-        <div class="carousel-item active" *ngFor="let img of this.cardetails.images">
-            <img src="data:{{img.contentType}};base64, {{img.imageBase64}}"
-                class="w-100 d-block" alt="First slide">
-        </div>
+    <div *ngIf="this.cardetails">
+        <ol class="carousel-indicators" *ngFor="let img of this.cardetails.images;let i = index">
+            <li data-bs-target="#carouselId" data-bs-slide-to=`${i}`  aria-current="true"
+                aria-label=`slide${i}`></li>
+            <!-- <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+            <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li> -->
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" *ngFor="let img of this.cardetails.images;let i = index">
+                <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block" alt=`slide${i}`>
+            </div>
 
+        </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -26,7 +28,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails.vehicle.make}} {{this.cardetails.vehicle.model}} {{this.cardetails.vehicle.year}}</div>
+                    <div class="section-subheading mt-5 mb-3"> {{this.cardetails?.vehicle?.make}}
+                        {{this.cardetails?.vehicle?.model}} {{this.cardetails?.vehicle?.year}}</div>
                     <div class="row">
                         <div class="d-flex col-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="none"
@@ -288,8 +291,9 @@
                 </div>
 
                 <div class="col-md-5 offset-1">
-                    <div class="h2 mt-5 mb-3 text-lead">{{this.cardetails?.vehicle?.price}} ₦/day</div>
-                    <p class="text-secondary text-decoration-underline">${{this.cardetails?.vehicle?.price}} est. total</p>
+                    <div class="h2 mt-5 mb-3 text-lead">₦/day {{this.cardetails?.vehicle?.price}} </div>
+                    <p class="text-secondary text-decoration-underline">₦ {{this.cardetails?.vehicle?.price}} est. total
+                    </p>
 
                     <!-- <label class="" for="location">Trip start - Trip end</label> -->
 
@@ -307,7 +311,8 @@
                     </div> -->
 
                     <a _ngcontent-shl-c34="" role="button"
-                        class="btn btn-outline-light btn-lg button-blue d-inline-block mt-md-3" (click)="sendMail()"> Get Quotation </a>
+                        class="btn btn-outline-light btn-lg button-blue d-inline-block mt-md-3" (click)="sendMail()">
+                        Get Quotation </a>
                 </div>
             </div>
         </div>

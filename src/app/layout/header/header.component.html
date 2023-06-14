@@ -5,7 +5,7 @@
             <div class="row justify-content-md-between">
                 <!-- Left elements -->
                 <div class="col-md-4 navbarlogo d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-                    <a [routerLink]="['/home']" class="ms-md-2 d-flex align-items-center">
+                    <a [routerLink]="['/']" class="ms-md-2 d-flex align-items-center">
                         <img src="../assets/images/output-onlinepngtools.png" height="50" />
                     </a>
 
@@ -37,7 +37,7 @@
                                         <div><span>Sign up</span></div>
                                     </div>
                                 </a></li>
-                            <li id="userNavbarDropdown-item-2" role="option" aria-selected="false"
+                            <li id="userNavbarDropdown-item-2" role="option" aria-selected="false" *ngIf="user && !user.isAdmin"
                                 class="seo-pages-q2fcui e1ihn8vx2 d-flex"><svg xmlns="http://www.w3.org/2000/svg"
                                     width="24px" height="24px" fill="none" viewBox="0 0 24 24" class="seo-pages-0"
                                     role="img" version="1.1">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <hr data-testid="navbarDropdown-horizontal-rule" class="seo-pages-1184qmk e1ihn8vx0">
+                            <!-- <hr data-testid="navbarDropdown-horizontal-rule" class="seo-pages-1184qmk e1ihn8vx0">
                             <li id="userNavbarDropdown-item-0" role="option" aria-selected="false"
                                 class="seo-pages-q2fcui e1ihn8vx2"><a href="/us/en/car-rental/united-states"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none"
@@ -77,7 +77,8 @@
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>How Autohyre works</span></div>
                                     </div>
-                                </a></li>
+                                </a>
+                            </li>
 
                             <li id="userNavbarDropdown-item-2" role="option" aria-selected="false"
                                 class="seo-pages-q2fcui e1ihn8vx2"><a href="https://support.turo.com"><svg
@@ -93,7 +94,8 @@
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Contact support</span></div>
                                     </div>
-                                </a></li>
+                                </a>
+                            </li>
                             <li id="userNavbarDropdown-item-3" role="option" aria-selected="false"
                                 class="seo-pages-q2fcui e1ihn8vx2"><a href="/us/en/policies/terms"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none"
@@ -108,7 +110,8 @@
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Legal</span></div>
                                     </div>
-                                </a></li>
+                                </a>
+                            </li>
                             <li id="userNavbarDropdown-item-4" role="option" aria-selected="false"
                                 class="seo-pages-q2fcui e1ihn8vx2"><a href="/us/en/insurance"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none"
@@ -120,7 +123,8 @@
                                     <div class="seo-pages-94h48-StyledNavbarLinkTitle e17kfdq0">
                                         <div><span>Insurance protection</span></div>
                                     </div>
-                                </a></li>
+                                </a>
+                            </li> -->
 
                         </ul>
                     </div>

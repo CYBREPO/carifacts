@@ -104,6 +104,7 @@ export class GridColumnType {
    public static DATA = "DATA";
    public static ACTION = "ACTION";
    public static SELECT = "SELECT";
+   public static EDITOR = "EDITOR";
 }
 
 export class GridColumnDataType {

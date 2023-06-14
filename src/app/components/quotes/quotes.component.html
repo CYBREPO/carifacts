@@ -1,4 +1,76 @@
-<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
+<div class="p-3">
+    <div class="wp-content">
+        <div class="wp-head">Get Quotes</div>
+    </div>
+    <!-- <h6>Quotes</h6> -->
+    <div class="container">
+        <form [formGroup]="vehicleForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="brand">Car Company</label>
+                <select class="form-control" name="brand" id="brand" formControlName="brand" (change)="getBrandsById()">
+                    <option *ngFor="let cmp of companies" [value]="cmp.name">{{cmp.name}}</option>
+                </select>
+                <span *ngIf="submitted && vehicleForm.get('brand')?.errors?.['required']">Car
+                    company name is required</span>
+            </div>
+            <div class="form-group">
+                <label for="type">Car Type</label>
+                <select class="form-control" name="type" id="type" formControlName="type">
+                    <option value="car">Car</option>
+                    <option value="suv">SUV</option>
+                    <option value="truck">Truck</option>
+                    <option value="ninivans">Minivans</option>
+                    <option value="van">van</option>
+                </select>
+                <span *ngIf="submitted && vehicleForm.get('type')?.errors?.['required']">Car
+                    type is required</span>
+            </div>
+            <div class="form-group">
+                <label for="model">Car Model</label>
+                <select class="form-control" name="model" id="model" formControlName="model">
+                    <option *ngFor="let item of models" [value]="item._id">{{item.name}}</option>
+                </select>
+                <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
+                    model is required</span>
+            </div>
+            <div class="form-group">
+                <label for="" class="d-block">Pick Up Location</label>
+                <input class="form-control" ngx-google-places-autocomplete [options]="options"
+                    (onAddressChange)="handleAddressChange($event,'pickup')" />
+                <!-- <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Pick Up Location is required</span> -->
+            </div>
+            <div class="form-group">
+                <label for="" class="d-block">Drop Location</label>
+                <input class="form-control" ngx-google-places-autocomplete [options]="options"
+                    (onAddressChange)="handleAddressChange($event,'drop')" />
+            </div>
+
+            <div class="form-field mt-3 mb-3">
+                <mat-form-field class="w-100">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate formControlName="startDate" placeholder="Start date">
+                        <input matEndDate formControlName="endDate" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+                <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
+                    model is required</span>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-success" style="margin-right: 10px;">Get Quotes</button>
+                <button type="button" class="btn btn-primary" (click)="close()">Close</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+<!-- <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
     <form [formGroup]="vehicleForm" (ngSubmit)="submit()">
         <div class="modal-content">
             <div class="modal-header">
@@ -46,7 +118,7 @@
                         <div class="form-field ">
                             <label for="" class="d-block">Pick Up Location</label>
                             <input class="form-control" ngx-google-places-autocomplete [options]="options"
-                            (onAddressChange)="handleAddressChange($event,'pickup')" />
+                                (onAddressChange)="handleAddressChange($event,'pickup')" />
                             <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
                                 model is required</span>
                         </div>
@@ -55,7 +127,7 @@
                         <div class="form-field ">
                             <label for="" class="d-block">Drop Location</label>
                             <input class="form-control" ngx-google-places-autocomplete [options]="options"
-                            (onAddressChange)="handleAddressChange($event,'drop')" />
+                                (onAddressChange)="handleAddressChange($event,'drop')" />
                             <span *ngIf="submitted && vehicleForm.get('model')?.errors?.['required']">Car
                                 model is required</span>
                         </div>
@@ -84,4 +156,4 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->

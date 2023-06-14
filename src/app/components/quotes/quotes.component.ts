@@ -45,6 +45,9 @@ export class QuotesComponent {
     this.httpService.httpPost(ApiUrls.brand.getAllBrands, null).subscribe((res: any) => {
       if (res['success']) {
         this.companies = res['data'];
+        if(this.data){
+          this.getBrandsById();
+        }
       }
     });
   }
@@ -58,7 +61,8 @@ export class QuotesComponent {
   getBrandsById() {
     this.formControl['model'].setValue('');
     this.models = [];
-    this.httpService.httpGet(ApiUrls.brand.getBrandById, { id: this.formControl['brand'].value }).subscribe((res: any) => {
+    const brandId = this.companies.find(m => m.name == this.formControl['brand'].value)?._id;
+    this.httpService.httpGet(ApiUrls.brand.getBrandById, { id: brandId }).subscribe((res: any) => {
       if (res['success']) {
         this.models = res['data']['models'];
       }

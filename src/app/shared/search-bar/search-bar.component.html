@@ -3,7 +3,7 @@
         <div class="row d-flex align-items-center">
             <div class="col-lg-4 d-flex align-items-center form-group">
                 <input class="form-control border-0 shadow-0" type="text" name="search"
-                    placeholder="What are you searching for?" id="location" [matAutocomplete]="auto"
+                    placeholder="Enter location" id="location" [matAutocomplete]="auto"
                     formControlName="location">
                 <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngIf="isLocationLoading">
@@ -17,16 +17,22 @@
             </div>
             <div class="col-lg-4 d-flex align-items-center form-group">
                 <div class="input-label-absolute input-label-absolute-right w-100">
-                    <label class="label-absolute" for="location"><span class="sr-only">City</span></label>
-                    <mat-form-field class="w-100">
-                        <mat-label>Enter a date range</mat-label>
+                    <!-- <label class="label-absolute" for="location"><span class="sr-only">City</span></label> -->
+                    <!-- <mat-form-field class="w-100">
+                        <mat-label>Booking Date</mat-label>
                         <mat-date-range-input [rangePicker]="picker">
                             <input matStartDate formControlName="startDate" placeholder="Start date">
                             <input matEndDate formControlName="endDate" placeholder="End date">
                         </mat-date-range-input>
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-date-range-picker #picker></mat-date-range-picker>
-                    </mat-form-field>
+                    </mat-form-field> -->
+                    <mat-form-field class="w-100">
+                        <mat-label>Booking Date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
                 </div>
             </div>
             <div class="col-lg-4">

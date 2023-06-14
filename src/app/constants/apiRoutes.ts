@@ -1,11 +1,16 @@
 class brand{
+    //brand
     public static getBrandById = "brand/getBrandById";
     public static getAllBrands = "brand/getAllBrands";
     public static getAllModels = "brand/getAllModels";
     public static setBrands = "brand/setBrands";
     public static updateBrand = "brand/updateBrand";
     public static deleteBrand = "brand/deleteBrand";
+    //model
     public static setModels = "brand/setModels";
+    public static saveModel = "brand/saveModel";
+    public static updateModel = "brand/updateModel";
+    public static deleteModel = "brand/deleteModel";
 
 }
 
@@ -15,6 +20,7 @@ class vehicle{
     public static getFilteredVehicleDetails = "vehicle/getFilteredVehicleDetails";
     public static getAdditionDetails = "vehicle/getAdditionDetails";
     public static getVehicles = "vehicle/getVehicles";
+    public static deleteVehicle = "vehicle/deleteVehicle";
 }
 class location{
     public static getLocationVechile = "location/getLocationVechile";

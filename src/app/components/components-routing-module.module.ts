@@ -11,6 +11,7 @@ const routes = [
     {path: "map", component: MapComponent} ,
     {path: "map/:loc", component: MapComponent} ,
     {path: "cardetails", component: SingleCarDetailsLayoutComponent},
+    {path: "cardetails/:id", component: SingleCarDetailsLayoutComponent},
     {path: "carcategory", component: SingleCategoryCarDetailsComponent},
     {path: "carcategory/:make", component: SingleCategoryCarDetailsComponent},
   ]}

@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Subject, debounceTime } from 'rxjs';
+import { LoaderService } from 'src/app/service/loader.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class AlertComponent {
 
   @ViewChild('messageDiv', { static: false }) messageDiv: ElementRef;
 
-  constructor(private modelDialogService: ModalDialogService) { }
+  constructor(private modelDialogService: ModalDialogService, private loaderService: LoaderService) { }
 
   ngOnInit() {
 
@@ -26,24 +27,29 @@ export class AlertComponent {
       this.isError = true;
       this.messageDiv.nativeElement.scrollIntoView();
       this.errorMessage = res['text'];
-      // this.errorSubject.next();
+      this.errorSubject.next(true);
     });
+    
     this.modelDialogService.alertSuccess().subscribe((res: any) => {
       this.isSuccess = true;
       this.messageDiv.nativeElement.scrollIntoView();
       this.successMessage = res['text'];
-      // this.successSubject.next();
+      this.successSubject.next(true);
     });
 
-    setTimeout(() => {
-      debugger
-      this.errorSubject.pipe(debounceTime(5000)).subscribe(() => {
-        this.isError = false;
-      });
-      this.successSubject.pipe(debounceTime(6000)).subscribe(() => {
-        this.isSuccess = false;
-      });
-    }, 0);
+    this.loaderService.status.subscribe((val: boolean) => {
+      setTimeout(() => {
+        debugger
+        if (!val) {
+          this.errorSubject.pipe(debounceTime(5000)).subscribe(() => {
+            this.isError = false;
+          });
+          this.successSubject.pipe(debounceTime(6000)).subscribe(() => {
+            this.isSuccess = false;
+          });
+        }
+      }, 0);
+    });
 
   }
 

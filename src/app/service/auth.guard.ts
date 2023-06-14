@@ -20,7 +20,7 @@ export class AuthGuard  {
       return false;
     }
     if(user.isAdmin == null || user.isAdmin == undefined || user.isAdmin == false){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
       return false;
     }
     return true;

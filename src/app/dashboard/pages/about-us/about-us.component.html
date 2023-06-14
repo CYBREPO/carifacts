@@ -1,20 +1,47 @@
-<h1>Adout Us</h1>
+<div class="p-3">
+    <h6>Abou Us</h6>
+    <div class="container">
+        <div class="border border-1 p-4">
+            <form [formGroup]="aboutusForm" (ngSubmit)="submit()" class="w-100">
+                <div class="wp-content">
+                    <div class="wp-head">Banner Image</div>
+                    <div class="mb-4 contenter">
+                        <input type="file" (change)="handleFileInput($event,'bannerImg')" name="Car Image" id="file"
+                            formControlName="bannerImg">
+                    </div>
+                </div>
+                <div class="wp-content">
+                    <div class="wp-head">
+                        Banner content</div>
+                    <div class="mb-4 contenter">
+                        <ckeditor [editor]="Editor" formControlName="header"></ckeditor>
+                    </div>
+                </div>
 
-<form [formGroup]="aboutusForm" (ngSubmit)="submit()">
-    <div>Banner Image</div>
-    <input type="file" (change)="handleFileInput($event,'bannerImg')" name="Car Image" id="file"
-        formControlName="bannerImg">
+                <div class="wp-content">
+                    <div class="wp-head">Main Image</div>
+                    <div class="mb-4 contenter">
+                        <input type="file" (change)="handleFileInput($event,'mainImg')" name="Car Image" id="file"
+                            formControlName="mainImg">
+                    </div>
+                </div>
 
-    <ckeditor [editor]="Editor" formControlName="header"></ckeditor>
-    
-    <ckeditor [editor]="Editor" formControlName="body"></ckeditor>
+                <div class="wp-content">
+                    <div class="wp-head">Main Content</div>
+                    <div class="mb-4 contenter">
+                        <ckeditor [editor]="Editor" formControlName="body"></ckeditor>
+                    </div>
+                </div>
 
-    
-    <div>Main Image</div>
-    <input type="file" (change)="handleFileInput($event,'mainImg')" name="Car Image" id="file"
-        formControlName="mainImg">
-
-    <ckeditor [editor]="Editor" formControlName="footer"></ckeditor>
-    
-    <button type="submit">submit</button>
-</form>
+                <div class="wp-content">
+                    <div class="wp-head">Footer Content</div>
+                    <div class="mb-4 contenter">
+                        <ckeditor [editor]="Editor" formControlName="footer"></ckeditor>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" style="margin-right: 10px;">submit</button>
+                <button type="button" (click)="closePopup()" class="btn btn-danger">close</button>
+            </form>
+        </div>
+    </div>
+</div>

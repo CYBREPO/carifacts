@@ -22,7 +22,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   cacheKey: string = environment.cacheKey;
   submitted: boolean = false;
-  returnUrl: string = "/home";
+  returnUrl: string = "/";
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private cacheService: CacheService,
     private encryptionService: EncryptionService, private modalDialogService: ModalDialogService,
@@ -30,7 +30,7 @@ export class LoginComponent {
 
   ngOnInit() {
     this.initForm()
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/home';
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
 
     // Check if user is already logged in
     var user = this.userInfoService.getLoggedInUser();
@@ -38,7 +38,7 @@ export class LoginComponent {
       this.router.navigateByUrl(this.returnUrl).then(
         success => {
           if (!success)
-            this.router.navigateByUrl('/home/landing-page');
+            this.router.navigateByUrl('/');
         });
     }
   }
@@ -80,11 +80,11 @@ export class LoginComponent {
         }
 
         this.userInfoService.setUser(res['data']);
-        this.returnUrl  = this.returnUrl == "/home" ? res['data'].isAdmin ? '/admin' : this.returnUrl : this.returnUrl
+        this.returnUrl  = this.returnUrl == "/" ? res['data'].isAdmin ? '/admin' : this.returnUrl : this.returnUrl
         this.router.navigateByUrl(this.returnUrl).then(
           success => {
             if (!success) 
-              this.router.navigateByUrl('/home');
+              this.router.navigateByUrl('/');
           });
       }
     });

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { GridActionType, GridColumnDataType, GridColumnType, Pagination } from 'src/app/constants/constant';
 
 @Component({
@@ -26,6 +27,7 @@ export class TableComponent {
   
   @Output() gridEventHandler = new EventEmitter<any>();
   @Output() paginationEventHandler = new EventEmitter<any>();
+  public Editor = ClassicEditor;
 
   constructor(){}
 

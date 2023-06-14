@@ -22,13 +22,13 @@ import { OurListComponent } from './pages/our-list/our-list.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
-    { path: 'dashboard', component: DashboardComponent },
+    { path: '', component: DashboardComponent },
     { path: 'companies', component: CarCompaniesComponent},
     { path: 'models', component: CarModelsComponent},
     { path: 'mangeCars', component: ManageCarsComponent},
     { path: 'users', component: UsersComponent},
     { path: 'pages', component: PagesDashboardComponent},
-    { path: "**", redirectTo: 'dashboard'}
+    { path: "**", redirectTo: ''}
   ]}
 ]
 

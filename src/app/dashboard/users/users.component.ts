@@ -38,7 +38,10 @@ export class UsersComponent {
       { title: 'Last Login', dataField: 'lastLogin', type: GridColumnType.DATA, dataType: GridColumnDataType.DATETIME },
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
-          { title: "block", event: "block", type: GridActionType.ICON, class: "fa fa-ban" },
+          { title: "block", event: "block", type: GridActionType.ICON, class: "fa fa-ban",
+          conditionalDisplay: {dataField: 'isActive',value: true}},
+          { title: "un-block", event: "un-block", type: GridActionType.ICON, class: "fa fa-check-circle",
+          conditionalDisplay: {dataField: 'isActive',value: false} },
           { title: "edit", event: "edit", type: GridActionType.ICON, class: "fa fa-pencil" },
           { title: "delete", event: "delete", type: GridActionType.ICON, class: "fa fa-trash" },
         ]
@@ -91,7 +94,7 @@ export class UsersComponent {
     if (evt.event == 'edit') {
       this.openUser(evt.data);
     }
-    if (evt.event == 'block') {
+    if (evt.event == 'block' || evt.event == 'un-block') {
       let param = {
         id: evt.data._id,
         isActive: !evt.data.isActive
@@ -123,6 +126,11 @@ export class UsersComponent {
       data: data
     });
 
-    dialogRef.afterClosed();
+    dialogRef.afterClosed().subscribe(res => {
+      debugger
+      if(res){
+        this.getAllUsers();
+      }
+    })
   }
 }

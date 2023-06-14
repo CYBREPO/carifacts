@@ -37,7 +37,7 @@ export class PagesDashboardComponent {
     this.columns = [
       { title: 'Page Name', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
       // { title: 'Images', dataField: 'name', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
-      { title: 'Description', dataField: 'description', type: GridColumnType.DATA, dataType: GridColumnDataType.TEXT },
+      { title: 'Description', dataField: 'description', type: GridColumnType.EDITOR, dataType: GridColumnDataType.TEXT },
       {
         title: 'Action', dataField: '', type: GridColumnType.ACTION, actions: [
           { title: "edit", event: "edit", type: GridActionType.ICON, class: "fa fa-pencil" },
@@ -63,6 +63,13 @@ export class PagesDashboardComponent {
   getTeams(){
     this.httpService.httpGet(ApiUrls.teams.getTeams,null).subscribe((res: any) => {
       if(res['success']){
+        const index = this.pages.findIndex(m => m.name == 'Teams' );
+        if(index > -1){
+          this.pages[index]['description'] = res['data']['header'];
+          this.pages[index]['data'] = res['data'];
+
+          return;
+        }
         this.pages.push({
           name: 'Teams',
           description: res['data']['header'],
@@ -75,6 +82,13 @@ export class PagesDashboardComponent {
   getAboutUs(){
     this.httpService.httpGet(ApiUrls.pages.getAboutus,null).subscribe((res: any) => {
       if(res['success']){
+        const index = this.pages.findIndex(m => m.name == 'About Us' );
+        if(index > -1){
+          this.pages[index]['description'] = res['data']['header'];
+          this.pages[index]['data'] = res['data'];
+
+          return;
+        }
         this.pages.push({
           name: 'About Us',
           description: res['data']['header'],
@@ -86,6 +100,13 @@ export class PagesDashboardComponent {
   getOurLink(){
     this.httpService.httpGet(ApiUrls.pages.getOurList,null).subscribe((res: any) => {
       if(res['success']){
+        const index = this.pages.findIndex(m => m.name == 'Our List' );
+        if(index > -1){
+          this.pages[index]['description'] = res['data']['header'];
+          this.pages[index]['data'] = res['data'];
+
+          return;
+        }
         this.pages.push({
           name: 'Our List',
           description: res['data']['header'],
@@ -148,14 +169,25 @@ export class PagesDashboardComponent {
 
     dialogRef.afterClosed().subscribe(res => {
       if (res != null) {
-        let apiUrl = ApiUrls.pages.updatePage;
-        if (res.id == undefined || res.id == null || res.id == "") {
-          apiUrl = ApiUrls.pages.savePage
+        switch(data?.name??""){
+          case "About us": this.getAboutUs();
+          break;
+          case "Teams": this.getTeams();
+          break;
+          case "Our List": this.getOurLink;
+          break;
+          default: this.getAboutUs();
+          break;
+    
         }
-        this.httpService.httpPostFormData(apiUrl, res).subscribe(res => {
+        // let apiUrl = ApiUrls.pages.updatePage;
+        // if (res.id == undefined || res.id == null || res.id == "") {
+        //   apiUrl = ApiUrls.pages.savePage
+        // }
+        // this.httpService.httpPostFormData(apiUrl, res).subscribe(res => {
 
-          this.getAllPages();
-        });
+        //   this.getAllPages();
+        // });
       }
     });
   }

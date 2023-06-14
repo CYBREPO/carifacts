@@ -10,17 +10,17 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule, MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule,
     MatFormFieldModule, MatNativeDateModule,MatSelectModule,MatDialogModule,FormsModule,MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,MatInputModule
   ],
   exports: [MatAutocompleteModule, MatDatepickerModule, MatProgressSpinnerModule, MatFormFieldModule,
-    MatSelectModule,MatDialogModule,FormsModule,MatPaginatorModule,MatMenuModule],
+    MatSelectModule,MatDialogModule,FormsModule,MatPaginatorModule,MatMenuModule,MatInputModule],
   providers: [
     MatDatepickerModule,
   ],

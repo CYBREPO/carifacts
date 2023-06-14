@@ -11,39 +11,39 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class SingleCategoryCarDetailsComponent {
 
-  cardetails:any;
+  cardetails: any;
   makeType: string;
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
-    private activatedRoute: ActivatedRoute, private httpService: HttpService) { 
-      activatedRoute.params.subscribe(param => {
-        if(param['make']){
-          this.makeType = param['make'];
-        }
-      })
-    }
+    private activatedRoute: ActivatedRoute, private httpService: HttpService) {
+    activatedRoute.params.subscribe(param => {
+      if (param['make']) {
+        this.makeType = param['make'];
+      }
+    })
+  }
 
-  
+
   ngOnInit(): void {
     this.getPopularVehicles();
     // this.cardetails = this.datatransferService.getData();
-   
+
   }
 
-  getPopularVehicles(){
+  getPopularVehicles() {
     let param = {
       make: this.makeType
     }
-    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails,param).subscribe(res => {
-      this.cardetails = res;
-      console.log(this.cardetails);
+    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
+      if (res['success'])
+        this.cardetails = res['data'];
     })
   }
 
   parentEventHandlerFunction(event: any) {
-    this.datatransferService.setData(event);
-    this.router.navigate(['/cust/cardetails'])
+    // this.datatransferService.setData(event);
+    this.router.navigate(['/cust/cardetails', event.vehicle._id])
   }
 }
 
