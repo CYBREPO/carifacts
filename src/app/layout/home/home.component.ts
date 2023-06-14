@@ -4,6 +4,7 @@ import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { locations, vehicleModels } from 'src/app/constants/constant';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { HttpService } from 'src/app/service/http.service';
+import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 
 @Component({
   selector: 'app-home',

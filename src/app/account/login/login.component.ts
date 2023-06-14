@@ -29,6 +29,7 @@ export class LoginComponent {
     private userInfoService: UserInfoService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    debugger
     this.initForm()
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
 

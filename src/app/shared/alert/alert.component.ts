@@ -25,21 +25,20 @@ export class AlertComponent {
 
     this.modelDialogService.alertError().subscribe((res: any) => {
       this.isError = true;
-      this.messageDiv.nativeElement.scrollIntoView();
+      // this.messageDiv.nativeElement.scrollIntoView();
       this.errorMessage = res['text'];
       this.errorSubject.next(true);
     });
     
     this.modelDialogService.alertSuccess().subscribe((res: any) => {
       this.isSuccess = true;
-      this.messageDiv.nativeElement.scrollIntoView();
+      // this.messageDiv.nativeElement.scrollIntoView();
       this.successMessage = res['text'];
       this.successSubject.next(true);
     });
 
     this.loaderService.status.subscribe((val: boolean) => {
       setTimeout(() => {
-        debugger
         if (!val) {
           this.errorSubject.pipe(debounceTime(5000)).subscribe(() => {
             this.isError = false;

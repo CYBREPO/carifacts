@@ -66,6 +66,7 @@ export class SingleCarDetailsLayoutComponent {
 
     if (this.user == null || this.user == undefined) {
       this.router.navigate(['/account/login'], { queryParams: { returnUrl: this.router.url } })
+      return;
     }
 
     const dialogRef = this.dialog.open(QuotesComponent, {

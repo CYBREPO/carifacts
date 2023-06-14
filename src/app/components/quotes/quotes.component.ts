@@ -36,6 +36,8 @@ export class QuotesComponent {
       brand: [this.data != null ? this.data.make : '',[Validators.required]],
       model: [this.data != null ? this.data.model : '',[Validators.required]],
       type: [this.data != null ? this.data.type : '',Validators.required],
+      pickup: [''],
+      drop: [''],
       startDate: ['',Validators.required],
       endDate: ['',Validators.required],
     });
@@ -87,8 +89,9 @@ export class QuotesComponent {
       type: this.formControl['type'].value,
       pickupDate: this.formControl['startDate'].value,
       dropDate: this.formControl['endDate'].value,
-      pickupLocation: this.locations['pickup'],
-      dropLocation: this.locations['drop'],
+      year: this.data?.year?? "",
+      pickupLocation: this.locations != null && this.locations != undefined ? this.locations['pickup']: this.formControl['pickup'].value,
+      dropLocation: this.locations != null && this.locations != undefined ? this.locations['drop']: this.formControl['drop'].value,
     }
 
     this.dialogRef.close(param);

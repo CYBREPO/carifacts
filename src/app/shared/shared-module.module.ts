@@ -8,13 +8,15 @@ import { CarDetailsCardComponent } from './car-details-card/car-details-card.com
 import { ConfirmComponent } from './confirm/confirm.component';
 import { CkEditorComponent } from './ck-editor/ck-editor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
-  declarations: [SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent],
+  declarations: [SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent,AlertComponent],
   imports: [
     CommonModule, MaterialModuleModule, ReactiveFormsModule,CKEditorModule
   ],
+  entryComponents: [AlertComponent],
   exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, CarDetailsCardComponent,ConfirmComponent,CkEditorComponent,
-    CKEditorModule]
+    CKEditorModule,AlertComponent]
 })
 export class SharedModuleModule { }
