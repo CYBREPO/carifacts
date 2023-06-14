@@ -16,13 +16,23 @@ export class HomeComponent {
   vehicleModels: any;
   // = vehicleModels.vehicleModels;
   locations = locations.locations;
+  page: any;
 
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
 
   ngOnInit() {
     this.locations = locations.locations;
+    this.getHomePage();
     this.getBrands();
+  }
+
+  getHomePage(){
+    this.httpservice.httpGet(ApiUrls.pages.getHome, null).subscribe((res: any) => {
+      if (res['success']) {
+        this.page = res['data'];
+      }
+    });
   }
 
   getBrands() {

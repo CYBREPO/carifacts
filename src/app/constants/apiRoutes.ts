@@ -51,14 +51,18 @@ class pages{
     public static deletePages = "pages/deletePages";
     public static savePage = "pages/savePage";
     public static updatePage = "pages/updatePage";
-
+    //our list
     public static getOurList = "pages/getOurList";
     public static saveOurLink = "pages/saveOurLink";
     public static updateOurList = "pages/updateOurList";
-    
+    //About us
     public static getAboutus = "pages/getAboutus";
     public static saveAboutus = "pages/saveAboutus";
     public static updateAboutus = "pages/updateAboutus";
+    //Home
+    public static getHome = "pages/getHome";
+    public static saveHome = "pages/saveHome";
+    public static updateHome = "pages/updateHome";
 
 }
 class teams{

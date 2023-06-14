@@ -7,6 +7,7 @@ import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 import { TeamsComponent } from '../teams/teams.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { OurListComponent } from '../our-list/our-list.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-pages-dashboard',
@@ -44,6 +45,14 @@ export class PagesDashboardComponent {
           // { title: "delete", event: "delete", type: GridActionType.ICON, class: "fa fa-trash" },
         ]
       }
+    ];
+
+    //Set Initial pages
+    this.pages = [
+      {name: "About us",description: ""},
+      {name: "Teams", description: ""},
+      {name: "Our List", description: ""}, 
+      {name: "Home", description: ""},
     ]
   }
 
@@ -58,6 +67,7 @@ export class PagesDashboardComponent {
     this.getAboutUs();
     this.getTeams();
     this.getOurLink();
+    this.getHomePage();
   }
 
   getTeams(){
@@ -82,7 +92,7 @@ export class PagesDashboardComponent {
   getAboutUs(){
     this.httpService.httpGet(ApiUrls.pages.getAboutus,null).subscribe((res: any) => {
       if(res['success']){
-        const index = this.pages.findIndex(m => m.name == 'About Us' );
+        const index = this.pages.findIndex(m => m.name == 'About us' );
         if(index > -1){
           this.pages[index]['description'] = res['data']['header'];
           this.pages[index]['data'] = res['data'];
@@ -90,7 +100,7 @@ export class PagesDashboardComponent {
           return;
         }
         this.pages.push({
-          name: 'About Us',
+          name: 'About us',
           description: res['data']['header'],
           data: res['data'],
         });
@@ -109,6 +119,25 @@ export class PagesDashboardComponent {
         }
         this.pages.push({
           name: 'Our List',
+          description: res['data']['header'],
+          data: res['data'],
+        });
+      }
+    });
+  }
+
+  getHomePage(){
+    this.httpService.httpGet(ApiUrls.pages.getHome,null).subscribe((res: any) => {
+      if(res['success']){
+        const index = this.pages.findIndex(m => m.name == 'Home' );
+        if(index > -1){
+          this.pages[index]['description'] = res['data']['header'];
+          this.pages[index]['data'] = res['data'];
+
+          return;
+        }
+        this.pages.push({
+          name: 'Home',
           description: res['data']['header'],
           data: res['data'],
         });
@@ -156,7 +185,9 @@ export class PagesDashboardComponent {
       break;
       case "Our List": component = OurListComponent;
       break;
-      default: component = AboutUsComponent;
+      case "Home": component = HomeComponent;
+      break;
+      default: component = HomeComponent;
       break;
 
     }
@@ -176,7 +207,9 @@ export class PagesDashboardComponent {
           break;
           case "Our List": this.getOurLink;
           break;
-          default: this.getAboutUs();
+          case "Our List": this.getOurLink;
+          break;
+          default: this.getHomePage();
           break;
     
         }

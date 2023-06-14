@@ -19,6 +19,8 @@ import { PagesDashboardComponent } from './pages/pages-dashboard/pages-dashboard
 import { TeamsComponent } from './pages/teams/teams.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { OurListComponent } from './pages/our-list/our-list.component';
+import { HostComponent } from './host/host.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const Routes = [
   {path: '', component: AdminLayoutComponent, children: [
@@ -36,7 +38,7 @@ const Routes = [
   declarations: [DashboardComponent,AdminLayoutComponent, SideNavbarComponent, 
     TopNavbarComponent, CarCompaniesComponent, TableComponent, ChangePasswordComponent, EditProfileComponent, 
     CarModelsComponent, ManageCarsComponent, UsersComponent,PagesDashboardComponent,TeamsComponent,AboutUsComponent,
-    OurListComponent
+    OurListComponent,HostComponent,HomeComponent
   ],
   imports: [
     CommonModule, RouterModule.forChild(Routes),

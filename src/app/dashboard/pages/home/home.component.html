@@ -1,18 +1,26 @@
 <div class="p-3">
-    <h6>About Us</h6>
+    <h6>Home</h6>
     <div class="container">
         <div class="border border-1 p-4">
-            <form [formGroup]="aboutusForm" (ngSubmit)="submit()" class="w-100">
+            <form [formGroup]="homeForm" (ngSubmit)="submit()" class="w-100">
                 <div class="wp-content">
-                    <div class="wp-head">Banner Image</div>
+                    <div class="wp-head">Banner Images</div>
                     <div class="mb-4 contenter">
-                        <input type="file" (change)="handleFileInput($event,'bannerImg')" name="Car Image" id="file"
+                        <input type="file" multiple (change)="handleFileInputBanner($event)" name="Car Image" id="file"
                             formControlName="bannerImg">
                     </div>
                 </div>
                 <div class="wp-content">
                     <div class="wp-head">
                         Banner content</div>
+                    <div class="mb-4 contenter">
+                        <ckeditor [editor]="Editor" formControlName="bannerContent"></ckeditor>
+                    </div>
+                </div>
+
+                <div class="wp-content">
+                    <div class="wp-head">
+                        Header content</div>
                     <div class="mb-4 contenter">
                         <ckeditor [editor]="Editor" formControlName="header"></ckeditor>
                     </div>

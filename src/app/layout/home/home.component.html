@@ -2,16 +2,16 @@
 
 <div id="intro" class="bg-image shadow-1-strong">
     <div class="mask h-100 text-white">
-        <div id="carouselExampleIndicators" class="carousel slide h-100">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
+        <div id="carouselExampleIndicators" class="carousel slide h-100" *ngIf="page && page.bannerImages" data-bs-ride="carousel">
+            <div class="carousel-indicators" *ngFor="let img of page?.bannerImages; let i= index">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=`${i}`
+                    aria-current="true" aria-label=`slide${i}`></button>
             </div>
-            <div class="carousel-inner h-100">
-                <div class="carousel-item h-100 active">
-                    <img src="../assets/images/slide_2.jpg" class="w-100" alt="">
+            <div class="carousel-inner h-100" role="listbox">
+                <div class="carousel-item h-100 active" *ngFor="let img of page?.bannerImages;let i = index">
+                    <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block"
+                        alt=`slide${i}`>
+                    <!-- <img src="../assets/images/slide_2.jpg" class="w-100" alt=""> -->
                     <div class="container d-flex h-100 align-items-center">
 
                         <div class="row w-100 ">
@@ -20,30 +20,21 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="text-white">
-                                    <h1 class="heading mb-0">Autohyre</h1>
-                                    <h3 class="subheading mb-3">Make your Trip Relishable</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item h-100 ">
-                    <img src="../assets/images/bmw-m2-f87-blue-wallpaper.jpg" class="w-100" alt="">
-                    <div class="container d-flex align-items-center h-100">
-                        <div class="row w-100">
-                            <div class="col-md-7">
-
-                            </div>
-                            <div class="col-md-5">
-                                <div class="text-white">
-                                    <h1 class="heading mb-0">Autohyre</h1>
-                                    <h3 class="subheading mb-3">Make your Trip Relishable</h3>
+                                    <div [innerHTML]="page?.bannerContent"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button> -->
         </div>
     </div>
 </div>
@@ -51,12 +42,14 @@
 <section class="mt-md-5 browsebymake">
 
     <div class="container">
-        <div class="section-heading text-center mt-md-5">
+        <!-- <div class="section-heading text-center mt-md-5">
             Find your drive
         </div>
         <div class="section-subheading text-center mb-5">
             Explore the world's largest car sharing marketplace
-        </div>
+        </div> -->
+        
+        <div [innerHTML]="page?.header" class="section-heading text-center mt-md-5"></div>
         <b class="fs-4 d-block section-subheading">Browse by Make</b>
 
         <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
@@ -75,21 +68,23 @@
 <section class="image-text mt-md-5">
     <div class="container">
         <div class="row justify-content-center py-md-5">
-            <div class="col-md-5">
-                <img src="../assets/images/Group19625424.svg" class="img-fluid" alt="">
+            <div class="col-md-5" *ngIf="page?.mainImg">
+                <img src="data:{{page.mainImg.contentType}};base64, {{page.mainImg.imageBase64}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-5">
-                <div class="subheading  fs-3 mb-3">
+                <!-- <div class="subheading  fs-3 mb-3">
                     Find the perfect car <span class="text-red">to unwind for the weekend</span>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis illo veritatis sed saepe
                     corrupti
                     nesciunt quas porro suscipit sequi quia, consequatur, quibusdam minus itaque, facilis alias
                     necessitatibus!
-                    Quas, vero?.</p>
-                <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/carcategory']" role="button"> Browse all
+                    Quas, vero?.</p>-->
+                <div [innerHTML]="page?.body"></div>
+                <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/carcategory']" role="button">
+                    Browse all
                     cars
-                </a>
+                </a> 
 
             </div>
         </div>
