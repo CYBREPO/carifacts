@@ -13,42 +13,14 @@ import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 })
 export class HomeComponent {
 
-  vehicleModels: any;
-  // = vehicleModels.vehicleModels;
-  locations = locations.locations;
-  page: any;
-
+  items :  Array <number> = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
 
   ngOnInit() {
-    this.locations = locations.locations;
-    this.getHomePage();
-    this.getBrands();
+
   }
-
-  getHomePage(){
-    this.httpservice.httpGet(ApiUrls.pages.getHome, null).subscribe((res: any) => {
-      if (res['success']) {
-        this.page = res['data'];
-      }
-    });
-  }
-
-  getBrands() {
-    this.httpservice.httpPost(ApiUrls.brand.getAllBrands, null).subscribe((res: any) => {
-      if (res['success']) {
-        this.vehicleModels = res['data'];
-      }
-    });
-  }
-
-
-  parentEventHandlerFunction(event: any) {
-    this.router.navigate(['/cust/carcategory', event.name]);
-  }
-
-  locationEvent(event: any) {
-    this.router.navigate(['/cust/map', event.title]);
+  parentEventHandlerFunction() {
+    this.router.navigate(['/cust/carcategory']);
   }
 }

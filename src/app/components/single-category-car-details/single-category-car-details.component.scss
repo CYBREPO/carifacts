@@ -1,3 +1,41 @@
-.search-bar{
-    position: static !important;
+.nav-tabs {
+    display: flex;
+    justify-content: space-evenly;
+    border: 0;
+position: sticky;
+top: 80px;
+    .nav-item button{
+        height: 100px;
+        width: 100px;
+        background-color: #16f301;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        justify-content: center;
+        color: #ffffff;
+        border-radius: 8px;
+    
+    }
+}
+.tab-content {
+    overflow: hidden;
+    margin-top: 50px;
+    border-top: thin solid #c1c1c1;
+    padding-top: 50px;
+}
+.head-title{
+    font-size: 42px;
+    line-height: 1.1904761905em;
+    color: #405363;
+}
+.backgrounbanner{
+    min-height: 300px;
+    background-image: url(../../../assets/images/antigua/antigua.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-size: 100%;
 }

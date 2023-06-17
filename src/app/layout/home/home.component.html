@@ -1,143 +1,904 @@
-<app-search-bar></app-search-bar>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 pe-0">
+            <ul class="nav vertical-navbar h-100 ms-auto mb-2 mb-lg-0 flex-column nav-tabs" id="myTab"
+                role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                        data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+                        aria-selected="true">Countries of Caribean community</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                        data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
+                        aria-selected="false">Pillars</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
+                        aria-selected="false">Organs</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="facts-tab" data-bs-toggle="tab" data-bs-target="#facts-tab-pane"
+                        type="button" role="tab" aria-controls="facts-tab-pane" aria-selected="false">Symbol of caricom</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="caribbean-tab" data-bs-toggle="tab"
+                        data-bs-target="#caribbean-tab-pane" type="button" role="tab"
+                        aria-controls="caribbean-tab-pane" aria-selected="false">Founding fathers</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="education-tab" data-bs-toggle="tab"
+                        data-bs-target="#education-tab-pane" type="button" role="tab"
+                        aria-controls="education-tab-pane" aria-selected="false">How caricom works</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="business-tab" data-bs-toggle="tab"
+                        data-bs-target="#business-tab-pane" type="button" role="tab"
+                        aria-controls="business-tab-pane" aria-selected="false">Keys dates</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="caribbean-community-tab" data-bs-toggle="tab"
+                        data-bs-target="#caribbean-community-tab-pane" type="button" role="tab"
+                        aria-controls="caribbean-community-tab-pane" aria-selected="false">CSME</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="Health-tab" data-bs-toggle="tab" data-bs-target="#Health-tab-pane"
+                        type="button" role="tab" aria-controls="Health-tab-pane"
+                        aria-selected="false">Caricom Institution</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="Health-tab" data-bs-toggle="tab" data-bs-target="#Health-tab-pane"
+                        type="button" role="tab" aria-controls="Health-tab-pane"
+                        aria-selected="false">Secretaries General</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="Health-tab" data-bs-toggle="tab" data-bs-target="#Health-tab-pane"
+                        type="button" role="tab" aria-controls="Health-tab-pane"
+                        aria-selected="false">Caricom Institution</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="Health-tab" data-bs-toggle="tab" data-bs-target="#Health-tab-pane"
+                        type="button" role="tab" aria-controls="Health-tab-pane"
+                        aria-selected="false">Caricom Awardees</button>
+                </li>
+                <li class="nav-item nav-itemevent" role="presentation">
+                    <button class="nav-link" id="Health-tab" data-bs-toggle="tab" data-bs-target="#Health-tab-pane"
+                        type="button" role="tab" aria-controls="Health-tab-pane"
+                        aria-selected="false">Grade 6 test result</button>
+                </li>
+            </ul>
+        </div>
 
-<div id="intro" class="bg-image shadow-1-strong">
-    <div class="mask h-100 text-white">
-        <div id="carouselExampleIndicators" class="carousel slide h-100" *ngIf="page && page.bannerImages" data-bs-ride="carousel">
-            <div class="carousel-indicators" *ngFor="let img of page?.bannerImages; let i= index">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=`${i}`
-                    aria-current="true" aria-label=`slide${i}`></button>
-            </div>
-            <div class="carousel-inner h-100" role="listbox">
-                <div class="carousel-item h-100 active" *ngFor="let img of page?.bannerImages;let i = index">
-                    <img src="data:{{img.contentType}};base64, {{img.imageBase64}}" class="w-100 d-block"
-                        alt=`slide${i}`>
-                    <!-- <img src="../assets/images/slide_2.jpg" class="w-100" alt=""> -->
-                    <div class="container d-flex h-100 align-items-center">
 
-                        <div class="row w-100 ">
-                            <div class="col-md-7">
+
+
+
+
+
+        <div class="col-md-11 h-100">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
+                    <section class="banner h-100">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                    aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../../../assets/images/18ef55bc-5a15-4eac-9387-cb52840e6a63.png" class="d-block w-100"
+                                        alt="">
+                                </div>
+                                <div class="carousel-item ">
+                                    <img src="../../../assets/images/screenshot-chaitanyashirodkar127154.invisionapp.com-2023.04.20-21_33_34.png"
+                                        class="d-block w-100" alt="...">
+                                </div>
 
                             </div>
-                            <div class="col-md-5">
-                                <div class="text-white">
-                                    <div [innerHTML]="page?.bannerContent"></div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </section>
+                </div>
+
+
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0">
+                    <section class="grid-columns d-flex flex-column h-100">
+                        <div class="row flex-1">
+
+                           <ng-container *ngFor="let item of items; let i=index">
+                             <div class="col-md-2">
+                                <div class="grid-column" (click)="parentEventHandlerFunction()">
+                                    <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Countries of CARICOM</div>
                                 </div>
                             </div>
+                           </ng-container>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                    tabindex="0">
+                    <section class="grid-columns d-flex flex-column h-100">
+                        <div class="row flex-1">
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Countries of CARICOM</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">TREATY OF CHAGUARAMAS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Symbols of CARICOM (Logo, Standard, Passport, Song,
+                                        CARICOM Awards)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Country Profiles</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CARICOM Symbols</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Logo, Standard, passport, Song</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Organs and Bodies of the Caricom Community</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Key dates at a glance</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quizzes/tests/PAPERS</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="facts-tab-pane" role="tabpanel" aria-labelledby="facts-tab"
+                    tabindex="0">
+                    <section class="grid-columns d-flex flex-column h-100">
+                        <div class="row flex-1">
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Countries of CARICOM</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">TREATY OF CHAGUARAMAS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Symbols of CARICOM (Logo, Standard, Passport, Song,
+                                        CARICOM
+                                        Awards)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Country Profiles</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CARICOM Symbols</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Logo, Standard, passport, Song</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Organs and Bodies of the Caricom Community</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Key dates at a glance</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">The Caribbean Strategic Plan 2015 to 2019</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quiz</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quizzes/tests/PAPERS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Declarations/Agreements/Conventions/Charters</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Liliendaal Declaration on Agriculture and Food Security
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Concensus of Chaguaramas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">About the CSME</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*About CARREX</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Grande Anse Declaration</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Charter of Civil Society</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*CIMSUPRO</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Caricom Policies</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CCJ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="caribbean-tab-pane" role="tabpanel" aria-labelledby="caribbean-tab"
+                    tabindex="0">
+                    <section class="grid-columns d-flex flex-column h-100">
+                        <div class="row flex-1">
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Countries of CARICOM</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">TREATY OF CHAGUARAMAS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Symbols of CARICOM (Logo, Standard, Passport, Song,
+                                        CARICOM
+                                        Awards)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Country Profiles</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CARICOM Symbols</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Logo, Standard, passport, Song</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Organs and Bodies of the Caricom Community</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Key dates at a glance</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">The Caribbean Strategic Plan 2015 to 2019</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quiz</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quizzes/tests/PAPERS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Declarations/Agreements/Conventions/Charters</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Liliendaal Declaration on Agriculture and Food Security
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Concensus of Chaguaramas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">About the CSME</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*About CARREX</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Grande Anse Declaration</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Charter of Civil Society</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*CIMSUPRO</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Caricom Policies</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CCJ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab"
+                    tabindex="0">
+                    <section class="grid-columns d-flex flex-column h-100">
+                        <div class="row flex-1">
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Countries of CARICOM</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">TREATY OF CHAGUARAMAS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Symbols of CARICOM (Logo, Standard, Passport, Song,
+                                        CARICOM
+                                        Awards)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Country Profiles</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CARICOM Symbols</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Logo, Standard, passport, Song</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Organs and Bodies of the Caricom Community</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Key dates at a glance</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">The Caribbean Strategic Plan 2015 to 2019</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quiz</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quizzes/tests/PAPERS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Declarations/Agreements/Conventions/Charters</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Liliendaal Declaration on Agriculture and Food Security
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Concensus of Chaguaramas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">About the CSME</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*About CARREX</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Grande Anse Declaration</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Charter of Civil Society</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*CIMSUPRO</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Caricom Policies</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CCJ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="business-tab-pane" role="tabpanel" aria-labelledby="business-tab"
+                    tabindex="0">
+                    <section class="grid-columns d-flex flex-column h-100">
+                        <div class="row flex-1">
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Countries of CARICOM</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">TREATY OF CHAGUARAMAS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Symbols of CARICOM (Logo, Standard, Passport, Song,
+                                        CARICOM
+                                        Awards)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Country Profiles</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CARICOM Symbols</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Logo, Standard, passport, Song</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Organs and Bodies of the Caricom Community</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Key dates at a glance</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">The Caribbean Strategic Plan 2015 to 2019</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quiz</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CXC quizzes/tests/PAPERS</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Declarations/Agreements/Conventions/Charters</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Liliendaal Declaration on Agriculture and Food Security
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Concensus of Chaguaramas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">About the CSME</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*About CARREX</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Grande Anse Declaration</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Charter of Civil Society</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">*CIMSUPRO</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">Caricom Policies</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="grid-column">
+                                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                                    <div class="grid-inner">CCJ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane fade" id="community-tab-pane" role="tabpanel" aria-labelledby="community-tab"
+                    tabindex="0">...</div>
+                <div class="tab-pane fade" id="Health-tab-pane" role="tabpanel" aria-labelledby="Health-tab"
+                    tabindex="0">...</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="grid-columns pt-5" id="grid-columns">
+    <div class="container py-md-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/istockphoto-957604652-612x612.jpg" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        CARICOM
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/iStock-927077190.jpg" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        EDUCATION
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/iStock-1005285232-4.jpg" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        BUSINESS
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/couple.png" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        HEALTH
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        Grade VI/Eleven
+                        Plus/Common
+                        Entrance
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/Mineria.png" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        CXC (Caribbean
+                        Examination (Council))
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/kid.jpg" alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        Faculty of Facts
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="grid-column">
+                    <img src="../../../assets/images/https://ik.imagekit.io/adi1239457/istockphoto-472166433-612x612_FIjsiXg8t.jpg?updatedAt=1680418468523"
+                        alt="" class="img-fluid w-100 h-100">
+                    <div class="grid-inner">
+                        Know your
+                        Caribbean
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="know-your-caribbean mt-5">
+    <div class="csstext">
+        KNOW YOUR <span>CARIBBEAN</span></div>
+</section>
+<section class="blog py-5">
+    <div class="container">
+        <div class="section-title mb-3">
+            <div class="title">
+                <strong>Our</strong>
+                <div class="ms-3">Blog</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 left-column">
+                <div class="blog-card h-100">
+                    <img src="../../../assets/images/Mineria.png" class="d-block h-100 w-100" alt="">
+                    <div class="blog-text">
+                        <div class="blog-date">
+                            July 10,23
+                        </div>
+                        <div class="blog-title">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button> -->
-        </div>
-    </div>
-</div>
-
-<section class="mt-md-5 browsebymake">
-
-    <div class="container">
-        <!-- <div class="section-heading text-center mt-md-5">
-            Find your drive
-        </div>
-        <div class="section-subheading text-center mb-5">
-            Explore the world's largest car sharing marketplace
-        </div> -->
-        
-        <div [innerHTML]="page?.header" class="section-heading text-center mt-md-5"></div>
-        <b class="fs-4 d-block section-subheading">Browse by Make</b>
-
-        <div id="owl-demo-2" class="owl-carousel owl-theme py-3">
-
-        </div>
-        <div class="row">
-            <ng-container *ngFor="let vehicleModel of vehicleModels">
-                <div class="col-md-3">
-                    <app-card [cardsData]="vehicleModel" (clickCard)="parentEventHandlerFunction($event)"></app-card>
-                </div>
-            </ng-container>
-        </div>
-
-    </div>
-</section>
-<section class="image-text mt-md-5">
-    <div class="container">
-        <div class="row justify-content-center py-md-5">
-            <div class="col-md-5" *ngIf="page?.mainImg">
-                <img src="data:{{page.mainImg.contentType}};base64, {{page.mainImg.imageBase64}}" class="img-fluid" alt="">
-            </div>
-            <div class="col-md-5">
-                <!-- <div class="subheading  fs-3 mb-3">
-                    Find the perfect car <span class="text-red">to unwind for the weekend</span>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis illo veritatis sed saepe
-                    corrupti
-                    nesciunt quas porro suscipit sequi quia, consequatur, quibusdam minus itaque, facilis alias
-                    necessitatibus!
-                    Quas, vero?.</p>-->
-                <div [innerHTML]="page?.body"></div>
-                <a class="btn btn-outline-light btn-lg button-blue" [routerLink]="['/cust/carcategory']" role="button">
-                    Browse all
-                    cars
-                </a> 
-
-            </div>
-        </div>
-    </div>
-</section>
-<section class="mt-md-5 Browse by destination">
-    <div class="container">
-        <b class="fs-4 d-block section-subheading">Browse by destination</b>
-        <div id="location-owl-carousel" class="owl-carousel owl-theme py-3">
-
-
-            <ng-container *ngFor="let location of locations">
-                <app-card [cardsData]="location" [loc]="true" (clickCard)="locationEvent($event)"></app-card>
-            </ng-container>
-
-
-        </div><!-- #owl-demo-2 -->
-    </div><!-- .container -->
-</section>
-<div class="text-center">
-    <div class="section-heading text-center mt-md-5">
-        Meet the hosts
-    </div>
-</div>
-<section class="hosts">
-    <div class="container">
-        <img src="https://unused-css.com/tools/clip-path-generator?p=22IwJgXCCsA0DskRgDgGxgMwBYB09qrDykJlDBR2AE4BuOgYgDMlnmg"
-            alt="">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-4">
-                <div class="text-block">
-                    <div class="subheading  fs-3 mb-3">
-                        Hire an automobile
+            <div class="col-md-6 right-column">
+                <div class="blog-card">
+                    <img src="../../../assets/images/1280px-posing-at-2018-toronto-caribbean-carnival-28969518847.jpg"
+                        class="d-block w-100" alt="">
+                    <div class="blog-text">
+                        <div class="blog-date">
+                            July 10,23
+                        </div>
+                        <div class="blog-title">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                        </div>
                     </div>
-                    <p> With Flexible Bookings and No Hidden Fees Car hire is worthwhile</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <img src="../assets/images/output-onlinegiftools(2).gif" alt="" width="400px">
-            </div>
-        </div>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-4">
-                <img src="../assets/images/output-onlinegiftools.gif" alt="" width="400px" class="movingcar">
-            </div>
-            <div class="col-md-4 ms-5">
-                <div class="text-block">
-                    <div class="subheading  fs-3 mb-3">
-                        Become a host
+                <div class="blog-card">
+                    <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" class="d-block w-100" alt="">
+                    <div class="blog-text">
+                        <div class="blog-date">
+                            July 10,23
+                        </div>
+                        <div class="blog-title">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                        </div>
                     </div>
-                    <p>Car hire is worthwhile for extra freedom with time and destinations</p>
+                </div>
+                <div class="blog-card">
+                    <img src="../../../assets/images/kid.jpg" class="d-block w-100" alt="">
+                    <div class="blog-text">
+                        <div class="blog-date">
+                            July 10,23
+                        </div>
+                        <div class="blog-title">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <button class="theme-button">
+        Explore more
+    </button>
 </section>

@@ -11,7 +11,13 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class SingleCategoryCarDetailsComponent {
 
-  cardetails: any;
+  tabdetails: Array<string> = [
+    'head of govt',
+    'key facts',
+    'national symbols',
+    'map',
+    'tourist attraction',
+  ];
   makeType: string;
 
 
@@ -26,23 +32,14 @@ export class SingleCategoryCarDetailsComponent {
 
 
   ngOnInit(): void {
-    this.getPopularVehicles();
-    // this.cardetails = this.datatransferService.getData();
-
+   
+console.log(this.tabdetails);
   }
 
-  getPopularVehicles() {
-    let param = {
-      make: this.makeType
-    }
-    this.httpService.httpPost(ApiUrls.vehicle.getFilteredVehicleDetails, param).subscribe((res: any) => {
-      if (res['success'])
-        this.cardetails = res['data'];
-    })
-  }
+ 
 
   parentEventHandlerFunction(event: any) {
-    // this.datatransferService.setData(event);
+  
     this.router.navigate(['/cust/cardetails', event.vehicle._id])
   }
 }
