@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAE,sBAAsB,CAAC;EAC9B,QAAQ,EAAE,KAAK;EACf,OAAO,EAAE,MAAM;CAChB",
+    "sources": [
+        "car-models.component.scss"
+    ],
+    "names": [],
+    "file": "car-models.component.css"
+}

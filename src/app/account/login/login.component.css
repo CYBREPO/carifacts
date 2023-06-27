@@ -1,0 +1,14 @@
+form {
+  width: 600px;
+  margin: auto;
+  padding: 45px;
+  border: thin solid rgba(128, 128, 128, 0.490196);
+  -webkit-box-shadow: 0 10px 40px rgba(128, 128, 128, 0.388235);
+          box-shadow: 0 10px 40px rgba(128, 128, 128, 0.388235);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=login.component.css.map */

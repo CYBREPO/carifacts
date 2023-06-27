@@ -1,0 +1,31 @@
+#carouselExampleIndicators .carousel-item img {
+  height: 79vh;
+}
+
+.tab-content-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
+.dates-list li {
+  margin-top: 20px;
+}
+
+.genera-sec-card img {
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.award {
+  border: thin solid black;
+  margin: 5px;
+  padding: 15px;
+}
+
+.award b {
+  margin-right: 5px;
+  white-space: nowrap;
+}
+/*# sourceMappingURL=home.component.css.map */
