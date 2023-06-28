@@ -12,7 +12,8 @@ import { ModalDialogService } from 'src/app/service/modal-dialog.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  low: number = 0
+  high: number = 5
   items: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
   countries: Array<string> = [
     'Antigua and Barbuda',
@@ -31,51 +32,130 @@ export class HomeComponent {
     'Suriname',
     'Trinidad and Tobago']
 
+
+  tabsoftabs: Array<any> = [
+    {
+      'tab': 'home',
+      'tabtitle': 'Home'
+    },
+    {
+      'tab': 'grade',
+      'tabtitle': 'Grade VI/Eleven Plus/Common Entrance'
+    },
+    {
+      'tab': 'cxc',
+      'tabtitle': 'CXC (Caribean Examination Council) CAPE (Caribbean Advanced)'
+    },
+    {
+      'tab': 'faculty',
+      'tabtitle': 'Faculty of Facts (Tertiary Level)'
+    },
+    {
+      'tab': 'kyc',
+      'tabtitle': 'Know your Caribbean'
+    },
+
+
+
+
+    {
+      'tab': 'antigua',
+      'tabtitle': 'Countries of Caribean community'
+    },
+    {
+      'tab': 'pillar',
+      'tabtitle': 'Pillars'
+    },
+    {
+      'tab': 'organs',
+      'tabtitle': 'Organs'
+    },
+    {
+      'tab': 'symbols',
+      'tabtitle': 'Symbol of caricom'
+    },
+    {
+      'tab': 'founding',
+      'tabtitle': 'Founding fathers'
+    },
+    {
+      'tab': 'howcaricomworks',
+      'tabtitle': 'How caricom works'
+    },
+    {
+      'tab': 'dates',
+      'tabtitle': 'Keys dates'
+    },
+    {
+      'tab': 'csme',
+      'tabtitle': 'CSME'
+    },
+    {
+      'tab': 'institution',
+      'tabtitle': 'Caricom Institution'
+    },
+    {
+      'tab': 'secretaries',
+      'tabtitle': 'Secretaries General'
+    },
+    {
+      'tab': 'award',
+      'tabtitle': 'Caricom Awardees'
+    },
+    {
+      'tab': 'Health',
+      'tabtitle': 'Grade 6 test result'
+    }
+  ]
+
+
+
   countryofcaricom: Array<any> = [
 
     {
       'id': '1',
       'country': 'Anguilla'
+
     },
 
     {
       'id': '2',
-      'country':'Antigua and Barbuda'
+      'country': 'Antigua and Barbuda'
     },
 
     {
       'id': '3',
-      'country':'Bahamas'
+      'country': 'Bahamas'
     },
 
     {
       'id': '4',
-      'country':'Barbados'
+      'country': 'Barbados'
     },
 
     {
       'id': '5',
-      'country':'Belize'
+      'country': 'Belize'
     },
 
     {
       'id': '6',
-      'country':'Bermuda'
+      'country': 'Bermuda'
     },
 
     {
       'id': '7',
-      'country':'British virgin island'
+      'country': 'British virgin island'
     },
 
     {
       'id': '8',
-      'country':'cayman island'
+      'country': 'cayman island'
     },
 
     {
       'id': '9',
-      'country':'Domnica'
+      'country': 'Domnica'
     },
 
     {
@@ -129,9 +209,15 @@ export class HomeComponent {
     private httpservice: HttpService) { }
 
   ngOnInit() {
-
+    console.log(this.tabsoftabs);
   }
   parentEventHandlerFunction() {
     this.router.navigate(['/cust/carcategory']);
+  }
+  showothertabs(i: number) {
+    if (i == 1) {
+      this.low = 5;
+      this.high = 16;
+    }
   }
 }

@@ -2,69 +2,14 @@
     <div class="row">
         <div class="col-md-1 pe-0">
             <ul class="nav vertical-navbar h-100 ms-auto mb-2 mb-lg-0 flex-column nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="antigua-tab" data-bs-toggle="tab" data-bs-target="#antigua-tab-pane"
-                        type="button" role="tab" aria-controls="antigua-tab-pane" aria-selected="true">Countries of
-                        Caribean community</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="pillar-tab" data-bs-toggle="tab" data-bs-target="#pillar-tab-pane"
-                        type="button" role="tab" aria-controls="pillar-tab-pane" aria-selected="false">Pillars</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="organs-tab" data-bs-toggle="tab" data-bs-target="#organs-tab-pane"
-                        type="button" role="tab" aria-controls="organs-tab-pane" aria-selected="false">Organs</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="symbols-tab" data-bs-toggle="tab" data-bs-target="#symbols-tab-pane"
-                        type="button" role="tab" aria-controls="symbols-tab-pane" aria-selected="false">Symbol of
-                        caricom</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="founding-tab" data-bs-toggle="tab" data-bs-target="#founding-tab-pane"
-                        type="button" role="tab" aria-controls="founding-tab-pane" aria-selected="false">Founding
-                        fathers</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="howcaricomworks-tab" data-bs-toggle="tab"
-                        data-bs-target="#howcaricomworks-tab-pane" type="button" role="tab"
-                        aria-controls="howcaricomworks-tab-pane" aria-selected="false">How caricom works</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="dates-tab" data-bs-toggle="tab" data-bs-target="#dates-tab-pane"
-                        type="button" role="tab" aria-controls="dates-tab-pane" aria-selected="false">Keys
-                        dates</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="csme-tab" data-bs-toggle="tab" data-bs-target="#csme-tab-pane"
-                        type="button" role="tab" aria-controls="csme-tab-pane" aria-selected="false">CSME</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="institution-tab" data-bs-toggle="tab"
-                        data-bs-target="#institution-tab-pane" type="button" role="tab"
-                        aria-controls="institution-tab-pane" aria-selected="false">Caricom
-                        Institution</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="secretaries-tab" data-bs-toggle="tab"
-                        data-bs-target="#secretaries-tab-pane" type="button" role="tab"
-                        aria-controls="secretaries-tab-pane" aria-selected="false">Secretaries
-                        General</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="award-tab" data-bs-toggle="tab" data-bs-target="#award-tab-pane"
-                        type="button" role="tab" aria-controls="award-tab-pane" aria-selected="false">Caricom
-                        Awardees</button>
-                </li>
-                <li class="nav-item nav-itemevent" role="presentation">
-                    <button class="nav-link" id="Health-tab" data-bs-toggle="tab" data-bs-target="#Health-tab-pane"
-                        type="button" role="tab" aria-controls="Health-tab-pane" aria-selected="false">Grade 6 test
-                        result</button>
-                </li>
+
+                <ng-container *ngFor="let tab of tabsoftabs; let i=index">
+                    <li class="nav-item" role="presentation" *ngIf=" i==0 || (i >= low && i <= high)" (click)="showothertabs(i)">
+                        <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab" data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane"
+                            type="button" role="tab" attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true" >{{tab.tabtitle}}</button>
+                    </li>
+                </ng-container>
+                
             </ul>
         </div>
 
@@ -892,13 +837,13 @@
                             </div>
 
                             <div class="row">
-                               <div class="text-center">
-                                <p> There are two CARICOM Awards:</p>
-                                <br>
-                                <h5><b>The Order of the Caribbean Community (OCC)</b></h5>
-                               </div>
+                                <div class="text-center">
+                                    <p> There are two CARICOM Awards:</p>
+                                    <br>
+                                    <h5><b>The Order of the Caribbean Community (OCC)</b></h5>
+                                </div>
                                 <div class="col-md-8 mx-auto">
-                                   
+
                                     and
                                     <h5> <b>the CARICOM Triennial Award for Women</b>.</h5>
 
@@ -2133,7 +2078,7 @@
 </section>
 <section class="grid-columns pt-5" id="grid-columns">
     <div class="container py-md-5">
-      
+
         <div class="row mt-4">
             <div class="col-md-3">
                 <div class="grid-column overflow-hidden">
