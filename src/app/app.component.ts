@@ -10,7 +10,6 @@ import { LoaderService } from './service/loader.service';
 
 export class AppComponent {
 
-  title = 'autohyre';
   showLoader: boolean = false;
   
   constructor(public router: Router,private loaderService: LoaderService) {

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,OAAO,EAAE,YAAY;EACrB,WAAW,EAAE,MAAM;EACnB,YAAY,EAAE,IAAI;CACrB",
-    "sources": [
-        "manage-cars.component.scss"
-    ],
-    "names": [],
-    "file": "manage-cars.component.css"
-}

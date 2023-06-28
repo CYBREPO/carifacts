@@ -23,8 +23,7 @@
     "lib": [
       "es2020",
       "dom"
-    ],
-    "types": ["google.maps"]
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

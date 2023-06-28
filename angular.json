@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "autohyre": {
+    "carifacts": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/autohyre",
+            "outputPath": "dist/carifacts",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,16 +25,14 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/app/dashboard/dashboard-assets"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
-            ],
-            "allowedCommonJsDependencies": [
-              "ngx-google-places-autocomplete"
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
           "configurations": {
@@ -74,22 +72,22 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "autohyre:build:production"
+              "browserTarget": "carifacts:build:production"
             },
             "development": {
-              "browserTarget": "autohyre:build:development"
+              "browserTarget": "carifacts:build:development"
             }
           },
           "defaultConfiguration": "development",
           "options": {
-            "browserTarget": "autohyre:build",
+            "browserTarget": "carifacts:build",
             "proxyConfig": "src/proxy.conf.json"
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "autohyre:build"
+            "browserTarget": "carifacts:build"
           }
         },
         "test": {

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,mBAAmB,CAAC;EAChB,MAAM,EAAE,kBAAkB;EAC1B,UAAU,EAAE,GAAG;CAClB;;AAED,AACI,cADU,CACV,GAAG,CAAC;EACA,MAAM,EAAE,KAAK;CAChB",
-    "sources": [
-        "single-car-details-layout.component.scss"
-    ],
-    "names": [],
-    "file": "single-car-details-layout.component.css"
-}
