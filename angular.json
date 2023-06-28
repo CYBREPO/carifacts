@@ -29,7 +29,7 @@
               "src/app/dashboard/dashboard-assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/style.css"
             ],
             "scripts": [
             ],
@@ -105,7 +105,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/style.css"
             ],
             "scripts": []
           }
