@@ -39,7 +39,7 @@ export class HomeComponent {
       'tabtitle': 'Home'
     },
     {
-      'tab': 'grade',
+      'tab': 'antigua',
       'tabtitle': 'Grade VI/Eleven Plus/Common Entrance'
     },
     {
@@ -112,11 +112,7 @@ export class HomeComponent {
 
   countryofcaricom: Array<any> = [
 
-    {
-      'id': '1',
-      'country': 'Anguilla'
 
-    },
 
     {
       'id': '2',
@@ -137,22 +133,6 @@ export class HomeComponent {
       'id': '5',
       'country': 'Belize'
     },
-
-    {
-      'id': '6',
-      'country': 'Bermuda'
-    },
-
-    {
-      'id': '7',
-      'country': 'British virgin island'
-    },
-
-    {
-      'id': '8',
-      'country': 'cayman island'
-    },
-
     {
       'id': '9',
       'country': 'Domnica'
@@ -200,20 +180,40 @@ export class HomeComponent {
       'country': 'Trinidade and Tobaggo'
     },
     {
+      'id': '1',
+      'country': 'Anguilla'
+
+    },
+    {
+      'id': '6',
+      'country': 'Bermuda'
+    },
+
+    {
+      'id': '7',
+      'country': 'British virgin island'
+    },
+
+    {
+      'id': '8',
+      'country': 'cayman island'
+    },
+    {
       'id': '18',
       'country': 'Turks and Caicos'
-    }
+    },
   ]
 
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
 
   ngOnInit() {
-    console.log(this.tabsoftabs);
   }
+
   parentEventHandlerFunction() {
-    this.router.navigate(['/cust/carcategory']);
+    this.router.navigate(['/category']);
   }
+  
   showothertabs(i: number) {
     if (i == 1) {
       this.low = 5;

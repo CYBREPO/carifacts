@@ -7,22 +7,16 @@ import { RouterModule } from '@angular/router';
 import { SharedModuleModule } from '../shared/shared-module.module';
 import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer-layout.component';
 import { MaterialModuleModule } from '../shared/material-module.module';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { TeamComponent } from './team/team.component';
-import { ListcarsComponent } from './listcars/listcars.component';
 
 const Routes = [
   {path: '', component: CustomerLayoutComponent, children: [
     { path: '', component: HomeComponent},
-    { path: 'aboutus', component: AboutusComponent},
-    { path: 'team', component: TeamComponent},
-    { path: 'list-cars', component: ListcarsComponent},
 
   ]}
 ]
 
 @NgModule({
-  declarations: [HeaderComponent,FooterComponent, HomeComponent,CustomerLayoutComponent, AboutusComponent, TeamComponent, ListcarsComponent],
+  declarations: [HeaderComponent,FooterComponent, HomeComponent,CustomerLayoutComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes),

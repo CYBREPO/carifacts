@@ -32,14 +32,13 @@ export class SingleCategoryCarDetailsComponent {
 
 
   ngOnInit(): void {
-   
-console.log(this.tabdetails);
+
   }
 
- 
+
 
   parentEventHandlerFunction(event: any) {
-  
+
     this.router.navigate(['/cust/cardetails', event.vehicle._id])
   }
 }
