@@ -211,7 +211,7 @@ export class HomeComponent {
   }
 
   parentEventHandlerFunction() {
-    this.router.navigate(['/category']);
+    this.router.navigate(['component/category']);
   }
   
   showothertabs(i: number) {
