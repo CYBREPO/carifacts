@@ -34,7 +34,56 @@
         white-space: nowrap;
     }
 
-    p {
+    p {}
+}
 
+.imagewidth {
+
+    margin: 50px auto;
+    display: flex;
+}
+
+.flags-grid {
+    .grid-column {
+
+        background-color: #a5ffee;
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+
+        img {
+            height: 150px !important;
+            transform: scale(0.9);
+
+        }
+        &:hover img{
+            transform: scale(1);
+        }
+    }
+}
+
+.section-grid-columns {
+    .grid-column {
+        height: 250px;
+    }
+}
+
+.institution-block {
+    text-align: center;
+}
+
+.award {
+    border: thin solid black;
+    margin: 12px 0;
+    padding: 30px;
+
+    img {
+        height: 400px;
+        object-fit: contain;
+        width: max-content;
+        margin-bottom: 20px;
+        display: flex;
+        width: auto !important;
+        margin-right: auto;
     }
 }

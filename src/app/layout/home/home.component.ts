@@ -14,6 +14,10 @@ import { ModalDialogService } from 'src/app/service/modal-dialog.service';
 export class HomeComponent {
   low: number = 0
   high: number = 5
+  gradesixtabactive: boolean = true
+  addclassreduceheight: boolean = false
+
+
   items: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
   countries: Array<string> = [
     'Antigua and Barbuda',
@@ -39,7 +43,7 @@ export class HomeComponent {
       'tabtitle': 'Home'
     },
     {
-      'tab': 'antigua',
+      'tab': 'hometwo',
       'tabtitle': 'Grade VI/Eleven Plus/Common Entrance'
     },
     {
@@ -53,11 +57,10 @@ export class HomeComponent {
     {
       'tab': 'kyc',
       'tabtitle': 'Know your Caribbean'
-    },
+    }
+  ]
 
-
-
-
+  gradesix: Array<any> = [
     {
       'tab': 'antigua',
       'tabtitle': 'Countries of Caribean community'
@@ -213,11 +216,28 @@ export class HomeComponent {
   parentEventHandlerFunction() {
     this.router.navigate(['component/category']);
   }
-  
+  parentEventHandlerFunctiontwo() {
+    this.router.navigate(['component/associate-states']);
+  }
+
   showothertabs(i: number) {
-    if (i == 1) {
-      this.low = 5;
-      this.high = 16;
+    // if (i == 1) {
+    //   this.low = 5;
+    //   this.high = 16;
+    // }
+    if (i == 0) {
+      this.gradesixtabactive = true;
+    }
+    else if (i == 1) {
+      this.gradesixtabactive = false;
     }
   }
+
+  showinformation() {
+      this.addclassreduceheight = true;
+  }
+
+  goback() {
+    this.addclassreduceheight = false;
+}
 }

@@ -1,19 +1,34 @@
-<section class="container-fluid">
+<section class="container-fluid mb-5">
     <div class="row">
-        <div class="col-md-1 pe-0">
+        <div class="col-md-1 ps-3 pe-0" *ngIf="!addclassreduceheight">
             <ul class="nav vertical-navbar h-100 ms-auto mb-2 mb-lg-0 flex-column nav-tabs" id="myTab" role="tablist">
 
+                <!-- <ng-container *ngFor="let tab of tabsoftabs; let i=index">
+                    <li class="nav-item" role="presentation" *ngIf=" i==0 || (i >= low && i <= high)"
+                        (click)="showothertabs(i)">
+                        <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab"
+                            data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane" type="button" role="tab"
+                            attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true">{{tab.tabtitle}}</button>
+                    </li>
+                </ng-container> -->
+
+
                 <ng-container *ngFor="let tab of tabsoftabs; let i=index">
-                    <li class="nav-item" role="presentation" *ngIf=" i==0 || (i >= low && i <= high)" (click)="showothertabs(i)">
-                        <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab" data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane"
-                            type="button" role="tab" attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true" >{{tab.tabtitle}}</button>
+                    <li class="nav-item" role="presentation" (click)="showothertabs(i)">
+                        <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab"
+                            data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane" type="button" role="tab"
+                            attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true">{{tab.tabtitle}}</button>
                     </li>
                 </ng-container>
-                
+
             </ul>
         </div>
 
-        <div class="col-md-11 h-100 tab-content-section">
+        <div class="h-100 tab-content-section " [ngClass]="addclassreduceheight ? 'col-md-12 px-4' : 'col-md-11'">
+            <div class="d-flex align-items-center text-blue my-2 cursor-pointer" *ngIf="addclassreduceheight" (click)="goback()">
+                <i class="fa fa-arrow-left me-2" aria-hidden="true"></i>
+                <span>BACK</span>
+            </div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                     tabindex="0">
@@ -50,13 +65,36 @@
                     </section>
                 </div>
 
+                <div class="tab-pane fade" id="hometwo-tab-pane" role="tabpanel" aria-labelledby="hometwo-tab"
+                    tabindex="0">
+                    <div class="backgrounbanner grade-6-banner" [ngClass]="{'reduceheight': addclassreduceheight}">
+                        <div class="container-fluid px-4">
+                            <ul id="myTab2" role="tablist">
+                                <div class="row">
+                                    <ng-container *ngFor="let gradeblock of gradesix; let i=index">
+                                        <div class="col-2" (click)="showinformation()">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="{{gradeblock.tab}}-tab"
+                                                    data-bs-toggle="tab"
+                                                    attr.data-bs-target="#{{gradeblock.tab}}-tab-pane" type="button"
+                                                    role="tab" attr.aria-controls="{{gradeblock.tab}}-tab-pane"
+                                                    aria-selected="true">{{gradeblock.tabtitle}}</button>
+                                            </li>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
                 <!-- countries of caricom -->
                 <div class="tab-pane fade" id="antigua-tab-pane" role="tabpanel" aria-labelledby="antigua-tab"
                     tabindex="0">
-                    <section class="grid-columns d-flex flex-column h-100">
-                        <div class="row flex-1">
+                    <section class="grid-columns d-flex flex-column h-100 flags-grid p-4">
+                        <div class="row row-cols-5 flex-1">
                             <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                <div class="col-md-2 mb-4 text-center" *ngIf=" i >= 0 && i <= 13">
+                                <div class="col text-center" *ngIf=" i >= 0 && i <= 13">
                                     <div class="grid-column" (click)="parentEventHandlerFunction()">
                                         <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt=""
                                             class="img-fluid w-100 h-100">
@@ -67,10 +105,10 @@
                         </div>
 
                         <h4 class="mt-5 mb-4">Associate Members</h4>
-                        <div class="row flex-1">
+                        <div class="row row-cols-5  flex-1">
                             <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                <div class="col-md-2 mb-4 text-center" *ngIf=" i >= 14 && i <= 19">
-                                    <div class="grid-column" (click)="parentEventHandlerFunction()">
+                                <div class="col text-center" *ngIf=" i >= 14 && i <= 19">
+                                    <div class="grid-column" (click)="parentEventHandlerFunctiontwo()">
                                         <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt=""
                                             class="img-fluid w-100 h-100">
                                         <div class="mt-2"><b>{{country.country}}</b></div>
@@ -80,7 +118,6 @@
                         </div>
                     </section>
                 </div>
-
                 <!-- pillars -->
                 <div class="tab-pane fade" id="pillar-tab-pane" role="tabpanel" aria-labelledby="pillar-tab"
                     tabindex="0">
@@ -91,7 +128,7 @@
                             </div>
                         </div> -->
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>PILLARS OF CARICOM</b></h1>
                                 <hr>
@@ -123,8 +160,6 @@
                     </section>
                 </div>
                 <!-- Organs -->
-
-
                 <div class="tab-pane fade" id="organs-tab-pane" role="tabpanel" aria-labelledby="organs-tab"
                     tabindex="0">
                     <section>
@@ -134,7 +169,7 @@
                             </div>
                         </div> -->
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>ORGANS AND BODIES</b></h1>
                                 <hr>
@@ -169,8 +204,6 @@
                         </div>
                     </section>
                 </div>
-
-
                 <!-- symbols -->
                 <div class="tab-pane fade" id="symbols-tab-pane" role="tabpanel" aria-labelledby="symbols-tab"
                     tabindex="0">
@@ -181,7 +214,7 @@
                             </div>
                         </div> -->
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b> SYMBOLS OF CARICOM</b></h1>
                                 <hr>
@@ -189,9 +222,12 @@
 
                             </div>
 
-                            <ul>
+                            <ul class="list-unstyled">
                                 <li>
-                                    <h5 class="color-blue-grey mt-5 mb-4"><b>The CARICOM LOGO</b></h5>
+                                    <h5 class="color-blue-grey mt-5 mb-4 text-center"><b>The CARICOM LOGO</b></h5>
+
+                                    <img src="../../../assets/images/symbols/CARICOM_logo_official.png" alt=""
+                                        class="imagewidth" width="150px">
 
                                     <p> The two Cs are for the words “Caribbean Community” (CARICOM). They are in the
                                         form
@@ -206,7 +242,9 @@
 
 
                                 <li>
-                                    <h5 class="color-blue-grey mt-5 mb-4"><b>The CARICOM Standard</b></h5>
+                                    <h5 class="color-blue-grey mt-5 mb-4 text-center"><b>The CARICOM Standard</b></h5>
+                                    <img src="../../../assets/images/symbols/Flag_of_CARICOM.svg.png" alt=""
+                                        class="imagewidth" width="300px">
 
                                     <p>
                                         - The CARICOM Standard features a blue background. The upper part is light blue
@@ -228,8 +266,10 @@
                                         Meeting in Nassau, The Bahamas, in July, 1984.”.</p>
                                 </li>
                                 <li>
-                                    <h5 class="color-blue-grey mt-5 mb-4"><b>-The CARICOM Passport</b></h5>
+                                    <h5 class="color-blue-grey mt-5 mb-4 text-center"><b>-The CARICOM Passport</b></h5>
 
+                                    <img src="../../../assets/images/symbols/CARICOM Passports copy.png" alt=""
+                                        class="imagewidth" width="300px">
                                     <p>-The CARICOM passport features the CARICOM logo and the words “Caribbean
                                         Community”
                                         printed on the cover. </p>
@@ -257,8 +297,7 @@
                                 <li>
 
                                     <div class="national-anthem position-relative">
-                                        <div class="section-heading-block text-center mb-0">
-                                            <img src="../../../assets/images/heading-pattern.png" alt="">
+                                        <div class="section-heading-block text-center mt-4 mb-0">
                                             <h1 class="b text-center mb-4 text-uppercase"><b> The CARICOM Song</b>
                                             </h1>
                                             <hr>
@@ -325,8 +364,6 @@
                         </div>
                     </section>
                 </div>
-
-
                 <!-- founding father -->
                 <div class="tab-pane fade" id="founding-tab-pane" role="tabpanel" aria-labelledby="founding-tab"
                     tabindex="0">
@@ -339,7 +376,7 @@
                             </div>
                         </div> -->
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>Founding Fathers of CARICOM </b></h1>
                                 <hr>
@@ -353,8 +390,11 @@
                             <hr>
 
 
-
-
+                            <img src="../../../assets/images/signatories-to-the-treaty-of-chaguaramas-1280x835.jpg"
+                                alt="" class="w-50 d-flex my-5 mx-auto">
+                            <p class="my-3">FOUNDING Fathers signing the Treaty of Chaguaramas in 1973. From left, PM
+                                Errol Barrow,
+                                PM Forbes Burnham, PM Eric Williams and PM Michael Manley</p>
                             <ul>
                                 <li>Errol Walton Barrow (Barbados) </li>
 
@@ -366,13 +406,52 @@
                             </ul>
 
 
+                            <h4 class="mt-4"><b>TREATY OF CHAGUARAMAS</b></h4>
+                            <p> The decision to establish the Caribbean Community (CARICOM) was
+                                made in November 1972 at the Heads of Government Conference.
+                                The Georgetown Accord which sets out the process to establish
+                                CARICOM was agreed on in April 1973
+                                The Treaty establishing CARICOM, the Treaty of Chaguaramas, was
+                                signed on 4 July 1973.
+                                Four Heads of Government (Original Signatories) signed the Treaty: Prime
+                                Ministers Errol Barrow for Barbados, Forbes Burnham for Guyana,
+                                Michael Manley for Jamaica and Eric Williams for Trinidad and Tobago.
+
+                                (For Grade 6) The Treaty of Chaguaramas established the Caribbean
+                                Community (CARICOM). It was signed in 1973</p>
+                            <div class="mt-4">
+                                <b> DATES OF CARICOM MEMBERSHIP
+                                </b>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li>1. Antigua and Barbuda 4 July 1974</li>
+                                <li>2. The Bahamas 4 July 1983</li>
+                                <li>3. Barbados 1 August 1973</li>
+
+                                <li>4. Belize 1 May 1974</li>
+                                <li>5. Dominica 1 May 1974</li>
+                                <li>6. Grenada 1 May 1974</li>
+
+                                <li>7 Guyana 1 August 1973</li>
+                                <li>8. Haiti 2 July 2002</li>
+                                <li>9. Jamaica 1 August 1973</li>
+                                <li>10. Montserrat 1 May 1974</li>
+
+                                <li>11. St. Kitts and Nevis 26 July 1974</li>
+
+                                <li>12. Saint Lucia 1 May 1974</li>
+                                <li>13. St. Vincent and the Grenadines 1 May 1974</li>
+
+                                <li>14. Suriname 4 July 1995</li>
+                                <li>15. Trinidad and Tobago 1 August 1973</li>
+                            </ul>
+
                         </div>
                     </section>
 
 
 
                 </div>
-
                 <!-- howcaricomworks -->
                 <div class="tab-pane fade" id="howcaricomworks-tab-pane" role="tabpanel"
                     aria-labelledby="howcaricomworks-tab" tabindex="0">
@@ -383,7 +462,7 @@
                             </div>
                         </div> -->
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>How CARICOM Work </b></h1>
                                 <hr>
@@ -396,21 +475,17 @@
                                     and Five Associate Members – to provide products and services to positively impact
                                     the lives of its more than more than 18 million citizens. </b></h6>
 
-
+                            <img src="../../../assets/images/symbols/Flag_of_CARICOM.svg.png" alt="" class="imagewidth"
+                                width="400px">
 
                         </div>
                     </section>
                 </div>
-
-
                 <!-- Dates -->
-
                 <div class="tab-pane fade" id="dates-tab-pane" role="tabpanel" aria-labelledby="dates-tab" tabindex="0">
-
-
                     <section>
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>Dates of CARICOM Membership </b></h1>
                                 <hr>
@@ -459,13 +534,11 @@
 
                     </section>
                 </div>
-
-
-
+                <!-- csme -->
                 <div class="tab-pane fade" id="csme-tab-pane" role="tabpanel" aria-labelledby="csme-tab" tabindex="0">
 
                     <section>
-                        <div class="section-heading-block text-center">
+                        <div class="section-heading-block text-center mt-4">
                             <img src="../../../assets/images/heading-pattern.png" alt="">
                             <h1 class="b text-center mb-4"><b>What is the CSME? </b></h1>
                             <hr>
@@ -532,16 +605,11 @@
 
                     </section>
                 </div>
-
-
-
-
-
+                <!-- institution -->
                 <div class="tab-pane fade" id="institution-tab-pane" role="tabpanel" aria-labelledby="institution-tab"
                     tabindex="0">
-
                     <section>
-                        <div class="section-heading-block text-center">
+                        <div class="section-heading-block text-center mt-4">
                             <img src="../../../assets/images/heading-pattern.png" alt="">
                             <h1 class="b text-center mb-4"><b>CARICOM INSTITUTIONS </b></h1>
                             <hr>
@@ -549,132 +617,324 @@
                         </div>
                         <div class="container py-5">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Agricultural Develpment Institute – CARDI Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Agricultural Develpment Institute – CARDI Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CARDI</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Agricultural Health and Food Safety Agency (CAHFSA) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Agricultural Health and Food Safety Agency (CAHFSA) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CAHFSA</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Aviation Safety and Security Oversight System- (CASSOS) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Aviation Safety and Security Oversight System- (CASSOS) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CASSOS</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Centre for Development Administration (CARICAD) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Centre for Development Administration (CARICAD) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CARICAD</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Centre for Renewable Energy and Energy Efficiency (CCREEE)logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Centre for Renewable Energy and Energy Efficiency (CCREEE)logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CCREEE</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Community Climate Change Centre (CCCCC) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Community Climate Change Centre (CCCCC) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CCCCC</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Congress of Labour (CCL) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Congress of Labour (CCL) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CCL</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Court of Justice Logo.svg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Court of Justice Logo.svg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CCJ</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Development Bank (CDB) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Development Bank (CDB) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CDB</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Disaster Emergency Management Agency (CDEMA) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Disaster Emergency Management Agency (CDEMA) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CDEMA</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Examination Council (CXC) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Examination Council (CXC) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CXC</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Export Development Agency (Caribbean Export) Logo.jpeg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Export Development Agency (Caribbean Export) Logo.jpeg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>Caribbean Export</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Institute for Meteorology and Hydrology (CIMH) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Institute for Meteorology and Hydrology (CIMH) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CIMH</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Meteorological Organisation (CMO) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Meteorological Organisation (CMO) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CMO</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Organisation of Tax Administrators (COTA) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Organisation of Tax Administrators (COTA) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>COTA</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Public Health Agency (CARPHA) Logo.gif"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Public Health Agency (CARPHA) Logo.gif"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CARPHA</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Regional Fisheries Mechanism Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Regional Fisheries Mechanism Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CRFM</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Regional Information and Translation Institute (CRITI) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Regional Information and Translation Institute (CRITI) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CRITI</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Telecommunications Union (CTU) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Telecommunications Union (CTU) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CTU</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Caribbean Tourism Organization (CTO) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Tourism Organization (CTO) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CTO</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/CARICOM Competition Commission (CCC) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Competition Commission (CCC) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CCC</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/CARICOM Development Fund (CDF) logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Development Fund (CDF) logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CDF</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/CARICOM Implementing Agency for Crime and Security (IMPACS) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Implementing Agency for Crime and Security (IMPACS) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>IMPACS</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/CARICOM Private Sector Organization (CPSO) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Private Sector Organization (CPSO) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CPSO</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/CARICOM Regional Organisation for Standards and Quality (CROSQ) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Regional Organisation for Standards and Quality (CROSQ) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CROSQ</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/Council of Legal Education Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/Council of Legal Education Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CLE</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/University of Guyana (UG) Logo.jpg"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/University of Guyana (UG) Logo.jpg"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>UG</b></h6>
+
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <img src="../../../assets/images/caricom-institution-logos/University of the West Indies (CLE) Logo.png"
-                                        alt="" class="img-fluid">
+                                <div class="col-md-2 p-2">
+                                    <div class="text-center institution-block">
+                                        <div class="institution-image">
+
+                                            <img src="../../../assets/images/caricom-institution-logos/University of the West Indies (CLE) Logo.png"
+                                                alt="" class="img-fluid">
+                                        </div>
+                                        <h6><b>CLE</b></h6>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </div>
-
-
-
-
-
+                <!-- secretaries -->
                 <div class="tab-pane fade" id="secretaries-tab-pane" role="tabpanel" aria-labelledby="secretaries-tab"
                     tabindex="0">
                     <section>
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>CARICOM Secretaries-General</b></h1>
                                 <hr>
@@ -835,7 +1095,7 @@
                 <div class="tab-pane fade" id="award-tab-pane" role="tabpanel" aria-labelledby="award-tab" tabindex="0">
                     <section>
                         <div class="container py-5">
-                            <div class="section-heading-block text-center">
+                            <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>CARICOM Awards </b></h1>
                                 <hr>
@@ -846,12 +1106,14 @@
                                 <div class="text-center">
                                     <p> There are two CARICOM Awards:</p>
                                     <br>
+
                                     <h5><b>The Order of the Caribbean Community (OCC)</b></h5>
+
+                                    <h5> <b>the CARICOM Triennial Award for Women</b>.</h5>
+
                                 </div>
                                 <div class="col-md-8 mx-auto">
 
-                                    and
-                                    <h5> <b>the CARICOM Triennial Award for Women</b>.</h5>
 
 
                                     <p> The OCC is conferred on distinguished CARICOM nationals who have made
@@ -887,6 +1149,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="award">
+                                        <img src="../../../assets/images/awardees/Ambassador Hon. William G. Demas, Trinidad and Tobago 1973-1974.png"
+                                            class="w-100" alt="">
                                         <div class="d-flex">
                                             <b>Name :</b>
                                             <p> The Late Dr. William Gilbert Demas</p>
@@ -911,8 +1175,9 @@
 
 
 
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="award">
+                                        <img src="../../../assets/images/awardees/Sir Shridath_Ramphal.jpeg" class="w-100" alt="">
                                         <div class="d-flex">
                                             <b>Name :</b>
                                             <p> Sir Shridath Surendranath Ramphal</p>
@@ -1709,7 +1974,7 @@
 
 
 
-                                <div class="section-heading-block text-center">
+                                <div class="section-heading-block text-center mt-4">
                                     <hr>
                                     <hr>
                                     <img src="../../../assets/images/heading-pattern.png" alt="">
@@ -2069,7 +2334,7 @@
                                             <p> 2021 (Thirteenth recipient)</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -2082,117 +2347,121 @@
         </div>
     </div>
 </section>
-<section class="grid-columns pt-5" id="grid-columns">
-    <div class="container py-md-5">
 
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class="grid-column overflow-hidden">
-                    <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" alt=""
-                        class="img-fluid w-100 h-100">
-                    <div class="grid-inner">
-                        Grade VI/Eleven
-                        Plus/Common
-                        Entrance
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="grid-column overflow-hidden">
-                    <img src="../../../assets/images/Mineria.png" alt="" class="img-fluid w-100 h-100">
-                    <div class="grid-inner">
-                        CXC (Caribbean
-                        Examination (Council))
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="grid-column overflow-hidden">
-                    <img src="../../../assets/images/kid.jpg" alt="" class="img-fluid w-100 h-100">
-                    <div class="grid-inner">
-                        Faculty of Facts
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="grid-column overflow-hidden">
-                    <img src=""
-                        alt="" class="img-fluid w-100 h-100">
-                    <div class="grid-inner">
-                        Know your
-                        Caribbean
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="know-your-caribbean mt-5">
-    <div class="csstext">
-        KNOW YOUR <span>CARIBBEAN</span></div>
-</section>
-<section class="blog py-5">
-    <div class="container">
-        <div class="section-title mb-3">
-            <div class="title">
-                <strong>Our</strong>
-                <div class="ms-3">Blog</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 left-column">
-                <div class="blog-card h-100">
-                    <img src="../../../assets/images/Mineria.png" class="d-block h-100 w-100" alt="">
-                    <div class="blog-text">
-                        <div class="blog-date">
-                            July 10,23
-                        </div>
-                        <div class="blog-title">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+<div class="other-page-sections" *ngIf="gradesixtabactive">
+    <section class="grid-columns section-grid-columns" id="grid-columns">
+        <div class="container pb-md-5 pt-md-4">
+
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" alt=""
+                            class="img-fluid w-100 h-100">
+                        <div class="grid-inner">
+                            Grade VI/Eleven
+                            Plus/Common
+                            Entrance
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 right-column">
-                <div class="blog-card">
-                    <img src="../../../assets/images/1280px-posing-at-2018-toronto-caribbean-carnival-28969518847.jpg"
-                        class="d-block w-100" alt="">
-                    <div class="blog-text">
-                        <div class="blog-date">
-                            July 10,23
-                        </div>
-                        <div class="blog-title">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="../../../assets/images/Mineria.png" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner">
+                            CXC (Caribbean
+                            Examination (Council))
                         </div>
                     </div>
                 </div>
-                <div class="blog-card">
-                    <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" class="d-block w-100" alt="">
-                    <div class="blog-text">
-                        <div class="blog-date">
-                            July 10,23
-                        </div>
-                        <div class="blog-title">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="../../../assets/images/kid.jpg" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner">
+                            Faculty of Facts
                         </div>
                     </div>
                 </div>
-                <div class="blog-card">
-                    <img src="../../../assets/images/kid.jpg" class="d-block w-100" alt="">
-                    <div class="blog-text">
-                        <div class="blog-date">
-                            July 10,23
-                        </div>
-                        <div class="blog-title">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner">
+                            Know your
+                            Caribbean
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <button class="theme-button">
-        Explore more
-    </button>
-</section>
+    </section>
+    <section class="know-your-caribbean mt-5">
+        <div class="csstext">
+            KNOW YOUR <span>CARIBBEAN</span></div>
+    </section>
+    <section class="blog py-5">
+        <div class="container">
+            <div class="section-title mb-3">
+                <div class="title">
+                    <strong>Our</strong>
+                    <div class="ms-3">Blog</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 left-column">
+                    <div class="blog-card h-100">
+                        <img src="../../../assets/images/Mineria.png" class="d-block h-100 w-100" alt="">
+                        <div class="blog-text">
+                            <div class="blog-date">
+                                July 10,23
+                            </div>
+                            <div class="blog-title">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 right-column">
+                    <div class="blog-card">
+                        <img src="../../../assets/images/1280px-posing-at-2018-toronto-caribbean-carnival-28969518847.jpg"
+                            class="d-block w-100" alt="">
+                        <div class="blog-text">
+                            <div class="blog-date">
+                                July 10,23
+                            </div>
+                            <div class="blog-title">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" class="d-block w-100"
+                            alt="">
+                        <div class="blog-text">
+                            <div class="blog-date">
+                                July 10,23
+                            </div>
+                            <div class="blog-title">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="../../../assets/images/kid.jpg" class="d-block w-100" alt="">
+                        <div class="blog-text">
+                            <div class="blog-date">
+                                July 10,23
+                            </div>
+                            <div class="blog-title">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eaque.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="theme-button">
+            Explore more
+        </button>
+    </section>
+</div>

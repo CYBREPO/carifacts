@@ -7,9 +7,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpApiInterceptor } from './helper/httpInterceptor';
 import { HttpErrorInterceptor } from './helper/httpErrorInterceptor';
 import { MaterialModuleModule } from './shared/material-module.module';
+import { AssociateStatesComponent } from './components/associate-states/associate-states.component';
 @NgModule({
   declarations: [
     AppComponent,
+    AssociateStatesComponent,
   ],
   imports: [
     BrowserModule,

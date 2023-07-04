@@ -28,4 +28,58 @@
   margin-right: 5px;
   white-space: nowrap;
 }
+
+.imagewidth {
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flags-grid .grid-column {
+  background-color: #a5ffee;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.flags-grid .grid-column img {
+  height: 150px !important;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.flags-grid .grid-column:hover img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.section-grid-columns .grid-column {
+  height: 250px;
+}
+
+.institution-block {
+  text-align: center;
+}
+
+.award {
+  border: thin solid black;
+  margin: 12px 0;
+  padding: 30px;
+}
+
+.award img {
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto !important;
+  margin-right: auto;
+}
 /*# sourceMappingURL=home.component.css.map */
