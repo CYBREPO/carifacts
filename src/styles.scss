@@ -8,7 +8,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Darker+Grotesque:wght@400;500;600;700&family=Goldman&family=Lato:wght@300;400;700;900&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@200;300;400;500&family=Poppins:wght@100;200;300;400;500&family=Raleway:wght@300;400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
 
-
+app-home {
+    background: #01d6ff29;
+    display: block;
+}
 
 $font-family-1: 'Oswald', sans-serif;
 $font-family-2: 'Poppins', sans-serif;
@@ -218,10 +221,11 @@ app-header {
 
 }
 
-.banner {
+#banner.banner {
     img {
-        object-position: top;
-        object-fit: cover;
+        height: 450px !important;
+        object-position: center;
+        object-fit: contain;
     }
 
     .banner-text {
@@ -254,45 +258,17 @@ app-header {
 
 .grid-columns {
     .grid-column {
-        background-color: black;
-        position: relative;
-        cursor: pointer;
 
-        img {
-            width: 100%;
-            height: 100%;
-            transition: all .5s ease-in-out;
-        }
 
-        .grid-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 10px;
-            border: $white;
+        img {}
 
-            font-size: 1.7em;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: 0.1 ease-in-out;
-            height: 85%;
-            width: 85%;
-            border-radius: 5px;
-            color: #ffffff;
-            display: flex;
-            align-items: flex-end;
-            font-family: $font-family-1;
-        }
+        .grid-inner {}
 
         &:hover {
             .grid-inner {
-                background: linear-gradient(transparent, #00000030);
-            }
 
-            img {
-                transition: all .5s ease-in-out;
-                transform: scale(1.1);
+
+                img {}
             }
         }
     }
@@ -302,7 +278,7 @@ app-header {
     .grid-columns {
         .row>div {
             &:nth-child(n+6) {
-                margin-top: 20px;
+                
             }
         }
     }
@@ -601,4 +577,5 @@ ul {
     text-align: center;
     border: thin dotted grey;
     padding: 10px;
+    background-color: white;
 }

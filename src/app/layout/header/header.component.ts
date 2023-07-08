@@ -79,4 +79,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('currentUser');
     this.router.navigate(['account/login']);
   }
+  goback() {
+    window.location.reload();
+  }
 }

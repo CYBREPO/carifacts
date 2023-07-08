@@ -7,22 +7,24 @@ import { RouterModule } from '@angular/router';
 import { SharedModuleModule } from '../shared/shared-module.module';
 import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer-layout.component';
 import { MaterialModuleModule } from '../shared/material-module.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const Routes = [
-  {path: '', component: CustomerLayoutComponent, children: [
-    { path: '', component: HomeComponent},
-
-  ]}
+  {
+    path: '', component: CustomerLayoutComponent, children: [
+      { path: '', component: HomeComponent },
+    ]
+  }
 ]
 
 @NgModule({
-  declarations: [HeaderComponent,FooterComponent, HomeComponent,CustomerLayoutComponent],
+  declarations: [HeaderComponent, FooterComponent, HomeComponent, CustomerLayoutComponent, SidebarComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes),
     SharedModuleModule,
     MaterialModuleModule
   ],
-  exports: [HeaderComponent,FooterComponent,CustomerLayoutComponent]
+  exports: [HeaderComponent, FooterComponent, CustomerLayoutComponent]
 })
 export class LayoutModuleModule { }

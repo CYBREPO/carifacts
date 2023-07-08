@@ -8,6 +8,7 @@ import { HttpApiInterceptor } from './helper/httpInterceptor';
 import { HttpErrorInterceptor } from './helper/httpErrorInterceptor';
 import { MaterialModuleModule } from './shared/material-module.module';
 import { AssociateStatesComponent } from './components/associate-states/associate-states.component';
+
 @NgModule({
   declarations: [
     AppComponent,

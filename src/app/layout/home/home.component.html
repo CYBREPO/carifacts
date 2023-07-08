@@ -1,55 +1,33 @@
 <section class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-1 ps-3 pe-0" *ngIf="!addclassreduceheight">
-            <ul class="nav vertical-navbar h-100 ms-auto mb-2 mb-lg-0 flex-column nav-tabs" id="myTab" role="tablist">
-
-                <!-- <ng-container *ngFor="let tab of tabsoftabs; let i=index">
-                    <li class="nav-item" role="presentation" *ngIf=" i==0 || (i >= low && i <= high)"
-                        (click)="showothertabs(i)">
-                        <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab"
-                            data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane" type="button" role="tab"
-                            attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true">{{tab.tabtitle}}</button>
-                    </li>
-                </ng-container> -->
-
-
-                <ng-container *ngFor="let tab of tabsoftabs; let i=index">
-                    <li class="nav-item" role="presentation" (click)="showothertabs(i)">
-                        <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab"
-                            data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane" type="button" role="tab"
-                            attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true">{{tab.tabtitle}}</button>
-                    </li>
-                </ng-container>
-
-            </ul>
+            <app-sidebar (hidesidebarEvent)="hidesidebarleft()"></app-sidebar>
         </div>
 
         <div class="h-100 tab-content-section " [ngClass]="addclassreduceheight ? 'col-md-12 px-4' : 'col-md-11'">
-            <div class="d-flex align-items-center text-blue my-2 cursor-pointer" *ngIf="addclassreduceheight" (click)="goback()">
+            <div class="d-flex align-items-center text-blue my-2 cursor-pointer" *ngIf="addclassreduceheight"
+                (click)="goback()">
                 <i class="fa fa-arrow-left me-2" aria-hidden="true"></i>
                 <span>BACK</span>
             </div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                     tabindex="0">
-                    <section class="banner h-100">
+                    <section class="banner h-100" id="banner">
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                                     class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                                     aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="../../../assets/images/18ef55bc-5a15-4eac-9387-cb52840e6a63.png"
-                                        class="d-block w-100" alt="">
+                                <div class="carousel-item" [ngClass]="{'active': index == 1}"
+                                    *ngFor="let index of [1,2,3]">
+                                    <img src="../../../assets/images/banner-{{index}}.png" class="d-block w-100" alt="">
                                 </div>
-                                <div class="carousel-item ">
-                                    <img src="../../../assets/images/screenshot-chaitanyashirodkar127154.invisionapp.com-2023.04.20-21_33_34.png"
-                                        class="d-block w-100" alt="...">
-                                </div>
-
                             </div>
                             <button class="carousel-control-prev" type="button"
                                 data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -65,6 +43,7 @@
                     </section>
                 </div>
 
+                <!-- Hometwo -->
                 <div class="tab-pane fade" id="hometwo-tab-pane" role="tabpanel" aria-labelledby="hometwo-tab"
                     tabindex="0">
                     <div class="backgrounbanner grade-6-banner" [ngClass]="{'reduceheight': addclassreduceheight}">
@@ -88,13 +67,26 @@
                     </div>
 
                 </div>
+
+                <!-- CXC -->
+                <div class="tab-pane fade" id="cxc-tab-pane" role="tabpanel" aria-labelledby="cxc-tab" tabindex="0">
+                    <img src="../../../assets/images/banner-2.png" alt="" class="img-fluid w-100 h-100">
+                </div>
+                <!-- faculty -->
+                <div class="tab-pane fade" id="faculty-tab-pane" role="tabpanel" aria-labelledby="faculty-tab" tabindex="0">
+                    <img src="../../../assets/images/banner-3.png" alt="" class="img-fluid w-100 h-100">
+                </div>
+                <!-- kyc -->
+                <div class="tab-pane fade" id="kyc-tab-pane" role="tabpanel" aria-labelledby="kyc-tab" tabindex="0">
+                    <img src="../../../assets/images/banner-1.png" alt="" class="img-fluid w-100 h-100">
+                </div>
                 <!-- countries of caricom -->
                 <div class="tab-pane fade" id="antigua-tab-pane" role="tabpanel" aria-labelledby="antigua-tab"
                     tabindex="0">
                     <section class="grid-columns d-flex flex-column h-100 flags-grid p-4">
                         <div class="row row-cols-5 flex-1">
                             <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                <div class="col text-center" *ngIf=" i >= 0 && i <= 13">
+                                <div class="col text-center" *ngIf=" i >= 0 && i <= 14">
                                     <div class="grid-column" (click)="parentEventHandlerFunction()">
                                         <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt=""
                                             class="img-fluid w-100 h-100">
@@ -107,7 +99,7 @@
                         <h4 class="mt-5 mb-4">Associate Members</h4>
                         <div class="row row-cols-5  flex-1">
                             <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                <div class="col text-center" *ngIf=" i >= 14 && i <= 19">
+                                <div class="col text-center" *ngIf=" i >= 15 && i <= 19">
                                     <div class="grid-column" (click)="parentEventHandlerFunctiontwo()">
                                         <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt=""
                                             class="img-fluid w-100 h-100">
@@ -136,25 +128,10 @@
 
                             </div>
 
+                            <h5 class="mb-3 color-blue-grey"><b>CARICOM rests on four main pillars:</b></h5>
 
-
-                            <div class="row">
-                                <div class="col-md-4 mx-auto">
-                                    <div class="mt-md-5">
-
-                                        <h5 class="mb-3 color-blue-grey"><b>CARICOM rests on four main pillars:</b></h5>
-
-                                        <ul class="ps-4 text-capitalize">
-                                            <li>economic integration</li>
-
-                                            <li>foreign policy coordination</li>
-
-                                            <li>human and social development; and</li>
-
-                                            <li>security.</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            <div class="row mt-md-5">
+                                <img src="../../../assets/images/pillars.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </section>
@@ -268,12 +245,33 @@
                                 <li>
                                     <h5 class="color-blue-grey mt-5 mb-4 text-center"><b>-The CARICOM Passport</b></h5>
 
-                                    <img src="../../../assets/images/symbols/CARICOM Passports copy.png" alt=""
-                                        class="imagewidth" width="300px">
+
+                                    <div class="row my-5 pt-5">
+                                        <div class="col-md-6 text-center">
+                                            <figure class="figure text-center">
+                                                <img src="../../../assets/images/symbols/CARICOM Passports copy.png"
+                                                    class="figure-img mx-auto img-fluid" alt="" style="height: 289px;">
+                                                <figcaption class="figure-caption">
+                                                    <h4>The CARICOM Passport</h4>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-6 text-center">
+                                            <figure class="figure text-center">
+                                                <img src="../../../assets/images/250px-Coat_of_arms_of_Antigua_and_Barbuda.png"
+                                                    class="figure-img mx-auto img-fluid" alt="">
+                                                <figcaption class="figure-caption">
+                                                    <h4>The Coat of Arms</h4>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
                                     <p>-The CARICOM passport features the CARICOM logo and the words “Caribbean
                                         Community”
                                         printed on the cover. </p>
-                                    <p>-The Coat of Arms and the name of the Member State are
+
+                                    <p>-<b>The Coat of Arms</b> and the name of the Member State are
                                         featured
                                         on
                                         the cover.</p>
@@ -390,11 +388,18 @@
                             <hr>
 
 
-                            <img src="../../../assets/images/signatories-to-the-treaty-of-chaguaramas-1280x835.jpg"
-                                alt="" class="w-50 d-flex my-5 mx-auto">
-                            <p class="my-3">FOUNDING Fathers signing the Treaty of Chaguaramas in 1973. From left, PM
-                                Errol Barrow,
-                                PM Forbes Burnham, PM Eric Williams and PM Michael Manley</p>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="bg-white">
+                                        <img src="../../../assets/images/signatories-to-the-treaty-of-chaguaramas-1280x835.jpg"
+                                            class="img-fluid" alt="">
+                                        <p class="p-3">FOUNDING Fathers signing the Treaty of Chaguaramas in 1973. From
+                                            left, PM Errol Barrow, PM Forbes Burnham, PM Eric Williams and PM Michael
+                                            Manley
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                             <ul>
                                 <li>Errol Walton Barrow (Barbados) </li>
 
@@ -419,32 +424,6 @@
 
                                 (For Grade 6) The Treaty of Chaguaramas established the Caribbean
                                 Community (CARICOM). It was signed in 1973</p>
-                            <div class="mt-4">
-                                <b> DATES OF CARICOM MEMBERSHIP
-                                </b>
-                            </div>
-                            <ul class="list-unstyled">
-                                <li>1. Antigua and Barbuda 4 July 1974</li>
-                                <li>2. The Bahamas 4 July 1983</li>
-                                <li>3. Barbados 1 August 1973</li>
-
-                                <li>4. Belize 1 May 1974</li>
-                                <li>5. Dominica 1 May 1974</li>
-                                <li>6. Grenada 1 May 1974</li>
-
-                                <li>7 Guyana 1 August 1973</li>
-                                <li>8. Haiti 2 July 2002</li>
-                                <li>9. Jamaica 1 August 1973</li>
-                                <li>10. Montserrat 1 May 1974</li>
-
-                                <li>11. St. Kitts and Nevis 26 July 1974</li>
-
-                                <li>12. Saint Lucia 1 May 1974</li>
-                                <li>13. St. Vincent and the Grenadines 1 May 1974</li>
-
-                                <li>14. Suriname 4 July 1995</li>
-                                <li>15. Trinidad and Tobago 1 August 1973</li>
-                            </ul>
 
                         </div>
                     </section>
@@ -491,44 +470,42 @@
                                 <hr>
                                 <hr>
                             </div>
+                            <div class="mt-4 text-center">
+                                <b> DATES OF CARICOM MEMBERSHIP
+                                </b>
+                            </div>
+                            <!-- <ul class="list-unstyled">
+                                <li>1. Antigua and Barbuda 4 July 1974</li>
+                                <li>2. The Bahamas 4 July 1983</li>
+                                <li>3. Barbados 1 August 1973</li>
 
+                                <li>4. Belize 1 May 1974</li>
+                                <li>5. Dominica 1 May 1974</li>
+                                <li>6. Grenada 1 May 1974</li>
+
+                                <li>7 Guyana 1 August 1973</li>
+                                <li>8. Haiti 2 July 2002</li>
+                                <li>9. Jamaica 1 August 1973</li>
+                                <li>10. Montserrat 1 May 1974</li>
+
+                                <li>11. St. Kitts and Nevis 26 July 1974</li>
+
+                                <li>12. Saint Lucia 1 May 1974</li>
+                                <li>13. St. Vincent and the Grenadines 1 May 1974</li>
+
+                                <li>14. Suriname 4 July 1995</li>
+                                <li>15. Trinidad and Tobago 1 August 1973</li>
+                            </ul> -->
 
                             <ul class="list-unstyled dates-list mt-5 text-center">
+                                <ng-container *ngFor="let country of countryofcaricom; let i=index">
+                                    <li *ngIf=" i >= 0 && i <= 14" class="text-center" style="margin-top: 50px;">
 
-                                <li>1. Antigua and Barbuda - <b>4 July 1974</b>
-
-                                <li>2. The Bahamas - <b>4 July 1983</b>
-
-                                <li>3. Barbados - <b>1 August 1973</b>
-
-                                <li>4. Belize - <b>1 May 1974</b>
-
-                                <li>5. Dominica - <b>1 May 1974</b>
-
-                                <li>6. Grenada - <b>1 May 1974</b>
-
-                                <li>7. Guyana - <b>1 August 1973</b>
-
-                                <li>8. Haiti - <b>2 July 2002</b>
-
-                                <li>9. Jamaica - <b>1 August 1973</b>
-
-                                <li>10. Montserrat - <b>1 May 1974</b>
-
-                                <li>11. St. Kitts and Nevis - <b>26 July 1974</b>
-
-                                <li> 12. Saint Lucia - <b>1 May 1974</b>
-
-                                <li>
-                                    13. St. Vincent and the Grenadines - <b>1 May</b>
-                                </li>
-
-                                <li>14. Suriname - <b>4 July 1995</b>
-
-                                <li>
-                                    15. Trinidad and Tobago - <b>1 August</b>
-                                </li>
-
+                                        <b class="d-block"> {{i}}. {{country.country}} - {{country.date}}</b>
+                                    </li>
+                                    <img src="../../../assets/images/flags/flag{{i+1}}.jpg" width="100px"
+                                        class="mx-auto d-block mt-2" alt="">
+                                </ng-container>
                             </ul>
                         </div>
 
@@ -556,9 +533,10 @@
 
                                     <p><b>The CSME provides for :</b></p>
 
-                                    <ul class="mt-5">
-
-                                        <li>goods and services to move freely throughout CARICOM</li>
+                                    <ul class="mt-5 w-75">
+                                        <img src="../../../assets/images/CSMEComposite.png" class="img-fluid mb-3"
+                                            alt="">
+                                        <li>Goods and services to move freely throughout CARICOM</li>
 
                                         <li>The right to establish businesses in Member States without restrictions</li>
 
@@ -617,314 +595,20 @@
                         </div>
                         <div class="container py-5">
                             <div class="row">
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
+                                <ng-container *ngFor="let institution of institutions">
+                                    <div class="col-md-2 p-2">
+                                        <div class="text-center institution-block">
+                                            <div class="institution-image">
 
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Agricultural Develpment Institute – CARDI Logo.jpg"
-                                                alt="" class="img-fluid">
+                                                <img src="../../../assets/images/caricom-institution-logos/{{institution.institution_image}}"
+                                                    alt="" class="img-fluid">
+                                            </div>
+                                            <h6><b>{{institution.institution_name}}</b></h6>
+
                                         </div>
-                                        <h6><b>CARDI</b></h6>
-
                                     </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
+                                </ng-container>
 
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Agricultural Health and Food Safety Agency (CAHFSA) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CAHFSA</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Aviation Safety and Security Oversight System- (CASSOS) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CASSOS</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Centre for Development Administration (CARICAD) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CARICAD</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Centre for Renewable Energy and Energy Efficiency (CCREEE)logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CCREEE</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Community Climate Change Centre (CCCCC) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CCCCC</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Congress of Labour (CCL) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CCL</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Court of Justice Logo.svg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CCJ</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Development Bank (CDB) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CDB</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Disaster Emergency Management Agency (CDEMA) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CDEMA</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Examination Council (CXC) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CXC</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Export Development Agency (Caribbean Export) Logo.jpeg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>Caribbean Export</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Institute for Meteorology and Hydrology (CIMH) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CIMH</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Meteorological Organisation (CMO) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CMO</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Organisation of Tax Administrators (COTA) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>COTA</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Public Health Agency (CARPHA) Logo.gif"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CARPHA</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Regional Fisheries Mechanism Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CRFM</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Regional Information and Translation Institute (CRITI) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CRITI</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Telecommunications Union (CTU) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CTU</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Caribbean Tourism Organization (CTO) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CTO</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Competition Commission (CCC) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CCC</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Development Fund (CDF) logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CDF</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Implementing Agency for Crime and Security (IMPACS) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>IMPACS</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Private Sector Organization (CPSO) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CPSO</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/CARICOM Regional Organisation for Standards and Quality (CROSQ) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CROSQ</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/Council of Legal Education Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CLE</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/University of Guyana (UG) Logo.jpg"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>UG</b></h6>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 p-2">
-                                    <div class="text-center institution-block">
-                                        <div class="institution-image">
-
-                                            <img src="../../../assets/images/caricom-institution-logos/University of the West Indies (CLE) Logo.png"
-                                                alt="" class="img-fluid">
-                                        </div>
-                                        <h6><b>CLE</b></h6>
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </section>
@@ -2359,9 +2043,7 @@
                         <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" alt=""
                             class="img-fluid w-100 h-100">
                         <div class="grid-inner">
-                            Grade VI/Eleven
-                            Plus/Common
-                            Entrance
+                            Grade 6/11+/Common Entrance
                         </div>
                     </div>
                 </div>
@@ -2369,8 +2051,7 @@
                     <div class="grid-column overflow-hidden">
                         <img src="../../../assets/images/Mineria.png" alt="" class="img-fluid w-100 h-100">
                         <div class="grid-inner">
-                            CXC (Caribbean
-                            Examination (Council))
+                            CXC/CAPE
                         </div>
                     </div>
                 </div>
