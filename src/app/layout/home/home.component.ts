@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
@@ -5,6 +6,7 @@ import { locations, vehicleModels } from 'src/app/constants/constant';
 import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalDialogService } from 'src/app/service/modal-dialog.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,7 @@ export class HomeComponent {
   high: number = 5
   gradesixtabactive: boolean = true
   addclassreduceheight: boolean = false
-
+  bannerData: any
 
   hidesidebarleft() {
     this.addclassreduceheight = true;
@@ -406,13 +408,29 @@ export class HomeComponent {
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
 
+
+  getBannerImages() {
+    this.httpservice.httpGet(ApiUrls.banner.getbanner, null).subscribe((res: any) => {
+      if (res['success']) {
+        this.bannerData = res['data']
+        console.log(this.bannerData);
+        if (this.bannerData) {
+          this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => m.image = environment.Url + m.image)
+          this.bannerData.bannerTwoSectionImage = environment.Url + this.bannerData.bannerTwoSectionImage
+          console.log(this.bannerData.bannerTwoSectionImage);
+        }
+      }
+    })
+  }
+
   ngOnInit() {
     this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
     this.secretaries.sort((a, b) => {
       let first = a.appointmentyear.split('-')[0]
       let second = b.appointmentyear.split('-')[0]
       return Number(first) < Number(second) ? 1 : -1
-    })
+    });
+    this.getBannerImages()
   }
 
   parentEventHandlerFunction() {
@@ -442,6 +460,7 @@ export class HomeComponent {
   goback() {
     window.location.reload();
   }
+
 
 
   // Ambassador Irwin LaRocque, 2022.jpg

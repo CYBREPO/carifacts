@@ -65,10 +65,10 @@ class pages{
     public static updateHome = "pages/updateHome";
 
 }
-class teams{
-    public static saveTeams = "teams/saveTeams";
-    public static updateTeams = "teams/updateTeams";
-    public static getTeams = "teams/getTeams";
+class banner{
+    public static savebanner = "banner/savebanner";
+    public static updatebanner = "banner/updatebanner";
+    public static getbanner = "banner/getbanner";
 
 }
 
@@ -80,5 +80,5 @@ export class ApiUrls{
     public static host = host;
     public static account = account;
     public static pages = pages;
-    public static teams = teams;
+    public static banner = banner;
 }
