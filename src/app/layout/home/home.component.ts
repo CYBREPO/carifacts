@@ -415,9 +415,13 @@ export class HomeComponent {
         this.bannerData = res['data']
         console.log(this.bannerData);
         if (this.bannerData) {
-          this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => m.image = environment.Url + m.image)
+          this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => {
+            m.image = environment.Url + m.image;
+            return m
+          })
           this.bannerData.bannerTwoSectionImage = environment.Url + this.bannerData.bannerTwoSectionImage
-          console.log(this.bannerData.bannerTwoSectionImage);
+          this.bannerData.bannerTwoSectionContent 
+          
         }
       }
     })

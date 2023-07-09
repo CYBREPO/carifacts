@@ -25,8 +25,8 @@
                             </div>
                             
                             <div class="carousel-inner">
-                                <div class="carousel-item" 
-                                    *ngFor="let bannerImage of this.bannerData?.bannerSlider">
+                                <div class="carousel-item"  [ngClass]="{'active': index == 0}"
+                                    *ngFor="let bannerImage of this.bannerData?.bannerSlider;let index = index">
                                     <img [src]="bannerImage.image" class="d-block w-100" alt="">
                                 </div>
                             </div>
@@ -1955,9 +1955,8 @@
             </div>
         </div>
     </section>
-    <section class="know-your-caribbean mt-5">
-        <div class="csstext">
-            KNOW YOUR <span>CARIBBEAN</span></div>
+    <section class="know-your-caribbean mt-5" style="background: linear-gradient(90deg, #04aecf00 0%, #04aecf75 35%, #afe454ab 100%), url({{this.bannerData.bannerTwoSectionImage}});">
+        <div class="csstext" [innerHtml]="this.bannerData?.bannerTwoSectionContent"></div>
     </section>
     <section class="blog py-5">
         <div class="container">
