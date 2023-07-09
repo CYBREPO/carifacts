@@ -67,56 +67,10 @@ export class HomeComponent {
     }
   ]
 
-  gradesix: Array<any> = [
-    {
-      'tab': 'antigua',
-      'tabtitle': 'Countries of Caribean community'
-    },
-    {
-      'tab': 'pillar',
-      'tabtitle': 'Pillars'
-    },
-    {
-      'tab': 'organs',
-      'tabtitle': 'Organs'
-    },
-    {
-      'tab': 'symbols',
-      'tabtitle': 'Symbol of caricom'
-    },
-    {
-      'tab': 'founding',
-      'tabtitle': 'Founding fathers'
-    },
-    {
-      'tab': 'howcaricomworks',
-      'tabtitle': 'How caricom works'
-    },
-    {
-      'tab': 'dates',
-      'tabtitle': 'Keys dates'
-    },
-    {
-      'tab': 'csme',
-      'tabtitle': 'CSME'
-    },
-    {
-      'tab': 'institution',
-      'tabtitle': 'Caricom Institution'
-    },
-    {
-      'tab': 'secretaries',
-      'tabtitle': 'Secretaries General'
-    },
-    {
-      'tab': 'award',
-      'tabtitle': 'Caricom Awardees'
-    },
-    {
-      'tab': 'Health',
-      'tabtitle': 'Grade 6 test result'
-    }
-  ]
+  gradesix: Array<any> = [];
+  gradesixKeys: Array<any> = ['antigua','pillar','organs','symbols','founding','howcaricomworks',
+      'dates','csme','institution','secretaries','award','Health'];
+    
 
 
 
@@ -421,7 +375,7 @@ export class HomeComponent {
       return Number(first) < Number(second) ? 1 : -1
     });
     this.getBannerImages();
-    // this.getGradeSix();
+    this.getGradeSix();
   }
 
   getBannerImages() {
@@ -443,6 +397,10 @@ export class HomeComponent {
     this.httpservice.httpGet(ApiUrls.banner.getAllSubSidebar, null).subscribe((res: any) => {
       if (res['success']) {
         this.gradesix = res['data'];
+        for(let i = 0; i < this.gradesix.length; i++){
+          this.gradesix[i]['tab'] = this.gradesixKeys[i];
+        }
+        
       }
     })
   }
