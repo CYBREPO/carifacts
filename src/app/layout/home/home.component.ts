@@ -412,16 +412,13 @@ export class HomeComponent {
   getBannerImages() {
     this.httpservice.httpGet(ApiUrls.banner.getbanner, null).subscribe((res: any) => {
       if (res['success']) {
-        this.bannerData = res['data']
-        console.log(this.bannerData);
+        this.bannerData = res['data'];
         if (this.bannerData) {
           this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => {
-            m.image = environment.Url + m.image;
+            m.image = environment.Url + m.image
             return m
-          })
+          });
           this.bannerData.bannerTwoSectionImage = environment.Url + this.bannerData.bannerTwoSectionImage
-          this.bannerData.bannerTwoSectionContent 
-          
         }
       }
     })

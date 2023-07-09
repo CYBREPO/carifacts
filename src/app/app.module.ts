@@ -8,6 +8,7 @@ import { HttpApiInterceptor } from './helper/httpInterceptor';
 import { HttpErrorInterceptor } from './helper/httpErrorInterceptor';
 import { MaterialModuleModule } from './shared/material-module.module';
 import { AssociateStatesComponent } from './components/associate-states/associate-states.component';
+import { SharedModuleModule } from './shared/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AssociateStatesComponent } from './components/associate-states/associat
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModuleModule,
+    SharedModuleModule
 
   ],
   providers: [
