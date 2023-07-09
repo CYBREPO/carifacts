@@ -14,14 +14,17 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  low: number = 0
-  high: number = 5
+
+  // low: number = 0
+  // high: number = 5
   gradesixtabactive: boolean = true
   addclassreduceheight: boolean = false
   bannerData: any
+  selectedId: string = "";
 
-  hidesidebarleft() {
+  hidesidebarleft(event: any) {
     this.addclassreduceheight = true;
+    this.selectedId = event._id
   }
 
   countries: Array<string> = [
@@ -409,6 +412,19 @@ export class HomeComponent {
     private httpservice: HttpService) { }
 
 
+  
+
+  ngOnInit() {
+    this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
+    this.secretaries.sort((a, b) => {
+      let first = a.appointmentyear.split('-')[0]
+      let second = b.appointmentyear.split('-')[0]
+      return Number(first) < Number(second) ? 1 : -1
+    });
+    this.getBannerImages();
+    // this.getGradeSix();
+  }
+
   getBannerImages() {
     this.httpservice.httpGet(ApiUrls.banner.getbanner, null).subscribe((res: any) => {
       if (res['success']) {
@@ -424,14 +440,12 @@ export class HomeComponent {
     })
   }
 
-  ngOnInit() {
-    this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
-    this.secretaries.sort((a, b) => {
-      let first = a.appointmentyear.split('-')[0]
-      let second = b.appointmentyear.split('-')[0]
-      return Number(first) < Number(second) ? 1 : -1
-    });
-    this.getBannerImages()
+  getGradeSix(){
+    this.httpservice.httpGet(ApiUrls.banner.getAllSubSidebar, null).subscribe((res: any) => {
+      if (res['success']) {
+        this.gradesix = res['data'];
+      }
+    })
   }
 
   parentEventHandlerFunction() {

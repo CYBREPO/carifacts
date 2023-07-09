@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit {
       formdata.append(`carPhotos`, this.carFiles[i]);
     }
 
-    this.httpService.httpPostFormData(ApiUrls.host.createHost, formdata).subscribe(res => { })
+    // this.httpService.httpPostFormData(ApiUrls.host.createHost, formdata).subscribe(res => { })
   }
   logout(): void {
     localStorage.removeItem('currentUser');
