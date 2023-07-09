@@ -46,26 +46,46 @@
                 <!-- Hometwo -->
                 <div class="tab-pane fade" id="hometwo-tab-pane" role="tabpanel" aria-labelledby="hometwo-tab"
                     tabindex="0">
-                    <div class="backgrounbanner grade-6-banner" [ngClass]="{'reduceheight': addclassreduceheight}">
-                        <div class="container-fluid px-4">
-                            <ul id="myTab2" role="tablist">
-                                <div class="row">
-                                    <ng-container *ngFor="let gradeblock of gradesix; let i=index">
-                                        <div class="col-2" (click)="showinformation()">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" id="{{gradeblock.tab}}-tab"
-                                                    data-bs-toggle="tab"
-                                                    attr.data-bs-target="#{{gradeblock.tab}}-tab-pane" type="button"
-                                                    role="tab" attr.aria-controls="{{gradeblock.tab}}-tab-pane"
-                                                    aria-selected="true">{{gradeblock.tabtitle}}</button>
-                                            </li>
-                                        </div>
-                                    </ng-container>
+
+
+                    <div class="position-relative">
+                        <div id="carouselId" class="carousel slide autoslidecarousle" data-bs-ride="carousel"
+                            [ngClass]="{'reduceheight': addclassreduceheight}">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block"
+                                        alt="First slide">
                                 </div>
-                            </ul>
+                                <div class="carousel-item">
+                                    <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block"
+                                        alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block"
+                                        alt="Third slide">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grade-6-banner"  [ngClass]="{'reduceheight': addclassreduceheight}">
+                            <div class="container-fluid px-4">
+                                <ul id="myTab2" role="tablist">
+                                    <div class="row">
+                                        <ng-container *ngFor="let gradeblock of gradesix; let i=index">
+                                            <div class="col-2" (click)="showinformation()">
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-link" id="{{gradeblock.tab}}-tab"
+                                                        data-bs-toggle="tab"
+                                                        attr.data-bs-target="#{{gradeblock.tab}}-tab-pane" type="button"
+                                                        role="tab" attr.aria-controls="{{gradeblock.tab}}-tab-pane"
+                                                        aria-selected="true">{{gradeblock.tabtitle}}</button>
+                                                </li>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
                 <!-- CXC -->
@@ -73,7 +93,8 @@
                     <img src="../../../assets/images/banner-2.png" alt="" class="img-fluid w-100 h-100">
                 </div>
                 <!-- faculty -->
-                <div class="tab-pane fade" id="faculty-tab-pane" role="tabpanel" aria-labelledby="faculty-tab" tabindex="0">
+                <div class="tab-pane fade" id="faculty-tab-pane" role="tabpanel" aria-labelledby="faculty-tab"
+                    tabindex="0">
                     <img src="../../../assets/images/banner-3.png" alt="" class="img-fluid w-100 h-100">
                 </div>
                 <!-- kyc -->
@@ -114,11 +135,7 @@
                 <div class="tab-pane fade" id="pillar-tab-pane" role="tabpanel" aria-labelledby="pillar-tab"
                     tabindex="0">
                     <section>
-                        <!-- <div class="backgrounbanner">
-                            <div class="container">
 
-                            </div>
-                        </div> -->
                         <div class="container py-5">
                             <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
@@ -140,11 +157,7 @@
                 <div class="tab-pane fade" id="organs-tab-pane" role="tabpanel" aria-labelledby="organs-tab"
                     tabindex="0">
                     <section>
-                        <!-- <div class="backgrounbanner">
-                            <div class="container">
 
-                            </div>
-                        </div> -->
                         <div class="container py-5">
                             <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
@@ -185,11 +198,7 @@
                 <div class="tab-pane fade" id="symbols-tab-pane" role="tabpanel" aria-labelledby="symbols-tab"
                     tabindex="0">
                     <section>
-                        <!-- <div class="backgrounbanner">
-                            <div class="container">
 
-                            </div>
-                        </div> -->
                         <div class="container py-5">
                             <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
@@ -368,11 +377,7 @@
 
 
                     <section>
-                        <!-- <div class="backgrounbanner">
-                            <div class="container">
 
-                            </div>
-                        </div> -->
                         <div class="container py-5">
                             <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
@@ -435,11 +440,7 @@
                 <div class="tab-pane fade" id="howcaricomworks-tab-pane" role="tabpanel"
                     aria-labelledby="howcaricomworks-tab" tabindex="0">
                     <section>
-                        <!-- <div class="backgrounbanner">
-                            <div class="container">
 
-                            </div>
-                        </div> -->
                         <div class="container py-5">
                             <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
@@ -613,7 +614,9 @@
                         </div>
                     </section>
                 </div>
+
                 <!-- secretaries -->
+
                 <div class="tab-pane fade" id="secretaries-tab-pane" role="tabpanel" aria-labelledby="secretaries-tab"
                     tabindex="0">
                     <section>
@@ -624,149 +627,22 @@
                                 <hr>
                                 <hr>
                             </div>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+                                <ng-container *ngFor="let secretary of secretaries">
+                                    <div class="col-md-3 genera-sec-card">
+                                        <div class="card"><img
+                                                src="../../../assets/images/secretaries general/{{secretary.image}}"
+                                                alt="">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{secretary.name}}</h5>
+                                                <p> {{secretary.appointmentyear}}</p>
 
-
-                            <div class="row row-cols-1 row-cols-md-2 g-4">
-
-
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Amb Irwin LaRocque, Dominica 2011-2021.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Amb Irwin LaRocque,Dominica</h5>
-                                            <p> 2011-2021</p>
-
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Fred Lloyd Cozier, Barbados 1968-1969.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Fred Lloyd Cozier,Barbados</h5>
-                                            <p> 1968-1969</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Hon. Alister McIntyre Grenada 1974-1977.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Hon. Alister McIntyre Grenada
-                                            </h5>
-                                            <p> 1974-1977</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Hon. Edwin W. Carrington, Trinidad and Tobago1992-2010.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Hon. Edwin W. Carrington,Trinidad and
-                                                Tobago</h5>
-                                            <p> 1992-2010</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Hon. William G. Demas, Trinidad and Tobago 1973-1974.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Hon. William G. Demas, Trinidad and Tobago
-                                            </h5>
-                                            <p>
-                                                1973-1974</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Lolita Applewhaite, Barbados 2010-2011.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Lolita Applewhaite,Barbados
-                                            </h5>
-                                            <p> 2010-2011</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Mr. Joseph Tyndall, Guyana 1977-1978.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Mr. Joseph Tyndall, Guyana </h5>
-                                            <p>1977-1978</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Ambassador Roderick Rainford, Jamaica 1983-1992.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ambassador Roderick Rainford, Jamaica </h5>
-                                            <p>1983-1992</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Carrington.png" alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Carrington</h5>
-                                            <p class="card-text"></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Dr. Carla Natalie Barnett, Belize 2021-Present.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dr. Carla Natalie Barnett, Belize </h5>
-                                            <p>2021-Present</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 genera-sec-card">
-                                    <div class="card"><img
-                                            src="../../../assets/images/secretaries general/Dr. Kurleigh King, Barbados 1979-1983.png"
-                                            alt="">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dr. Kurleigh King, Barbados </h5>
-                                            <p>1979-1983</p>
-
-                                        </div>
-                                    </div>
-                                </div>
-
+                                </ng-container>
                             </div>
                         </div>
-
                     </section>
                 </div>
 
@@ -859,9 +735,10 @@
 
 
 
-                                <!-- <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div class="award">
-                                        <img src="../../../assets/images/awardees/Sir Shridath_Ramphal.jpeg" class="w-100" alt="">
+                                        <img src="../../../assets/images/awardees/Sir Shridath_Ramphal.jpeg"
+                                            class="w-100" alt="">
                                         <div class="d-flex">
                                             <b>Name :</b>
                                             <p> Sir Shridath Surendranath Ramphal</p>
@@ -2018,7 +1895,7 @@
                                             <p> 2021 (Thirteenth recipient)</p>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
                             </div>
 

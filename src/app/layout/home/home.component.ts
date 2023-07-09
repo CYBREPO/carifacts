@@ -349,11 +349,70 @@ export class HomeComponent {
     },
   ]
 
+
+  secretaries: Array<any> = [
+    {
+      'image': 'Amb Irwin LaRocque, Dominica 2011-2021.png',
+      'name': 'Amb Irwin LaRocque, Dominica ',
+      'appointmentyear': '2011-2021'
+    },
+    {
+      'image': 'Ambassador Fred Lloyd Cozier, Barbados 1968-1969.png',
+      'name': 'Ambassador Fred Lloyd Cozier, Barbados ',
+      'appointmentyear': '1968-1969'
+    },
+    {
+      'image': 'Ambassador Hon. Alister McIntyre Grenada 1974-1977.png',
+      'name': 'Ambassador Hon. Alister McIntyre Grenada',
+      'appointmentyear': '1974-1977'
+    },
+    {
+      'image': 'Ambassador Hon. Edwin W. Carrington, Trinidad and Tobago1992-2010.png',
+      'name': 'Ambassador Hon. Edwin W. Carrington, Trinidad and Tobago',
+      'appointmentyear': '1992-2010'
+    },
+    {
+      'image': 'Ambassador Hon. William G. Demas, Trinidad and Tobago 1973-1974.png',
+      'name': 'Ambassador Hon. William G. Demas, Trinidad and Tobago',
+      'appointmentyear': '1973-1974'
+    },
+    {
+      'image': 'Ambassador Lolita Applewhaite, Barbados 2010-2011.png',
+      'name': 'Ambassador Lolita Applewhaite, Barbados',
+      'appointmentyear': '2010-2011'
+    },
+    {
+      'image': 'Ambassador Mr. Joseph Tyndall, Guyana 1977-1978.png',
+      'name': 'Ambassador Mr. Joseph Tyndall, Guyana ',
+      'appointmentyear': '1977-1978'
+    },
+    {
+      'image': 'Ambassador Roderick Rainford, Jamaica 1983-1992.png',
+      'name': 'Ambassador Roderick Rainford, Jamaica ',
+      'appointmentyear': '1983-1992'
+    },
+    {
+      'image': 'Dr. Carla Natalie Barnett, Belize 2021-Present.png',
+      'name': 'Dr. Carla Natalie Barnett, Belize',
+      'appointmentyear': '2021-Present'
+    },
+    {
+      'image': 'Dr. Kurleigh King, Barbados 1979-1983.png',
+      'name': 'Dr. Kurleigh King, Barbados',
+      'appointmentyear': '1979 - 1983'
+    }
+  ]
+
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
 
   ngOnInit() {
     this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
+    this.secretaries.sort((a, b) => {
+      let first = a.appointmentyear.split('-')[0]
+      let second = b.appointmentyear.split('-')[0]
+      return Number(first) < Number(second) ? 1 : -1
+    })
   }
 
   parentEventHandlerFunction() {
@@ -383,4 +442,12 @@ export class HomeComponent {
   goback() {
     window.location.reload();
   }
+
+
+  // Ambassador Irwin LaRocque, 2022.jpg
+  // Dame Billie Miller, 2022[8].jpg
+  // Sir Viv Richards, 2022.jpg
+  // David-Rudder, 2022.jpg
+  // Hon-Kamaluddin-Mohammed.jpg
+  // edwin Carrington.png
 }

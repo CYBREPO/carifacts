@@ -108,25 +108,28 @@ body {
     }
 }
 
-.grade-6-banner {
-    min-height: 79vh;
-
-}
-
-.reduceheight {
-    min-height: unset;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 25px;
-
-    #myTab2 {
-        .nav-link {
-            height: 90px;
-        }
+.autoslidecarousle {
+    .carousel-item {
+        height: 50vh;
     }
 }
+
+.grade-6-banner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    .nav-link {
+        height: 90px;
+        width: 130px;
+        background: #01d6ff;
+        color: white;
+        padding: 10px;
+        text-transform: capitalize;
+        font-size: 16px;
+    }
+}
+
 
 #myTab2 {
     .nav-item {
@@ -139,7 +142,6 @@ body {
         margin-bottom: 25px;
     }
 }
-
 
 app-header {
     padding: 10px;
@@ -277,9 +279,7 @@ app-header {
 .tab-pane {
     .grid-columns {
         .row>div {
-            &:nth-child(n+6) {
-                
-            }
+            &:nth-child(n+6) {}
         }
     }
 
@@ -578,4 +578,18 @@ ul {
     border: thin dotted grey;
     padding: 10px;
     background-color: white;
+}
+
+
+.reduceheight {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #myTab2 {
+        .nav-link {
+            height: 90px;
+        }
+    }
 }
