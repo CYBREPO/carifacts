@@ -20,11 +20,10 @@ export class HomeComponent {
   gradesixtabactive: boolean = true
   addclassreduceheight: boolean = false
   bannerData: any
-  selectedId: string = "";
 
-  hidesidebarleft(event: any) {
+  hidesidebarleft() {
     this.addclassreduceheight = true;
-    this.selectedId = event._id
+    
   }
 
   countries: Array<string> = [

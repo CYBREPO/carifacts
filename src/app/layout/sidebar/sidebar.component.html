@@ -12,10 +12,10 @@
 
 
         <ng-container *ngFor="let tab of tabsoftabs; let i=index">
-            <li class="nav-item" role="presentation" (click)="hidesidebar(i,tab)">
-                <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab._id}}-tab"
-                    data-bs-toggle="tab" attr.data-bs-target="#{{tab._id}}-tab-pane" type="button" role="tab"
-                    attr.aria-controls="{{tab._id}}-tab-pane" aria-selected="true">{{tab.title}}</button>
+            <li class="nav-item" role="presentation" (click)="hidesidebar(i)">
+                <button class="nav-link" [ngClass]="{'active': i == 0 }" id="{{tab.tab}}-tab"
+                    data-bs-toggle="tab" attr.data-bs-target="#{{tab.tab}}-tab-pane" type="button" role="tab"
+                    attr.aria-controls="{{tab.tab}}-tab-pane" aria-selected="true">{{tab.title}}</button>
             </li>
         </ng-container>
 

@@ -1,7 +1,7 @@
 <section class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-1 ps-3 pe-0" *ngIf="!addclassreduceheight">
-            <app-sidebar (hidesidebarEvent)="hidesidebarleft($event)"></app-sidebar>
+            <app-sidebar (hidesidebarEvent)="hidesidebarleft()"></app-sidebar>
         </div>
 
         <div class="h-100 tab-content-section " [ngClass]="addclassreduceheight ? 'col-md-12 px-4' : 'col-md-11'">
@@ -46,7 +46,7 @@
                 </div>
 
                 <!-- Hometwo -->
-                <div class="tab-pane fade" id="{{this.selectedId}}-tab-pane" role="tabpanel" attr.aria-labelledby="{{this.selectedId}}-tab"
+                <div class="tab-pane fade" id="hometwo-tab-pane" role="tabpanel" aria-labelledby="hometwo-tab"
                     tabindex="0">
 
 
