@@ -20,6 +20,7 @@ export class HomeComponent {
   gradesixtabactive: boolean = true
   addclassreduceheight: boolean = false
   bannerData: any
+  gridData: Array<any> = [];
 
   hidesidebarleft() {
     this.addclassreduceheight = true;
@@ -376,6 +377,7 @@ export class HomeComponent {
     });
     this.getBannerImages();
     this.getGradeSix();
+    this.getAllGrids();
   }
 
   getBannerImages() {
@@ -384,10 +386,10 @@ export class HomeComponent {
         this.bannerData = res['data'];
         if (this.bannerData) {
           this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => {
-            m.image = environment.Url + m.image
+            m.image = environment.url + m.image
             return m
           });
-          this.bannerData.bannerTwoSectionImage = environment.Url + this.bannerData.bannerTwoSectionImage
+          this.bannerData.bannerTwoSectionImage = environment.url + this.bannerData.bannerTwoSectionImage
         }
       }
     })
@@ -447,14 +449,13 @@ export class HomeComponent {
   getAllGrids() {
     this.httpservice.httpGet(ApiUrls.grid.getGridSix, null).subscribe((res: any) => {
       if (res['success']) {
-        this.grid = res['data'];
-        if (this.data) {
-          this.data.map((m: any) => {
+        this.gridData = res['data'];
+        if (this.gridData) {
+          this.gridData.map((m: any) => {
             m.gridSixImage = environment.url + m.gridSixImage;
             return m
           })
         }
-        this.totalCount = res['count'];
       }
     })
   }

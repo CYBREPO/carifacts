@@ -1916,16 +1916,16 @@
     <section class="grid-columns section-grid-columns" id="grid-columns">
         <div class="container pb-md-5 pt-md-4">
             <div class="row mt-4">
-                <div class="col-md-3">
+                <div class="col-md-3" *ngFor="let grid of gridData">
                     <div class="grid-column text-center overflow-hidden">
-                        <img src="../../../assets/images/symbols/CARICOM_logo_official.png" alt=""
+                        <img [src]="grid.gridSixImage" alt=""
                             class="img-fluid w-75 h-100">
                         <div class="grid-inner text-center mt-3">
-                            <h5>Caricom</h5>
+                            <h5>{{grid.gridSixContent}}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="grid-column text-center overflow-hidden">
                         <img src="../../../assets/images/symbols/transparent-forecasting-icon-business-strategy-icon-business-i-5ecc5a89a94881.4171017515904508256934.png" alt="" class="img-fluid w-75 h-100">
                         <div class="grid-inner text-center mt-3">
@@ -1949,9 +1949,9 @@
                             <h5>Education</h5>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="row mt-4">
+            <!-- <div class="row mt-4">
                 <div class="col-md-3">
                     <div class="grid-column overflow-hidden">
                         <img src="../../../assets/images/screenshot-chaitanyashirodkar127154.invisionapp.com-2023.04.20-21_33_01.png" alt=""
@@ -1987,7 +1987,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <section class="know-your-caribbean mt-5"
