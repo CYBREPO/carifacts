@@ -23,9 +23,9 @@
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
                             </div>
-                            
+
                             <div class="carousel-inner">
-                                <div class="carousel-item"  [ngClass]="{'active': index == 0}"
+                                <div class="carousel-item" [ngClass]="{'active': index == 0}"
                                     *ngFor="let bannerImage of this.bannerData?.bannerSlider;let index = index">
                                     <img [src]="bannerImage.image" class="d-block w-100" alt="">
                                 </div>
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grade-6-banner"  [ngClass]="{'reduceheight': addclassreduceheight}">
+                        <div class="grade-6-banner" [ngClass]="{'reduceheight': addclassreduceheight}">
                             <div class="container-fluid px-4">
                                 <ul id="myTab2" role="tablist">
                                     <div class="row">
@@ -1915,38 +1915,74 @@
 <div class="other-page-sections" *ngIf="gradesixtabactive">
     <section class="grid-columns section-grid-columns" id="grid-columns">
         <div class="container pb-md-5 pt-md-4">
-
             <div class="row mt-4">
                 <div class="col-md-3">
                     <div class="grid-column overflow-hidden">
-                        <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" alt=""
+                        <img src="../../../assets/images/symbols/CARICOM_logo_official.png" alt=""
                             class="img-fluid w-100 h-100">
-                        <div class="grid-inner">
-                            Grade 6/11+/Common Entrance
+                        <div class="grid-inner text-center mt-3">
+                            <h5>Grade 6/11+/Common Entrance</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="grid-column overflow-hidden">
-                        <img src="../../../assets/images/Mineria.png" alt="" class="img-fluid w-100 h-100">
-                        <div class="grid-inner">
-                            CXC/CAPE
+                        <img src="../../../assets/images/symbols/transparent-forecasting-icon-business-strategy-icon-business-i-5ecc5a89a94881.4171017515904508256934.png" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner text-center mt-3">
+                            <h5>CXC/CAPE</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="grid-column overflow-hidden">
                         <img src="../../../assets/images/kid.jpg" alt="" class="img-fluid w-100 h-100">
-                        <div class="grid-inner">
-                            Faculty of Facts
+                        <div class="grid-inner text-center mt-3">
+                            <h5>Faculty of Facts</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="grid-column overflow-hidden">
                         <img src="" alt="" class="img-fluid w-100 h-100">
-                        <div class="grid-inner">
-                            Know your
+                        <div class="grid-inner text-center mt-3">
+                            <h5> Know your Caribbean</h5>
+                            Caribbean
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="../../../assets/images/106935611-1630430761116-gabri.jpg" alt=""
+                            class="img-fluid w-100 h-100">
+                        <div class="grid-inner text-center mt-3">
+                            <h5>Grade 6/11+/Common Entrance</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="../../../assets/images/Mineria.png" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner text-center mt-3">
+                            <h5>CXC/CAPE</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="../../../assets/images/kid.jpg" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner text-center mt-3">
+                            <h5>Faculty of Facts</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="grid-column overflow-hidden">
+                        <img src="" alt="" class="img-fluid w-100 h-100">
+                        <div class="grid-inner text-center mt-3">
+                            <h5> Know your Caribbean</h5>
                             Caribbean
 
                         </div>
@@ -1955,7 +1991,8 @@
             </div>
         </div>
     </section>
-    <section class="know-your-caribbean mt-5" style="background: linear-gradient(90deg, #04aecf00 0%, #04aecf75 35%, #afe454ab 100%), url({{this.bannerData?.bannerTwoSectionImage}});">
+    <section class="know-your-caribbean mt-5"
+        style="background: linear-gradient(90deg, #04aecf00 0%, #04aecf75 35%, #afe454ab 100%), url({{this.bannerData?.bannerTwoSectionImage}});">
         <div class="csstext" [innerHtml]="this.bannerData?.bannerTwoSectionContent"></div>
     </section>
     <section class="blog py-5">
