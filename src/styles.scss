@@ -119,6 +119,7 @@ body {
     top: 0;
     bottom: 0;
     margin: auto;
+
     .nav-link {
         height: 90px;
         width: 130px;
@@ -259,6 +260,14 @@ app-header {
 }
 
 .grid-columns {
+    img {
+        width: 200px !important;
+        margin: auto;
+        height: 200px !important;
+        object-fit: cover;
+        display: block;
+    }
+
     .grid-column {
 
 
@@ -483,7 +492,7 @@ ul {
 }
 
 .know-your-caribbean {
-    
+
     height: 80vh;
 
     img {
