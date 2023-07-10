@@ -1,4 +1,4 @@
-class account{
+class account {
     public static login = "account/login";
     public static register = "account/register";
     public static resetPassword = "account/reset-password";
@@ -9,7 +9,7 @@ class account{
     public static deleteUser = "account/deleteUser";
 
 }
-class banner{
+class banner {
     public static getbanner = "banner/getbanner";
     public static savebanner = "banner/saveBanner";
 
@@ -22,8 +22,14 @@ class banner{
     public static deleteSubSidebar = "banner/deleteSubSidebar";
 
 }
-
-export class ApiUrls{
+class grid {
+    public static getGridSix = "grid/getGridSix"
+    public static saveUpdateGridSix = "grid/saveUpdateGridSix"
+    public static deleteGridSix = "grid/deleteGridSix"
+}
+export class ApiUrls {
     public static account = account;
     public static banner = banner;
+    public static grid = grid;
 }
+

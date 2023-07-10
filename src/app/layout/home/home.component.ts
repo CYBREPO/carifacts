@@ -23,7 +23,7 @@ export class HomeComponent {
 
   hidesidebarleft() {
     this.addclassreduceheight = true;
-    
+
   }
 
   countries: Array<string> = [
@@ -68,9 +68,9 @@ export class HomeComponent {
   ]
 
   gradesix: Array<any> = [];
-  gradesixKeys: Array<any> = ['antigua','pillar','organs','symbols','founding','howcaricomworks',
-      'dates','csme','institution','secretaries','award','Health'];
-    
+  gradesixKeys: Array<any> = ['antigua', 'pillar', 'organs', 'symbols', 'founding', 'howcaricomworks',
+    'dates', 'csme', 'institution', 'secretaries', 'award', 'Health'];
+
 
 
 
@@ -365,7 +365,7 @@ export class HomeComponent {
     private httpservice: HttpService) { }
 
 
-  
+
 
   ngOnInit() {
     this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
@@ -393,14 +393,14 @@ export class HomeComponent {
     })
   }
 
-  getGradeSix(){
+  getGradeSix() {
     this.httpservice.httpGet(ApiUrls.banner.getAllSubSidebar, null).subscribe((res: any) => {
       if (res['success']) {
         this.gradesix = res['data'];
-        for(let i = 0; i < this.gradesix.length; i++){
+        for (let i = 0; i < this.gradesix.length; i++) {
           this.gradesix[i]['tab'] = this.gradesixKeys[i];
         }
-        
+
       }
     })
   }
@@ -441,4 +441,21 @@ export class HomeComponent {
   // David-Rudder, 2022.jpg
   // Hon-Kamaluddin-Mohammed.jpg
   // edwin Carrington.png
+
+
+
+  getAllGrids() {
+    this.httpservice.httpGet(ApiUrls.grid.getGridSix, null).subscribe((res: any) => {
+      if (res['success']) {
+        this.grid = res['data'];
+        if (this.data) {
+          this.data.map((m: any) => {
+            m.gridSixImage = environment.url + m.gridSixImage;
+            return m
+          })
+        }
+        this.totalCount = res['count'];
+      }
+    })
+  }
 }
