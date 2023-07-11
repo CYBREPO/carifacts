@@ -108,12 +108,12 @@
                     tabindex="0">
                     <section class="grid-columns d-flex flex-column h-100 flags-grid p-4">
                         <div class="row row-cols-5 flex-1">
-                            <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                <div class="col text-center" *ngIf=" i >= 0 && i <= 14">
+                            <ng-container *ngFor="let country of countries; let i=index">
+                                <div class="col text-center">
                                     <div class="grid-column" (click)="parentEventHandlerFunction()">
-                                        <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt=""
+                                        <img [src]="country.countryFlag" alt=""
                                             class="img-fluid w-100 h-100">
-                                        <div class="mt-2"><b>{{country.country}}</b></div>
+                                        <div class="mt-2"><b>{{country.countryName}}</b></div>
                                     </div>
                                 </div>
                             </ng-container>
@@ -121,12 +121,12 @@
 
                         <h4 class="mt-5 mb-4">Associate Members</h4>
                         <div class="row row-cols-5  flex-1">
-                            <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                <div class="col text-center" *ngIf=" i >= 15 && i <= 19">
+                            <ng-container *ngFor="let country of countries | filter: 'isAssociateMembers': true; let i=index">
+                                <div class="col text-center">
                                     <div class="grid-column" (click)="parentEventHandlerFunctiontwo()">
-                                        <img src="../../../assets/images/flags/flag{{i+1}}.jpg" alt=""
+                                        <img [src]="country.countryFlag" alt=""
                                             class="img-fluid w-100 h-100">
-                                        <div class="mt-2"><b>{{country.country}}</b></div>
+                                        <div class="mt-2"><b>{{country.countryName}}</b></div>
                                     </div>
                                 </div>
                             </ng-container>
@@ -1925,69 +1925,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-md-3">
-                    <div class="grid-column text-center overflow-hidden">
-                        <img src="../../../assets/images/symbols/transparent-forecasting-icon-business-strategy-icon-business-i-5ecc5a89a94881.4171017515904508256934.png" alt="" class="img-fluid w-75 h-100">
-                        <div class="grid-inner text-center mt-3">
-                            <h5>Business</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="grid-column text-center overflow-hidden">
-                        <img src="../../../assets/images/symbols/doctor-logo-49376.png" alt="" class="img-fluid w-75 h-100">
-                        
-                        <div class="grid-inner text-center mt-3">
-                            <h5>Health</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="grid-column text-center overflow-hidden">
-                        <img src="./../../assets/images/symbols/22575068.jpg" alt="" class="img-fluid w-75 h-100">
-                        <div class="grid-inner text-center mt-3">
-                            <h5>Education</h5>
-                        </div>
-                    </div>
-                </div> -->
             </div>
-            <!-- <div class="row mt-4">
-                <div class="col-md-3">
-                    <div class="grid-column overflow-hidden">
-                        <img src="../../../assets/images/screenshot-chaitanyashirodkar127154.invisionapp.com-2023.04.20-21_33_01.png" alt=""
-                            class="img-fluid w-100 h-100">
-                        <div class="grid-inner text-center mt-3">
-                            <h5>Grade 6/11+/Common Entrance</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="grid-column overflow-hidden">
-                        <img src="../../../assets/images/banner-3.png" alt="" class="img-fluid w-100 h-100">
-                        <div class="grid-inner text-center mt-3">
-                            <h5>CXC/CAPE</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="grid-column overflow-hidden">
-                        <img src="../../../assets/images/banner-2.png" alt="" class="img-fluid w-100 h-100">
-                        <div class="grid-inner text-center mt-3">
-                            <h5>Faculty of Facts</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="grid-column overflow-hidden">
-                        <img src="../../../assets/images/banner-1.png" alt="" class="img-fluid w-100 h-100">
-                        <div class="grid-inner text-center mt-3">
-                            <h5> Know your Caribbean
-                            Caribbean</h5>
-
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
     <section class="know-your-caribbean mt-5"

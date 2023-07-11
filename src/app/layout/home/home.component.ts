@@ -21,28 +21,29 @@ export class HomeComponent {
   addclassreduceheight: boolean = false
   bannerData: any
   gridData: Array<any> = [];
+  countries: Array<any> = [];
 
   hidesidebarleft() {
     this.addclassreduceheight = true;
 
   }
 
-  countries: Array<string> = [
-    'Antigua and Barbuda',
-    'Bahamas',
-    'Barbados',
-    'Belize',
-    'Dominica',
-    'Grenada',
-    'Guyana',
-    'Haiti',
-    'Jamaica',
-    'Montserrat',
-    'Saint Lucia',
-    'St. Kitts and Nevis',
-    'St. Vincent and the Grenadines',
-    'Suriname',
-    'Trinidad and Tobago']
+  // countries: Array<string> = [
+  //   'Antigua and Barbuda',
+  //   'Bahamas',
+  //   'Barbados',
+  //   'Belize',
+  //   'Dominica',
+  //   'Grenada',
+  //   'Guyana',
+  //   'Haiti',
+  //   'Jamaica',
+  //   'Montserrat',
+  //   'Saint Lucia',
+  //   'St. Kitts and Nevis',
+  //   'St. Vincent and the Grenadines',
+  //   'Suriname',
+  //   'Trinidad and Tobago']
 
 
   tabsoftabs: Array<any> = [
@@ -378,6 +379,7 @@ export class HomeComponent {
     this.getBannerImages();
     this.getGradeSix();
     this.getAllGrids();
+    this.getAllCountries();
   }
 
   getBannerImages() {
@@ -402,6 +404,16 @@ export class HomeComponent {
         for (let i = 0; i < this.gradesix.length; i++) {
           this.gradesix[i]['tab'] = this.gradesixKeys[i];
         }
+
+      }
+    })
+  }
+
+  getAllCountries(){
+    this.httpservice.httpGet(ApiUrls.grid.getAllCountries, null).subscribe((res: any) => {
+      if (res['success']) {
+        this.countries = res['data'];
+        this.countries?.map((m: any) => { m.countryFlag = environment.url + m.countryFlag; return m});
 
       }
     })
