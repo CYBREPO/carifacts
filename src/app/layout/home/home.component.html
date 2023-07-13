@@ -111,8 +111,7 @@
                             <ng-container *ngFor="let country of countries; let i=index">
                                 <div class="col text-center">
                                     <div class="grid-column" (click)="parentEventHandlerFunction()">
-                                        <img [src]="country.countryFlag" alt=""
-                                            class="img-fluid w-100 h-100">
+                                        <img [src]="country.countryFlag" alt="" class="img-fluid w-100 h-100">
                                         <div class="mt-2"><b>{{country.countryName}}</b></div>
                                     </div>
                                 </div>
@@ -121,11 +120,11 @@
 
                         <h4 class="mt-5 mb-4">Associate Members</h4>
                         <div class="row row-cols-5  flex-1">
-                            <ng-container *ngFor="let country of countries | filter: 'isAssociateMembers': true; let i=index">
+                            <ng-container
+                                *ngFor="let country of countries | filter: 'isAssociateMembers': true; let i=index">
                                 <div class="col text-center">
                                     <div class="grid-column" (click)="parentEventHandlerFunctiontwo()">
-                                        <img [src]="country.countryFlag" alt=""
-                                            class="img-fluid w-100 h-100">
+                                        <img [src]="country.countryFlag" alt="" class="img-fluid w-100 h-100">
                                         <div class="mt-2"><b>{{country.countryName}}</b></div>
                                     </div>
                                 </div>
@@ -147,10 +146,10 @@
 
                             </div>
 
-                            <h5 class="mb-3 color-blue-grey"><b>CARICOM rests on four main pillars:</b></h5>
+                            <h5 class="mb-3 color-blue-grey text-center"><b>CARICOM rests on four main pillars:</b></h5>
 
-                            <div class="row mt-md-5">
-                                <img src="../../../assets/images/pillars.png" alt="" class="img-fluid">
+                            <div class="row mt-md-5 d-flex justify-content-center">
+                                <img src="../../../assets/images/pillars.png" alt="" class="w-75 img-fluid">
                             </div>
                         </div>
                     </section>
@@ -166,31 +165,36 @@
                                 <h1 class="b text-center mb-4"><b>ORGANS AND BODIES</b></h1>
                                 <hr>
                                 <hr>
-
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <h5 class="mt-4 color-blue-grey"><b>
+                                            ORGANS AND BODIES:</b></h5>
+                                    <hr class="w-75">
+                                    <ul>
+                                        <li>COTED: Council for Trade and Economic Development
+                                            (COTED), </li>
+                                        <li>COHSOD: Council for Human and Social Development </li>
+                                        <li>COFAP: Council for Finance and Planning </li>
+                                        <li>CONSLE: Council for National Security and Law
+                                            Enforcement </li>
+                                        <li>COFCOR: Council for Foreign and Community </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="mt-4 color-blue-grey"><b> The
+                                            Bodies are:</b></h5>
+                                    <hr>
+                                    <ul>
+                                        <li>The Legal Affairs Committee (LAC)</li>
+                                        <li>The Budget Committee</li>
+                                        <li>The Committee of Central Bank Governors</li>
+                                        <li>The CARICOM Committee of Ambassadors</li>
+                                    </ul>
+                                </div>
                             </div>
 
-                            <h5 class="mt-4 color-blue-grey"><b> ORGANS AND BODIES:</b></h5>
-                            <hr>
 
-                            <ul>
-                                <li>COTED: Council for Trade and Economic Development (COTED), </li>
-
-                                <li>COHSOD: Council for Human and Social Development </li>
-
-                                <li>COFAP: Council for Finance and Planning </li>
-
-                                <li>CONSLE: Council for National Security and Law Enforcement </li>
-
-                                <li>COFCOR: Council for Foreign and Community </li>
-                            </ul>
-
-                            <h5 class="mt-4 color-blue-grey"><b> The Bodies are:</b></h5>
-                            <ul>
-                                <li>The Legal Affairs Committee (LAC)</li>
-                                <li>The Budget Committee</li>
-                                <li>The Committee of Central Bank Governors</li>
-                                <li>The CARICOM Committee of Ambassadors</li>
-                            </ul>
 
 
                         </div>
@@ -217,7 +221,8 @@
                                     <img src="../../../assets/images/symbols/CARICOM_logo_official.png" alt=""
                                         class="imagewidth" width="150px">
 
-                                    <p> The two Cs are for the words “Caribbean Community” (CARICOM). They are in the
+                                    <p class="w-75 mx-auto text-center"> The two Cs are for the words “Caribbean
+                                        Community” (CARICOM). They are in the
                                         form
                                         of
                                         broken links in a chain and symbolise the 15 countries linked together by their
@@ -229,7 +234,7 @@
 
 
 
-                                <li>
+                                <li class="w-75 mx-auto text-center">
                                     <h5 class="color-blue-grey mt-5 mb-4 text-center"><b>The CARICOM Standard</b></h5>
                                     <img src="../../../assets/images/symbols/Flag_of_CARICOM.svg.png" alt=""
                                         class="imagewidth" width="300px">
@@ -253,7 +258,7 @@
                                         was flown for the first time at the Fifth Conference of Heads of Government
                                         Meeting in Nassau, The Bahamas, in July, 1984.”.</p>
                                 </li>
-                                <li>
+                                <li class="w-75 mx-auto text-center">
                                     <h5 class="color-blue-grey mt-5 mb-4 text-center"><b>-The CARICOM Passport</b></h5>
 
 
@@ -380,7 +385,7 @@
 
                     <section>
 
-                        <div class="container py-5">
+                        <div class="container py-5 text-center">
                             <div class="section-heading-block text-center mt-4">
                                 <img src="../../../assets/images/heading-pattern.png" alt="">
                                 <h1 class="b text-center mb-4"><b>Founding Fathers of CARICOM </b></h1>
@@ -389,14 +394,15 @@
 
                             </div>
 
-                            <h6 class="mt-4 color-blue-grey"><b> The Treaty of Chaguaramas established the Caribbean
+                            <h6 class="mt-4 color-blue-grey w-75 mx-auto text-center"><b> The Treaty of Chaguaramas
+                                    established the Caribbean
                                     Community (CARICOM). It was signed in 1973 by the following persons who are called
                                     “Founding Fathers” </b></h6>
                             <hr>
 
 
                             <div class="row">
-                                <div class="col-md-7">
+                                <div class="col-md-7 mx-auto">
                                     <div class="bg-white">
                                         <img src="../../../assets/images/signatories-to-the-treaty-of-chaguaramas-1280x835.jpg"
                                             class="img-fluid" alt="">
@@ -407,7 +413,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <ul>
+                            <ul class="w-50 mx-auto">
                                 <li>Errol Walton Barrow (Barbados) </li>
 
                                 <li>Linden Forbes Sampson Burnham (Guyana) </li>
@@ -418,19 +424,21 @@
                             </ul>
 
 
-                            <h4 class="mt-4"><b>TREATY OF CHAGUARAMAS</b></h4>
-                            <p> The decision to establish the Caribbean Community (CARICOM) was
-                                made in November 1972 at the Heads of Government Conference.
-                                The Georgetown Accord which sets out the process to establish
-                                CARICOM was agreed on in April 1973
-                                The Treaty establishing CARICOM, the Treaty of Chaguaramas, was
-                                signed on 4 July 1973.
-                                Four Heads of Government (Original Signatories) signed the Treaty: Prime
-                                Ministers Errol Barrow for Barbados, Forbes Burnham for Guyana,
-                                Michael Manley for Jamaica and Eric Williams for Trinidad and Tobago.
+                            <div class="w-75 mx-auto">
+                                <h4 class="mt-4"><b>TREATY OF CHAGUARAMAS</b></h4>
+                                <p> The decision to establish the Caribbean Community (CARICOM) was
+                                    made in November 1972 at the Heads of Government Conference.
+                                    The Georgetown Accord which sets out the process to establish
+                                    CARICOM was agreed on in April 1973
+                                    The Treaty establishing CARICOM, the Treaty of Chaguaramas, was
+                                    signed on 4 July 1973.
+                                    Four Heads of Government (Original Signatories) signed the Treaty: Prime
+                                    Ministers Errol Barrow for Barbados, Forbes Burnham for Guyana,
+                                    Michael Manley for Jamaica and Eric Williams for Trinidad and Tobago.
 
-                                (For Grade 6) The Treaty of Chaguaramas established the Caribbean
-                                Community (CARICOM). It was signed in 1973</p>
+                                    (For Grade 6) The Treaty of Chaguaramas established the Caribbean
+                                    Community (CARICOM). It was signed in 1973</p>
+                            </div>
 
                         </div>
                     </section>
@@ -477,39 +485,19 @@
                                 <b> DATES OF CARICOM MEMBERSHIP
                                 </b>
                             </div>
-                            <!-- <ul class="list-unstyled">
-                                <li>1. Antigua and Barbuda 4 July 1974</li>
-                                <li>2. The Bahamas 4 July 1983</li>
-                                <li>3. Barbados 1 August 1973</li>
 
-                                <li>4. Belize 1 May 1974</li>
-                                <li>5. Dominica 1 May 1974</li>
-                                <li>6. Grenada 1 May 1974</li>
-
-                                <li>7 Guyana 1 August 1973</li>
-                                <li>8. Haiti 2 July 2002</li>
-                                <li>9. Jamaica 1 August 1973</li>
-                                <li>10. Montserrat 1 May 1974</li>
-
-                                <li>11. St. Kitts and Nevis 26 July 1974</li>
-
-                                <li>12. Saint Lucia 1 May 1974</li>
-                                <li>13. St. Vincent and the Grenadines 1 May 1974</li>
-
-                                <li>14. Suriname 4 July 1995</li>
-                                <li>15. Trinidad and Tobago 1 August 1973</li>
-                            </ul> -->
-
-                            <ul class="list-unstyled dates-list mt-5 text-center">
+                            <div class="row  mt-5 text-center">
                                 <ng-container *ngFor="let country of countryofcaricom; let i=index">
-                                    <li *ngIf=" i >= 0 && i <= 14" class="text-center" style="margin-top: 50px;">
-
-                                        <b class="d-block"> {{i}}. {{country.country}} - {{country.date}}</b>
-                                    </li>
-                                    <img src="../../../assets/images/flags/flag{{i+1}}.jpg" width="100px"
-                                        class="mx-auto d-block mt-2" alt="">
+                                    <div class="col-md-3 text-center key-date" [ngClass]="{'mt-md-3': i>4}"
+                                        *ngIf=" i >= 0 && i <= 14">
+                                        <div>
+                                            <b class="d-block"> {{i}}. {{country.country}} - {{country.date}}</b>
+                                        </div>
+                                        <img src="../../../assets/images/flags/flag{{i+1}}.jpg" width="250px"
+                                            class="mx-auto d-block mt-2" alt="">
+                                    </div>
                                 </ng-container>
-                            </ul>
+                            </div>
                         </div>
 
                     </section>
@@ -527,17 +515,20 @@
                         <div class="container py-5">
                             <div class="row">
                                 <div class="col-md-8 mx-auto">
-                                    <p><b>The CSME is the acronym for the Caribbean Single Market and Economy :</b></p>
+                                    <div class="text-center">
+                                        <p><b>The CSME is the acronym for the Caribbean Single Market and Economy :</b>
+                                        </p>
 
-                                    <p><b>The CSME is a bigger market with better opportunities to produce and sell
-                                            goods and
-                                            services
-                                            :</b></p>
+                                        <p><b>The CSME is a bigger market with better opportunities to produce and sell
+                                                goods and
+                                                services
+                                                :</b></p>
 
-                                    <p><b>The CSME provides for :</b></p>
+                                        <p><b>The CSME provides for :</b></p>
+                                    </div>
 
-                                    <ul class="mt-5 w-75">
-                                        <img src="../../../assets/images/CSMEComposite.png" class="img-fluid mb-3"
+                                    <ul class="mt-5 mx-auto w-75">
+                                        <img src="../../../assets/images/CSMEComposite.png" class="img-fluid mb-5"
                                             alt="">
                                         <li>Goods and services to move freely throughout CARICOM</li>
 
@@ -607,6 +598,41 @@
                                                     alt="" class="img-fluid">
                                             </div>
                                             <h6><b>{{institution.institution_name}}</b></h6>
+
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <div class="text-center mt-5">
+                                    <h2>Associate Institutions</h2>
+                                    <hr>
+                                </div>
+                                <ng-container *ngFor="let associtedinstitution of associtedinstitutions">
+                                    <div class="col-md-2 p-2">
+                                        <div class="text-center institution-block">
+                                            <div class="institution-image">
+
+                                                <img src="../../../assets/images/caricom-institution-logos/{{associtedinstitution.institution_image}}"
+                                                    alt="" class="img-fluid">
+                                            </div>
+                                            <h6><b>{{associtedinstitution.institution_name}}</b></h6>
+
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <div class="text-center mt-5">
+                                    <h2>Institutions with a relationship of Functional Cooperation with CARICOM</h2>
+                                    <hr>
+                                </div>
+                                <ng-container *ngFor="let functionalinstitution of functionalinstitutions">
+                                    <div class="col-md-2 p-2">
+                                        <div class="text-center institution-block">
+                                            <div class="institution-image">
+
+                                                <img src="../../../assets/images/caricom-institution-logos/{{functionalinstitution.institution_image}}"
+                                                    alt="" class="img-fluid">
+                                            </div>
+                                            <h6><b>{{functionalinstitution.institution_name}}</b></h6>
 
                                         </div>
                                     </div>
@@ -1916,10 +1942,9 @@
     <section class="grid-columns section-grid-columns" id="grid-columns">
         <div class="container pb-md-5 pt-md-4">
             <div class="row mt-4">
-                <div class="col-md-3" *ngFor="let grid of gridData">
+                <div class="col-md-3" [ngClass]="{'mt-md-4': i > 4}" *ngFor="let grid of gridData; let i = index">
                     <div class="grid-column text-center overflow-hidden">
-                        <img [src]="grid.gridSixImage" alt=""
-                            class="img-fluid w-75 h-100">
+                        <img [src]="grid.gridSixImage" alt="" class="img-fluid w-75 h-100">
                         <div class="grid-inner text-center mt-3">
                             <h5>{{grid.gridSixContent}}</h5>
                         </div>

@@ -228,20 +228,12 @@ export class HomeComponent {
       'institution_name': 'CCJ'
     },
     {
-      'institution_image': 'Caribbean Development Bank (CDB) Logo.png',
-      'institution_name': 'CDB'
-    },
-    {
       'institution_image': 'Caribbean Disaster Emergency Management Agency (CDEMA) Logo.jpg',
       'institution_name': 'CDEMA'
     },
     {
       'institution_image': 'Caribbean Examination Council (CXC) Logo.jpg',
       'institution_name': 'CXC'
-    },
-    {
-      'institution_image': 'Caribbean Export Development Agency (Caribbean Export) Logo.jpeg',
-      'institution_name': 'Caribbean Export)'
     },
     {
       'institution_image': 'Caribbean Institute for Meteorology and Hydrology (CIMH) Logo.jpg',
@@ -272,10 +264,6 @@ export class HomeComponent {
       'institution_name': 'CTU'
     },
     {
-      'institution_image': 'Caribbean Tourism Organization (CTO) Logo.png',
-      'institution_name': 'CTO'
-    },
-    {
       'institution_image': 'CARICOM Competition Commission (CCC) Logo.png',
       'institution_name': 'CCC'
     },
@@ -296,19 +284,48 @@ export class HomeComponent {
       'institution_name': 'CROSQ'
     },
     {
-      'institution_image': 'Council of Legal Education Logo.png',
-      'institution_name': 'CLE'
-    },
-    {
       'institution_image': 'University of Guyana (UG) Logo.jpg',
       'institution_name': 'UG'
     },
     {
       'institution_image': 'University of the West Indies (CLE) Logo.png',
       'institution_name': 'UTWI'
-    },
+    }
   ]
 
+  associtedinstitutions: Array<any> = [
+    {
+      'institution_image': 'Caribbean Development Bank (CDB) Logo.png',
+      'institution_name': 'CDB'
+    },
+    {
+      'institution_image': 'CARIBBEAN LAW INSTITUTE/CARIBBEAN LAW INSTITUTE CENTRE (CLI)/(CLIC)',
+      'institution_name': 'CLI/CLIC'
+    },
+    {
+      'institution_image': 'OECS.png',
+      'institution_name': 'OECS Commission'
+    },
+    {
+      'institution_image': 'uwi-1-640x480.jpg',
+      'institution_name': 'UWI'
+    }
+
+  ]
+  functionalinstitutions: Array<any> = [
+    {
+      'institution_image': 'Caribbean Export Development Agency (Caribbean Export) Logo.jpeg',
+      'institution_name': 'CARIBBEAN EXPORT'
+    },
+    {
+      'institution_image': 'Council of Legal Education Logo.png',
+      'institution_name': 'CLE'
+    },
+    {
+      'institution_image': 'Caribbean Tourism Organization (CTO) Logo.png',
+      'institution_name': 'CTO'
+    }
+  ]
 
   secretaries: Array<any> = [
     {
@@ -370,7 +387,7 @@ export class HomeComponent {
 
 
   ngOnInit() {
-    this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
+    // this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)
     this.secretaries.sort((a, b) => {
       let first = a.appointmentyear.split('-')[0]
       let second = b.appointmentyear.split('-')[0]
@@ -409,11 +426,11 @@ export class HomeComponent {
     })
   }
 
-  getAllCountries(){
+  getAllCountries() {
     this.httpservice.httpGet(ApiUrls.grid.getAllCountries, null).subscribe((res: any) => {
       if (res['success']) {
         this.countries = res['data'];
-        this.countries?.map((m: any) => { m.countryFlag = environment.url + m.countryFlag; return m});
+        this.countries?.map((m: any) => { m.countryFlag = environment.url + m.countryFlag; return m });
 
       }
     })
