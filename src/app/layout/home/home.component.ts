@@ -21,29 +21,29 @@ export class HomeComponent {
   addclassreduceheight: boolean = false
   bannerData: any
   gridData: Array<any> = [];
-  countries: Array<any> = [];
+  // countries: Array<any> = [];
 
   hidesidebarleft() {
     this.addclassreduceheight = true;
 
   }
 
-  // countries: Array<string> = [
-  //   'Antigua and Barbuda',
-  //   'Bahamas',
-  //   'Barbados',
-  //   'Belize',
-  //   'Dominica',
-  //   'Grenada',
-  //   'Guyana',
-  //   'Haiti',
-  //   'Jamaica',
-  //   'Montserrat',
-  //   'Saint Lucia',
-  //   'St. Kitts and Nevis',
-  //   'St. Vincent and the Grenadines',
-  //   'Suriname',
-  //   'Trinidad and Tobago']
+  countries: Array<string> = [
+    'Antigua and Barbuda',
+    'Bahamas',
+    'Barbados',
+    'Belize',
+    'Dominica',
+    'Grenada',
+    'Guyana',
+    'Haiti',
+    'Jamaica',
+    'Montserrat',
+    'Saint Lucia',
+    'St. Kitts and Nevis',
+    'St. Vincent and the Grenadines',
+    'Suriname',
+    'Trinidad and Tobago']
 
 
   tabsoftabs: Array<any> = [
@@ -69,7 +69,56 @@ export class HomeComponent {
     }
   ]
 
-  gradesix: Array<any> = [];
+  gradesix: Array<any> = [
+    {
+      'tab': 'antigua',
+      'tabtitle': 'Countries of Caribean community'
+    },
+    {
+      'tab': 'pillar',
+      'tabtitle': 'Pillars'
+    },
+    {
+      'tab': 'organs',
+      'tabtitle': 'Organs'
+    },
+    {
+      'tab': 'symbols',
+      'tabtitle': 'Symbol of caricom'
+    },
+    {
+      'tab': 'founding',
+      'tabtitle': 'Founding fathers'
+    },
+    {
+      'tab': 'howcaricomworks',
+      'tabtitle': 'How caricom works'
+    },
+    {
+      'tab': 'dates',
+      'tabtitle': 'Keys dates'
+    },
+    {
+      'tab': 'csme',
+      'tabtitle': 'CSME'
+    },
+    {
+      'tab': 'institution',
+      'tabtitle': 'Caricom Institution'
+    },
+    {
+      'tab': 'secretaries',
+      'tabtitle': 'Secretaries General'
+    },
+    {
+      'tab': 'award',
+      'tabtitle': 'Caricom Awardees'
+    },
+    {
+      'tab': 'Health',
+      'tabtitle': 'Grade 6 test result'
+    }
+  ];
   gradesixKeys: Array<any> = ['antigua', 'pillar', 'organs', 'symbols', 'founding', 'howcaricomworks',
     'dates', 'csme', 'institution', 'secretaries', 'award', 'Health'];
 
@@ -393,10 +442,10 @@ export class HomeComponent {
       let second = b.appointmentyear.split('-')[0]
       return Number(first) < Number(second) ? 1 : -1
     });
-    this.getBannerImages();
-    this.getGradeSix();
-    this.getAllGrids();
-    this.getAllCountries();
+    // this.getBannerImages();
+    // this.getGradeSix();
+    // this.getAllGrids();
+    // this.getAllCountries();
   }
 
   getBannerImages() {

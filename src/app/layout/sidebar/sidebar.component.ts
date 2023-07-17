@@ -9,13 +9,34 @@ import { HttpService } from 'src/app/service/http.service';
 export class SidebarComponent implements OnInit {
 
   @Output() hidesidebarEvent = new EventEmitter<any>();
-  tabsoftabs: Array<any> = [];
   tabsofKeys: Array<any> = ['home','hometwo','cxc','faculty','kyc'];
+  tabsoftabs: Array<any> = [
+    {
+      'tab': 'home',
+      'tabtitle': 'Home'
+    },
+    {
+      'tab': 'hometwo',
+      'tabtitle': 'Grade 6/11+/Common Entrance'
+    },
+    {
+      'tab': 'cxc',
+      'tabtitle': 'CXC (Caribean Examination Council) CAPE (Caribbean Advanced)'
+    },
+    {
+      'tab': 'faculty',
+      'tabtitle': 'Faculty of Facts (Tertiary Level)'
+    },
+    {
+      'tab': 'kyc',
+      'tabtitle': 'Know your Caribbean'
+    }
+  ]
 
   constructor(private httpService: HttpService){}
 
   ngOnInit(): void {
-    this.getSideBar();
+    // this.getSideBar();
   }
 
   getSideBar(){
