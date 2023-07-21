@@ -625,11 +625,11 @@ export class HomeComponent {
       'Conferred': ' 1993'
     }
   ]
+
+
+
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
-
-
-
 
   ngOnInit() {
     // this.institutions.sort((a, b) => a.institution_name > b.institution_name ? 1 : -1)

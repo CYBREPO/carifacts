@@ -16,7 +16,7 @@ export class HttpService {
     var headers = new HttpHeaders().set('Content-Type', 'application/json');
     headers = headers.set('Loader', autoLoader.toString());
     //headers = headers.set("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-    return this.http.get<T>(this.domain + method, { headers: headers, params: data });
+    return this.http.get<T>(this.domain + method, {  params: data });
   }
 
   httpGetPromise(method: string, data: any, autoLoader: boolean = true) {

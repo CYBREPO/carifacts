@@ -9,12 +9,9 @@ import { HttpService } from 'src/app/service/http.service';
 export class SidebarComponent implements OnInit {
 
   @Output() hidesidebarEvent = new EventEmitter<any>();
-  tabsofKeys: Array<any> = ['home','hometwo','cxc','faculty','kyc'];
+  tabsofKeys: Array<any> = [ 'hometwo', 'cxc', 'faculty', 'kyc'];
   tabsoftabs: Array<any> = [
-    {
-      'tab': 'home',
-      'tabtitle': 'Home'
-    },
+ 
     {
       'tab': 'hometwo',
       'tabtitle': 'Grade 6/11+/Common Entrance'
@@ -33,19 +30,19 @@ export class SidebarComponent implements OnInit {
     }
   ]
 
-  constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.getSideBar();
   }
 
-  getSideBar(){
-    this.httpService.httpGet(ApiUrls.banner.getMenus,null).subscribe((res:any) => {
-      if(res['success']){
+  getSideBar() {
+    this.httpService.httpGet(ApiUrls.banner.getMenus, null).subscribe((res: any) => {
+      if (res['success']) {
         this.tabsoftabs = res['data'];
-        // for(let i = 0; i < this.tabsoftabs.length; i++){
-        //   this.tabsoftabs[i]['tab'] = this.tabsofKeys[i];
-        // }
+        for (let i = 0; i < this.tabsoftabs.length; i++) {
+          this.tabsoftabs[i]['tab'] = this.tabsofKeys[i];
+        }
       }
     })
   }
@@ -53,7 +50,7 @@ export class SidebarComponent implements OnInit {
   hidesidebar(tab: any) {
     this.hidesidebarEvent.emit(tab);
     // if(tab.has_submenu == 'Yes'){
-      
+
     // }
   }
 
