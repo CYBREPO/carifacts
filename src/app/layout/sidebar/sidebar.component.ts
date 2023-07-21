@@ -36,24 +36,25 @@ export class SidebarComponent implements OnInit {
   constructor(private httpService: HttpService){}
 
   ngOnInit(): void {
-    // this.getSideBar();
+    this.getSideBar();
   }
 
   getSideBar(){
-    this.httpService.httpGet(ApiUrls.banner.getAllSidebar,null).subscribe((res:any) => {
+    this.httpService.httpGet(ApiUrls.banner.getMenus,null).subscribe((res:any) => {
       if(res['success']){
         this.tabsoftabs = res['data'];
-        for(let i = 0; i < this.tabsoftabs.length; i++){
-          this.tabsoftabs[i]['tab'] = this.tabsofKeys[i];
-        }
+        // for(let i = 0; i < this.tabsoftabs.length; i++){
+        //   this.tabsoftabs[i]['tab'] = this.tabsofKeys[i];
+        // }
       }
     })
   }
 
-  hidesidebar(i: number) {
-    if(i == 1){
-      this.hidesidebarEvent.emit();
-    }
+  hidesidebar(tab: any) {
+    this.hidesidebarEvent.emit(tab);
+    // if(tab.has_submenu == 'Yes'){
+      
+    // }
   }
 
 }

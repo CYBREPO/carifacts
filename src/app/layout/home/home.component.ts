@@ -21,12 +21,11 @@ export class HomeComponent {
   addclassreduceheight: boolean = false
   bannerData: any
   gridData: Array<any> = [];
+  subMenus: Array<any> = [];
+  selectedSidbar: any;
   // countries: Array<any> = [];
 
-  hidesidebarleft() {
-    this.addclassreduceheight = true;
-
-  }
+  
 
   countries: Array<string> = [
     'Antigua and Barbuda',
@@ -640,34 +639,44 @@ export class HomeComponent {
       return Number(first) < Number(second) ? 1 : -1
     });
     this.getBannerImages();
-    // this.getGradeSix();
-    // this.getAllGrids();
+    // this.getSubMenus();
+    this.getAllGrids();
     // this.getAllCountries();
   }
 
+  hidesidebarleft(event: any) {
+    this.selectedSidbar = event;
+    if(event.has_submenu == 'Yes'){
+      this.addclassreduceheight = true;
+      this.getSubMenus(event.id);
+    }
+    else{
+      this.subMenus = [];
+    }
+  }
+
   getBannerImages() {
-    this.httpservice.httpGet(ApiUrls.banner.getMenus, null).subscribe((res: any) => {
+    this.httpservice.httpGet(ApiUrls.banner.getSliders, null).subscribe((res: any) => {
       if (res['success']) {
         this.bannerData = res['data'];
-        console.log(res['data']);
+        // console.log(res['data']);
         // if (this.bannerData) {
-        //   this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => {
-        //     m.image = environment.url + m.image
-        //     return m
+        //   this.bannerData?.forEach((m: any) => {
+        //     m.file = m.file.replace('\\','');
         //   });
-        //   this.bannerData.bannerTwoSectionImage = environment.url + this.bannerData.bannerTwoSectionImage
+        //   console.log(this.bannerData);
         // }
       }
     })
   }
 
-  getGradeSix() {
-    this.httpservice.httpGet(ApiUrls.banner.getAllSubSidebar, null).subscribe((res: any) => {
+  getSubMenus(id: number) {
+    this.httpservice.httpGet(ApiUrls.banner.getMenus + "/" + id, null).subscribe((res: any) => {
       if (res['success']) {
-        this.gradesix = res['data'];
-        for (let i = 0; i < this.gradesix.length; i++) {
-          this.gradesix[i]['tab'] = this.gradesixKeys[i];
-        }
+        this.subMenus = res['data'];
+        // for (let i = 0; i < this.gradesix.length; i++) {
+        //   this.gradesix[i]['tab'] = this.gradesixKeys[i];
+        // }
 
       }
     })
@@ -723,7 +732,7 @@ export class HomeComponent {
 
 
   getAllGrids() {
-    this.httpservice.httpGet(ApiUrls.grid.getGridSix, null).subscribe((res: any) => {
+    this.httpservice.httpGet(ApiUrls.grid.getGrids, null).subscribe((res: any) => {
       if (res['success']) {
         this.gridData = res['data'];
         if (this.gridData) {

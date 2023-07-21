@@ -11,6 +11,7 @@ class account {
 }
 class banner {
     public static getMenus = "main/menus";
+    public static getSliders = "main/sliders";
     public static savebanner = "banner/saveBanner";
 
     public static getAllSidebar = "banner/getAllSidebar";
@@ -23,6 +24,7 @@ class banner {
 
 }
 class grid {
+    public static getGrids = "main/grids";
     public static getGridSix = "grid/getGridSix";
     public static saveUpdateGridSix = "grid/saveUpdateGridSix";
     public static deleteGridSix = "grid/deleteGridSix";

@@ -1,7 +1,7 @@
 <section class="container-fluid mb-5">
     <div class="row">
         <div class="col-md-1 ps-3 pe-0" *ngIf="!addclassreduceheight">
-            <app-sidebar (hidesidebarEvent)="hidesidebarleft()"></app-sidebar>
+            <app-sidebar (hidesidebarEvent)="hidesidebarleft($event)"></app-sidebar>
         </div>
 
         <div class="h-100 tab-content-section " [ngClass]="addclassreduceheight ? 'col-md-12 px-4' : 'col-md-11'">
@@ -26,8 +26,8 @@
 
                             <div class="carousel-inner">
                                 <div class="carousel-item" [ngClass]="{'active': index == 1}"
-                                    *ngFor="let index of [1,2,3]">
-                                    <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png" class="d-block w-100" alt="">
+                                    *ngFor="let img of bannerData; let index = index">
+                                    <img [src]="img.file" class="d-block w-100" alt="">
                                 </div>
                             </div>
 
@@ -46,8 +46,8 @@
                 </div>
 
                 <!-- Hometwo -->
-                <div class="tab-pane fade" id="hometwo-tab-pane" role="tabpanel" aria-labelledby="hometwo-tab"
-                    tabindex="0">
+                <div class="tab-pane fade" 
+                    tabindex="0" *ngIf="this.selectedSidbar?.has_submenu == 'Yes'">
 
 
                     <div class="position-relative">
@@ -1943,16 +1943,16 @@
     <section class="grid-columns section-grid-columns" id="grid-columns">
         <div class="container pb-md-5 pt-md-4">
             <div class="row mt-4">
-                <div class="col-md-3">
+                <div class="col-md-3" *ngFor="let grid of gridData">
                     <div class="grid-column text-center overflow-hidden">
-                        <img src="../../../assets/images/symbols/received_1.jpeg" alt=""
+                        <img [src]="grid.file" alt=""
                             class="img-fluid w-75 h-100">
                         <div class="grid-inner text-center mt-3">
-                            <h5>Caricom</h5>
+                            <h5>{{grid.title}}</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="grid-column text-center overflow-hidden">
                         <img src="../../../assets/images/symbols/received_2.jpeg"
                             alt="" class="img-fluid w-75 h-100">
@@ -1978,9 +1978,9 @@
                             <h5>Education</h5>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="row mt-4">
+            <!-- <div class="row mt-4">
                 <div class="col-md-3">
                     <div class="grid-column overflow-hidden">
                         <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE Icon Home Page copy (1).png"
@@ -2016,7 +2016,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <section class="know-your-caribbean mt-5">
