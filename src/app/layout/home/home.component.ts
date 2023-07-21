@@ -646,6 +646,7 @@ export class HomeComponent {
 
   hidesidebarleft(event: any) {
     this.selectedSidbar = event;
+    console.log(this.selectedSidbar);
     if(event.has_submenu == 'Yes'){
       this.addclassreduceheight = true;
       this.getSubMenus(event.id);
@@ -673,11 +674,10 @@ export class HomeComponent {
   getSubMenus(id: number) {
     this.httpservice.httpGet(ApiUrls.banner.getMenus + "/" + id, null).subscribe((res: any) => {
       if (res['success']) {
-        this.subMenus = res['data'];
-        // for (let i = 0; i < this.gradesix.length; i++) {
-        //   this.gradesix[i]['tab'] = this.gradesixKeys[i];
-        // }
-
+        this.subMenus = res['submenus'];
+        for (let i = 0; i < this.subMenus.length; i++) {
+          this.subMenus[i]['tab'] = this.gradesixKeys[i];
+        }
       }
     })
   }

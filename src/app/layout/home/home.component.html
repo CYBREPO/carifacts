@@ -68,18 +68,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grade-6-banner" [ngClass]="{'reduceheight': addclassreduceheight}">
+                        <div class="grade-6-banner w-100" [ngClass]="{'reduceheight': addclassreduceheight}">
                             <div class="container-fluid px-4">
                                 <ul id="myTab2" role="tablist">
                                     <div class="row">
-                                        <ng-container *ngFor="let gradeblock of gradesix; let i=index">
+                                        <ng-container *ngFor="let submenu of subMenus; let i=index">
                                             <div class="col-2" (click)="showinformation()">
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="{{gradeblock.tab}}-tab"
+                                                    <button class="nav-link" id="{{submenu.tab}}-tab"
                                                         data-bs-toggle="tab"
-                                                        attr.data-bs-target="#{{gradeblock.tab}}-tab-pane" type="button"
-                                                        role="tab" attr.aria-controls="{{gradeblock.tab}}-tab-pane"
-                                                        aria-selected="true">{{gradeblock.tabtitle}}</button>
+                                                        attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button"
+                                                        role="tab" attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                                        aria-selected="true">{{submenu.title}}</button>
                                                 </li>
                                             </div>
                                         </ng-container>
@@ -92,16 +92,16 @@
 
                 <!-- CXC -->
                 <div class="tab-pane fade" id="cxc-tab-pane" role="tabpanel" aria-labelledby="cxc-tab" tabindex="0">
-                    <img src="../../../assets/images/banner-2.png" alt="" class="img-fluid w-100 h-100">
+                    <img [src]="this.selectedSidbar?.file" alt="" class="img-fluid w-100 h-100">
                 </div>
                 <!-- faculty -->
                 <div class="tab-pane fade" id="faculty-tab-pane" role="tabpanel" aria-labelledby="faculty-tab"
                     tabindex="0">
-                    <img src="../../../assets/images/banner-3.png" alt="" class="img-fluid w-100 h-100">
+                    <img [src]="this.selectedSidbar?.file" alt="" class="img-fluid w-100 h-100">
                 </div>
                 <!-- kyc -->
                 <div class="tab-pane fade" id="kyc-tab-pane" role="tabpanel" aria-labelledby="kyc-tab" tabindex="0">
-                    <img src="../../../assets/images/banner-1.png" alt="" class="img-fluid w-100 h-100">
+                    <img [src]="this.selectedSidbar?.file" alt="" class="img-fluid w-100 h-100">
                 </div>
                 <!-- countries of caricom -->
                 <div class="tab-pane fade" id="antigua-tab-pane" role="tabpanel" aria-labelledby="antigua-tab"
