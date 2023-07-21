@@ -10,7 +10,7 @@ class account {
 
 }
 class banner {
-    public static getbanner = "banner/getbanner";
+    public static getMenus = "main/menus";
     public static savebanner = "banner/saveBanner";
 
     public static getAllSidebar = "banner/getAllSidebar";

@@ -429,6 +429,203 @@ export class HomeComponent {
     }
   ]
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  awardees: Array<any> = [
+    {
+      'id': '1',
+      'Name': ' The Late Dr. William Gilbert Demas',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Former Secretary-General, CARICOM',
+      'Date conferred': ' 1992'
+    },
+    {
+      'id': '2',
+      'Name': ' Sir Shridath Surendranath Ramphal',
+      'Country': ' Guyana',
+      'Designation': 'Former Secretary-General of the Commonwealth',
+      'Date conferred': ' 1992'
+    },
+    {
+      'id': '3',
+      'Name': ' Sir Derek Alton Walcott',
+      'Country': ' Saint Lucia',
+      'Designation': 'Poet, Playwright, Theatrical Director and Nobel Prize winner for Literature 1992',
+      'Date conferred': ' 1992'
+    },
+    {
+      'id': '4',
+      'Name': ' The Late Dame Ruth Nita Barrow',
+      'Country': ' Barbados',
+      'Designation': 'Former Governor-General, Barbados',
+      'Date conferred': ' 1994'
+    },
+    {
+      'id': '5',
+      'Name': ' Justice P. Telford Georges',
+      'Country': ' Commonwealth of Dominica',
+      'Designation': 'Caribbean Legal Luminary',
+      'Date conferred': ' 1994'
+    },
+    {
+      'id': '6',
+      'Name': ' Sir Meredith Alister McIntyre',
+      'Country': ' Grenada',
+      'Designation': 'Former Secretary-General, CARICOM',
+      'Date conferred': ' 1994'
+    },
+    {
+      'id': '7',
+      'Name': ' Hon. Michael Norman Manley',
+      'Country': ' Jamaica',
+      'Designation': 'Former Prime Minister, Jamaica',
+      'Date conferred': ' 1994'
+    },
+    {
+      'id': '8',
+      'Name': ' Right Hon. Vere Cornwall Bird',
+      'Country': ' Antigua and Barbuda',
+      'Designation': 'Former Prime Minister, Antigua and Barbuda',
+      'Date conferred': ' 1998'
+    },
+    {
+      'id': '9',
+      'Name': ' Arthur Napoleon Raymond Robinson',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Former Prime Minister/President, Trinidad and Tobago',
+      'Date conferred': ' 1998'
+    },
+    {
+      'id': '10',
+      'Name': ' Sir Phillip Manderson Sherlock',
+      'Country': ' Jamaica',
+      'Designation': 'Caribbean Scholar and Educationist',
+      'Date conferred': ' 1998'
+    },
+    {
+      'id': '11',
+      'Name': ' Sir Garfield Sobers',
+      'Country': ' Barbados',
+      'Designation': 'Cricketer Par Excellence',
+      'Date conferred': ' 1998'
+    },
+    {
+      'id': '12',
+      'Name': ' Sir George Alleyne',
+      'Country': ' Barbados',
+      'Designation': 'Director of PAHO for the English speaking Caribbean',
+      'Date conferred': ' 2001'
+    },
+    {
+      'id': '13',
+      'Name': ' Right Hon. George Cadle Price',
+      'Country': ' Belize',
+      'Designation': 'Former Prime Minister, Belize',
+      'Date conferred': ' 2001'
+    },
+    {
+      'id': '14',
+      'Name': ' Dr. Slinger Fransisco (Mighty Sparrow)',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Calypsonian Par Excellence',
+      'Date conferred': ' 2001'
+    },
+    {
+      'id': '15',
+      'Name': ' The Late Dame Mary Eugenia Charles',
+      'Country': ' Dominica',
+      'Designation': 'Former Prime Minister, Dominica',
+      'Conferred': ' February, 2002'
+    },
+    {
+      'id': '16',
+      'Name': ' Sir John Melvin Compton',
+      'Country': ' Saint Lucia',
+      'Designation': 'Former Prime Minister, Saint Lucia',
+      'Conferred': ' 2002'
+    },
+    {
+      'id': '17',
+      'Name': ' The Late Lloyd Algernon Best',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Economist, politician, publicist, political commentator, philosopher and ‘doctor of Politics’',
+      'Conferred': ' 2002'
+    },
+    {
+      'id': '18',
+      'Name': ' Professor Hon. Ralston “Rex” Nettleford',
+      'Country': ' Jamaica',
+      'Designation': 'Professor, a dancer, a writer, a manager, an orator, a mentor, a critic, international icon.',
+      'Conferred': ' 2008'
+    },
+    {
+      'id': '19',
+      'Name': ' Hon. George Lamming',
+      'Country': ' Barbados',
+      'Designation': 'poet, novelist, essay writer, orator, lecturer, teacher, editor and tireless activist for a new world-order',
+      'Conferred': ' 2008'
+    },
+    {
+      'id': '20',
+      'Name': ' Brian Charles Lara, T.C.',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Cricketer Par Excellence',
+      'Conferred': ' 2008'
+    },
+    {
+      'id': '21',
+      'Name': ' His Excellency Dr. Nicholas Joseph Orville Liverpool',
+      'Country': ' Commonwealth of Dominica',
+      'Designation': 'President of the Commonwealth of Dominica',
+      'Conferred': ' 2008'
+    },
+    {
+      'id': '22',
+      'Name': ' The Most Hon. Percival Noel James Patterson',
+      'Country': ' Jamaica',
+      'Designation': 'Former Prime Minister, Jamaica',
+      'Conferred': ' 2009'
+    },
+    {
+      'id': '23',
+      'Name': ' Sir Edwin Carrington',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Former Secretary-General, CARICOM',
+      'Conferred': ' 2011'
+    },
+    {
+      'id': '24',
+      'Name': ' Hon. Kamaluddin Mohamed',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Minister of Government and Ambassador to CARICOM',
+      'Conferred': ' 2012'
+    },
+    {
+      'id': '25',
+      'Name': ' Sir Arthur Lewis',
+      'Country': ' Saint Lucia',
+      'Designation': 'Economist, Nobel Prize Winner, 1979',
+      'Conferred': ' 1993'
+    },
+    {
+      'id': '26',
+      'Name': ' Vidiadar Surajpra-Sad Naipaul (V.S. Naipaul)',
+      'Country': ' Trinidad and Tobago',
+      'Designation': 'Exceptional Caribbean Author',
+      'Conferred': ' 1993'
+    }
+  ]
   constructor(private router: Router, private datatransferService: DataTransferService,
     private httpservice: HttpService) { }
 
@@ -442,23 +639,24 @@ export class HomeComponent {
       let second = b.appointmentyear.split('-')[0]
       return Number(first) < Number(second) ? 1 : -1
     });
-    // this.getBannerImages();
+    this.getBannerImages();
     // this.getGradeSix();
     // this.getAllGrids();
     // this.getAllCountries();
   }
 
   getBannerImages() {
-    this.httpservice.httpGet(ApiUrls.banner.getbanner, null).subscribe((res: any) => {
+    this.httpservice.httpGet(ApiUrls.banner.getMenus, null).subscribe((res: any) => {
       if (res['success']) {
         this.bannerData = res['data'];
-        if (this.bannerData) {
-          this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => {
-            m.image = environment.url + m.image
-            return m
-          });
-          this.bannerData.bannerTwoSectionImage = environment.url + this.bannerData.bannerTwoSectionImage
-        }
+        console.log(res['data']);
+        // if (this.bannerData) {
+        //   this.bannerData.bannerSlider = this.bannerData.bannerSlider?.map((m: any) => {
+        //     m.image = environment.url + m.image
+        //     return m
+        //   });
+        //   this.bannerData.bannerTwoSectionImage = environment.url + this.bannerData.bannerTwoSectionImage
+        // }
       }
     })
   }

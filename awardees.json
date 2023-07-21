@@ -1,0 +1,70 @@
+var countries = 
+    // CARICOM Triennial Women Awardees
+    //     },
+    //     {'Name':' Ms. Nesta Patrick'
+    // 'Country':' Trinidad and Tobago',
+    // 'Designation': 'Stalwart Caribbean Women’s and Mental Retardation Activist',
+    // 'Conferred':' 1984 (First recipient)'
+    //     },
+    //     {'Name':' The Late Dame Ruth Nita Barrow'
+    // 'Country':' Barbados',
+    // 'Designation': 'Former Governor-General, Barbados, Outstanding Women’s Advocate',
+    // 'Conferred':' 1987 (Second recipient)'
+    //     },
+    //     {'Name':' Dr. Peggy Antrobus'
+    // 'Country':' St. Vincent and the Grenadines',
+    // 'Designation': 'Educator and Women’s Affairs Stalwart',
+    // 'Conferred':' 1990 (Third recipient)'
+    //     },
+    //     {'Name':' Magda Louis Muriel Pollard'
+    // 'Country':' Guyana',
+    // 'Designation': 'Stalwart Caribbean Women’s Activist',
+    // 'Conferred':' 1993 (Fourth recipient)'
+    //     },
+    //     {'Name':' Dr. Lucille Mathurin Mair'
+    // 'Country':' Jamaica',
+    // 'Designation': 'Former Assistant Secretary-General in the Office of the United Nations Secretary- General',
+    // 'Conferred':' 1996 (Fifth recipient)'
+    //     },
+    //     {'Name':' Professor Joycelin Massiah'
+    // 'Country':' Guyana national, citizen of Barbados',
+    // 'Designation': 'Renowned Caribbean academic, scholar, intellectual and Women’s Rights Advocate',
+    // 'Conferred':' 1999 (Sixth recipient)'
+    //     },
+    //     {'Name':' Professor Rhoda Reddock'
+    // 'Country':' Trinidad and Tobago',
+    // 'Designation': 'Women’s Advocate and Sociologist',
+    // 'Conferred':' Triennial Women Awardee,
+    //         2002 (Seventh recipient)'
+    //     },
+    //     {'Name':' Hon. Madame Justice Desiree Bernard'
+    // 'Country':' Guyana',
+    // 'Designation': 'Former CCJ Judge and Former Chief Justice, Guyana',
+    // 'Conferred':' 2005 (Eighth recipient)'
+    //     },
+    //     {'Name':' Professor Barbara Evelyn Bailey'
+    // 'Country':' Jamaica',
+    // 'Designation': 'Educator and Advocate for Gender Equality and Equity',
+    // 'Conferred':' 2008 (Ninth recipient)'
+    //     },
+    //     {'Name':' Professor Violet Eudine Barriteau'
+    // 'Country':' Grenada National, citizen of Barbados',
+    // 'Designation': 'Educator and Women’s Advocate',
+    // 'Conferred':' 2011 (Tenth recipient)'
+    //     },
+    //     {'Name':' Marion Bethel'
+    // 'Country':' The Bahamas',
+    // 'Designation': 'Distinguished ttorney, scholar, women’s advocate, poet, film-maker, essayist and short-Story',
+    // writer.
+    // 'Conferred':' 2014 (Eleventh recipient)'
+    //     },
+    //     {'Name':' Shirley Price'
+    // 'Country':' Jamaica',
+    // 'Designation': 'Veteran advocate for Domestic Workers an d Motivational Speaker',
+    // 'Conferred':' 2017 (Twelfth recipient)'
+    //     },
+    //     {'Name':' The Rt. Hon. Dame Janet Gwennett Bostwick'
+    // 'Country':' The Commonwealth of the Bahamas',
+    // 'Designation': 'Outstanding Caribbean Champion of Women empowerment',
+    // 'Conferred':' 2021 (Thirteenth recipient)'
+    //     }
