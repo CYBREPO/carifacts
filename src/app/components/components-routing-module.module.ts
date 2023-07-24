@@ -9,6 +9,7 @@ const routes = [
   {
     path: "", component: CustomerLayoutComponent, children: [
       { path: "category", component: SingleCategoryCarDetailsComponent },
+      { path: "category/:id", component: SingleCategoryCarDetailsComponent },
       { path: "associate-states", component: AssociateStatesComponent },
 
 

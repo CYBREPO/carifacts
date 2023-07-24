@@ -13,7 +13,7 @@
             <div class="row row-cols-5 flex-1">
                 <ng-container *ngFor="let submenu of subMenus; let i=index">
                     <div class="col text-center"  [ngClass]="{'mt-4': i >= 5}">
-                        <div class="grid-column" (click)="parentEventHandlerFunction()">
+                        <div class="grid-column" (click)="parentEventHandlerFunction(submenu)">
                             <img [src]="submenu.file" alt=""
                                 class="img-fluid w-100 h-100">
                             <div class="mt-2"><b>{{submenu.title}}</b></div>

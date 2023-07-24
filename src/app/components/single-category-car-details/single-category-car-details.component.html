@@ -21,12 +21,15 @@
                 <div class="tab-pane active" id="profile1" role="tabpanel" aria-labelledby="tab1">
                     <div class="section-heading-block text-center mt-5">
                         <img src="../../../assets/images/heading-pattern.png" alt="">
-                        <h1 class="b text-center mb-4"><b>ANTIGUA AND BARBUDA</b></h1>
+                        <h1 class="b text-center mb-4"><b>{{data?.title}}</b></h1>
                         <hr>
                         <hr>
 
                     </div>
-                    <div class="row mt-md-5">
+                    <div [innerHTML]="data.description">
+
+                    </div>
+                    <!-- <div class="row mt-md-5">
                         <div class="col-md-4">
                             <div class="profile-image">
                                 <img src="../../../assets/images/CARICOM Members States Heads/Antigua and Barbuda's PM Gaston Browne.png"
@@ -91,7 +94,7 @@
 
                             Government: and CARICOM Associate Members Heads of Government”
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="tab2">

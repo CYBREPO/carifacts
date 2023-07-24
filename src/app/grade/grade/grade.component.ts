@@ -47,8 +47,8 @@ export class GradeComponent implements OnInit {
     })
   }
 
-  parentEventHandlerFunction() {
-    this.router.navigate(['component/category']);
+  parentEventHandlerFunction(submenu: any) {
+    this.router.navigate(['component/category',submenu.id]);
   }
   parentEventHandlerFunctiontwo() {
     this.router.navigate(['component/associate-states']);

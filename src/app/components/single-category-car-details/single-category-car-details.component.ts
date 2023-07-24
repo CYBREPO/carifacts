@@ -18,28 +18,30 @@ export class SingleCategoryCarDetailsComponent {
     'map',
     'tourist attraction',
   ];
-  makeType: string;
+  id: string;
+  data: any;
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
     private activatedRoute: ActivatedRoute, private httpService: HttpService) {
     activatedRoute.params.subscribe(param => {
-      if (param['make']) {
-        this.makeType = param['make'];
+      if (param['id']) {
+        this.id = param['id'];
       }
     })
   }
 
 
   ngOnInit(): void {
-
+    this.getDetails();
   }
 
-
-
-  parentEventHandlerFunction(event: any) {
-
-    this.router.navigate(['/cust/cardetails', event.vehicle._id])
+  getDetails(){
+    this.httpService.httpGet(ApiUrls.banner.getMenus + '/' + this.id,null).subscribe((res:any) => {
+      if(res['success']){
+        this.data = res['data'];
+      }
+    })
   }
 }
 
