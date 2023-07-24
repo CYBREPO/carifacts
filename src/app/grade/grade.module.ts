@@ -4,10 +4,12 @@ import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer
 import { RouterModule } from '@angular/router';
 import { SharedModuleModule } from '../shared/shared-module.module';
 import { GradeComponent } from './grade/grade.component';
+import { BannerComponent } from './banner/banner.component';
 
 const routes = [
   {
     path: "", component: CustomerLayoutComponent, children: [
+      { path: "banner/:id", component: BannerComponent },
       { path: "sub", component: GradeComponent },
       { path: "sub/:id", component: GradeComponent },
       // { path: "sub/:id/:submenu", component: GradeComponent },
@@ -17,7 +19,7 @@ const routes = [
 ]
 
 @NgModule({
-  declarations: [GradeComponent],
+  declarations: [GradeComponent, BannerComponent],
   imports: [
     CommonModule,RouterModule.forChild(routes),SharedModuleModule
   ]

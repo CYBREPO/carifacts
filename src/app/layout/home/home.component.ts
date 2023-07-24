@@ -646,10 +646,11 @@ export class HomeComponent {
 
   hidesidebarleft(event: any) {
     this.selectedSidbar = event;
-    console.log(this.selectedSidbar);
+    
     if(event.has_submenu == 'Yes'){
       this.addclassreduceheight = true;
-      this.getSubMenus(event.id);
+      // this.getSubMenus(event.id);
+      this.router.navigate(['grade/banner/',event.id]);
     }
     else{
       this.subMenus = [];
