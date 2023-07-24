@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { HttpService } from 'src/app/service/http.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-grade',
@@ -16,7 +17,7 @@ export class GradeComponent implements OnInit {
   subMenus: Array<any> = [];
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private router: Router, private location: Location) {
 
     this.activatedRoute.params.subscribe((param) => {
       this.id = param['id'];
@@ -52,5 +53,9 @@ export class GradeComponent implements OnInit {
   }
   parentEventHandlerFunctiontwo() {
     this.router.navigate(['component/associate-states']);
+  }
+
+  back(){
+    this.location.back();
   }
 }
