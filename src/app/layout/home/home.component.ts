@@ -712,8 +712,11 @@ export class HomeComponent {
     }
   }
 
-  showinformation() {
+  showinformation(submenu: any) {
     this.addclassreduceheight = true;
+    
+    this.router.navigate(['grade/sub/',submenu.id])
+    
   }
 
   goback() {

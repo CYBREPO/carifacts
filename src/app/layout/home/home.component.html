@@ -73,7 +73,7 @@
                                 <ul id="myTab2" role="tablist">
                                     <div class="row">
                                         <ng-container *ngFor="let submenu of subMenus; let i=index">
-                                            <div class="col-2" (click)="showinformation()">
+                                            <div class="col-2" (click)="showinformation(submenu)">
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="{{submenu.tab}}-tab"
                                                         data-bs-toggle="tab"
