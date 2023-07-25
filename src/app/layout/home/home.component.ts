@@ -647,7 +647,7 @@ export class HomeComponent {
   hidesidebarleft(event: any) {
     this.selectedSidbar = event;
     
-    if(event.has_submenu == 'Yes'){
+    if(event.has_submenu == 'Yes' || event.title == 'Faculty of Facts (Tertiary Level)'){
       this.addclassreduceheight = true;
       // this.getSubMenus(event.id);
       this.router.navigate(['grade/banner/',event.id]);

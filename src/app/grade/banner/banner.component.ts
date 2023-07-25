@@ -14,8 +14,6 @@ export class BannerComponent implements OnInit{
   subMenus: Array<any> =[];
   data: any;
   id: number = 0;
-  gradesixKeys: Array<any> = ['antigua', 'pillar', 'organs', 'symbols', 'founding', 'howcaricomworks',
-    'dates', 'csme', 'institution', 'secretaries', 'award', 'Health'];
 
   constructor(private httpservice: HttpService,private activatedRoute: ActivatedRoute,
     private router: Router,private location: Location){
@@ -33,9 +31,13 @@ export class BannerComponent implements OnInit{
       if (res['success']) {
         this.data = res['data'];
         this.subMenus = res['submenus'];
-        for (let i = 0; i < this.subMenus.length; i++) {
-          this.subMenus[i]['tab'] = this.gradesixKeys[i];
-        }
+        // Static code to get submenus of faculties by passing cxc id
+        if(this.data?.title == 'Faculty of Facts (Tertiary Level)')
+        this.httpservice.httpGet(ApiUrls.banner.getMenus + "/2", null).subscribe((res: any) => {
+          if (res['success']) {
+            this.subMenus = res['submenus'];
+          }
+        });
       }
     })
   }
