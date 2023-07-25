@@ -8,7 +8,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Darker+Grotesque:wght@400;500;600;700&family=Goldman&family=Lato:wght@300;400;700;900&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@200;300;400;500&family=Poppins:wght@100;200;300;400;500&family=Raleway:wght@300;400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
 
-app-home,app-grade {
+app-home,
+app-grade,
+app-banner,
+.other-page-sections {
     background: #01d6ff29;
     display: block;
 }
@@ -97,10 +100,10 @@ body {
     background-attachment: fixed;
     background-size: 100%;
 
-  
+
 }
 
-.country-info{
+.country-info {
     .nav-link {
         height: 90px;
         width: 130px;
@@ -665,7 +668,8 @@ ul {
             transform: scale(0.9);
 
         }
-        &:hover img{
+
+        &:hover img {
             transform: scale(1);
         }
     }
@@ -691,11 +695,16 @@ ul {
         margin-right: auto;
     }
 }
-.key-date{
-    img{
+
+.key-date {
+    img {
         height: 160px;
     }
-    span{
-        font-weight:bold;
+
+    span {
+        font-weight: bold;
+    }
+    b{
+        white-space: nowrap;
     }
 }

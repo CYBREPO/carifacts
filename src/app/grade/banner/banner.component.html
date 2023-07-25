@@ -52,14 +52,80 @@
                 <hr>
 
             </div>
-            <div class="row row-cols-5 flex-1">
+       
+            <div class="row justify-content-center">
                 <ng-container *ngFor="let submenu of subMenus; let i=index">
-                    <div class="col text-center" (click)="showinformation(submenu)">
-                        <div class="grid-column"><img alt="" class="img-fluid w-100 h-100" [src]="submenu.file">
-                            <div class="mt-2"><b>{{submenu.title}}</b></div>
+                    <div class="col-md-2 p-2" (click)="showinformation(submenu)">
+                        <div class="text-center institution-block">
+                            <div class="institution-image"><img alt="" class="img-fluid" [src]="submenu.file">
+                            </div>
+                            <h6><b>{{submenu.title}}</b></h6>
                         </div>
                     </div>
                 </ng-container>
+                <div class="text-center mt-5">
+                    <h2>Associate Institutions</h2>
+                    <hr>
+                </div>
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/Caribbean Development Bank (CDB) Logo.png">
+                        </div>
+                        <h6><b>CDB</b></h6>
+                    </div>
+                </div><!---->
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/CARIBBEAN LAW INSTITUTE/CARIBBEAN LAW INSTITUTE CENTRE (CLI)/(CLIC)">
+                        </div>
+                        <h6><b>CLI/CLIC</b></h6>
+                    </div>
+                </div><!---->
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/OECS.png"></div>
+                        <h6><b>OECS Commission</b></h6>
+                    </div>
+                </div><!---->
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/uwi-1-640x480.jpg">
+                        </div>
+                        <h6><b>UWI</b></h6>
+                    </div>
+                </div><!----><!---->
+                <div class="text-center mt-5">
+                    <h2>Institutions with a relationship of Functional Cooperation with CARICOM</h2>
+                    <hr>
+                </div>
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/Caribbean Export Development Agency (Caribbean Export) Logo.jpeg">
+                        </div>
+                        <h6><b>CARIBBEAN EXPORT</b></h6>
+                    </div>
+                </div><!---->
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/Council of Legal Education Logo.png">
+                        </div>
+                        <h6><b>CLE</b></h6>
+                    </div>
+                </div><!---->
+                <div class="col-md-2 p-2">
+                    <div class="text-center institution-block">
+                        <div class="institution-image"><img alt="" class="img-fluid"
+                                src="../../../assets/images/caricom-institution-logos/Caribbean Tourism Organization (CTO) Logo.png">
+                        </div>
+                        <h6><b>CTO</b></h6>
+                    </div>
+                </div>
             </div>
         </ng-template>
 

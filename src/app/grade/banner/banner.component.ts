@@ -32,8 +32,8 @@ export class BannerComponent implements OnInit{
         this.data = res['data'];
         this.subMenus = res['submenus'];
         // Static code to get submenus of faculties by passing cxc id
-        if(this.data?.title == 'Faculty of Facts (Tertiary Level)')
-        this.httpservice.httpGet(ApiUrls.banner.getMenus + "/2", null).subscribe((res: any) => {
+        if(this.data?.title == 'Faculty of Facts (Tertiary Level)' || this.data?.id == 2)
+        this.httpservice.httpGet(ApiUrls.banner.getMenus + "/13", null).subscribe((res: any) => {
           if (res['success']) {
             this.subMenus = res['submenus'];
           }
