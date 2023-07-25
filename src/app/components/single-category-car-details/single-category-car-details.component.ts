@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
+import { Location } from '@angular/common';
 
 import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { HttpService } from 'src/app/service/http.service';
@@ -23,7 +24,7 @@ export class SingleCategoryCarDetailsComponent {
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
-    private activatedRoute: ActivatedRoute, private httpService: HttpService) {
+    private activatedRoute: ActivatedRoute, private httpService: HttpService, private location: Location) {
     activatedRoute.params.subscribe(param => {
       if (param['id']) {
         this.id = param['id'];
@@ -36,12 +37,16 @@ export class SingleCategoryCarDetailsComponent {
     this.getDetails();
   }
 
-  getDetails(){
-    this.httpService.httpGet(ApiUrls.banner.getMenus + '/' + this.id,null).subscribe((res:any) => {
-      if(res['success']){
+  getDetails() {
+    this.httpService.httpGet(ApiUrls.banner.getMenus + '/' + this.id, null).subscribe((res: any) => {
+      if (res['success']) {
         this.data = res['data'];
       }
     })
+  }
+
+  back() {
+    this.location.back();
   }
 }
 

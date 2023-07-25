@@ -8,7 +8,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Darker+Grotesque:wght@400;500;600;700&family=Goldman&family=Lato:wght@300;400;700;900&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@200;300;400;500&family=Poppins:wght@100;200;300;400;500&family=Raleway:wght@300;400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
 
-app-home {
+app-home,app-grade {
     background: #01d6ff29;
     display: block;
 }
@@ -598,5 +598,100 @@ ul {
         .nav-link {
             height: 90px;
         }
+    }
+}
+
+
+
+#carouselExampleIndicators {
+    .carousel-item {
+        img {
+            height: 79vh;
+        }
+    }
+}
+
+.tab-content-section {
+    position: sticky;
+    top: 20px;
+}
+
+.dates-list {
+    li {
+        margin-top: 20px;
+    }
+}
+
+.genera-sec-card {
+    img {
+        height: 350px;
+        object-fit: cover;
+    }
+}
+
+.award {
+    border: thin solid black;
+    margin: 5px;
+    padding: 15px;
+
+    b {
+        margin-right: 5px;
+        white-space: nowrap;
+    }
+
+    p {}
+}
+
+.imagewidth {
+
+    margin: 50px auto;
+    display: flex;
+}
+
+.flags-grid {
+    .grid-column {
+
+        background-color: #a5ffee;
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+
+        img {
+            height: 150px !important;
+            transform: scale(0.9);
+
+        }
+        &:hover img{
+            transform: scale(1);
+        }
+    }
+}
+
+
+.institution-block {
+    text-align: center;
+}
+
+.award {
+    border: thin solid black;
+    margin: 12px 0;
+    padding: 30px;
+
+    img {
+        height: 400px;
+        object-fit: contain;
+        width: max-content;
+        margin-bottom: 20px;
+        display: flex;
+        width: auto !important;
+        margin-right: auto;
+    }
+}
+.key-date{
+    img{
+        height: 160px;
+    }
+    span{
+        font-weight:bold;
     }
 }
