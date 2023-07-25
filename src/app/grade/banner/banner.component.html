@@ -8,41 +8,60 @@
         </svg>
     </button>
     <div class="position-relative">
-        <div id="carouselId" class="carousel slide autoslidecarousle" data-bs-ride="carousel"
-            >
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png" class="w-100 d-block"
-                        alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block"
-                        alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png" class="w-100 d-block"
-                        alt="Third slide">
-                </div>
-            </div>
-        </div>
-        <div class="grade-6-banner w-100 reduceheight" >
-            <div class="container-fluid px-4">
-                <ul id="myTab2" role="tablist">
-                    <div class="row">
-                        <ng-container *ngFor="let submenu of subMenus; let i=index">
-                            <div class="col-2" (click)="showinformation(submenu)">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="{{submenu.tab}}-tab"
-                                        data-bs-toggle="tab"
-                                        attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button"
-                                        role="tab" attr.aria-controls="{{submenu.tab}}-tab-pane"
-                                        aria-selected="true">{{submenu.title}}</button>
-                                </li>
-                            </div>
-                        </ng-container>
+        <ng-container *ngIf="data?.title == 'Grade 6/11+/Common Entrance'; else others">
+            <div id="carouselId" class="carousel slide autoslidecarousle" data-bs-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
+                            class="w-100 d-block" alt="First slide">
                     </div>
-                </ul>
+                    <div class="carousel-item">
+                        <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
+                            class="w-100 d-block" alt="Third slide">
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="grade-6-banner w-100 reduceheight">
+                <div class="container-fluid px-4">
+                    <ul id="myTab2" role="tablist">
+                        <div class="row">
+                            <ng-container *ngFor="let submenu of subMenus; let i=index">
+                                <div class="col-2" (click)="showinformation(submenu)">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
+                                            attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
+                                            attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                            aria-selected="true">{{submenu.title}}</button>
+                                    </li>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #others>
+            <img [src]="this.data?.file" alt="" class="img-fluid w-100 h-100">
+            <div class="section-heading-block text-center mt-4">
+                <img src="../../../assets/images/heading-pattern.png" alt="">
+                <h1 class="b text-center mb-4"><b>{{data?.title}}</b></h1>
+                <hr>
+                <hr>
+
+            </div>
+            <div class="row row-cols-5 flex-1">
+                <ng-container *ngFor="let submenu of subMenus; let i=index">
+                    <div class="col text-center" (click)="showinformation(submenu)">
+                        <div class="grid-column"><img alt="" class="img-fluid w-100 h-100" [src]="submenu.file">
+                            <div class="mt-2"><b>{{submenu.title}}</b></div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-template>
+
     </div>
 </div>

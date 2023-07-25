@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class BannerComponent implements OnInit{
 
   subMenus: Array<any> =[];
+  data: any;
   id: number = 0;
   gradesixKeys: Array<any> = ['antigua', 'pillar', 'organs', 'symbols', 'founding', 'howcaricomworks',
     'dates', 'csme', 'institution', 'secretaries', 'award', 'Health'];
@@ -30,6 +31,7 @@ export class BannerComponent implements OnInit{
   getSubMenus() {
     this.httpservice.httpGet(ApiUrls.banner.getMenus + "/" + this.id, null).subscribe((res: any) => {
       if (res['success']) {
+        this.data = res['data'];
         this.subMenus = res['submenus'];
         for (let i = 0; i < this.subMenus.length; i++) {
           this.subMenus[i]['tab'] = this.gradesixKeys[i];
