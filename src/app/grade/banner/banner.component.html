@@ -8,21 +8,36 @@
         </svg>
     </button>
     <div class="position-relative">
-        <ng-container *ngIf="data?.title == 'Grade 6/11+/Common Entrance'; else others">
+        <ng-container >
             <div id="carouselId" class="carousel slide autoslidecarousle" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
-                            class="w-100 d-block" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
-                            class="w-100 d-block" alt="Third slide">
-                    </div>
+                    <ng-container *ngIf="data == undefined || data == null || data.file == ''; else displayFile">
+                        <div class="carousel-item active">
+                            <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
+                                class="w-100 d-block" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
+                                class="w-100 d-block" alt="Third slide">
+                        </div>
+                    </ng-container>
+                    <ng-template #displayFile>
+                        <div class="carousel-item active">
+                            <img [src]="data?.file"
+                                class="w-100 d-block" alt="First slide">
+                        </div>
+                    </ng-template>
                 </div>
+            </div>
+            <div class="section-heading-block text-center mt-4">
+                <img src="../../../assets/images/heading-pattern.png" alt="">
+                <h1 class="b text-center mb-4"><b>{{data?.title}}</b></h1>
+                <hr>
+                <hr>
+
             </div>
             <div class="grade-6-banner w-100 reduceheight">
                 <div class="container-fluid px-4">

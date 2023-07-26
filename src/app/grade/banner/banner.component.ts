@@ -44,8 +44,13 @@ export class BannerComponent implements OnInit{
 
   showinformation(submenu: any) {
     // this.addclassreduceheight = true;
+    let id = submenu.id;
+    id = submenu.id == 36 ? 5 : submenu.id == 78 ? 6 : submenu.id == 80 ? 7 : 
+    submenu.id == 81 ? 12 : submenu.id == 82 ? 13 : submenu.id == 79 ? 10 : 
+    submenu.id == 85 ? 9 : submenu.id == 86 ? 15 : submenu.id == 87 ? 8 : 
+    submenu.id == 84 ? 14 : submenu.id ;
     
-    this.router.navigate(['grade/sub/',submenu.id])
+    this.router.navigate(['grade/sub/',id]);
     
   }
 
