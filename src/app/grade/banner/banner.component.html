@@ -52,15 +52,34 @@
                 <hr>
 
             </div>
-       
-            <div class="row justify-content-center">
-                <ng-container *ngFor="let submenu of subMenus; let i=index">
-                    <div class="col-md-2 p-2" (click)="showinformation(submenu)">
-                        <div class="text-center institution-block">
-                            <div class="institution-image"><img alt="" class="img-fluid" [src]="submenu.file">
-                            </div>
-                            <h6><b>{{submenu.title}}</b></h6>
+            <div class="grade-6-banner w-100 reduceheight">
+                <div class="container-fluid px-4">
+                    <ul id="myTab2" role="tablist">
+                        <div class="row justify-content-center row-cols-5">
+                            <ng-container *ngFor="let submenu of subMenus; let i=index">
+                                <div [ngClass]="i > 3 ? 'col' : 'col-3' " (click)="showinformation(submenu)">
+                                    <li class="nav-item" role="presentation" [ngClass]="{'mx-auto' : i < 3}">
+                                        <button class="nav-link rounded-menu" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
+                                            attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
+                                            attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                            aria-selected="true">{{submenu.title}}</button>
+                                    </li>
+                                </div>
+                            </ng-container>
                         </div>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- <div class="row justify-content-center">
+                <ng-container *ngFor="let submenu of subMenus; let i=index">
+                    <div class="col-2" (click)="showinformation(submenu)">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
+                                attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
+                                attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                aria-selected="true">{{submenu.title}}</button>
+                        </li>
                     </div>
                 </ng-container>
                 <div class="text-center mt-5">
@@ -74,7 +93,7 @@
                         </div>
                         <h6><b>CDB</b></h6>
                     </div>
-                </div><!---->
+                </div>
                 <div class="col-md-2 p-2">
                     <div class="text-center institution-block">
                         <div class="institution-image"><img alt="" class="img-fluid"
@@ -82,14 +101,14 @@
                         </div>
                         <h6><b>CLI/CLIC</b></h6>
                     </div>
-                </div><!---->
+                </div>
                 <div class="col-md-2 p-2">
                     <div class="text-center institution-block">
                         <div class="institution-image"><img alt="" class="img-fluid"
                                 src="../../../assets/images/caricom-institution-logos/OECS.png"></div>
                         <h6><b>OECS Commission</b></h6>
                     </div>
-                </div><!---->
+                </div>
                 <div class="col-md-2 p-2">
                     <div class="text-center institution-block">
                         <div class="institution-image"><img alt="" class="img-fluid"
@@ -97,7 +116,7 @@
                         </div>
                         <h6><b>UWI</b></h6>
                     </div>
-                </div><!----><!---->
+                </div>
                 <div class="text-center mt-5">
                     <h2>Institutions with a relationship of Functional Cooperation with CARICOM</h2>
                     <hr>
@@ -109,7 +128,7 @@
                         </div>
                         <h6><b>CARIBBEAN EXPORT</b></h6>
                     </div>
-                </div><!---->
+                </div>
                 <div class="col-md-2 p-2">
                     <div class="text-center institution-block">
                         <div class="institution-image"><img alt="" class="img-fluid"
@@ -117,7 +136,7 @@
                         </div>
                         <h6><b>CLE</b></h6>
                     </div>
-                </div><!---->
+                </div>
                 <div class="col-md-2 p-2">
                     <div class="text-center institution-block">
                         <div class="institution-image"><img alt="" class="img-fluid"
@@ -126,7 +145,7 @@
                         <h6><b>CTO</b></h6>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </ng-template>
 
     </div>

@@ -177,7 +177,8 @@ app-header {
             align-items: center;
             padding: 10px;
             color: white;
-
+            border-radius: 8px;
+            text-transform: capitalize;
         }
 
         .nav-link::first-letter {
@@ -704,7 +705,8 @@ ul {
     span {
         font-weight: bold;
     }
-    b{
+
+    b {
         white-space: nowrap;
     }
 }
