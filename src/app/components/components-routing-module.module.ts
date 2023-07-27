@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SingleCategoryCarDetailsComponent } from './single-category-car-details/single-category-car-details.component';
 import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer-layout.component';
 import { AssociateStatesComponent } from './associate-states/associate-states.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes = [
   {
@@ -11,6 +12,7 @@ const routes = [
       { path: "category", component: SingleCategoryCarDetailsComponent },
       { path: "category/:id", component: SingleCategoryCarDetailsComponent },
       { path: "associate-states", component: AssociateStatesComponent },
+      { path: "details/:id", component: DetailsComponent },
 
 
     ]

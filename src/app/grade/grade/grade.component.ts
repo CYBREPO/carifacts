@@ -49,11 +49,17 @@ export class GradeComponent implements OnInit {
   }
 
   parentEventHandlerFunction(submenu: any) {
-    this.router.navigate(['component/category',submenu.id]);
+    if(this.data?.title == "Countries of Caribean community"){
+      this.router.navigate(['component/category',submenu.id]);
+    }
+    else{
+      this.router.navigate(['component/details',submenu.id]);
+    }
+    
   }
-  parentEventHandlerFunctiontwo() {
-    this.router.navigate(['component/associate-states']);
-  }
+  // parentEventHandlerFunctiontwo() {
+  //   this.router.navigate(['component/associate-states']);
+  // }
 
   back(){
     this.location.back();

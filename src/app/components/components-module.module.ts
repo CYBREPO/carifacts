@@ -6,11 +6,12 @@ import { SingleCategoryCarDetailsComponent } from './single-category-car-details
 import { MaterialModuleModule } from '../shared/material-module.module';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
-    SingleCategoryCarDetailsComponent
+    SingleCategoryCarDetailsComponent,DetailsComponent
   ],
   imports: [
     CommonModule,
