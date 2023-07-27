@@ -269,7 +269,7 @@
         </section>
         <div class="row  mt-5 text-center" *ngIf="this.id == 11">
             <ng-container *ngFor="let submenu of subMenus; let i=index">
-                <div class="col-md-3 text-center key-date" [ngClass]="{'mt-md-3': i>3}">
+                <div class="col-md-3 text-center key-date" [ngClass]="{'mt-md-3': i>3}" (click)="parentEventHandlerFunction(submenu)">
                     <div>
                         <b class="d-block"> {{i+1}}. {{submenu.title}}</b>
                     </div>
@@ -284,7 +284,7 @@
         </ng-template>
         <div class="row row-cols-5" *ngIf="this.id == 15">
             <ng-container *ngFor="let submenu of subMenus; let i=index">
-                <div class="col text-center awardees" [ngClass]="{'mt-md-5': i>4}">
+                <div class="col text-center awardees" [ngClass]="{'mt-md-5': i>4}" (click)="parentEventHandlerFunction(submenu)">
                     <img [src]="submenu.file">
                     <div>
                         <div class="my-3" style="font-weight: 500;font-size: 14px;min-height: 42px;" [innerHTML]="submenu?.title"> </div>
@@ -298,7 +298,7 @@
 
         <div class="row justify-content-center" *ngIf="this.id == 13">
             <ng-container *ngFor="let submenu of subMenus; let i=index">
-                <div class="col-md-2 p-2">
+                <div class="col-md-2 p-2" (click)="parentEventHandlerFunction(submenu)">
                     <div class="text-center institution-block">
                         <div class="institution-image"><img alt="" class="img-fluid" [src]="submenu.file">
                         </div>
