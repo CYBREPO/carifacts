@@ -710,3 +710,11 @@ ul {
         white-space: nowrap;
     }
 }
+
+
+
+.nomargin {
+    p {
+        margin-bottom: 0 !important;
+    }
+}

@@ -8,7 +8,7 @@
         </svg>
     </button>
     <div class="position-relative">
-        <ng-container >
+        <ng-container>
             <div id="carouselId" class="carousel slide autoslidecarousle" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <ng-container *ngIf="data == undefined || data == null || data.file == ''; else displayFile">
@@ -17,7 +17,8 @@
                                 class="w-100 d-block" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block" alt="Second slide">
+                            <img src="../../../assets/images/antigua/antigua.jpg" class="w-100 d-block"
+                                alt="Second slide">
                         </div>
                         <div class="carousel-item">
                             <img src="../../../assets/images/GRADE 6, 11+, COMMON ENTRANCE copy (2).png"
@@ -26,8 +27,7 @@
                     </ng-container>
                     <ng-template #displayFile>
                         <div class="carousel-item active">
-                            <img [src]="data?.file"
-                                class="w-100 d-block" alt="First slide">
+                            <img [src]="data?.file" class="w-100 d-block" alt="First slide">
                         </div>
                     </ng-template>
                 </div>
@@ -40,10 +40,10 @@
 
             </div>
             <div class="grade-6-banner w-100 reduceheight">
-                <div class="container-fluid px-4">
+                <div class="container-fluid px-4 pb-5">
                     <ul id="myTab2" role="tablist">
-                        <div class="row">
-                            <ng-container *ngFor="let submenu of subMenus; let i=index">
+
+                        <!-- <ng-container *ngFor="let submenu of subMenus; let i=index">
                                 <div class="col-2" (click)="showinformation(submenu)">
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
@@ -52,8 +52,34 @@
                                             aria-selected="true">{{submenu.title}}</button>
                                     </li>
                                 </div>
+                            </ng-container> -->
+                        <div class="row no-gutters justify-content-evenly">
+                            <ng-container *ngFor="let submenu of subMenus; let i=index">
+
+                                <li class="nav-item rounded-menu " role="presentation"
+                                    (click)="showinformation(submenu)" *ngIf="i<4">
+                                    <button class="nav-link borderradius minheight" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
+                                        attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
+                                        attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                        aria-selected="true">{{submenu.title}}</button>
+                                </li>
+
                             </ng-container>
                         </div>
+                        <div class="row no-gutters justify-content-evenly">
+                            <ng-container *ngFor="let submenu of subMenus; let i=index">
+
+                                <li class="nav-item col-xs-15 " role="presentation"
+                                    (click)="showinformation(submenu)" *ngIf="i>=4">
+                                    <button class="nav-link rounded-menu borderradius" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
+                                        attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
+                                        attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                        aria-selected="true">{{submenu.title}}</button>
+                                </li>
+
+                            </ng-container>
+                        </div>
+                      
                     </ul>
                 </div>
             </div>
@@ -74,9 +100,9 @@
                             <ng-container *ngFor="let submenu of subMenus; let i=index">
                                 <div [ngClass]="i > 3 ? 'col' : 'col-3' " (click)="showinformation(submenu)">
                                     <li class="nav-item" role="presentation" [ngClass]="{'mx-auto' : i < 3}">
-                                        <button class="nav-link rounded-menu" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
-                                            attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
-                                            attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                        <button class="nav-link rounded-menu" id="{{submenu.tab}}-tab"
+                                            data-bs-toggle="tab" attr.data-bs-target="#{{submenu.tab}}-tab-pane"
+                                            type="button" role="tab" attr.aria-controls="{{submenu.tab}}-tab-pane"
                                             aria-selected="true">{{submenu.title}}</button>
                                     </li>
                                 </div>
