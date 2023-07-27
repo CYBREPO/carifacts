@@ -44,6 +44,7 @@ export class GradeComponent implements OnInit {
         if(this.data && this.data.has_submenu == "Yes"){
           this.subMenus = res['submenus'];
         }
+        console.log(this.data);
       }
     })
   }
@@ -57,5 +58,9 @@ export class GradeComponent implements OnInit {
 
   back(){
     this.location.back();
+  }
+
+  showinformation(submenu: any) {
+    this.router.navigate(['grade/sub/',submenu.id])
   }
 }

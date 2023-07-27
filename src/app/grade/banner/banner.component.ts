@@ -28,6 +28,7 @@ export class BannerComponent implements OnInit{
 
   getSubMenus() {
     this.httpservice.httpGet(ApiUrls.banner.getMenus + "/" + this.id, null).subscribe((res: any) => {
+      console.log(this.id);
       if (res['success']) {
         this.data = res['data'];
         this.subMenus = res['submenus'];
