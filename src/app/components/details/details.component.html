@@ -30,14 +30,15 @@
                 <div class="tab-pane active" id="profile1" role="tabpanel" aria-labelledby="tab1">
                     <div class="section-heading-block text-center mt-5">
                         <img src="../../../assets/images/heading-pattern.png" alt="">
-                        <h1 class="b text-center mb-4"><b>{{data?.title}}</b></h1>
+                        <h1 class="b text-center mb-4"><b [innerHTML]="data?.title.split('<br>')[0]"></b></h1>
                         <hr>
                         <hr>
 
                     </div>
-                    <div [innerHTML]="data?.description">
 
-                    </div>
+               
+                    <div [innerHTML]="data?.description"> </div>
+
                 </div>
             </div>
         </div>
