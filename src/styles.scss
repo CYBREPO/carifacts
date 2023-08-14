@@ -14,6 +14,7 @@ app-banner,
 .other-page-sections {
     background: #01d6ff29;
     display: block;
+    padding-top: 100px;
 }
 
 $font-family-1: 'Oswald', sans-serif;
@@ -92,7 +93,7 @@ body {
 
 .backgrounbanner {
     min-height: 300px;
-    background-image: url(../src/assets/images/antigua/antigua.jpg);
+  
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +120,8 @@ body {
         height: 50vh;
     }
 }
-.about-details{
+
+.about-details {
     position: relative;
     background: #01d6ff29;
 
@@ -140,6 +142,7 @@ body {
         background-attachment: fixed;
     }
 }
+
 .grade-6-banner {
     position: relative;
 
@@ -753,5 +756,20 @@ ul {
 .nomargin {
     p {
         margin-bottom: 0 !important;
+    }
+}
+
+
+.about-details {
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+.destination {
+    img{
+        height: 240px;
+        object-fit: cover;
     }
 }

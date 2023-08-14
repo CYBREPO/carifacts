@@ -1,407 +1,51 @@
-<div class="pb-md-5">
 
-    <div class="backgrounbanner">
-      
+    <div class="backgrounbanner" [ngStyle]="{'background-image': 'url(' + this.image + ')'}">
     </div>
-    <div class="container country-info mt-5">
-        <ul class="" id="contenttab" role="tablist">
-            <ng-container *ngFor="let tab of tabdetails; let i=index">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" [ngClass]="i==0 ? 'active' : ''" id="tab{{i+1}}" data-bs-toggle="tab"
-                        [attr.data-bs-target]='"#profile"+(i+1)' type="button" role="tab"
-                        [attr.aria-controls]='"profile"+(i+1)' aria-selected="true">{{tab | uppercase}}</button>
-                </li>
+
+
+<div class="container country-info my-5">
+    <ul class="" id="contenttab" role="tablist">
+        <ng-container *ngFor="let tab of this.submenus; let i=index">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" [ngClass]="i==0 ? 'active' : ''" id="tab{{i+1}}" data-bs-toggle="tab"
+                    [attr.data-bs-target]='"#profile"+(i+1)' type="button" role="tab"
+                    [attr.aria-controls]='"profile"+(i+1)' aria-selected="true">{{tab.title | uppercase}}</button>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+
+
+<div class="about-details">
+    <div class="container">
+        <!-- Nav tabs --> <button type="button" class="btn btn-primary my-3" (click)="back()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z">
+                </path>
+            </svg>
+        </button>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <ng-container *ngFor="let tab of this.submenus; let i=index">
+                <div class="tab-pane" [ngClass]="{'active': i == 0}" id="profile{{i+1}}" role="tabpanel"
+                    [attr.aria-labelledby]='"tab"+(i+1)'>
+                    <div class="section-heading-block text-center mt-5">
+                        <img src="../../../assets/images/heading-pattern.png" alt="">
+                        <h1 class="b text-center mb-4"><b>{{tab?.title}}</b></h1>
+                        <hr>
+                        <hr>
+
+                    </div>
+                    <div [innerHTML]="tab?.description | sanitizeHtml">
+
+                    </div>
+
+
+                </div>
             </ng-container>
-        </ul>
-    </div>
-    <div class="about-details">
-        <div class="container">
-            <!-- Nav tabs --> <button type="button" class="btn btn-primary my-3" (click)="back()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z">
-                    </path>
-                </svg>
-            </button>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane active" id="profile1" role="tabpanel" aria-labelledby="tab1">
-                    <div class="section-heading-block text-center mt-5">
-                        <img src="../../../assets/images/heading-pattern.png" alt="">
-                        <h1 class="b text-center mb-4"><b>{{data?.title}}</b></h1>
-                        <hr>
-                        <hr>
-
-                    </div>
-                    <div [innerHTML]="data?.description">
-
-                    </div>
-                    <div class="row mt-md-5">
-                        <div class="col-md-4">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/CARICOM Members States Heads/Antigua and Barbuda's PM Gaston Browne.png"
-                                    alt="" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-md-5 offset-1">
-                            <h6 class="lead-text text-uppercase">Head of Government:</h6>
-                            <h4 class="head-title">The Hon. Gaston Browne, Prime Minister</h4>
-                            <hr class="bg-blue d-block">
-
-                            <b class="border-bottom pb-1 mb-3 d-inline-block">Persoal Details</b>
-                            <ul>
-                                <li>Date of Birth: 9 February 1967</li>
-                                <li>Marital Status: Married</li>
-                            </ul>
-                            <br>
-                            <b class="border-bottom pb-1 mb-3 d-inline-block">Education</b>
-                            <ul>
-                                <li> City Banking College (UK)</li>
-                                <li> Antigua State College</li>
-                                <li> Princess Margaret</li>
-                            </ul>
-                            <br>
-                            <b class="border-bottom pb-1 mb-3 d-inline-block">Professional/Political Career</b>
-                            <ul>
-                                <li> 2018: Re-elected Prime Minister</li>
-                                <li> 2014: Elected Prime Minister</li>
-                                <li> 2012: Political Leader of the Antigua and Barbuda Labour Party (ABLP) Deputy
-                                    General
-                                    Manager of
-                                    Swiss
-                                    American Banking Group Managed a banking group comprising a domestic bank, an
-                                    offshore
-                                    bank
-                                    and a
-                                    trust
-                                    company.</li>
-                                <li> 1999 – 2004: Minister of Planning and Trade</li>
-                                <li> 1999: Entered into Parliament; served continuously as a legislator.</li>
-                            </ul>
-                            <b class="border-bottom pb-1 my-3 d-inline-block">Head of State: Governor General Sir Rodney
-                                Williams</b>
-
-
-
-                            <b class="border-bottom pb-1 mb-3 d-inline-block">Elections: </b>
-                            <p>Last elections – 2018; Next elections - 2023
-                                Ruling Party: Antigua and Barbuda Labour Party (ABLP)</p>
-
-                            <b class="border-bottom pb-1 mb-3 d-inline-block">Other Major Political Parties:</b>
-
-                            <ul>
-                                <li>Antigua and Barbuda Labour Party (ABLP)</li>
-                                <li>Barbuda People’s Movement (BPM)</li>
-                                <li>Antigua and Barbuda Peoples Movement (ABPM)</li>
-                                <li>Antigua and Barbuda True Labour Party (ABTLP)</li>
-                            </ul>
-                            Files of other Heads of Government are sent separately). The filenames are “CARICOM Member
-                            States
-                            Heads of
-
-                            Government: and CARICOM Associate Members Heads of Government”
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="tab2">
-
-
-                    <div class="section-heading-block text-center mt-5">
-                        <img src="../../../assets/images/heading-pattern.png" alt="">
-                        <h1 class="b text-center mb-4"><b>KEY FACTS</b></h1>
-                        <hr>
-                        <hr>
-
-                    </div>
-                    <ul>
-                        <li><b class="me-2"> Region:</b>Caribbean and Americas </li>
-                        <li><b class="me-2"> Capital:</b> Saint John’s </li>
-                        <li><b class="me-2"> Date of Independence:</b> November 1, 1981 </li>
-                        <li><b class="me-2"> Currency:</b> Eastern Caribbean dollar </li>
-                        <li><b class="me-2"> Favourite Dishes:</b> Antigua pepperpot </li>
-                        <li><b class="me-2"> Also Known as:</b>The Island of 365 Beaches.(Root: Waladli and Wa’onomi
-                            (Amerindian)) </li>
-                    </ul>
-
-
-                    <b class="my-3"> Antigua and Barbuda is a tropical but dry country of 3 islands in the Eastern
-                        Caribbean. The
-                        largest, Antigua, has
-                        secluded bays and sandy beaches, coral reefs and volcanic rocks rising to about 400 metres at
-                        Mount
-                        Obama.
-                        Barbuda is a flat coral island with a large lagoon, while tiny Redonda is rocky and
-                        uninhabited.</b>
-                    <ul>
-
-                        <li><b class="my-3"> Population :</b></li> 98,759 (Est. as of 14 June 2021)
-                        <li><b class="my-3"> Demographics :</b></li> Antigua&#39;s population is made up primarily of
-                        people of West African,
-                        British
-                        and Madeiran descent. The distribution is 91% Mulatto or Black, 4.4% mixed race, 1.7% white
-                        and 2.9% other
-                        (mostly East
-                        Indian and Asian). Most of the white population are of British or Irish descent. The rest of
-                        the
-                        population is comprised of Christian Levantine Arabs, Asians, and Sephardic Jews.
-                        <li><b class="my-3"> Area:</b></li> Antigua 280 square kilometres, Barbuda 161 square
-                        kilometres, Redonda 1.6 square
-                        kilometres
-                    </ul>
-
-                    <b class="my-3"> Antigua and Barbuda is a tropical but dry country of 3 islands in the Eastern
-                        Caribbean. The
-                        largest, Antigua, has
-                        secluded bays and sandy beaches, coral reefs and volcanic rocks rising to about 400 metres at
-                        Mount
-                        Obama.
-                        Barbuda is a flat coral island with a large lagoon, while tiny Redonda is rocky and
-                        uninhabited.</b>
-
-
-                    <li><b> Population:</b> 98,759 (Est. as of 14 June 2021)</li>
-                    <li><b> Demographics :</b>Antigua&#39;s population is made up primarily of people of West African,
-                        British
-                        and Madeiran
-                        descent. The distribution is 91% Mulatto or Black, 4.4% mixed race, 1.7% white and 2.9% other
-                        (mostly East
-                        Indian and Asian). Most of the white population are of British or Irish descent. The rest of the
-                        population is
-                        comprised of Christian Levantine Arabs, Asians, and Sephardic Jews.</li>
-                    <li><b> Area:</b>Antigua 280 square kilometres, Barbuda 161 square kilometres, Redonda 1.6 square
-                        kilometres</li>
-                    <b class="mt-3">Key dates in history</b>
-                    <hr class="bg-blue">
-
-                    <ul>
-                        <li><b class="me-2">1493</b> Arrival of Columbus; named island after Cathedral in Spain
-                            – Santa Maria de La Antigua</li>
-                        <li><b class="me-2">1632</b> Colonised by Sir Thomas Warner</li>
-                        <li><b class="me-2">1667</b> Island formally became a British Colony</li>
-                        <li><b class="me-2">1871</b> Incorporated into Leeward Islands Federation</li>
-                        <li><b class="me-2">1939</b> First Labour Movement formed – Antigua Trades and Labour
-                            Union (ATLU) out of which evolved ALP</li>
-                        <li><b class="me-2">1951</b> First elections under universal adult suffrage took place
-                        </li>
-                        <li><b class="me-2">1958</b> Member of the West Indies Federation</li>
-                        <li><b class="me-2">1965</b> CARIFTA Agreement signed at Dickenson Bay, Antigua. Antigua
-                            and Barbuda one of three original signatories</li>
-                        <li><b class="me-2">1967</b> Associated Statehood with Britain (full internal self
-                            government) within the West Indies Associated States (WISA) Vere C. Bird, Snr, first
-                            Premier</li>
-                        <li><b class="me-2">1981</b> Independence achieved. Vere C. Bird, Snr. First Prime
-                            Minister</li>
-                    </ul>
-
-                </div>
-                <div class="tab-pane" id="profile3" role="tabpanel" aria-labelledby="tab3">
-                    <div>
-                        <div class="section-heading-block text-center mt-5 mb-5">
-                            <img src="../../../assets/images/heading-pattern.png" alt="">
-                            <h1 class="b text-center mb-4 text-uppercase"><b>National Symbols</b></h1>
-                            <hr>
-                            <hr>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="../../../assets/images/flags/flag2.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-md-6">
-
-                                <h4 class="lead-text text-uppercase"><b class="color-blue-grey">National Flag:</b></h4>
-                                <p class="my-3 fs-20"> Designed by Mr. Reginald Samuel in a 1966. The seven point Golden
-                                    Sun symbolises the
-                                    dawn of a new era. Red: symbolises lifeblood of slave forefathers and dynamism of
-                                    the
-                                    people. Blue: symbolises hope. Black: symbolises the soil and African heritage.
-                                    Gold,
-                                    Blue and White: Antigua and Barbuda's tourist attraction - sun, sea and sand. "V":
-                                    Victory at last!</p>
-
-                                <b>The flag was adopted on February 27, 1967.</b>
-                            </div>
-                        </div>
-                        <hr class="mt-md-5">
-                        <hr class="mb-md-5">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6 mx-auto">
-                                <figure class="figure text-center">
-                                    <img src="../../../assets/images/250px-Coat_of_arms_of_Antigua_and_Barbuda.png"
-                                        class="figure-img mx-auto img-fluid" alt="">
-                                    <figcaption class="figure-caption">
-                                        <h4>The Coat of Arms</h4>
-                                        <h6>At the top of the Coat of Arms is a pineapple, a fruit for which the islands
-                                            are famous. There are several plants found around the shield, all abundant
-                                            in the country: red hibiscus, sugarcane, and yucca plant. Supporting the
-                                            shield is a pair of deer representing the wildlife of the islands.
-                                            The design on the shield shows the sun, also found on the flag, rising from
-                                            a blue and white sea. The sun symbolises a new beginning, and the black
-                                            background represents the African origins of many of the nations's citizens.
-                                            At the bottom of the shield, in front of the sea, sits a stylised sugar
-                                            mill.
-
-                                            At the bottom is a scroll upon which is written the national motto: "Each
-                                            endeavouring, all achieving".
-                                        </h6>
-                                    </figcaption>
-                                </figure>
-
-                            </div>
-                        </div>
-                        <hr class="mt-md-5">
-                        <hr class="mb-md-5">
-
-                        <div class="row  py-md-5">
-
-                            <div class="col-md-6">
-
-                                <h4 class="lead-text text-uppercase"><b class="color-blue-grey">National Flower:</b>
-                                </h4>
-                                <p class="my-3 fs-20"> The Dagger Log's (Agave karatto Miller) yellow flowers rises from
-                                    the large rosette formed by the Agave plant. Years ago, fishing rafts were made from
-                                    the flower's log (or stem) and fishing bait was made from the white interior pulp of
-                                    the leaves.</p>
-
-                            </div>
-                            <div class="col-md-6">
-                                <img src="../../../assets/images/antigua/flower.jpg" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <hr class="mt-md-5">
-                        <hr class="mb-md-5">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="../../../assets/images/antigua/17742_medium.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-md-6">
-
-                                <h4 class="lead-text text-uppercase"><b class="color-blue-grey">National Bird:</b></h4>
-                                <p class="my-3 fs-20"> The Frigate (Fregata magnificens L) is also known as Man-o'-War
-                                    or Weather bird. Relatives of the pelicans, the male is glossy black. To attract
-                                    females, he blows up his scarlet throat. The females have white breasts. Frigates
-                                    weigh about three pounds, have a wing span of eight (8) feet, a deeply forked tail
-                                    and fly about 22 miles per hour (mph).</p>
-
-                            </div>
-                        </div>
-                        
-                        <hr class="mt-md-5">
-                        <hr class="mb-md-5">
-                        <div class="national-anthem position-relative">
-                            <div class="section-heading-block text-center mt-5 mb-0">
-                                <img src="../../../assets/images/heading-pattern.png" alt="">
-                                <h1 class="b text-center mb-4 text-uppercase"><b> National anthem: see for recording</b>
-                                </h1>
-                                <hr>
-                                <hr>
-                            </div>
-
-                            <a href="https://www.britannica.com/place/Antigua-and-Barbuda/History"
-                                class="d-block text-center color-blue-grey d-flex mb-3"><b>(https://www.britannica.com/place/Antigua-and-Barbuda/History)</b></a>
-
-                            "Written by Novelle Hamilton Richards and composed by Walter Garnet Picart Chambers
-
-                            Fair Antigua and Barbuda.
-
-                            We thy sons and daughters stand
-
-                            Strong and firm in peace or danger
-
-                            To safeguard our native land
-
-                            We commit ourselves to building
-
-                            A true nation brave and free;
-
-                            Ever striving, ever seeking,
-
-                            Dwell in love and unity
-
-                            Raise the standard! Raise it boldly!
-
-                            Answer now to duty's call
-
-                            To the service of thy country,
-
-                            Sparing nothing, giving all;
-
-                            Gird your loins and join the battle
-
-                            'Gainst fear, hate and poverty,
-
-                            Each endeavouring, all achieving,
-
-                            Live in peace where man is free.
-
-                            God of nations, let Thy blessings
-
-                            Fall upon this land of ours;
-
-                            Rain and sunshine ever sending,
-
-                            Fill her fields with crops and flowers;
-
-                            We her children do implore Thee,
-
-                            Give us strength, faith, loyalty,
-
-                            Never failing, all enduring
-
-                            To defend her liberty."
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="profile4" role="tabpanel" aria-labelledby="tab4">
-                    <div>
-                        <div class="section-heading-block text-center mt-5 mb-5">
-                            <img src="../../../assets/images/heading-pattern.png" alt="">
-                            <h1 class="b text-center mb-4 text-uppercase"><b>MAP OF ANTIGUA AND BARBUDA </b></h1>
-                            <hr>
-                            <hr>
-                        </div>
-                        <img src="../../../assets/images/antigua/Map of Antigua and Barbuda.png" class="w-100" alt="">
-
-                    </div>
-                </div>
-                <div class="tab-pane" id="profile5" role="tabpanel" aria-labelledby="tab5">
-                    <div>
-                        <div class="section-heading-block text-center mt-5 mb-5">
-                            <img src="../../../assets/images/heading-pattern.png" alt="">
-                            <h1 class="b text-center mb-4 text-uppercase"><b>TOURIST ATTRACTIONS </b></h1>
-                            <hr>
-                            <hr>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card p-3">
-                                    <img src="../../../assets/images/antigua/Antigua, Devils-Bridge-wide.jpg"
-                                        class="w-100" alt="">
-                                    <h5 class="my-3 text-center text-uppercase"><b> Devil's Bridge National Park</b>
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card p-3">
-                                    <img src="../../../assets/images/antigua/Antigua, Nelson's Dockyard.jpg"
-                                        class="w-100" alt="">
-                                    <h5 class="my-3 text-center text-uppercase"><b> Nelson's Dockyard</b></h5>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card p-3">
-                                    <img src="../../../assets/images/antigua/antigua.jpg" class="w-100" alt="">
-                                    <h5 class="my-3 text-center text-uppercase"><b> Shirley Heights Lookut</b></h5>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

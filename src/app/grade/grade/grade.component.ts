@@ -39,9 +39,9 @@ export class GradeComponent implements OnInit {
 
   getMenusDetails() {
     this.httpService.httpGet(ApiUrls.banner.getMenus + "/" + this.id, null).subscribe((res: any) => {
-      if(res['success']){
+      if (res['success']) {
         this.data = res['data'];
-        if(this.data && this.data.has_submenu == "Yes"){
+        if (this.data && this.data.has_submenu == "Yes") {
           this.subMenus = res['submenus'];
         }
         console.log(this.data);
@@ -50,23 +50,24 @@ export class GradeComponent implements OnInit {
   }
 
   parentEventHandlerFunction(submenu: any) {
-    if(this.data?.title == "Countries of Caribean community"){
-      this.router.navigate(['component/category',submenu.id]);
+    if (this.data?.title == "Countries of Caribean community") {
+      this.router.navigate(['component/category', submenu.id]);
     }
-    else{
-      this.router.navigate(['component/details',submenu.id]);
+    else {
+      this.router.navigate(['component/details', submenu.id]);
+      console.log(submenu.id);
     }
-    
-  }
-  // parentEventHandlerFunctiontwo() {
-  //   this.router.navigate(['component/associate-states']);
-  // }
 
-  back(){
+  }
+
+  back() {
     this.location.back();
   }
 
   showinformation(submenu: any) {
-    this.router.navigate(['grade/sub/',submenu.id])
+    this.router.navigate(['grade/sub/', submenu.id])
   }
 }
+// parentEventHandlerFunctiontwo() {
+//   this.router.navigate(['component/associate-states']);
+// }

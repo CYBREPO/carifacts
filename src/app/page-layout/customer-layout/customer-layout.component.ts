@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-layout.component.scss']
 })
 export class CustomerLayoutComponent {
-
+  scrollToTop() {
+    window.scrollTo(0, 0);     
+   }
 }

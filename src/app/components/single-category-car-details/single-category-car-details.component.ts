@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 
 import { DataTransferService } from 'src/app/service/data-transfer.service';
 import { HttpService } from 'src/app/service/http.service';
+import {DomSanitizer} from '@angular/platform-browser'
 @Component({
   selector: 'app-single-category-car-details',
   templateUrl: './single-category-car-details.component.html',
@@ -21,10 +22,12 @@ export class SingleCategoryCarDetailsComponent {
   ];
   id: string;
   data: any;
+  submenus: any;
+  image : any
 
 
   constructor(private router: Router, private datatransferService: DataTransferService,
-    private activatedRoute: ActivatedRoute, private httpService: HttpService, private location: Location) {
+    private activatedRoute: ActivatedRoute, private httpService: HttpService, private location: Location,public sanitizer: DomSanitizer) {
     activatedRoute.params.subscribe(param => {
       if (param['id']) {
         this.id = param['id'];
@@ -41,6 +44,10 @@ export class SingleCategoryCarDetailsComponent {
     this.httpService.httpGet(ApiUrls.banner.getMenus + '/' + this.id, null).subscribe((res: any) => {
       if (res['success']) {
         this.data = res['data'];
+        this.submenus = res['submenus'];
+        for (let i = 0; i < this.submenus.length; i++) {
+          this.image = this.submenus[i].file;
+        }
       }
     })
   }

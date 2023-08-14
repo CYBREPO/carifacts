@@ -9,15 +9,16 @@ import { CkEditorComponent } from './ck-editor/ck-editor.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AlertComponent } from './alert/alert.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 
 @NgModule({
-  declarations: [SearchBarComponent, CardComponent, ConfirmComponent, CkEditorComponent, AlertComponent,
+  declarations: [SearchBarComponent, CardComponent, ConfirmComponent, CkEditorComponent, AlertComponent, SanitizeHtmlPipe,
     FilterPipe],
   imports: [
     CommonModule, MaterialModuleModule, ReactiveFormsModule, CKEditorModule
   ],
   entryComponents: [AlertComponent],
-  exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, ConfirmComponent, CkEditorComponent,
-    CKEditorModule, AlertComponent,FilterPipe]
+  exports: [ReactiveFormsModule, SearchBarComponent, CardComponent, ConfirmComponent, CkEditorComponent, SanitizeHtmlPipe,
+    CKEditorModule, AlertComponent, FilterPipe]
 })
 export class SharedModuleModule { }

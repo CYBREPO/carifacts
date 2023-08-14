@@ -43,24 +43,15 @@
                 <div class="container-fluid px-4 pb-5">
                     <ul id="myTab2" role="tablist">
 
-                        <!-- <ng-container *ngFor="let submenu of subMenus; let i=index">
-                                <div class="col-2" (click)="showinformation(submenu)">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
-                                            attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
-                                            attr.aria-controls="{{submenu.tab}}-tab-pane"
-                                            aria-selected="true">{{submenu.title}}</button>
-                                    </li>
-                                </div>
-                            </ng-container> -->
+
                         <div class="row no-gutters justify-content-evenly">
                             <ng-container *ngFor="let submenu of subMenus; let i=index">
 
                                 <li class="nav-item rounded-menu " role="presentation"
                                     (click)="showinformation(submenu)" *ngIf="i<4">
-                                    <button class="nav-link borderradius minheight" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
-                                        attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
-                                        attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                    <button class="nav-link borderradius minheight" id="{{submenu.tab}}-tab"
+                                        data-bs-toggle="tab" attr.data-bs-target="#{{submenu.tab}}-tab-pane"
+                                        type="button" role="tab" attr.aria-controls="{{submenu.tab}}-tab-pane"
                                         aria-selected="true">{{submenu.title}}</button>
                                 </li>
 
@@ -69,17 +60,17 @@
                         <div class="row no-gutters justify-content-evenly">
                             <ng-container *ngFor="let submenu of subMenus; let i=index">
 
-                                <li class="nav-item col-xs-15 " role="presentation"
-                                    (click)="showinformation(submenu)" *ngIf="i>=4">
-                                    <button class="nav-link rounded-menu borderradius" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
-                                        attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
-                                        attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                <li class="nav-item col-xs-15 " role="presentation" (click)="showinformation(submenu)"
+                                    *ngIf="i>=4">
+                                    <button class="nav-link rounded-menu borderradius" id="{{submenu.tab}}-tab"
+                                        data-bs-toggle="tab" attr.data-bs-target="#{{submenu.tab}}-tab-pane"
+                                        type="button" role="tab" attr.aria-controls="{{submenu.tab}}-tab-pane"
                                         aria-selected="true">{{submenu.title}}</button>
                                 </li>
 
                             </ng-container>
                         </div>
-                      
+
                     </ul>
                 </div>
             </div>
@@ -111,82 +102,6 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- <div class="row justify-content-center">
-                <ng-container *ngFor="let submenu of subMenus; let i=index">
-                    <div class="col-2" (click)="showinformation(submenu)">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="{{submenu.tab}}-tab" data-bs-toggle="tab"
-                                attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button" role="tab"
-                                attr.aria-controls="{{submenu.tab}}-tab-pane"
-                                aria-selected="true">{{submenu.title}}</button>
-                        </li>
-                    </div>
-                </ng-container>
-                <div class="text-center mt-5">
-                    <h2>Associate Institutions</h2>
-                    <hr>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/Caribbean Development Bank (CDB) Logo.png">
-                        </div>
-                        <h6><b>CDB</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/CARIBBEAN LAW INSTITUTE/CARIBBEAN LAW INSTITUTE CENTRE (CLI)/(CLIC)">
-                        </div>
-                        <h6><b>CLI/CLIC</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/OECS.png"></div>
-                        <h6><b>OECS Commission</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/uwi-1-640x480.jpg">
-                        </div>
-                        <h6><b>UWI</b></h6>
-                    </div>
-                </div>
-                <div class="text-center mt-5">
-                    <h2>Institutions with a relationship of Functional Cooperation with CARICOM</h2>
-                    <hr>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/Caribbean Export Development Agency (Caribbean Export) Logo.jpeg">
-                        </div>
-                        <h6><b>CARIBBEAN EXPORT</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/Council of Legal Education Logo.png">
-                        </div>
-                        <h6><b>CLE</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-2 p-2">
-                    <div class="text-center institution-block">
-                        <div class="institution-image"><img alt="" class="img-fluid"
-                                src="../../../assets/images/caricom-institution-logos/Caribbean Tourism Organization (CTO) Logo.png">
-                        </div>
-                        <h6><b>CTO</b></h6>
-                    </div>
-                </div>
-            </div> -->
         </ng-template>
 
     </div>
