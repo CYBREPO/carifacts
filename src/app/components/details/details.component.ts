@@ -13,6 +13,7 @@ export class DetailsComponent {
 
   id: string;
   data: any;
+  subMenus: Array<any> = [];
 
 
   constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService, private location: Location) {
@@ -31,6 +32,7 @@ export class DetailsComponent {
     this.httpService.httpGet(ApiUrls.banner.getMenus + '/' + this.id, null).subscribe((res: any) => {
       if (res['success']) {
         this.data = res['data'];
+        this.subMenus = res['submenus'];
       }
     })
   }
