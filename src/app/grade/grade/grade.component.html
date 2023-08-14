@@ -49,7 +49,25 @@
         <ng-template #DisplayContent>
             <div [innerHTML]="data?.description"></div>
         </ng-template>
-        <div class="row row-cols-5" *ngIf="this.id == 15">
+        <div class="grade-6-banner w-100 reduceheight">
+            <div class="container-fluid px-4 pb-5">
+                <ul id="myTab2" role="tablist">
+                    <div class="row no-gutters justify-content-evenly" *ngIf="this.id == 15">
+                        <ng-container *ngFor="let submenu of subMenus; let i=index">
+
+                            <li class="nav-item rounded-menu " role="presentation" (click)="parentEventHandlerFunction(submenu)">
+                                <button class="nav-link borderradius minheight" id="{{submenu.tab}}-tab"
+                                    data-bs-toggle="tab" attr.data-bs-target="#{{submenu.tab}}-tab-pane" type="button"
+                                    role="tab" attr.aria-controls="{{submenu.tab}}-tab-pane"
+                                    aria-selected="true">{{submenu.title}}</button>
+                            </li>
+
+                        </ng-container>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="row row-cols-5" *ngIf="this.id == 15">
             <ng-container *ngFor="let submenu of subMenus; let i=index">
                 <div class="col text-center awardees" [ngClass]="{'mt-md-5': i>4}"
                     (click)="parentEventHandlerFunction(submenu)">
@@ -60,7 +78,7 @@
                     </div>
                 </div>
             </ng-container>
-        </div>
+        </div> -->
 
         <!-- institution -->
 
