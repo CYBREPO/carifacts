@@ -1,4 +1,4 @@
-<div class="about-details">
+<!-- <div class="about-details">
     <div class="container">
         <button type="button" class="btn btn-primary my-3" (click)="back()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -9,7 +9,7 @@
             </svg>
         </button>
 
-    <!-- <div class="backgrounbanner">
+  <div class="backgrounbanner">
       
     </div>
     <div class="container country-info mt-5">
@@ -22,53 +22,56 @@
                 </li>
             </ng-container>
         </ul>
-    </div> -->
-    <div class="about-details">
-        <div class="container">
-            <button type="button" class="btn btn-primary my-3" (click)="back()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z">
-                    </path>
-                </svg>
-            </button>
+    </div> 
+  
+</div> -->
 
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane active" id="profile1" role="tabpanel" aria-labelledby="tab1">
-                    <div class="section-heading-block text-center mt-5">
-                        <img src="../../../assets/images/heading-pattern.png" alt="">
-                        <h1 class="b text-center mb-4"><b [innerHTML]="data?.title.split('<br>')[0]"></b></h1>
-                        <hr>
-                        <hr>
 
-                    </div>
+<div class="about-details">
+    <div class="container">
+        <button type="button" class="btn btn-primary my-3" (click)="back()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z">
+                </path>
+            </svg>
+        </button>
 
-                    <section class="grid-columns d-flex flex-column h-100 flags-grid p-4"
-                        *ngIf="this.data?.has_submenu == 'Yes'; else DisplayContent">
-                        <div class="row row-cols-5 flex-1">
-                            <ng-container *ngFor="let submenu of subMenus; let i=index">
-                                <div class="col text-center" [ngClass]="{'mt-4': i >= 5}">
-                                    <div class="grid-column">
-                                        <img [src]="submenu.file" alt="" class="img-fluid w-100 h-100">
-                                        <div class="mt-2"><b [innerHTML]="submenu.title"></b></div>
-                                    </div>
-                                </div>
-                            </ng-container>
-                        </div>
-                    </section>
-                    <ng-template #DisplayContent>
-                        <div [innerHTML]="data?.description"> </div>
-                    </ng-template>
-                    
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="profile1" role="tabpanel" aria-labelledby="tab1">
+                <div class="section-heading-block text-center mt-5">
+                    <img src="../../../assets/images/heading-pattern.png" alt="">
+                    <h1 class="b text-center mb-4"><b [innerHTML]="data?.title.split('<br>')[0]"></b></h1>
+                    <hr>
+                    <hr>
 
                 </div>
 
-           
-                <div [innerHTML]="data?.description"> </div>
+                <section class="grid-columns d-flex flex-column h-100 flags-grid p-4"
+                    *ngIf="this.data?.has_submenu == 'Yes'; else DisplayContent">
+                    <div class="row row-cols-5 flex-1">
+                        <ng-container *ngFor="let submenu of subMenus; let i=index">
+                            <div class="col text-center" [ngClass]="{'mt-4': i >= 5}">
+                                <div class="grid-column">
+                                    <img [src]="submenu.file" alt="" class="img-fluid w-100 h-100">
+                                    <div class="mt-2"><b [innerHTML]="submenu.title"></b></div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </section>
+                <ng-template #DisplayContent>
+                    <div [innerHTML]="data?.description"> </div>
+                </ng-template>
+                
 
             </div>
+
+       
+            <div [innerHTML]="data?.description"> </div>
+
         </div>
     </div>
 </div>
