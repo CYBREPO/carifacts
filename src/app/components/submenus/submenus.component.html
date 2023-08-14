@@ -48,8 +48,31 @@
                     <hr>
 
                 </div>
-                <div [innerHTML]="data?.description"> </div>
+
+                <section class="grid-columns d-flex flex-column h-100 flags-grid p-4"
+                    *ngIf="this.data?.has_submenu == 'Yes'; else DisplayContent">
+                    <div class="row row-cols-5 flex-1">
+                        <ng-container *ngFor="let submenu of subMenus; let i=index">
+                            <div class="col text-center" [ngClass]="{'mt-4': i >= 5}"
+                                (click)="parentEventHandlerFunction(submenu)">
+                                <div class="grid-column">
+                                    <img [src]="submenu.file" alt="" class="img-fluid w-100 h-100">
+                                    <div class="mt-2"><b [innerHTML]="submenu.title"></b></div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </section>
+                <ng-template #DisplayContent>
+                    <div [innerHTML]="data?.description"> </div>
+                </ng-template>
+
+
             </div>
+
+
+            <div [innerHTML]="data?.description"> </div>
+
         </div>
     </div>
 </div>

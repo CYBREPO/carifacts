@@ -44,7 +44,6 @@ export class GradeComponent implements OnInit {
         if (this.data && this.data.has_submenu == "Yes") {
           this.subMenus = res['submenus'];
         }
-        console.log(this.data);
       }
     })
   }
@@ -53,9 +52,11 @@ export class GradeComponent implements OnInit {
     if (this.data?.title == "Countries of Caribean community") {
       this.router.navigate(['component/category', submenu.id]);
     }
-    else {
+    else if(this.data && this.data.has_submenu == "Yes"){
+      this.router.navigate(['component/subDetails', submenu.id]);
+    }
+    else{
       this.router.navigate(['component/details', submenu.id]);
-      console.log(submenu.id);
     }
 
   }

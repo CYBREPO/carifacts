@@ -5,6 +5,7 @@ import { SingleCategoryCarDetailsComponent } from './single-category-car-details
 import { CustomerLayoutComponent } from '../page-layout/customer-layout/customer-layout.component';
 import { AssociateStatesComponent } from './associate-states/associate-states.component';
 import { DetailsComponent } from './details/details.component';
+import { SubmenusComponent } from './submenus/submenus.component';
 
 const routes = [
   {
@@ -13,6 +14,7 @@ const routes = [
       { path: "category/:id", component: SingleCategoryCarDetailsComponent },
       { path: "associate-states", component: AssociateStatesComponent },
       { path: "details/:id", component: DetailsComponent },
+      { path: "subDetails/:id", component: SubmenusComponent },
 
 
     ]
