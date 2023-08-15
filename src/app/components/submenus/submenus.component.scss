@@ -1,0 +1,18 @@
+.flags-grid {
+    .grid-column {
+
+        img {
+            height: 250px !important;
+
+        }
+    }
+}
+
+.row-cols-5>* {
+    flex: 0 0 auto;
+    width: 25%;
+}
+
+.grid-columns img {
+    width: 100% !important;
+}

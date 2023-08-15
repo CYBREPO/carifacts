@@ -7,11 +7,12 @@ import { MaterialModuleModule } from '../shared/material-module.module';
 import { MatSelectModule } from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import { DetailsComponent } from './details/details.component';
+import { SubmenusComponent } from './submenus/submenus.component';
 
 
 @NgModule({
   declarations: [
-    SingleCategoryCarDetailsComponent,DetailsComponent
+    SingleCategoryCarDetailsComponent,DetailsComponent,SubmenusComponent
   ],
   imports: [
     CommonModule,

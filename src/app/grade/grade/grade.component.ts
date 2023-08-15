@@ -15,6 +15,7 @@ export class GradeComponent implements OnInit {
   isSubMenu: boolean = false;
   data: any;
   subMenus: Array<any> = [];
+  nestedSubMenus: any;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute,
     private router: Router, private location: Location) {
@@ -43,8 +44,16 @@ export class GradeComponent implements OnInit {
         this.data = res['data'];
         if (this.data && this.data.has_submenu == "Yes") {
           this.subMenus = res['submenus'];
+          const subMenu = this.subMenus.find(m => m.title.toLowerCase() == 'associate countries');
+          if (subMenu) {
+            this.httpService.httpGet(ApiUrls.banner.getMenus + "/" + subMenu.id, null).subscribe((res: any) => {
+              if (res['success']) {
+                this.nestedSubMenus = res;
+              }
+            });
+          }
+
         }
-        console.log(this.data);
       }
     })
   }
@@ -53,9 +62,11 @@ export class GradeComponent implements OnInit {
     if (this.data?.title == "Countries of Caribean community") {
       this.router.navigate(['component/category', submenu.id]);
     }
+    else if (this.data && this.data.has_submenu == "Yes") {
+      this.router.navigate(['component/subDetails', submenu.id]);
+    }
     else {
       this.router.navigate(['component/details', submenu.id]);
-      console.log(submenu.id);
     }
 
   }
