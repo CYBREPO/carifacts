@@ -43,7 +43,7 @@ export class GradeComponent implements OnInit {
       if (res['success']) {
         this.data = res['data'];
         if (this.data && this.data.has_submenu == "Yes") {
-          this.subMenus = res['submenus'];
+          this.subMenus = res['submenus'].sort((a,b) => a.title > b.title ? 1 : -1 );
           const subMenu = this.subMenus.find(m => m.title.toLowerCase() == 'associate countries');
           if (subMenu) {
             this.httpService.httpGet(ApiUrls.banner.getMenus + "/" + subMenu.id, null).subscribe((res: any) => {
