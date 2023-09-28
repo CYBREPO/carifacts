@@ -32,7 +32,6 @@ export class FooterComponent implements OnInit {
   }
 
   navigateTo(event) {
-    debugger
     switch (event.title) {
       case "The CARIBBEAN COMMUNITY": this.router.navigate(['grade/banner/1']);
         break;
