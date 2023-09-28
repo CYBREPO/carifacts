@@ -19,11 +19,12 @@ export class BannerComponent implements OnInit{
     private router: Router,private location: Location){
     this.activatedRoute.params.subscribe((param) => {
       this.id = param['id'];
+      this.getSubMenus();
     })
   }
 
   ngOnInit(): void {
-    this.getSubMenus();
+    
   }
 
   getSubMenus() {

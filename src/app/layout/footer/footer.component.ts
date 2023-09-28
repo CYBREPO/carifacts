@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
 import { ApiUrls } from 'src/app/constants/apiRoutes';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class FooterComponent implements OnInit {
   gridData: Array<any> = [];
 
-  constructor(private httpservice: HttpService) { }
+  constructor(private httpservice: HttpService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllGrids();
@@ -28,5 +29,21 @@ export class FooterComponent implements OnInit {
         }
       }
     })
+  }
+
+  navigateTo(event) {
+    debugger
+    switch (event.title) {
+      case "The CARIBBEAN COMMUNITY": this.router.navigate(['grade/banner/1']);
+        break;
+      case "CXC/CAPE": this.router.navigate(['grade/banner/2']);
+        break;
+      case "Faculty of Facts": this.router.navigate(['grade/banner/3']);
+        break;
+      case "Know Your Caribbean": this.router.navigate(['grade/banner/4']);
+        break;
+        default: break;
+    }
+
   }
 }
